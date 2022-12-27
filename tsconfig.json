@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false,
+    "moduleResolution": "node",
+    "target": "es2021",
+    "lib": ["ES2021", "DOM"],
+    "jsx": "react-jsx"
+  }
+}

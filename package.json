@@ -1,0 +1,27 @@
+{
+  "name": "dtvendor",
+  "private": true,
+  "scripts": {
+    "start": "esbuild --watch --bundle --jsx=automatic src/index.tsx --outfile=extension/bundle.js",
+    "build": "esbuild --bundle --minify --sourcemap --jsx=automatic src/index.tsx --outfile=extension/bundle.js"
+  },
+  "author": "Dan Reeves",
+  "dependencies": {
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "buffer": "^6.0.3",
+    "esbuild": "^0.16.10",
+    "lodash": "^4.17.21",
+    "prettier": "^2.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "swr": "^2.0.0"
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^1.0.2",
+    "@types/lodash": "^4.14.191"
+  },
+  "prettier": {
+    "semi": false
+  }
+}
