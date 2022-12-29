@@ -1,0 +1,33 @@
+.char-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.char-list li {
+  list-style: none;
+  display: flex;
+  flex: 1;
+}
+
+.char-list li .my-button {
+  flex: 1;
+}
+
+.class-icon {
+  height: 3em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 1em;
+}
+
+.char-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}

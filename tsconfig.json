@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
+	  "resolveJsonModule": true,
     "exactOptionalPropertyTypes": false,
     "moduleResolution": "node",
     "target": "es2021",

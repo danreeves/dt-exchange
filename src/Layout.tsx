@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { Button } from "./Button"
 import { Countdown } from "./Countdown"
-import { css } from "./css"
-import { icons } from "./img"
+import { archetype } from "./icons"
 import { Loading } from "./Loading"
 import { Spinner } from "./Spinner"
 import { Store } from "./Store"
@@ -10,42 +9,7 @@ import { Text } from "./Text"
 import { Title } from "./Title"
 import { useAccount } from "./useAccount"
 import { useStore } from "./useStore"
-
-css`
-  .char-list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1em;
-    margin-top: 1em;
-  }
-
-  .char-list li {
-    list-style: none;
-    display: flex;
-    flex: 1;
-  }
-
-  .char-list li .my-button {
-    flex: 1;
-  }
-
-  .class-icon {
-    height: 3em;
-    width: auto;
-    vertical-align: middle;
-    margin-right: 1em;
-  }
-
-  .char-button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-  }
-`
+import "./Layout.css"
 
 export function Layout() {
   let account = useAccount()
@@ -93,7 +57,7 @@ export function Layout() {
               >
                 <div className="char-button">
                   <img
-                    src={icons[character.archetype]}
+                    src={archetype[character.archetype]}
                     className="class-icon"
                   />
                   <div>

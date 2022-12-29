@@ -2,8 +2,8 @@
   "name": "dtvendor",
   "private": true,
   "scripts": {
-    "start": "esbuild --watch --bundle --jsx=automatic src/index.tsx --outfile=extension/bundle.js",
-    "build": "esbuild --bundle --minify --sourcemap --jsx=automatic src/index.tsx --outfile=extension/bundle.js"
+    "start": "esbuild --watch --bundle --jsx=automatic --loader:.png=dataurl src/index.tsx --outfile=extension/bundle.js",
+    "build": "esbuild --bundle --minify --jsx=automatic --loader:.png=dataurl src/index.tsx --outfile=extension/bundle.js"
   },
   "author": "Dan Reeves",
   "dependencies": {

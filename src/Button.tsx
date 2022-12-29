@@ -1,22 +1,5 @@
 import type { ReactNode } from "react"
-import { css } from "./css"
-
-css`
-  .my-button {
-    --webkit-appearance: none;
-    height: auto;
-    width: auto;
-    padding: 1em;
-    position: relative;
-    color: white;
-    cursor: pointer;
-    background: rgb(11, 11, 11);
-  }
-
-  .my-button:hover {
-    background: rgb(33, 33, 33);
-  }
-`
+import "./Button.css"
 
 export function Button({
   children,

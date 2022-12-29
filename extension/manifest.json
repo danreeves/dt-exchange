@@ -6,6 +6,7 @@
   "content_scripts": [
     {
       "js": ["bundle.js"],
+      "css": ["bundle.css"],
       "matches": ["https://accounts.atoma.cloud/*"],
       "run_at": "document_start",
       "all_frames": true

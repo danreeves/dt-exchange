@@ -1,71 +1,36 @@
 import type { ReactNode } from "react"
-import { css } from "./css"
-import { creditsImg, ratingIcon } from "./img"
+import { credits, rating } from "./icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
 import type { Character } from "./types"
 import { useMasterList } from "./useMasterList"
 import { useStore } from "./useStore"
-
-css`
-	.item-title {
-		margin-bottom: .5em;
-	}
-
-  .info-item {
-    display: flex;
-    align-items: center;
-    margin: 0.25em;
-    margin-right: 0.75em;
-    text-transform: capitalize;
-  }
-  .info-item img {
-    height: 3em;
-    float: left;
-	padding: .2em;
-  }
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-column-gap: 1em;
-    grid-row-gap: 1em;
-  }
-  .stat {
-  }
-  .stat-name {
-    color: rgb(189, 189, 189);
-  }
-  .stat-bar-row {
-    display: flex;
-    align-items: center;
-  }
-  .stat-p {
-    margin-right: 0.5em;
-  }
-  .stat-bar-outer {
-    width: 100%;
-    height: 0.7em;
-    border: 1px solid yellow;
-    padding: 1px;
-  }
-  .stat-bar-inner {
-    position: relative;
-    background: yellow;
-    height: 100%;
-  }
-`
+import localisation from "./localisation.json"
+import "./Store.css"
 
 function Divider() {
 	return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
 }
 
 function Title({ children }: { children: ReactNode }) {
-	return (
-		<div className="item-title">
-			{children}
-		</div>
-	)
+	return <div className="item-title">{children}</div>
 }
+
+const ratingColor = {
+	1: 'grey', // grey
+	2: "#36AE7C", // green
+	3: '#3AB0FF', // blue
+	4: '#FFB200', // orange
+	5: 'red', // red?
+} as const
+
+const raritySymbol = {
+	1: "Ⅰ",
+	2: "Ⅱ",
+	3: "Ⅲ",
+	4: "Ⅳ",
+	5: "Ⅴ",
+} as const
 
 export function Store({ character }: { character?: Character }) {
 	let store = useStore(character)
@@ -90,58 +55,158 @@ export function Store({ character }: { character?: Character }) {
 					return b.description.overrides.rarity - a.description.overrides.rarity
 				})
 				.map((offer) => {
-					console.log(offer)
+					// console.log(offer)
+
 					return (
 						<div className="MuiBox-root css-178yklu" key={offer.offerId}>
-							<Title>{items![offer.description.id]?.display_name}</Title>
+							<Title>{localisation[offer.description.id].display_name}</Title>
+
+							{offer.state === "completed" ? <Text>Owned</Text> : null}
+
+							{/* <details> */}
+							{/* 	<summary className="MuiFormHelperText-root MuiFormHelperText-sizeMedium css-13fvtaj"> */}
+							{/* 		Description */}
+							{/* 	</summary> */}
+							{/* 	<Text>{items![offer.description.id]?.description}</Text> */}
+							{/* 	<Text>{items![offer.description.id]?.dev_name}</Text> */}
+							{/* 	<Text>{items![offer.description.id]?.dev_description}</Text> */}
+							{/* </details> */}
+
 							<div style={{ display: "flex" }}>
-								<div>
-									<div className="info-item">
-										<img src={ratingIcon} style={{}} />
+								<div className="info-items">
+									<div className="info-item" style={{ color: ratingColor[offer.description.overrides.rarity] }}>
+										<img src={rating} style={{}} />
 										<div>
 											<Text>Rating</Text>
 											{offer.description.overrides.itemLevel}
 										</div>
 									</div>
 									<div className="info-item">
-										<img src={creditsImg} />
+										<img src={credits} />
 										<div>
 											<Text>{offer.price.amount.type}</Text>
-											{offer.price.amount.amount}
+											<span style={{ color: 'gold' }}>{offer.price.amount.amount}</span>
 										</div>
 									</div>
 								</div>
-								<div>
-									<div className="stats">
-										{offer.description.overrides.base_stats?.map((stat) => {
-											return (
-												<div className="stat">
-													<Text>{stat.name}</Text>
-													<div className="stat-bar-row">
-														<span className="stat-p">{`${Math.round(
-															stat.value * 100
-														)}%`}</span>
-														<div className="stat-bar-outer">
-															<div
-																className="stat-bar-inner"
-																style={{ width: `${stat.value * 100}%` }}
-															/>
+
+								<div style={{ flex: 1 }}>
+									{offer.description.overrides.base_stats ? (<div className="row">
+										<div style={{
+											display: 'flex', alignItems: 'center',
+											justifyContent: 'space-between'
+										}}>
+											<span style={{}}>Modifiers</span>
+											<div style={{ display: 'flex', alignItems: 'center' }}>
+												<img src={rating} style={{ height: '1em' }} />
+												{offer.description.overrides.base_stats?.reduce((sum, stat) => {
+													return Math.round(sum + (stat.value * 100))
+												}, 0)}
+											</div>
+										</div>
+										<div className="stats">
+											{offer.description.overrides.base_stats?.map((stat) => {
+												return (
+													<div className="stat" key={stat.name}>
+														<Text>{localisation[stat.name]}</Text>
+														<div className="stat-bar-row">
+															<span className="stat-p">{`${Math.round(
+																stat.value * 100
+															)}%`}</span>
+															<div className="stat-bar-outer">
+																<div
+																	className="stat-bar-inner"
+																	style={{ width: `${stat.value * 100}%` }}
+																/>
+															</div>
 														</div>
 													</div>
+												)
+											})}
+										</div>
+									</div>) : null}
+
+									{offer.description.overrides.perks.length > 0 ? (
+										<div className="row">
+											<div style={{
+												display: 'flex', alignItems: 'center',
+												justifyContent: 'space-between',
+												flex: 1,
+											}}>
+												<span style={{}}>Perks</span>
+												<div style={{ display: 'flex', alignItems: 'center' }}>
+													<img src={rating} style={{ height: '1em' }} />
+													{offer.description.overrides.perks.reduce((sum, perk) => {
+														sum += 10 + ((perk.rarity - 1) * 5)
+														return sum
+													}, 0)}
 												</div>
-											)
-										})}
-									</div>
+											</div>
+											<div className="perks">
+												{offer.description.overrides.perks.map(perk => {
+													let desc = localisation[perk.id].description
+													let descVal = items![perk.id]?.description_values.find(v => v.rarity === perk.rarity.toString())
+													let replace = `{${descVal?.string_key}:%s}`
+													let description = desc?.replace(replace, descVal?.string_value ?? '')
+													return <div className="perk" key={perk.id + perk.rarity}>
+														<div className="perk-rarity">
+															{raritySymbol[perk.rarity]}
+														</div>
+														<Text>
+															{description}
+														</Text>
+													</div>
+												})}
+											</div>
+										</div>) : null}
+
+									{offer.description.overrides.traits.length > 0 ? (
+										<div className="row">
+											<div style={{
+												display: 'flex', alignItems: 'center',
+												justifyContent: 'space-between',
+												flex: 1,
+											}}>
+												<span style={{}}>Traits</span>
+												<div style={{ display: 'flex', alignItems: 'center' }}>
+													<img src={rating} style={{ height: '1em' }} />
+													{offer.description.overrides.traits.reduce((sum, trait) => {
+														if (trait.value) {
+															sum += Math.round((trait.value) * 100)
+														} else {
+															sum += 25
+														}
+														return sum
+													}, 0)}
+												</div>
+											</div>
+
+											<div className="perks">
+												{offer.description.overrides.traits.map(trait => {
+													let { description: desc, display_name } = localisation[trait.id]
+													let descVals = items![trait.id]?.description_values.filter(v => v.rarity === trait.rarity.toString())
+													let description = descVals?.length ?
+														descVals.reduce((str, descVal) => {
+															let replace = `{${descVal?.string_key}:%s}`
+															str = str.replace(replace, descVal?.string_value ?? '')
+															return str
+														}, desc) : desc
+
+													return <div className="perk" key={trait.id + trait.rarity}>
+														<div className="perk-rarity">
+															{raritySymbol[trait.rarity]}
+														</div>
+														<Text>
+															{`${display_name}: ${description}`}
+														</Text>
+													</div>
+												})}
+											</div>
+										</div>) : null}
+
 								</div>
 							</div>
-							<details>
-								<summary className="MuiFormHelperText-root MuiFormHelperText-sizeMedium css-13fvtaj">
-									Description
-								</summary>
-								<Text>{items![offer.description.id]?.description}</Text>
-								<Text>{items![offer.description.id]?.dev_name}</Text>
-								<Text>{items![offer.description.id]?.dev_description}</Text>
-							</details>
+
 							<Divider />
 						</div>
 					)
