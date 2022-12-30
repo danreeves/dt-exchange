@@ -1,11 +1,11 @@
 import type { ReactNode } from "react"
-import { credits, rating } from "./icons"
+import { credits, rating } from "../icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type { Character } from "./types"
-import { useMasterList } from "./useMasterList"
-import { useStore } from "./useStore"
-import localisation from "./localisation.json"
+import type { Character } from "../types"
+import { useMasterList } from "../hooks/useMasterList"
+import { useStore } from "../hooks/useStore"
+import localisation from "../localisation.json"
 import "./Store.css"
 
 function Divider() {
@@ -167,7 +167,7 @@ export function Store({ character }: { character?: Character }) {
 												justifyContent: 'space-between',
 												flex: 1,
 											}}>
-												<span style={{}}>Traits</span>
+												<span style={{}}>Blessings</span>
 												<div style={{ display: 'flex', alignItems: 'center' }}>
 													<img src={rating} style={{ height: '1em' }} />
 													{offer.description.overrides.traits.reduce((sum, trait) => {

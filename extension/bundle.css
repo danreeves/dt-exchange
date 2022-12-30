@@ -1,2 +1,110 @@
-/*copyright raindish*/
-.my-button{--webkit-appearance: none;height:auto;width:auto;padding:1em;position:relative;color:#fff;cursor:pointer;background:rgb(11,11,11)}.my-button:hover{background:rgb(33,33,33)}.item-title{margin-bottom:.5em}.row:not(:first-child){border-top:1px solid grey;margin-top:1em;padding-top:1em}.info-items{display:flex;flex-direction:column;border-right-color:#fff;border-right-width:1px;border-right-style:solid;margin-right:.75em}.info-item{display:flex;align-items:center;margin:0 .75em 0 0;text-transform:capitalize}.info-item img{height:3em;float:left;padding:.2em}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-column-gap:1em;grid-row-gap:1em}.stat-name{color:#bdbdbd}.stat-bar-row{display:flex;align-items:center}.stat-p{margin-right:.5em}.stat-bar-outer{width:100%;height:.7em;border:1px solid gold;padding:1px}.stat-bar-inner{position:relative;background:gold;height:100%}.perk{display:flex}.perk-rarity{margin-right:1em}.char-list{margin:1em 0 0;padding:0;display:flex;flex-direction:row;justify-content:space-between;gap:1em}.char-list li{list-style:none;display:flex;flex:1}.char-list li .my-button{flex:1}.class-icon{height:3em;width:auto;vertical-align:middle;margin-right:1em}.char-button{display:flex;flex-direction:row;align-items:center;text-align:left}
+/* src/components/Button.css */
+.my-button {
+  --webkit-appearance: none;
+  height: auto;
+  width: auto;
+  padding: 1em;
+  position: relative;
+  color: white;
+  cursor: pointer;
+  background: rgb(11, 11, 11);
+}
+.my-button:hover {
+  background: rgb(33, 33, 33);
+}
+
+/* src/components/Store.css */
+.item-title {
+  margin-bottom: 0.5em;
+}
+.row:not(:first-child) {
+  border-top: 1px solid grey;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+.info-items {
+  display: flex;
+  flex-direction: column;
+  border-right-color: white;
+  border-right-width: 1px;
+  border-right-style: solid;
+  margin-right: 0.75em;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-right: 0.75em;
+  text-transform: capitalize;
+}
+.info-item img {
+  height: 3em;
+  float: left;
+  padding: 0.2em;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+.stat {
+}
+.stat-name {
+  color: rgb(189, 189, 189);
+}
+.stat-bar-row {
+  display: flex;
+  align-items: center;
+}
+.stat-p {
+  margin-right: 0.5em;
+}
+.stat-bar-outer {
+  width: 100%;
+  height: 0.7em;
+  border: 1px solid gold;
+  padding: 1px;
+}
+.stat-bar-inner {
+  position: relative;
+  background: gold;
+  height: 100%;
+}
+.perk {
+  display: flex;
+}
+.perk-rarity {
+  margin-right: 1em;
+}
+
+/* src/components/Layout.css */
+.char-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: 1em;
+}
+.char-list li {
+  list-style: none;
+  display: flex;
+  flex: 1;
+}
+.char-list li .my-button {
+  flex: 1;
+}
+.class-icon {
+  height: 3em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 1em;
+}
+.char-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}
