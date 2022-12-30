@@ -12,3 +12,10 @@
 2. Follow the instructions for your browser:
     * [Chrome/Opera/Edge](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked)
     * [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
+
+## Development
+
+Dependencies: node & npm
+1. `npm install`
+2. `npm start`
+3. The `src/` directory is now being bundled into the `extension/` directory on change
