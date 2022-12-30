@@ -66,7 +66,7 @@ export function Store({ character }: { character?: Character }) {
 					// console.log(offer)
 
 					return (
-						<div className="MuiBox-root css-178yklu" key={offer.offerId}>
+						<div className="MuiBox-root css-178yklu" key={offer.offerId} id="offer">
 							<Title>{localisation[offer.description.id].display_name}</Title>
 
 							{offer.state === "completed" ? <Text>Owned</Text> : null}
@@ -86,14 +86,14 @@ export function Store({ character }: { character?: Character }) {
 										<img src={rating} style={{}} />
 										<div>
 											<Text>Rating</Text>
-											{offer.description.overrides.itemLevel}
+											<div id="rating">{offer.description.overrides.itemLevel}</div>
 										</div>
 									</div>
 									<div className="info-item">
 										<img src={credits} />
 										<div>
 											<Text>{offer.price.amount.type}</Text>
-											<span style={{ color: 'gold' }}>{offer.price.amount.amount}</span>
+											<span style={{ color: 'gold' }} id="credits">{offer.price.amount.amount}</span>
 										</div>
 									</div>
 								</div>
@@ -105,7 +105,7 @@ export function Store({ character }: { character?: Character }) {
 											justifyContent: 'space-between'
 										}}>
 											<span style={{}}>Modifiers</span>
-											<div style={{ display: 'flex', alignItems: 'center' }}>
+											<div style={{ display: 'flex', alignItems: 'center' }} id="modifier_total">
 												<img src={rating} style={{ height: '1em' }} />
 												{offer.description.overrides.base_stats?.reduce((sum, stat) => {
 													return Math.round(sum + (stat.value * 100))
@@ -142,7 +142,7 @@ export function Store({ character }: { character?: Character }) {
 												flex: 1,
 											}}>
 												<span style={{}}>Perks</span>
-												<div style={{ display: 'flex', alignItems: 'center' }}>
+												<div style={{ display: 'flex', alignItems: 'center' }} id="perk_total">
 													<img src={rating} style={{ height: '1em' }} />
 													{offer.description.overrides.perks.reduce((sum, perk) => {
 														sum += 10 + ((perk.rarity - 1) * 5)
@@ -150,13 +150,13 @@ export function Store({ character }: { character?: Character }) {
 													}, 0)}
 												</div>
 											</div>
-											<div className="perks">
+											<div className="perks" id="perks">
 												{offer.description.overrides.perks.map(perk => {
 													let desc = localisation[perk.id].description
 													let descVal = items![perk.id]?.description_values.find(v => v.rarity === perk.rarity.toString())
 													let replace = `{${descVal?.string_key}:%s}`
 													let description = desc?.replace(replace, descVal?.string_value ?? '')
-													return <div className="perk" key={perk.id + perk.rarity}>
+													return <div className="perk" key={perk.id + perk.rarity} id="perk">
 														<div className="perk-rarity">
 															{raritySymbol[perk.rarity]}
 														</div>
@@ -176,7 +176,7 @@ export function Store({ character }: { character?: Character }) {
 												flex: 1,
 											}}>
 												<span style={{}}>Blessings</span>
-												<div style={{ display: 'flex', alignItems: 'center' }}>
+												<div style={{ display: 'flex', alignItems: 'center' }} id="blessing_total">
 													<img src={rating} style={{ height: '1em' }} />
 													{offer.description.overrides.traits.reduce((sum, trait) => {
 														if (trait.value) {
@@ -189,7 +189,7 @@ export function Store({ character }: { character?: Character }) {
 												</div>
 											</div>
 
-											<div className="perks">
+											<div className="perks" id="blessings">
 												{offer.description.overrides.traits.map(trait => {
 													let { description: desc, display_name } = localisation[trait.id]
 													let descVals = items![trait.id]?.description_values.filter(v => v.rarity === trait.rarity.toString())
@@ -200,7 +200,7 @@ export function Store({ character }: { character?: Character }) {
 															return str
 														}, desc) : desc
 
-													return <div className="perk" key={trait.id + trait.rarity}>
+													return <div className="perk" key={trait.id + trait.rarity} id="blessing">
 														<div className="perk-rarity">
 															{raritySymbol[trait.rarity]}
 														</div>

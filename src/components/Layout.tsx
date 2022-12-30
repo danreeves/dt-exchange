@@ -46,15 +46,15 @@ export function Layout() {
 									setActiveChar(character.id)
 								}}
 							>
-								<div className="char-button">
+								<div className="char-button" id="character">
 									<img
 										src={archetype[character.archetype]}
 										className="class-icon"
 									/>
 									<div>
-										<div>{character.name}</div>
+										<div id="name">{character.name}</div>
 										<div style={{ textTransform: "capitalize" }}>
-											{character.archetype} {character.level}
+											<div id="archetype">{character.archetype}</div> <div id="level">{character.level}</div>
 										</div>
 									</div>
 								</div>
