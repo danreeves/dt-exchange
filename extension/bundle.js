@@ -35085,6 +35085,13 @@
     4: "\u2163",
     5: "\u2164"
   };
+  var traitRarityToRating = {
+    1: 25,
+    2: 35,
+    3: 45,
+    4: 55,
+    5: 65
+  };
   function Store({ character }) {
     let store = useStore(character);
     let items = useMasterList();
@@ -35191,7 +35198,7 @@
                     if (trait.value) {
                       sum += Math.round(trait.value * 100);
                     } else {
-                      sum += 25;
+                      sum += traitRarityToRating[trait?.rarity];
                     }
                     return sum;
                   }, 0)

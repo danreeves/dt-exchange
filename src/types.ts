@@ -112,7 +112,7 @@ export interface Perk {
 
 export interface Trait {
 	id: string
-	rarity: number
+	rarity: 1 | 2 | 3 | 4 | 5
 	value?: number
 }
 
