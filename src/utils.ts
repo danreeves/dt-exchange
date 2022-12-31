@@ -31,9 +31,19 @@ export function createFetcher(user: User) {
 function safeParseJSON<T>(jsonString: string): T | undefined {
 	let parsed: T | undefined
 
+	let accountNameRe = /"AccountName".*",/
+	let quoteInAccountNameRe = /"AccountName":".*(").*",/
+
+	// If the account name has special characters it might be malformed
+	// and have quotes in it. This breaks JSON.parse. Remove it.
+	if (jsonString.search(quoteInAccountNameRe) > 0) {
+		jsonString = jsonString.replace(accountNameRe, '')
+	}
+
 	try {
 		parsed = JSON.parse(jsonString)
 	} catch {
+		warn("User could not be decoded")
 		parsed = undefined
 	}
 
@@ -51,4 +61,8 @@ export function getLocalStorage<T>(key: string): T | undefined {
 
 export function log(msg: string) {
 	console.log(`++[ ${msg} ]++`)
+}
+
+export function warn(msg: string) {
+	console.warn(`++! ${msg} !++`)
 }
