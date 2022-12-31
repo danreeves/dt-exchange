@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import { credits, rating } from "../icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type { Character, Items, Personal } from "../types"
+import type { Character, Items, Personal, FilterRule } from "../types"
 import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
@@ -145,6 +145,27 @@ let filterOptions = {
 export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
+function filterFunc(char: Character | undefined, offer: Personal) {
+	var target: FilterRule = {
+		item: ["Axe"],
+		archetype: ["veteran", "psyker"],
+	}
+
+	if (!char) {
+		return
+	}
+
+	if (char && target.archetype && ! target.archetype.includes(char.archetype)) {
+		return
+	}
+
+	if (target.item && ! target.item.find(element => localisation[offer.description.id].display_name.match(element))) {
+		return
+	}
+
+	offer.description.overrides.filter_match = true
+}
+
 export function Store({ character, sortOption, filterOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
@@ -152,6 +173,10 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 	if (!store || !items) {
 		return <Loading />
 	}
+
+	store.personal.forEach(function (offer) {
+		filterFunc(character, offer)
+	})
 
 	return (
 		<>
@@ -162,7 +187,7 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 					// console.log(offer)
 
 					return (
-						<div className="MuiBox-root css-178yklu" key={offer.offerId}>
+						<div className={`MuiBox-root css-178yklu ${offer.description.overrides.filter_match ? "offer-match" : ""}`} key={offer.offerId}>
 							<Title>{localisation[offer.description.id].display_name}</Title>
 
 							{offer.state === "completed" ? <Text>Owned</Text> : null}

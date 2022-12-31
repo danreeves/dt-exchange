@@ -98,6 +98,7 @@ export interface Overrides {
 	traits: Trait[]
 	perks: Perk[]
 	base_stats?: BaseStat[]
+	filter_match?: boolean
 }
 
 export interface BaseStat {
@@ -199,4 +200,13 @@ export interface MasterData {
 interface PlayerItems {
 	href: string
 	version: string
+}
+
+export interface FilterRule {
+	archetype?: ("veteran" | "zealot" | "psyker" | "ogryn")[]
+	item?: string[]
+	blessing?: string[]
+	perk?: string[]
+	minStats?: number
+	minRating?: number
 }
