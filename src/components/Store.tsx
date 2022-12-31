@@ -146,24 +146,83 @@ export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
 function filterFunc(char: Character | undefined, offer: Personal) {
-	var target: FilterRule = {
-		item: ["Axe"],
-		archetype: ["veteran", "psyker"],
-	}
+	var targets: FilterRule[] = [
+		{
+			character: ["veteran"],
+			item:["Power Sword"],
+			blessing:["Power Cycler"],
+			// perk:["Critical Hit Damage"],
+			// minStats:330,
+		},
+		{
+			item:["Obscurus Mk II Blaze Force Sword"],
+			blessing:["Deflector"],
+		},
+		{
+			minStats:360,
+		},
+		{
+			item:["(Reliquary)", "(Caged)", "(Casket)"],
+			blessing:["Toughness"],
+			perk:["Toughness"],
+			minRating: 80,
+		},
+	]
 
 	if (!char) {
 		return
 	}
 
-	if (char && target.archetype && ! target.archetype.includes(char.archetype)) {
-		return
-	}
+	var statRoll = offer.description.overrides.base_stats?.reduce((sum, stat) => {
+		return Math.round(sum + (stat.value * 100))
+	}, 0) || 0
 
-	if (target.item && ! target.item.find(element => localisation[offer.description.id].display_name.match(element))) {
-		return
-	}
+	var filtered = targets.filter(function(target) {
+		if (char && target.character && ! target.character.includes(char.archetype)) {
+			return false
+		}
 
-	offer.description.overrides.filter_match = true
+		if (target.item && ! target.item.find(element => localisation[offer.description.id].display_name.match(element))) {
+			return false
+		}
+
+		if (target.minStats && target.minStats > statRoll) {
+			return false
+		}
+		if (target.minRating && target.minRating > offer.description.overrides.itemLevel) {
+			return false
+		}
+
+		if (target.blessing) {
+			var blessingMatches = offer.description.overrides.traits.filter(function(blessing){
+				if (target.blessing && ! target.blessing.find(element => localisation[blessing.id].description.match(element))) {
+					return false
+				}
+				return true
+			})
+			if (blessingMatches.length == 0) {
+				return false
+			}
+		}
+
+		if (target.perk) {
+			var perkMatches = offer.description.overrides.perks.filter(function(perk){
+				if (target.perk && ! target.perk.find(element => localisation[perk.id].description.match(element))) {
+					return false
+				}
+				return true
+			})
+			if (perkMatches.length == 0) {
+				return false
+			}	
+		}
+
+		return true
+	})
+
+	if (filtered.length > 0) {
+		offer.description.overrides.filter_match = true
+	}
 }
 
 export function Store({ character, sortOption, filterOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {

@@ -203,7 +203,7 @@ interface PlayerItems {
 }
 
 export interface FilterRule {
-	archetype?: ("veteran" | "zealot" | "psyker" | "ogryn")[]
+	character?: ("veteran" | "zealot" | "psyker" | "ogryn")[]
 	item?: string[]
 	blessing?: string[]
 	perk?: string[]
