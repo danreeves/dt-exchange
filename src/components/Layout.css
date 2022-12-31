@@ -31,3 +31,19 @@
   align-items: center;
   text-align: left;
 }
+
+.sort-row {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sort-row label {
+  margin-right: 0.5em;
+}
+
+.sort-row label:not(:first-of-type) {
+  margin-left: 0.5em;
+}

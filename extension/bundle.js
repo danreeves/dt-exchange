@@ -35101,18 +35101,55 @@
     4: 55,
     5: 65
   };
-  function Store({ character }) {
+  var sortOptions = {
+    modifiersRating: (a, b) => {
+      let aRating = a.description.overrides.base_stats?.reduce((sum, stat) => {
+        return Math.round(sum + stat.value * 100);
+      }, 0) || a.description.overrides.itemLevel;
+      let bRating = b.description.overrides.base_stats?.reduce((sum, stat) => {
+        return Math.round(sum + stat.value * 100);
+      }, 0) || b.description.overrides.itemLevel;
+      return bRating - aRating;
+    },
+    itemRating: (a, b) => {
+      return b.description.overrides.itemLevel - a.description.overrides.itemLevel;
+    },
+    rarity: (a, b) => {
+      if (b.description.overrides.rarity === a.description.overrides.rarity) {
+        return b.description.overrides.itemLevel - a.description.overrides.itemLevel;
+      }
+      return b.description.overrides.rarity - a.description.overrides.rarity;
+    },
+    alphabetical: (a, b) => {
+      let aName = localisation_default[a.description.id].display_name;
+      let bName = localisation_default[b.description.id].display_name;
+      return aName > bName ? 1 : -1;
+    },
+    credits: (a, b) => {
+      return b.price.amount.amount - a.price.amount.amount;
+    }
+  };
+  var SORT_OPTIONS = Object.keys(sortOptions);
+  var filterOptions = {
+    none: () => () => true,
+    ranged: (items) => (item) => {
+      return items[item.description.id].item_type === "WEAPON_RANGED";
+    },
+    melee: (items) => (item) => {
+      return items[item.description.id].item_type === "WEAPON_MELEE";
+    },
+    trinket: (items) => (item) => {
+      return items[item.description.id].item_type === "GADGET";
+    }
+  };
+  var FILTER_OPTIONS = Object.keys(filterOptions);
+  function Store({ character, sortOption, filterOption }) {
     let store = useStore(character);
     let items = useMasterList();
     if (!store || !items) {
       return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Loading, {});
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: store.personal.sort((a, b) => {
-      if (b.description.overrides.rarity === a.description.overrides.rarity) {
-        return b.description.overrides.itemLevel - a.description.overrides.itemLevel;
-      }
-      return b.description.overrides.rarity - a.description.overrides.rarity;
-    }).map((offer) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: store.personal.filter(filterOptions[filterOption](items)).sort(sortOptions[sortOption]).map((offer) => {
       return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "MuiBox-root css-178yklu", children: [
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Title, { children: localisation_default[offer.description.id].display_name }),
         offer.state === "completed" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Text, { children: "Owned" }) : null,
@@ -35254,6 +35291,10 @@
     let account = useAccount();
     let store = useStore(account?.characters?.[0], false);
     let [activeChar, setActiveChar] = (0, import_react7.useState)();
+    let [sortOption, setSortOption] = (0, import_react7.useState)(SORT_OPTIONS[0]);
+    let [filterOption, setFilterOption] = (0, import_react7.useState)(
+      FILTER_OPTIONS[0]
+    );
     if (!account || !store) {
       return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Title2, { children: "Armoury Exchange" }),
@@ -35267,7 +35308,8 @@
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Title2, { children: [
         "Armoury Exchange",
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { children: [
-          "Refresh in ",
+          "Refresh in",
+          " ",
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Countdown, { until: parseInt(store.currentRotationEnd, 10) })
         ] })
       ] }),
@@ -35299,13 +35341,49 @@
           }
         ) }, character.id);
       }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "sort-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "filter-by", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Filter by: " }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+          "select",
+          {
+            id: "filter-by",
+            onChange: (event) => {
+              setFilterOption(event.target.value);
+            },
+            children: [
+              FILTER_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt)),
+              " "
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "sort-by", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Sort by: " }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+          "select",
+          {
+            id: "sort-by",
+            onChange: (event) => {
+              setSortOption(event.target.value);
+            },
+            children: [
+              SORT_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt)),
+              " "
+            ]
+          }
+        )
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         Store,
         {
-          character: account.characters.find((char) => char.id === activeChar)
+          character: account.characters.find((char) => char.id === activeChar),
+          sortOption,
+          filterOption
         }
       )
     ] });
+  }
+  function camelToSentence(str) {
+    let parts = str.split(/(?=[A-Z])/);
+    return parts.map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()).join(" ");
   }
 
   // src/components/App.tsx
@@ -35314,9 +35392,12 @@
     return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(SWRConfig2, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Layout, {}) });
   }
 
-  // src/index.tsx
+  // src/bundle.tsx
   var import_client = __toESM(require_client());
   var import_jsx_runtime10 = __toESM(require_jsx_runtime());
+  window.addEventListener("popstate", function(event) {
+    console.log(event);
+  });
   async function main() {
     log("Armoury Exchange booting");
     let observer = new MutationObserver(() => {
@@ -35341,7 +35422,10 @@
           observer.disconnect();
           let myContainer = accountDetailsEl.cloneNode(true);
           myContainer.firstChild.firstChild.innerHTML = "";
-          accountDetailsEl.parentElement?.insertBefore(myContainer, accountDetailsEl);
+          accountDetailsEl.parentElement?.insertBefore(
+            myContainer,
+            accountDetailsEl
+          );
           requestIdleCallback(() => {
             (0, import_client.createRoot)(myContainer.firstChild.firstChild).render(
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(App, {})

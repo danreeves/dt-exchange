@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import { credits, rating } from "../icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type { Character } from "../types"
+import type { Character, Items, Personal } from "../types"
 import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
@@ -40,7 +40,71 @@ const traitRarityToRating = {
 	5: 65
 } as const
 
-export function Store({ character }: { character?: Character }) {
+const sortOptions = {
+
+	modifiersRating: (a: Personal, b: Personal) => {
+		let aRating = a.description.overrides.base_stats?.reduce((sum, stat) => {
+			return Math.round(sum + (stat.value * 100))
+		}, 0) || a.description.overrides.itemLevel
+		let bRating = b.description.overrides.base_stats?.reduce((sum, stat) => {
+			return Math.round(sum + (stat.value * 100))
+		}, 0) || b.description.overrides.itemLevel
+		return bRating - aRating
+	},
+
+	itemRating: (a: Personal, b: Personal) => {
+		return (
+			b.description.overrides.itemLevel -
+			a.description.overrides.itemLevel
+		)
+	},
+
+	rarity: (a: Personal, b: Personal) => {
+		if (
+			b.description.overrides.rarity === a.description.overrides.rarity
+		) {
+			return (
+				b.description.overrides.itemLevel -
+				a.description.overrides.itemLevel
+			)
+		}
+		return b.description.overrides.rarity - a.description.overrides.rarity
+	},
+
+	alphabetical: (a: Personal, b: Personal) => {
+		let aName = localisation[a.description.id].display_name
+		let bName = localisation[b.description.id].display_name
+		return aName > bName ? 1 : -1
+	},
+
+	credits: (a: Personal, b: Personal) => {
+		return b.price.amount.amount - a.price.amount.amount
+	}
+} as const
+
+export type SortOption = keyof typeof sortOptions
+export const SORT_OPTIONS = Object.keys(sortOptions) as SortOption[]
+
+let filterOptions = {
+	none: () => () => true,
+
+	ranged: (items: Items) => (item: Personal) => {
+		return items[item.description.id].item_type === "WEAPON_RANGED"
+	},
+
+	melee: (items: Items) => (item: Personal) => {
+		return items[item.description.id].item_type === "WEAPON_MELEE"
+	},
+
+	trinket: (items: Items) => (item: Personal) => {
+		return items[item.description.id].item_type === "GADGET"
+	},
+}
+
+export type FilterOption = keyof typeof filterOptions
+export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
+
+export function Store({ character, sortOption, filterOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
 
@@ -51,17 +115,8 @@ export function Store({ character }: { character?: Character }) {
 	return (
 		<>
 			{store.personal
-				.sort((a, b) => {
-					if (
-						b.description.overrides.rarity === a.description.overrides.rarity
-					) {
-						return (
-							b.description.overrides.itemLevel -
-							a.description.overrides.itemLevel
-						)
-					}
-					return b.description.overrides.rarity - a.description.overrides.rarity
-				})
+				.filter(filterOptions[filterOption](items))
+				.sort(sortOptions[sortOption])
 				.map((offer) => {
 					// console.log(offer)
 
