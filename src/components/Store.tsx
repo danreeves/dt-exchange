@@ -177,7 +177,7 @@ function filterFunc(char: Character | undefined, offer: Personal) {
 		return Math.round(sum + (stat.value * 100))
 	}, 0) || 0
 
-	var filtered = targets.filter(function(target) {
+	var found = targets.find(function(target) {
 		if (char && target.character && ! target.character.includes(char.archetype)) {
 			return false
 		}
@@ -194,25 +194,25 @@ function filterFunc(char: Character | undefined, offer: Personal) {
 		}
 
 		if (target.blessing) {
-			var blessingMatches = offer.description.overrides.traits.filter(function(blessing){
+			var blessingMatch = offer.description.overrides.traits.find(function(blessing){
 				if (target.blessing && ! target.blessing.find(element => localisation[blessing.id].description.match(element))) {
 					return false
 				}
 				return true
 			})
-			if (blessingMatches.length == 0) {
+			if (blessingMatch) {
 				return false
 			}
 		}
 
 		if (target.perk) {
-			var perkMatches = offer.description.overrides.perks.filter(function(perk){
+			var perkMatch = offer.description.overrides.perks.find(function(perk){
 				if (target.perk && ! target.perk.find(element => localisation[perk.id].description.match(element))) {
 					return false
 				}
 				return true
 			})
-			if (perkMatches.length == 0) {
+			if (perkMatch) {
 				return false
 			}	
 		}
@@ -220,7 +220,7 @@ function filterFunc(char: Character | undefined, offer: Personal) {
 		return true
 	})
 
-	if (filtered.length > 0) {
+	if (found) {
 		offer.description.overrides.filter_match = true
 	}
 }
