@@ -42,10 +42,10 @@ function calculateGadgetTraitStrength(trait_id: string, value: number): string {
 	let traitStrength = ''
 	switch (trait_id) {
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_toughness':
-			traitStrength = `${parseFloat(lerp(0.05, 0.2, value).toFixed(2)) * 100}%`
+			traitStrength = `${(parseFloat(lerp(0.05, 0.2, value).toFixed(2)) * 100).toFixed()}%`
 			break
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_health':
-			traitStrength = `${parseFloat(lerp(0.05, 0.25, value).toFixed(2)) * 100}%`
+			traitStrength = `${(parseFloat(lerp(0.05, 0.25, value).toFixed(2)) * 100).toFixed()}%`
 			break
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_health_segment':
 			traitStrength = steppedLerp([1, 2, 3], value).toString()
