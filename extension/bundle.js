@@ -35100,10 +35100,10 @@
         traitStrength = `${(parseFloat(lerp(0.05, 0.25, value).toFixed(2)) * 100).toFixed()}%`;
         break;
       case "content/items/traits/gadget_inate_trait/trait_inate_gadget_health_segment":
-        traitStrength = steppedLerp([1, 2, 3], value).toString();
+        traitStrength = "1";
         break;
       case "content/items/traits/gadget_inate_trait/trait_inate_gadget_stamina":
-        traitStrength = "1";
+        traitStrength = steppedLerp([1, 2, 3], value).toString();
         break;
     }
     return traitStrength;
@@ -35290,7 +35290,12 @@
                   }, desc);
                 } else if (offer.description.type === "gadget" && trait.value !== void 0) {
                   let replace = /{\w+:%s}/g;
+                  console.log(description);
+                  console.log(trait.id);
+                  console.log(trait.value);
+                  console.log(calculateGadgetTraitStrength(trait.id, trait.value));
                   description = description.replaceAll(replace, calculateGadgetTraitStrength(trait.id, trait.value) ?? "");
+                  console.log(description);
                 }
                 return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "perk", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "perk-rarity", children: raritySymbol[trait.rarity] }),

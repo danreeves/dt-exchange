@@ -48,10 +48,10 @@ function calculateGadgetTraitStrength(trait_id: string, value: number): string {
 			traitStrength = `${(parseFloat(lerp(0.05, 0.25, value).toFixed(2)) * 100).toFixed()}%`
 			break
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_health_segment':
-			traitStrength = steppedLerp([1, 2, 3], value).toString()
+			traitStrength = '1'
 			break
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_stamina':
-			traitStrength = '1'
+			traitStrength = steppedLerp([1, 2, 3], value).toString()
 			break
 	}
 	return traitStrength
@@ -301,7 +301,12 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 													} else if (offer.description.type === 'gadget' && trait.value !== undefined) {
 														// Gadgets (so far!) only ever have one trait, so we don't need to map/reduce anything here
 														let replace = /{\w+:%s}/g
+														console.log(description)
+														console.log(trait.id)
+														console.log(trait.value)
+														console.log(calculateGadgetTraitStrength(trait.id, trait.value))
 														description = description.replaceAll(replace, calculateGadgetTraitStrength(trait.id, trait.value) ?? '')
+														console.log(description)
 													}
 
 													return <div className="perk" key={trait.id + trait.rarity}>
