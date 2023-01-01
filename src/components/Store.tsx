@@ -19,7 +19,7 @@ function Title({ children }: { children: ReactNode }) {
 // Linearly interpolate input between min and max. E.g. lerp(1, 2, 0.5) returns 1.5
 function lerp(min: number, max: number, input: number): number {
 	// Make sure input is a unit interval (0 <= n <= 1)
-	let clampedInput = Math.min(Math.max(input, 1.0), 0.0);
+	let clampedInput = Math.min(Math.max(input, 0.0), 1.0);
 	return min * (1 - clampedInput) + max * clampedInput
 }
 
@@ -27,11 +27,11 @@ function lerp(min: number, max: number, input: number): number {
 // E.g. steppedLerp(['a','b'], 0.5) returns 'b' due to rounding.
 function steppedLerp(range: number[], input: number): number {
 	// Make sure input is a unit interval (0 <= n <= 1)
-	let clampedInput = Math.min(Math.max(input, 1.0), 0.0);
+	let clampedInput = Math.min(Math.max(input, 0.0), 1.0);
 	let interpolatedValue = lerp(1, range.length, clampedInput)
 
 	// Make sure that the value will always lie inside valid indexes of the range.
-	let clampedInterpolatedValue = Math.min(Math.max(interpolatedValue, range.length), 1)
+	let clampedInterpolatedValue = Math.min(Math.max(interpolatedValue, 1), range.length)
 	return range[Math.round(clampedInterpolatedValue) - 1] as number
 }
 
@@ -42,10 +42,10 @@ function calculateGadgetTraitStrength(trait_id: string, value: number): string {
 	let traitStrength = ''
 	switch (trait_id) {
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_toughness':
-			traitStrength = lerp(0.05, 0.2, value).toFixed(2)
+			traitStrength = `${parseFloat(lerp(0.05, 0.2, value).toFixed(2)) * 100}%`
 			break
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_health':
-			traitStrength = lerp(0.05, 0.2, value).toFixed(2)
+			traitStrength = `${parseFloat(lerp(0.05, 0.25, value).toFixed(2)) * 100}%`
 			break
 		case 'content/items/traits/gadget_inate_trait/trait_inate_gadget_health_segment':
 			traitStrength = steppedLerp([1, 2, 3], value).toString()
