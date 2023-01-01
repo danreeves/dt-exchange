@@ -35080,6 +35080,34 @@
   function Title({ children }) {
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "item-title", children });
   }
+  function lerp(min, max, input) {
+    let clampedInput = Math.min(Math.max(input, 1), 0);
+    return min * (1 - clampedInput) + max * clampedInput;
+  }
+  function steppedLerp(range, input) {
+    let clampedInput = Math.min(Math.max(input, 1), 0);
+    let interpolatedValue = lerp(1, range.length, clampedInput);
+    let clampedInterpolatedValue = Math.min(Math.max(interpolatedValue, range.length), 1);
+    return range[Math.round(clampedInterpolatedValue) - 1];
+  }
+  function calculateGadgetTraitStrength(trait_id, value) {
+    let traitStrength = "";
+    switch (trait_id) {
+      case "content/items/traits/gadget_inate_trait/trait_inate_gadget_toughness":
+        traitStrength = lerp(0.05, 0.2, value).toFixed(2);
+        break;
+      case "content/items/traits/gadget_inate_trait/trait_inate_gadget_health":
+        traitStrength = lerp(0.05, 0.2, value).toFixed(2);
+        break;
+      case "content/items/traits/gadget_inate_trait/trait_inate_gadget_health_segment":
+        traitStrength = steppedLerp([1, 2, 3], value).toString();
+        break;
+      case "content/items/traits/gadget_inate_trait/trait_inate_gadget_stamina":
+        traitStrength = "1";
+        break;
+    }
+    return traitStrength;
+  }
   var ratingColor = {
     1: "grey",
     2: "#36AE7C",
@@ -35253,11 +35281,17 @@
               /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "perks", children: offer.description.overrides.traits.map((trait) => {
                 let { description: desc, display_name } = localisation_default[trait.id];
                 let descVals = items[trait.id]?.description_values.filter((v) => v.rarity === trait.rarity.toString());
-                let description = descVals?.length ? descVals.reduce((str, descVal) => {
-                  let replace = `{${descVal?.string_key}:%s}`;
-                  str = str.replace(replace, descVal?.string_value ?? "");
-                  return str;
-                }, desc) : desc;
+                let description = desc;
+                if (descVals?.length) {
+                  description = descVals.reduce((str, descVal) => {
+                    let replace = `{${descVal?.string_key}:%s}`;
+                    str = str.replaceAll(replace, descVal?.string_value ?? "");
+                    return str;
+                  }, desc);
+                } else if (offer.description.type === "gadget" && trait.value !== void 0) {
+                  let replace = /{\w+:%s}/g;
+                  description = description.replaceAll(replace, calculateGadgetTraitStrength(trait.id, trait.value) ?? "");
+                }
                 return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "perk", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "perk-rarity", children: raritySymbol[trait.rarity] }),
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Text, { children: `${display_name}: ${description}` })
