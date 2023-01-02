@@ -35290,12 +35290,7 @@
                   }, desc);
                 } else if (offer.description.type === "gadget" && trait.value !== void 0) {
                   let replace = /{\w+:%s}/g;
-                  console.log(description);
-                  console.log(trait.id);
-                  console.log(trait.value);
-                  console.log(calculateGadgetTraitStrength(trait.id, trait.value));
                   description = description.replaceAll(replace, calculateGadgetTraitStrength(trait.id, trait.value) ?? "");
-                  console.log(description);
                 }
                 return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "perk", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "perk-rarity", children: raritySymbol[trait.rarity] }),

@@ -301,12 +301,7 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 													} else if (offer.description.type === 'gadget' && trait.value !== undefined) {
 														// Gadgets (so far!) only ever have one trait, so we don't need to map/reduce anything here
 														let replace = /{\w+:%s}/g
-														console.log(description)
-														console.log(trait.id)
-														console.log(trait.value)
-														console.log(calculateGadgetTraitStrength(trait.id, trait.value))
 														description = description.replaceAll(replace, calculateGadgetTraitStrength(trait.id, trait.value) ?? '')
-														console.log(description)
 													}
 
 													return <div className="perk" key={trait.id + trait.rarity}>
