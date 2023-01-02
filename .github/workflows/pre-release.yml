@@ -14,16 +14,16 @@ jobs:
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout"
+        uses: "actions/checkout@3.2.0"
 
       - name: Create zip
-        uses: thedoctor0/zip-release
+        uses: thedoctor0/zip-release@0.6.2
         with:
           type: "zip"
           filename: "extension.zip"
           path: ./extension/*
 
-      - uses: "marvinpinto/action-automatic-releases"
+      - uses: marvinpinto/action-automatic-releases@v1.2.1
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
