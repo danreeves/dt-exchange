@@ -145,17 +145,7 @@ let filterOptions = {
 export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
-function filterFunc(char: Character | undefined, offer: Personal) {
-	var targets: FilterRule[]
-
-	try {
-		targets = JSON.parse(localStorage.getItem('filter-rules'))
-	} catch(e) {
-                console.log("Failed to parse filter rules", e)
-		return
-	}
-	console.log(targets)
-
+function filterFunc(char: Character | undefined, offer: Personal, targets: FilterRule[]) {
 	if (!char) {
 		return
 	}
@@ -215,14 +205,23 @@ function filterFunc(char: Character | undefined, offer: Personal) {
 export function Store({ character, sortOption, filterOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
+	var targets: FilterRule[]
 
 	if (!store || !items) {
 		return <Loading />
 	}
 
-	store.personal.forEach(function (offer) {
-		filterFunc(character, offer)
-	})
+	try {
+		targets = JSON.parse(localStorage.getItem('filter-rules'))
+		if (targets.length > 0) {
+			console.log(targets)
+			store.personal.forEach(function (offer) {
+				filterFunc(character, offer, targets)
+			})
+		}
+	} catch(e) {
+                console.log("Failed to parse filter rules", e)
+	}
 
 	return (
 		<>
