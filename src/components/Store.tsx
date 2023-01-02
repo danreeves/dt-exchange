@@ -228,11 +228,10 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 	}
 }
 
-export function Store({ character, sortOption, filterOption, enableShopFilterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption, enableShopFilterOption: boolean, demphasizeOption: DeemphasizeOption }) {
+export function Store({ character, sortOption, filterOption, enableShopFilterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption, enableShopFilterOption: boolean, deemphasizeOption: DeemphasizeOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
 	var targets: FilterRule[]
-	console.log(deemphasizeOption)
 
 	if (!store || !items) {
 		return <Loading />
@@ -249,6 +248,8 @@ export function Store({ character, sortOption, filterOption, enableShopFilterOpt
 		} catch(e) {
 			console.log("Failed to parse filter rules", e)
 		}
+	} else {
+		deemphasizeOption = "none"
 	}
 
 	return (
