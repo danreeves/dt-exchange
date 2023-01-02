@@ -228,7 +228,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 	}
 }
 
-export function Store({ character, sortOption, filterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
+export function Store({ character, sortOption, filterOption, enableShopFilterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption, enableShopFilterOption: boolean, demphasizeOption: DeemphasizeOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
 	var targets: FilterRule[]
@@ -238,15 +238,17 @@ export function Store({ character, sortOption, filterOption, deemphasizeOption }
 		return <Loading />
 	}
 
-	try {
-		targets = JSON.parse(localStorage.getItem('filter-rules'))
-		if (targets.length > 0) {
-			store.personal.map(function (offer) {
-				filterFunc(character, offer, targets)
-			})
+        if (enableShopFilterOption) {
+		try {
+			targets = JSON.parse(localStorage.getItem('filter-rules'))
+			if (targets.length > 0) {
+				store.personal.map(function (offer) {
+					filterFunc(character, offer, targets)
+				})
+			}
+		} catch(e) {
+			console.log("Failed to parse filter rules", e)
 		}
-	} catch(e) {
-                console.log("Failed to parse filter rules", e)
 	}
 
 	return (

@@ -59,6 +59,7 @@ export function Layout() {
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
   )
+  let [enableShopFilterOption, setEnableShopFilterOption] = useState<boolean>(false)
   let [deemphasizeOption, setDeemphasizeOption] = useState<DeemphasizeOption>(DEEMPHASIZE_OPTIONS[0])
 
   if (!account || !store) {
@@ -146,6 +147,19 @@ export function Layout() {
       </div>
 
       <div className="sort-row">
+        <label htmlFor="enable-shop-filter">
+          <Text>Enable shop filter: </Text>
+        </label>
+        <input
+          type="checkbox"
+          id="enable-shop-filter"
+          onChange={(event) => {
+            console.log(event, event.target.checked)
+            setEnableShopFilterOption(event.target.checked)
+          }}
+        />
+      </div>
+      <div className="sort-row">
         <details>
           <summary>Show rules</summary>
           <Rules state={matchOption} setState={setMatchOption} DE={deemphasizeOption} setDE={setDeemphasizeOption} />
@@ -156,6 +170,7 @@ export function Layout() {
         character={account.characters.find((char) => char.id === activeChar)}
         sortOption={sortOption}
         filterOption={filterOption}
+        enableShopFilterOption={enableShopFilterOption}
         deemphasizeOption={deemphasizeOption}
       />
     </>
