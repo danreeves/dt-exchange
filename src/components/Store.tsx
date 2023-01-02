@@ -241,7 +241,7 @@ export function Store({ character, sortOption, filterOption, deemphasizeOption }
 	try {
 		targets = JSON.parse(localStorage.getItem('filter-rules'))
 		if (targets.length > 0) {
-			store.personal.forEach(function (offer) {
+			store.personal.map(function (offer) {
 				filterFunc(character, offer, targets)
 			})
 		}

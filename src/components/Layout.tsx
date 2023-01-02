@@ -55,7 +55,6 @@ export function Layout() {
   let store = useStore(account?.characters?.[0], false) // Don't poll here
   let [activeChar, setActiveChar] = useState<string>()
   let [sortOption, setSortOption] = useState<SortOption>(SORT_OPTIONS[0])
-  let [showRules, setShowRules] = useState(false)
   let [matchOption, setMatchOption] = useState(localStorage.getItem('filter-rules') || '[{"minStats":360}]')
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
@@ -147,8 +146,10 @@ export function Layout() {
       </div>
 
       <div className="sort-row">
-        <input type="submit" value="Filter rules" onClick={() => setShowRules(!showRules)} />
-        { showRules ? <Rules state={matchOption} setState={setMatchOption} DE={deemphasizeOption} setDE={setDeemphasizeOption} /> : null }
+        <details>
+          <summary>Show rules</summary>
+          <Rules state={matchOption} setState={setMatchOption} DE={deemphasizeOption} setDE={setDeemphasizeOption} />
+        </details>
       </div>
 
       <Store
