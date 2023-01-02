@@ -35081,29 +35081,29 @@
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "item-title", children });
   }
   function lerp(min, max, input) {
-    let clampedInput = Math.min(Math.max(input, 1), 0);
+    let clampedInput = Math.min(Math.max(input, 0), 1);
     return min * (1 - clampedInput) + max * clampedInput;
   }
   function steppedLerp(range, input) {
-    let clampedInput = Math.min(Math.max(input, 1), 0);
+    let clampedInput = Math.min(Math.max(input, 0), 1);
     let interpolatedValue = lerp(1, range.length, clampedInput);
-    let clampedInterpolatedValue = Math.min(Math.max(interpolatedValue, range.length), 1);
+    let clampedInterpolatedValue = Math.min(Math.max(interpolatedValue, 1), range.length);
     return range[Math.round(clampedInterpolatedValue) - 1];
   }
   function calculateGadgetTraitStrength(trait_id, value) {
     let traitStrength = "";
     switch (trait_id) {
       case "content/items/traits/gadget_inate_trait/trait_inate_gadget_toughness":
-        traitStrength = lerp(0.05, 0.2, value).toFixed(2);
+        traitStrength = `${(parseFloat(lerp(0.05, 0.2, value).toFixed(2)) * 100).toFixed()}%`;
         break;
       case "content/items/traits/gadget_inate_trait/trait_inate_gadget_health":
-        traitStrength = lerp(0.05, 0.2, value).toFixed(2);
+        traitStrength = `${(parseFloat(lerp(0.05, 0.25, value).toFixed(2)) * 100).toFixed()}%`;
         break;
       case "content/items/traits/gadget_inate_trait/trait_inate_gadget_health_segment":
-        traitStrength = steppedLerp([1, 2, 3], value).toString();
+        traitStrength = "1";
         break;
       case "content/items/traits/gadget_inate_trait/trait_inate_gadget_stamina":
-        traitStrength = "1";
+        traitStrength = steppedLerp([1, 2, 3], value).toString();
         break;
     }
     return traitStrength;
