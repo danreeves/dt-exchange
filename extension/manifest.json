@@ -10,8 +10,7 @@
   "permissions": [
     "https://accounts.atoma.cloud/*",
     "https://bsp-td-prod.atoma.cloud/*",
-    "https://bsp-cdn-prod.atoma.cloud/*",
-    "tabs"
+    "https://bsp-cdn-prod.atoma.cloud/*"
   ],
   "content_scripts": [
     {
