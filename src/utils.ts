@@ -28,23 +28,21 @@ export function createFetcher(user: User) {
 	}
 }
 
-function safeParseJSON<T>(jsonString: string): T | undefined {
+export function safeParseJSON<T>(jsonString: string): T | undefined {
+	let input = jsonString
 	let parsed: T | undefined
 
-	let accountNameRe = /"AccountName".*",/
-	let quoteInAccountNameRe = /"AccountName":".*(").*",/
-
-	// If the account name has special characters it might be malformed
-	// and have quotes in it. This breaks JSON.parse. Remove it.
-	if (jsonString.search(quoteInAccountNameRe) > 0) {
-		jsonString = jsonString.replace(accountNameRe, '')
-	}
+	let accountNameRe = /"AccountName":".*",|,"AccountName":".*"|"AccountName":".*"/
 
 	try {
-		parsed = JSON.parse(jsonString)
+		parsed = JSON.parse(input)
 	} catch {
-		warn("User could not be decoded")
-		parsed = undefined
+		try {
+			parsed = JSON.parse(input.replace(accountNameRe, ''))
+		} catch {
+			warn("User could not be decoded")
+			parsed = undefined
+		}
 	}
 
 	return parsed

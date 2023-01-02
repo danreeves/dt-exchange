@@ -32200,17 +32200,18 @@
     };
   }
   function safeParseJSON(jsonString) {
+    let input = jsonString;
     let parsed;
-    let accountNameRe = /"AccountName".*",/;
-    let quoteInAccountNameRe = /"AccountName":".*(").*",/;
-    if (jsonString.search(quoteInAccountNameRe) > 0) {
-      jsonString = jsonString.replace(accountNameRe, "");
-    }
+    let accountNameRe = /"AccountName":".*",|,"AccountName":".*"|"AccountName":".*"/;
     try {
-      parsed = JSON.parse(jsonString);
+      parsed = JSON.parse(input);
     } catch {
-      warn("User could not be decoded");
-      parsed = void 0;
+      try {
+        parsed = JSON.parse(input.replace(accountNameRe, ""));
+      } catch {
+        warn("User could not be decoded");
+        parsed = void 0;
+      }
     }
     return parsed;
   }
