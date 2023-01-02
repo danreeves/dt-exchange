@@ -4,6 +4,6 @@
   var ext = chrome || browser;
   var dashboardUrl = "https://accounts.atoma.cloud/dashboard";
   ext.browserAction.onClicked.addListener(() => {
-    window.open(dashboardUrl, "_blank");
+    ext.tabs.create({ url: dashboardUrl });
   });
 })();
