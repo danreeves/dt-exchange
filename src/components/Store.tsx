@@ -172,24 +172,24 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 		if (target.blessing) {
 			var blessingMatch = offer.description.overrides.traits.find(function(blessing){
-				if (target.blessing && ! target.blessing.find(element => localisation[blessing.id].description.match(element))) {
+				if (target.blessing && ! target.blessing.find(element => (localisation[blessing.id].display_name).match(element))) {
 					return false
 				}
 				return true
 			})
-			if (blessingMatch) {
+			if (!blessingMatch) {
 				return false
 			}
 		}
 
 		if (target.perk) {
 			var perkMatch = offer.description.overrides.perks.find(function(perk){
-				if (target.perk && ! target.perk.find(element => localisation[perk.id].description.match(element))) {
+				if (target.perk && ! target.perk.find(element => (localisation[perk.id].display_name).match(element))) {
 					return false
 				}
 				return true
 			})
-			if (perkMatch) {
+			if (!perkMatch) {
 				return false
 			}	
 		}
@@ -214,7 +214,6 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 	try {
 		targets = JSON.parse(localStorage.getItem('filter-rules'))
 		if (targets.length > 0) {
-			console.log(targets)
 			store.personal.forEach(function (offer) {
 				filterFunc(character, offer, targets)
 			})
