@@ -1,0 +1,32 @@
+---
+name: "pre-release"
+
+on:
+  push:
+    branches:
+      - "main"
+    tags-ignore:
+      - "*"
+
+jobs:
+  gh_pre_release:
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout"
+
+      - name: Create zip
+        uses: thedoctor0/zip-release
+        with:
+          type: "zip"
+          filename: "extension.zip"
+          path: ./extension/*
+
+      - uses: "marvinpinto/action-automatic-releases"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Latest Build"
+          files: "extension.zip"
