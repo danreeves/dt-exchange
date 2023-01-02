@@ -12,11 +12,36 @@ import "./Layout.css"
 
 import type { SortOption } from "./Store"
 
+const handleSubmit = (e, setState) => {
+  e.preventDefault()
+  try {
+    JSON.parse(e.target.firstChild.value)
+  } catch (e) {
+    console.log("Invalid JSON string")
+  }
+  localStorage.setItem('filter-rules', e.target.firstChild.value)
+  setState(e.target.firstChild.value)
+}
+
+const Rules = (props) => (
+  <div id="match-rules-page" className="match-rules">
+    <label htmlFor="match-rules">
+      Filter rules
+    </label>
+    <form onSubmit={e => handleSubmit(e, props.setState)}>
+      <textarea id="match-rules" name="match-rules-area" rows="40" cols="50" defaultValue={props.state} />
+      <button type="submit">Save</button>
+    </form>
+  </div>
+) 
+
 export function Layout() {
   let account = useAccount()
   let store = useStore(account?.characters?.[0], false) // Don't poll here
   let [activeChar, setActiveChar] = useState<string>()
   let [sortOption, setSortOption] = useState<SortOption>(SORT_OPTIONS[0])
+  let [showRules, setShowRules] = useState(false)
+  let [matchOption, setMatchOption] = useState(localStorage.getItem('filter-rules') || '[{"minStats":360}]')
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
   )
@@ -103,6 +128,11 @@ export function Layout() {
             </option>
           ))}{" "}
         </select>
+      </div>
+
+      <div className="sort-row">
+        <input type="submit" value="Filter rules" onClick={() => setShowRules(!showRules)} />
+        { showRules ? <Rules state={matchOption} setState={setMatchOption} /> : null }
       </div>
 
       <Store

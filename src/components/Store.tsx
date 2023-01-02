@@ -146,28 +146,15 @@ export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
 function filterFunc(char: Character | undefined, offer: Personal) {
-	var targets: FilterRule[] = [
-		{
-			character: ["veteran"],
-			item:["Power Sword"],
-			blessing:["Power Cycler"],
-			// perk:["Critical Hit Damage"],
-			// minStats:330,
-		},
-		{
-			item:["Obscurus Mk II Blaze Force Sword"],
-			blessing:["Deflector"],
-		},
-		{
-			minStats:360,
-		},
-		{
-			item:["(Reliquary)", "(Caged)", "(Casket)"],
-			blessing:["Toughness"],
-			perk:["Toughness"],
-			minRating: 80,
-		},
-	]
+	var targets: FilterRule[]
+
+	try {
+		targets = JSON.parse(localStorage.getItem('filter-rules'))
+	} catch(e) {
+                console.log("Failed to parse filter rules", e)
+		return
+	}
+	console.log(targets)
 
 	if (!char) {
 		return
