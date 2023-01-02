@@ -171,27 +171,39 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 		}
 
 		if (target.blessing) {
-			var blessingMatch = offer.description.overrides.traits.find(function(blessing){
+			if (! offer.description.overrides.traits.find(function(blessing){
 				if (target.blessing && ! target.blessing.find(element => (localisation[blessing.id].display_name).match(element))) {
 					return false
 				}
 				return true
-			})
-			if (!blessingMatch) {
+			})) { return false }
+		}
+
+		if (target.minBlessingRarity) {
+			if (! offer.description.overrides.traits.find(function(blessing){
+				if (blessing.rarity >= target.minBlessingRarity) {
+					return true
+				}
 				return false
-			}
+			})) { return false }
 		}
 
 		if (target.perk) {
-			var perkMatch = offer.description.overrides.perks.find(function(perk){
+			if (! offer.description.overrides.perks.find(function(perk){
 				if (target.perk && ! target.perk.find(element => (localisation[perk.id].display_name).match(element))) {
 					return false
 				}
 				return true
-			})
-			if (!perkMatch) {
+			})) { return false }	
+		}
+
+		if (target.minPerkRarity) {
+			if (! offer.description.overrides.perks.find(function(perk){
+				if (perk.rarity >= target.minPerkRarity) {
+					return true
+				}
 				return false
-			}	
+			})) { return false }
 		}
 
 		return true

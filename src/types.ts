@@ -207,6 +207,8 @@ export interface FilterRule {
 	item?: string[]
 	blessing?: string[]
 	perk?: string[]
+	minBlessingRarity?: number
+	minPerkRarity?: number
 	minStats?: number
 	minRating?: number
 }
