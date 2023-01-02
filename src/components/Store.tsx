@@ -81,6 +81,20 @@ const traitRarityToRating = {
 	5: 65
 } as const
 
+const deemphasizeOptions = {
+	none: () => {
+		return "offer-display-normal"
+	},
+	opacity: () => {
+		return "offer-display-miss"
+	},
+	hide: () => {
+		return "offer-display-hide"
+	}
+}
+export type DeemphasizeOption = keyof typeof deemphasizeOptions
+export const DEEMPHASIZE_OPTIONS = Object.keys(deemphasizeOptions) as DeemphasizeOption[]
+
 const sortOptions = {
 
 	modifiersRating: (a: Personal, b: Personal) => {
@@ -214,10 +228,11 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 	}
 }
 
-export function Store({ character, sortOption, filterOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
+export function Store({ character, sortOption, filterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
 	var targets: FilterRule[]
+	console.log(deemphasizeOption)
 
 	if (!store || !items) {
 		return <Loading />
@@ -243,7 +258,7 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 					// console.log(offer)
 
 					return (
-						<div className={`MuiBox-root css-178yklu ${offer.description.overrides.filter_match ? "offer-match" : ""}`} key={offer.offerId}>
+						<div className={`MuiBox-root css-178yklu ${offer.description.overrides.filter_match ? "offer-match" : deemphasizeOptions[deemphasizeOption]()}`} key={offer.offerId}>
 							<Title>{localisation[offer.description.id].display_name}</Title>
 
 							{offer.state === "completed" ? <Text>Owned</Text> : null}

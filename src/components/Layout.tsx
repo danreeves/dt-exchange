@@ -3,7 +3,7 @@ import { Button } from "./Button"
 import { Countdown } from "./Countdown"
 import { archetype } from "../icons"
 import { Loading } from "./Loading"
-import { Store, SORT_OPTIONS, FILTER_OPTIONS, FilterOption } from "./Store"
+import { Store, SORT_OPTIONS, FILTER_OPTIONS, DEEMPHASIZE_OPTIONS, FilterOption, DeemphasizeOption } from "./Store"
 import { Text } from "./Text"
 import { Title } from "./Title"
 import { useAccount } from "../hooks/useAccount"
@@ -25,8 +25,23 @@ const handleSubmit = (e, setState) => {
 
 const Rules = (props) => (
   <div id="match-rules-page" className="match-rules">
+    <label htmlFor="deemphasize-by">
+      <Text>De-emphasize: </Text>
+    </label>
+    <select
+      id="deemphasize-by"
+      onChange={(event) => {
+        props.setDE(event.target.value)
+      }}
+    >
+      {DEEMPHASIZE_OPTIONS.map((opt) => (
+        <option key={opt} value={opt}>
+          {camelToSentence(opt)}
+        </option>
+      ))}{" "}
+    </select>
     <label htmlFor="match-rules">
-      Filter rules
+      <Text>Filter rules</Text>
     </label>
     <form onSubmit={e => handleSubmit(e, props.setState)}>
       <textarea id="match-rules" name="match-rules-area" rows="40" cols="50" defaultValue={props.state} />
@@ -45,6 +60,7 @@ export function Layout() {
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
   )
+  let [deemphasizeOption, setDeemphasizeOption] = useState<DeemphasizeOption>(DEEMPHASIZE_OPTIONS[0])
 
   if (!account || !store) {
     return (
@@ -132,13 +148,14 @@ export function Layout() {
 
       <div className="sort-row">
         <input type="submit" value="Filter rules" onClick={() => setShowRules(!showRules)} />
-        { showRules ? <Rules state={matchOption} setState={setMatchOption} /> : null }
+        { showRules ? <Rules state={matchOption} setState={setMatchOption} DE={deemphasizeOption} setDE={setDeemphasizeOption} /> : null }
       </div>
 
       <Store
         character={account.characters.find((char) => char.id === activeChar)}
         sortOption={sortOption}
         filterOption={filterOption}
+        deemphasizeOption={deemphasizeOption}
       />
     </>
   )

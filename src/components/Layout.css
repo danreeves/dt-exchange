@@ -56,10 +56,10 @@
   color: white
 }
 
-.offer-miss {
+.offer-display-miss {
   opacity: 33%;
 }
 
-.offer-hide {
+.offer-display-hide {
   display: none;
 }
