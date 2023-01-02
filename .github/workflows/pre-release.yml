@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@3.2.0"
+        uses: "actions/checkout@v3.2.0"
 
       - name: Create zip
         uses: thedoctor0/zip-release@0.6.2
