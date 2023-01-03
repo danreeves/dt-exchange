@@ -223,7 +223,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 	}
 }
 
-export function Store({ character, sortOption, filterOption, enableShopFilterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption, enableShopFilterOption: boolean, deemphasizeOption: DeemphasizeOption }) {
+export function Store({ character, sortOption, filterOption, enableRuleBasedFilterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption, enableRuleBasedFilterOption: boolean, deemphasizeOption: DeemphasizeOption }) {
 	let store = useStore(character)
 	let items = useMasterList()
 	var targets: FilterRule[]
@@ -232,7 +232,7 @@ export function Store({ character, sortOption, filterOption, enableShopFilterOpt
 		return <Loading />
 	}
 
-        if (enableShopFilterOption) {
+        if (enableRuleBasedFilterOption) {
 		try {
 			targets = JSON.parse(localStorage.getItem('filter-rules'))
 			if (targets.length > 0) {

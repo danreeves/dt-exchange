@@ -82,7 +82,7 @@ export function Layout() {
     default:
       deemphasizeSelection = "none"
   }
-  let [enableShopFilterOption, setEnableShopFilterOption] = useState(localStorage.getItem('enable-shop-filter') || "false")
+  let [enableRuleBasedFilterOption, setEnableRuleBasedFilterOption] = useState(localStorage.getItem('enable-rule-based-filter') || "false")
   let [deemphasizeOption, setDeemphasizeOption] = useState<DeemphasizeOption>(deemphasizeSelection)
 
   if (!account || !store) {
@@ -170,15 +170,15 @@ export function Layout() {
       </div>
 
       <div className="sort-row">
-        <label htmlFor="enable-shop-filter">
-          <Text>Enable shop filter: </Text>
+        <label htmlFor="enable-rule-based-filter">
+          <Text>Enable rule based filtering: </Text>
         </label>
         <input
           type="checkbox"
-          id="enable-shop-filter"
-          defaultChecked={enableShopFilterOption == "true" ? true : undefined}
+          id="enable-rule-based-filter"
+          defaultChecked={enableRuleBasedFilterOption == "true" ? true : undefined}
           onChange={(event) => {
-            toggleCheckboxChange(event, setEnableShopFilterOption)
+            toggleCheckboxChange(event, setEnableRuleBasedFilterOption)
           }}
         />
       </div>
@@ -193,7 +193,7 @@ export function Layout() {
         character={account.characters.find((char) => char.id === activeChar)}
         sortOption={sortOption}
         filterOption={filterOption}
-        enableShopFilterOption={enableShopFilterOption == "true" ? true : false}
+        enableRuleBasedFilterOption={enableRuleBasedFilterOption == "true" ? true : false}
         deemphasizeOption={deemphasizeOption}
       />
     </>
