@@ -258,7 +258,7 @@ export function Store({ character, sortOption, filterOption, enableRuleBasedFilt
 					// console.log(offer)
 
 					return (
-						<div className={`MuiBox-root css-178yklu ${offer.description.overrides.filter_match ? "offer-match" : deemphasizeClass[deemphasizeOption]}`} key={offer.offerId}>
+						<div className={`MuiBox-root css-178yklu ${enableRuleBasedFilterOption ? offer.description.overrides.filter_match ? "offer-match" : deemphasizeClass[deemphasizeOption] : ""}`} key={offer.offerId}>
 							<Title>{localisation[offer.description.id].display_name}</Title>
 
 							{offer.state === "completed" ? <Text>Owned</Text> : null}
