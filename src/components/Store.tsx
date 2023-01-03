@@ -234,7 +234,7 @@ export function Store({ character, sortOption, filterOption, enableRuleBasedFilt
 		return <Loading />
 	}
 
-        if (enableRuleBasedFilterOption) {
+	if (enableRuleBasedFilterOption) {
 		try {
 			targets = JSON.parse(localStorage.getItem('filter-rules'))
 			if (targets.length > 0) {
