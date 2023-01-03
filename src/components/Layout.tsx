@@ -12,7 +12,7 @@ import "./Layout.css"
 
 import type { SortOption } from "./Store"
 
-const handleSubmit = (e, setState) => {
+const handleRBFSubmit = (e, setState) => {
   e.preventDefault()
   try {
     JSON.parse(e.target.firstChild.value)
@@ -23,15 +23,18 @@ const handleSubmit = (e, setState) => {
   setState(e.target.firstChild.value)
 }
 
-const Rules = (props) => (
+const RuleBasedFilters = (props) => (
   <div id="match-rules-page" className="match-rules">
     <label htmlFor="deemphasize-by">
       <Text>De-emphasize: </Text>
     </label>
     <select
       id="deemphasize-by"
+      defaultValue={props.DE}
       onChange={(event) => {
+        event.preventDefault()
         props.setDE(event.target.value)
+        localStorage.setItem("deemphasize-selection", event.target.value)
       }}
     >
       {DEEMPHASIZE_OPTIONS.map((opt) => (
@@ -43,24 +46,44 @@ const Rules = (props) => (
     <label htmlFor="match-rules">
       <Text>Filter rules</Text>
     </label>
-    <form onSubmit={e => handleSubmit(e, props.setState)}>
+    <form onSubmit={e => handleRBFSubmit(e, props.setState)}>
       <textarea id="match-rules" name="match-rules-area" rows="40" cols="50" defaultValue={props.state} />
       <button type="submit">Save</button>
     </form>
   </div>
 ) 
 
+const toggleCheckboxChange = (e, setState) => {
+  if (e.target.type === 'checkbox') {
+    setState(e.target.checked ? "true" : "false")
+    localStorage.setItem(e.target.id, e.target.checked ? "true" : "false")
+  }
+}
+
 export function Layout() {
   let account = useAccount()
   let store = useStore(account?.characters?.[0], false) // Don't poll here
   let [activeChar, setActiveChar] = useState<string>()
   let [sortOption, setSortOption] = useState<SortOption>(SORT_OPTIONS[0])
-  let [matchOption, setMatchOption] = useState(localStorage.getItem('filter-rules') || '[{"minStats":360}]')
+  let [rbfOption, setRBFOption] = useState(localStorage.getItem('filter-rules') || '[{"minStats":360}]')
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
   )
-  let [enableShopFilterOption, setEnableShopFilterOption] = useState<boolean>(false)
-  let [deemphasizeOption, setDeemphasizeOption] = useState<DeemphasizeOption>(DEEMPHASIZE_OPTIONS[0])
+  
+  let deemphasizeSelection: DeemphasizeOption
+  switch (localStorage.getItem('deemphasize-selection')) {
+    case 'hide':
+      deemphasizeSelection = "hide"
+      break
+    case 'opacity':
+      deemphasizeSelection = "opacity"
+      break
+    case 'none':
+    default:
+      deemphasizeSelection = "none"
+  }
+  let [enableShopFilterOption, setEnableShopFilterOption] = useState(localStorage.getItem('enable-shop-filter') || "false")
+  let [deemphasizeOption, setDeemphasizeOption] = useState<DeemphasizeOption>(deemphasizeSelection)
 
   if (!account || !store) {
     return (
@@ -153,16 +176,16 @@ export function Layout() {
         <input
           type="checkbox"
           id="enable-shop-filter"
+          defaultChecked={enableShopFilterOption == "true" ? true : undefined}
           onChange={(event) => {
-            console.log(event, event.target.checked)
-            setEnableShopFilterOption(event.target.checked)
+            toggleCheckboxChange(event, setEnableShopFilterOption)
           }}
         />
       </div>
       <div className="sort-row">
         <details>
           <summary>Show rules</summary>
-          <Rules state={matchOption} setState={setMatchOption} DE={deemphasizeOption} setDE={setDeemphasizeOption} />
+          <RuleBasedFilters state={rbfOption} setState={setRBFOption} DE={deemphasizeOption} setDE={setDeemphasizeOption} />
         </details>
       </div>
 
@@ -170,7 +193,7 @@ export function Layout() {
         character={account.characters.find((char) => char.id === activeChar)}
         sortOption={sortOption}
         filterOption={filterOption}
-        enableShopFilterOption={enableShopFilterOption}
+        enableShopFilterOption={enableShopFilterOption == "true" ? true : false}
         deemphasizeOption={deemphasizeOption}
       />
     </>

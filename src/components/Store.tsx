@@ -81,19 +81,14 @@ const traitRarityToRating = {
 	5: 65
 } as const
 
-const deemphasizeOptions = {
-	none: () => {
-		return "offer-display-normal"
-	},
-	opacity: () => {
-		return "offer-display-miss"
-	},
-	hide: () => {
-		return "offer-display-hide"
-	}
-}
-export type DeemphasizeOption = keyof typeof deemphasizeOptions
-export const DEEMPHASIZE_OPTIONS = Object.keys(deemphasizeOptions) as DeemphasizeOption[]
+export const deemphasizeClass = {
+	"none": "offer-display-normal",
+	"opacity": "offer-display-miss",
+	"hide": "offer-display-hide"
+} as const
+
+export type DeemphasizeOption = keyof typeof deemphasizeClass
+export const DEEMPHASIZE_OPTIONS = Object.keys(deemphasizeClass) as DeemphasizeOption[]
 
 const sortOptions = {
 
@@ -169,7 +164,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 	}, 0) || 0
 
 	var found = targets.find(function(target) {
-		if (char && target.character && ! target.character.includes(char.archetype)) {
+		if (target.character && ! target.character.includes(char.archetype)) {
 			return false
 		}
 
@@ -186,7 +181,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 		if (target.blessing) {
 			if (! offer.description.overrides.traits.find(function(blessing){
-				if (target.blessing && ! target.blessing.find(element => (localisation[blessing.id].display_name).match(element))) {
+				if (! target.blessing.find(element => (localisation[blessing.id].display_name).match(element))) {
 					return false
 				}
 				return true
@@ -204,7 +199,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 		if (target.perk) {
 			if (! offer.description.overrides.perks.find(function(perk){
-				if (target.perk && ! target.perk.find(element => (localisation[perk.id].display_name).match(element))) {
+				if (! target.perk.find(element => (localisation[perk.id].display_name).match(element))) {
 					return false
 				}
 				return true
@@ -261,7 +256,7 @@ export function Store({ character, sortOption, filterOption, enableShopFilterOpt
 					// console.log(offer)
 
 					return (
-						<div className={`MuiBox-root css-178yklu ${offer.description.overrides.filter_match ? "offer-match" : deemphasizeOptions[deemphasizeOption]()}`} key={offer.offerId}>
+						<div className={`MuiBox-root css-178yklu ${offer.description.overrides.filter_match ? "offer-match" : deemphasizeClass[deemphasizeOption]}`} key={offer.offerId}>
 							<Title>{localisation[offer.description.id].display_name}</Title>
 
 							{offer.state === "completed" ? <Text>Owned</Text> : null}
