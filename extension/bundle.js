@@ -35428,9 +35428,9 @@
   var import_react8 = __toESM(require_react());
   var REFRESH_TIMER = 60 * 1e3 * 30;
   var useAuth = () => {
-    let user = getLocalStorage("user");
     (0, import_react8.useEffect)(() => {
       const timerId = setInterval(() => {
+        let user = getLocalStorage("user");
         if (user) {
           const fetcher = createFetcher(user, true);
           fetcher("https://bsp-auth-prod.atoma.cloud/queue/refresh").then((result) => {
