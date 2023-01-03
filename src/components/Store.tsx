@@ -146,7 +146,7 @@ let filterOptions = {
 export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
-export function Store({ character, storeType, sortOption, filterOption }: { character?: Character, storeType: StoreType, sortOption: SortOption, filterOption: FilterOption }) {
+export function Store({ character, storeType, sortOption, filterOption }: { character: Character|undefined, storeType: StoreType, sortOption: SortOption, filterOption: FilterOption }) {
 	console.log(storeType)
 	let store = useStore(character, storeType)
 	let items = useMasterList()
