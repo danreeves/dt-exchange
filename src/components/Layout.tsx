@@ -1,27 +1,26 @@
 import { useState } from "react"
 import { Button } from "./Button"
-import { Countdown } from "./Countdown"
 import { archetype } from "../icons"
 import { Loading } from "./Loading"
 import { Store, SORT_OPTIONS, FILTER_OPTIONS, FilterOption } from "./Store"
 import { Text } from "./Text"
 import { Title } from "./Title"
 import { useAccount } from "../hooks/useAccount"
-import { useStore } from "../hooks/useStore"
+import type { SortOption } from "./Store"
+import type { StoreType } from "../types"
 import "./Layout.css"
 
-import type { SortOption } from "./Store"
 
 export function Layout() {
   let account = useAccount()
-  let store = useStore(account?.characters?.[0], false) // Don't poll here
   let [activeChar, setActiveChar] = useState<string>()
   let [sortOption, setSortOption] = useState<SortOption>(SORT_OPTIONS[0])
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
   )
+  let [storeType, setStoreType] = useState<StoreType>('credits')
 
-  if (!account || !store) {
+  if (!account) {
     return (
       <>
         <Title>Armoury Exchange</Title>
@@ -38,10 +37,6 @@ export function Layout() {
     <>
       <Title>
         Armoury Exchange
-        <Text>
-          Refresh in{" "}
-          <Countdown until={parseInt(store.currentRotationEnd, 10)} />
-        </Text>
       </Title>
       <ul className="char-list">
         {account.characters.map((character) => {
@@ -72,6 +67,18 @@ export function Layout() {
       </ul>
 
       <div className="sort-row">
+        <label htmlFor="store-type">
+          <Text>Store type: </Text>
+        </label>
+        <select
+          id="store-type"
+          onChange={(event) => {
+            setStoreType(event.target.value as StoreType)
+          }}
+        >
+          <option key='Credits' value='credits'>Credits</option>
+          <option key='Marks' value='marks'>Marks</option>
+        </select>
         <label htmlFor="filter-by">
           <Text>Filter by: </Text>
         </label>
@@ -107,6 +114,7 @@ export function Layout() {
 
       <Store
         character={account.characters.find((char) => char.id === activeChar)}
+        storeType={storeType}
         sortOption={sortOption}
         filterOption={filterOption}
       />

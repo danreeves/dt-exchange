@@ -7,6 +7,9 @@ import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
 import "./Store.css"
+import { Countdown } from "./Countdown"
+import { useState } from "react"
+import { StoreType } from "../types"
 
 function Divider() {
 	return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
@@ -145,8 +148,9 @@ let filterOptions = {
 export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
-export function Store({ character, sortOption, filterOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption }) {
-	let store = useStore(character)
+export function Store({ character, storeType, sortOption, filterOption }: { character?: Character, storeType: StoreType, sortOption: SortOption, filterOption: FilterOption }) {
+	console.log(storeType)
+	let store = useStore(character, storeType)
 	let items = useMasterList()
 
 	if (!store || !items) {
@@ -155,6 +159,10 @@ export function Store({ character, sortOption, filterOption }: { character?: Cha
 
 	return (
 		<>
+			<Text>
+				Refresh in{" "}
+				<Countdown until={parseInt(store.currentRotationEnd, 10)} />
+			</Text>
 			{store.personal
 				.filter(filterOptions[filterOption](items))
 				.sort(sortOptions[sortOption])

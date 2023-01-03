@@ -200,3 +200,5 @@ interface PlayerItems {
 	href: string
 	version: string
 }
+
+export type StoreType = 'credits' | 'marks'
