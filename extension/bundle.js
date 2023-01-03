@@ -1013,7 +1013,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect5(create, deps) {
+          function useEffect6(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1793,7 +1793,7 @@
           exports.useContext = useContext2;
           exports.useDebugValue = useDebugValue2;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect5;
+          exports.useEffect = useEffect6;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1866,7 +1866,7 @@
             return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
           }
           var objectIs = typeof Object.is === "function" ? Object.is : is;
-          var useState4 = React2.useState, useEffect5 = React2.useEffect, useLayoutEffect2 = React2.useLayoutEffect, useDebugValue2 = React2.useDebugValue;
+          var useState4 = React2.useState, useEffect6 = React2.useEffect, useLayoutEffect2 = React2.useLayoutEffect, useDebugValue2 = React2.useDebugValue;
           var didWarnOld18Alpha = false;
           var didWarnUncachedGetSnapshot = false;
           function useSyncExternalStore2(subscribe, getSnapshot, getServerSnapshot) {
@@ -1903,7 +1903,7 @@
                 });
               }
             }, [subscribe, value, getSnapshot]);
-            useEffect5(function() {
+            useEffect6(function() {
               if (checkIfSnapshotChanged(inst)) {
                 forceUpdate({
                   inst
@@ -32178,7 +32178,7 @@
 
   // src/utils.ts
   var import_buffer = __toESM(require_buffer());
-  function createFetcher(user) {
+  function createFetcher(user, isAuth = false) {
     return async function fetchApi(path) {
       let url = path.startsWith("https") ? path : `https://bsp-td-prod.atoma.cloud${path}`;
       if (url.includes(":sub")) {
@@ -32186,7 +32186,7 @@
       }
       let res = await fetch(url, {
         headers: {
-          authorization: `Bearer ${user.AccessToken}`
+          authorization: `Bearer ${isAuth ? user.RefreshToken : user.AccessToken}`
         }
       });
       if (res.ok) {
@@ -32218,6 +32218,10 @@
     const encoded = localStorage.getItem(key3);
     const decoded = encoded ? safeParseJSON(import_buffer.Buffer.from(encoded, "base64").toString()) : void 0;
     return decoded;
+  }
+  function setLocalStorage(key3, value) {
+    const encoded = btoa(JSON.stringify(value));
+    localStorage.setItem(key3, encoded);
   }
   function log(msg) {
     console.log(`++[ ${msg} ]++`);
@@ -35420,9 +35424,30 @@
     return parts.map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()).join(" ");
   }
 
+  // src/hooks/useAuth.ts
+  var import_react8 = __toESM(require_react());
+  var REFRESH_TIMER = 60 * 1e3 * 30;
+  var useAuth = () => {
+    let user = getLocalStorage("user");
+    (0, import_react8.useEffect)(() => {
+      const timerId = setInterval(() => {
+        if (user) {
+          const fetcher = createFetcher(user, true);
+          fetcher("https://bsp-auth-prod.atoma.cloud/queue/refresh").then((result) => {
+            setLocalStorage("user", result);
+          });
+        }
+      }, REFRESH_TIMER);
+      return () => {
+        clearInterval(timerId);
+      };
+    }, []);
+  };
+
   // src/components/App.tsx
   var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   function App() {
+    useAuth();
     return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(SWRConfig2, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Layout, {}) });
   }
 

@@ -1,7 +1,7 @@
 import { Buffer } from "buffer/"
 import type { User } from "./types"
 
-export function createFetcher(user: User) {
+export function createFetcher(user: User, isAuth = false) {
 	return async function fetchApi(path: string) {
 		let url = path.startsWith("https")
 			? path
@@ -13,7 +13,7 @@ export function createFetcher(user: User) {
 
 		let res = await fetch(url, {
 			headers: {
-				authorization: `Bearer ${user.AccessToken}`,
+				authorization: `Bearer ${isAuth ? user.RefreshToken : user.AccessToken}`,
 			},
 		})
 
@@ -57,6 +57,11 @@ export function getLocalStorage<T>(key: string): T | undefined {
 		: undefined
 
 	return decoded
+}
+
+export function setLocalStorage<T>(key: string, value: T) {
+	const encoded = btoa(JSON.stringify(value));
+	localStorage.setItem(key, encoded);
 }
 
 export function log(msg: string) {
