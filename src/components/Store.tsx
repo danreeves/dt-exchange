@@ -199,7 +199,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 		if (target.perk) {
 			if (! offer.description.overrides.perks.find(function(perk){
-				if (! target.perk.find(element => (localisation[perk.id].display_name).match(element))) {
+				if (! target.perk.find(element => (localisation[perk.id].description).match(element))) {
 					return false
 				}
 				return true
@@ -220,6 +220,8 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 	if (found) {
 		offer.description.overrides.filter_match = true
+	} else {
+		offer.description.overrides.filter_match = false
 	}
 }
 
