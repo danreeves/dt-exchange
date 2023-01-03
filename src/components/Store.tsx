@@ -8,8 +8,6 @@ import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
 import "./Store.css"
 import { Countdown } from "./Countdown"
-import { useState } from "react"
-import { StoreType } from "../types"
 
 function Divider() {
 	return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
