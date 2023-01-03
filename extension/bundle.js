@@ -35171,7 +35171,6 @@
   };
   var FILTER_OPTIONS = Object.keys(filterOptions);
   function Store({ character, storeType, sortOption, filterOption }) {
-    console.log(storeType);
     let store = useStore(character, storeType);
     let items = useMasterList();
     if (!store || !items) {
@@ -35326,6 +35325,9 @@
     return data;
   }
 
+  // src/types.ts
+  var STORE_TYPES = ["credits", "marks"];
+
   // src/components/Layout.tsx
   var import_jsx_runtime8 = __toESM(require_jsx_runtime());
   function Layout() {
@@ -35377,45 +35379,36 @@
       }) }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "sort-row", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "store-type", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Store type: " }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "select",
           {
             id: "store-type",
             onChange: (event) => {
               setStoreType(event.target.value);
             },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "credits", children: "Credits" }, "Credits"),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "marks", children: "Marks" }, "Marks")
-            ]
+            children: STORE_TYPES.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt))
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "filter-by", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Filter by: " }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "select",
           {
             id: "filter-by",
             onChange: (event) => {
               setFilterOption(event.target.value);
             },
-            children: [
-              FILTER_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt)),
-              " "
-            ]
+            children: FILTER_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt))
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "sort-by", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Sort by: " }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "select",
           {
             id: "sort-by",
             onChange: (event) => {
               setSortOption(event.target.value);
             },
-            children: [
-              SORT_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt)),
-              " "
-            ]
+            children: SORT_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt))
           }
         )
       ] }),

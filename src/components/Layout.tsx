@@ -9,6 +9,7 @@ import { useAccount } from "../hooks/useAccount"
 import type { SortOption } from "./Store"
 import type { StoreType } from "../types"
 import "./Layout.css"
+import { STORE_TYPES } from "../types"
 
 
 export function Layout() {
@@ -76,8 +77,11 @@ export function Layout() {
             setStoreType(event.target.value as StoreType)
           }}
         >
-          <option key='Credits' value='credits'>Credits</option>
-          <option key='Marks' value='marks'>Marks</option>
+          {STORE_TYPES.map((opt) => (
+            <option key={opt} value={opt}>
+              {camelToSentence(opt)}
+            </option>
+          ))}
         </select>
         <label htmlFor="filter-by">
           <Text>Filter by: </Text>
@@ -92,7 +96,7 @@ export function Layout() {
             <option key={opt} value={opt}>
               {camelToSentence(opt)}
             </option>
-          ))}{" "}
+          ))}
         </select>
 
         <label htmlFor="sort-by">
@@ -108,7 +112,7 @@ export function Layout() {
             <option key={opt} value={opt}>
               {camelToSentence(opt)}
             </option>
-          ))}{" "}
+          ))}
         </select>
       </div>
 

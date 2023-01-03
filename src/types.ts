@@ -201,4 +201,5 @@ interface PlayerItems {
 	version: string
 }
 
-export type StoreType = 'credits' | 'marks'
+export const STORE_TYPES = ['credits', 'marks'] as const
+export type StoreType = typeof STORE_TYPES[number]
