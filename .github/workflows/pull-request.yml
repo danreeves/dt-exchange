@@ -19,7 +19,7 @@ jobs:
       - name: "Build"
         uses: actions/setup-node@v3
         with:
-          node-version: current
+          node-version: lts/*
       - run: npm i
       - run: npm run build
       - run: npm test
