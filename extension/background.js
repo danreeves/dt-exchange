@@ -1938,7 +1938,6 @@
     if (message && message.type == "user-auth") {
       if (sender.tab && sender.tab.id)
         atomaTabs.push(sender.tab.id);
-      console.dir(message);
       authData = message.user;
     }
     sendResponse();

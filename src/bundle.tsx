@@ -1,6 +1,6 @@
 import { App } from "./components/App"
 import { createRoot } from "react-dom/client"
-import { log, setLocalStorage } from "./utils"
+import { log } from "./utils"
 
 window.addEventListener("popstate", function(event) {
 	// Log the state data to the console
