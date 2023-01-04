@@ -13,7 +13,7 @@ export function Countdown({ until }: { until: number }): ReactElement {
 
 	return (
 		<>
-			{`${mins} minutes`}
+			{mins < 60 ? `${mins} minutes` : `${Math.floor(mins / 60)} hours`}
 			<Spinner kind="dots" />
 		</>
 	)

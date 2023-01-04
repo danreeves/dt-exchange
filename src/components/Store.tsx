@@ -2,11 +2,12 @@ import type { ReactNode } from "react"
 import { credits, rating } from "../icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type { Character, Items, Personal, FilterRule } from "../types"
+import type { Character, Items, Personal, StoreType, FilterRule } from "../types"
 import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
 import "./Store.css"
+import { Countdown } from "./Countdown"
 
 function Divider() {
 	return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
@@ -225,8 +226,8 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 	}
 }
 
-export function Store({ character, sortOption, filterOption, enableRuleBasedFilterOption, deemphasizeOption }: { character?: Character, sortOption: SortOption, filterOption: FilterOption, enableRuleBasedFilterOption: boolean, deemphasizeOption: DeemphasizeOption }) {
-	let store = useStore(character)
+export function Store({ character, storeType, sortOption, filterOption, enableRuleBasedFilterOption, deemphasizeOption }: { character: Character | undefined, storeType: StoreType, sortOption: SortOption, filterOption: FilterOption, enableRuleBasedFilterOption: boolean, deemphasizeOption: DeemphasizeOption }) {
+	let store = useStore(character, storeType)
 	let items = useMasterList()
 	var targets: FilterRule[]
 
@@ -251,6 +252,10 @@ export function Store({ character, sortOption, filterOption, enableRuleBasedFilt
 
 	return (
 		<>
+			<Text>
+				Refresh in{" "}
+				<Countdown until={parseInt(store.currentRotationEnd, 10)} />
+			</Text>
 			{store.personal
 				.filter(filterOptions[filterOption](items))
 				.sort(sortOptions[sortOption])
