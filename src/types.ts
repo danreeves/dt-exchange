@@ -31,7 +31,7 @@ export interface Character {
   id: string
   name: string
   gender: string
-  archetype: "veteran" | "zealot" | "psyker" | "ogryn"
+  archetype: ClassType
   specialization: string
   level: number
 }
@@ -206,8 +206,11 @@ interface PlayerItems {
   version: string
 }
 
+export const CLASS_TYPES = ["veteran", "zealot", "psyker", "ogryn"] as const
+export type ClassType = typeof CLASS_TYPES[number]
+
 export interface FilterRule {
-  character?: ("veteran" | "zealot" | "psyker" | "ogryn")[]
+  character?: ClassType[] | ClassType
   item?: string[] | string
   blessing?: string[] | string
   perk?: string[] | string
