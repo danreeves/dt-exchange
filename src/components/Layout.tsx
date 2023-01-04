@@ -186,7 +186,7 @@ export function Layout() {
         <input
           type="checkbox"
           id="enable-rule-based-filter"
-          defaultChecked={enableRuleBasedFilterOption == "true" ? true : undefined}
+          checked={enableRuleBasedFilterOption == "true"}
           onChange={(event) => {
             toggleCheckboxChange(event, setEnableRuleBasedFilterOption)
           }}
