@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "./Button"
 import { Countdown } from "./Countdown"
 import { archetype } from "../icons"
@@ -20,7 +20,7 @@ export function Layout() {
   let [filterOption, setFilterOption] = useState<FilterOption>(
     FILTER_OPTIONS[0]
   )
-
+  
   if (!account || !store) {
     return (
       <>

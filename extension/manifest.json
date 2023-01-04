@@ -8,9 +8,7 @@
     "128": "icon128.png"
   },
   "permissions": [
-    "https://accounts.atoma.cloud/*",
-    "https://bsp-td-prod.atoma.cloud/*",
-    "https://bsp-cdn-prod.atoma.cloud/*"
+    "alarms"
   ],
   "content_scripts": [
     {

@@ -1,26 +1,22 @@
-import { useMemo, useRef } from "react"
-import { isEqual } from 'lodash'
+import { useMemo } from "react"
 import { createFetcher, getLocalStorage } from "../utils"
 import type { User } from "../types"
+import { useUser } from "../components/context/UserContextProvider"
 
 type Fetcher = <T>(path: string) => Promise<T>
 
 export function useFetcher(): Fetcher {
-	let userRef = useRef<User>()
-	let user = getLocalStorage<User>("user")
-
-	if (!isEqual(user, userRef.current)) {
-		userRef.current = user
-	}
+	// Fall back to local storage
+	const user = useUser() || getLocalStorage<User>("user");
 
 	let fetcher = useMemo(() => {
-		if (userRef.current) {
-			return createFetcher(userRef.current)
+		if (user) {
+			return createFetcher(user)
 		}
 		return async () => {
 			throw new Error("User Auth not found...")
 		}
-	}, [userRef.current])
+	}, [user])
 
 	return fetcher
 }

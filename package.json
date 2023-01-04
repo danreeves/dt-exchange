@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@tsconfig/strictest": "^1.0.2",
+    "@types/chrome": "^0.0.206",
     "@types/lodash": "^4.14.191"
   },
   "prettier": {

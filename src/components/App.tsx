@@ -1,13 +1,14 @@
-import type { ReactElement } from "react"
+import { ReactElement } from "react"
 import { SWRConfig } from "swr"
 import { Layout } from "./Layout"
-import { useAuth } from "../hooks/useAuth"
+import { UserContextProvider } from "./context/UserContextProvider"
 
 export function App(): ReactElement {
-	useAuth();
 	return (
 		<SWRConfig>
-			<Layout />
+			<UserContextProvider>
+				<Layout />
+			</UserContextProvider>
 		</SWRConfig>
 	)
 }

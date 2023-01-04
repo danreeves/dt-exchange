@@ -1,6 +1,6 @@
 import { App } from "./components/App"
 import { createRoot } from "react-dom/client"
-import { log } from "./utils"
+import { log, setLocalStorage } from "./utils"
 
 window.addEventListener("popstate", function(event) {
 	// Log the state data to the console
@@ -9,7 +9,6 @@ window.addEventListener("popstate", function(event) {
 
 async function main() {
 	log("Armoury Exchange booting")
-
 	let observer = new MutationObserver(() => {
 		let accountDetailsTitle = document
 			.evaluate(
