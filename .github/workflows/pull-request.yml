@@ -24,14 +24,7 @@ jobs:
       - run: npm run build
       - run: npm test
 
-      - name: Create zip
-        uses: thedoctor0/zip-release@0.6.2
-        with:
-          type: "zip"
-          filename: "extension.zip"
-          directory: extension
-
       - uses: actions/upload-artifact@v3
         with:
           name: extension
-          path: extension/extension.zip
+          path: extension/
