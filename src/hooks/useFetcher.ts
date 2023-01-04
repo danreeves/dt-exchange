@@ -6,21 +6,21 @@ import type { User } from "../types"
 type Fetcher = <T>(path: string) => Promise<T>
 
 export function useFetcher(): Fetcher {
-	let userRef = useRef<User>()
-	let user = getLocalStorage<User>("user")
+  let userRef = useRef<User>()
+  let user = getLocalStorage<User>("user")
 
-	if (!isEqual(user, userRef.current)) {
-		userRef.current = user
-	}
+  if (!isEqual(user, userRef.current)) {
+    userRef.current = user
+  }
 
-	let fetcher = useMemo(() => {
-		if (userRef.current) {
-			return createFetcher(userRef.current)
-		}
-		return async () => {
-			throw new Error("User Auth not found...")
-		}
-	}, [userRef.current])
+  let fetcher = useMemo(() => {
+    if (userRef.current) {
+      return createFetcher(userRef.current)
+    }
+    return async () => {
+      throw new Error("User Auth not found...")
+    }
+  }, [userRef.current])
 
-	return fetcher
+  return fetcher
 }

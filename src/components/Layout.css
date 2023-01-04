@@ -1,72 +1,72 @@
 .char-list {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	gap: 1em;
-	margin-top: 1em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: 1em;
 }
 
 .char-list li {
-	list-style: none;
-	display: flex;
-	flex: 1;
+  list-style: none;
+  display: flex;
+  flex: 1;
 }
 
 .char-list li .my-button {
-	flex: 1;
+  flex: 1;
 }
 
 .class-icon {
-	height: 3em;
-	width: auto;
-	vertical-align: middle;
-	margin-right: 1em;
+  height: 3em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 1em;
 }
 
 .char-button {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
 }
 
 .sort-row {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .rbf-row {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	display: flex;
-	align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 .sort-row label {
-	margin-right: 0.5em;
+  margin-right: 0.5em;
 }
 
 .sort-row label:not(:first-of-type) {
-	margin-left: 0.5em;
+  margin-left: 0.5em;
 }
 
 .offer-match > .item-title {
-	color: red;
+  color: red;
 }
 
 .offer-match > .item-title ~ .item-title {
-	color: white;
+  color: white;
 }
 
 .offer-display-miss {
-	opacity: 33%;
+  opacity: 33%;
 }
 
 .offer-display-hide {
-	display: none;
+  display: none;
 }
