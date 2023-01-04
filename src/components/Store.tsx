@@ -8,6 +8,7 @@ import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
 import "./Store.css"
 import { Countdown } from "./Countdown"
+import { takeRightWhile } from "lodash"
 
 function Divider() {
 	return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
@@ -155,7 +156,7 @@ let filterOptions = {
 export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
-function filterFunc(char: Character | undefined, offer: Personal, targets: FilterRule[]) {
+function filterFunc(char: Character | undefined, storeType: StoreType, offer: Personal, targets: FilterRule[]) {
 	if (!char) {
 		return
 	}
@@ -166,6 +167,10 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 	var found = targets.find(function(target) {
 		if (target.character && ! target.character.includes(char.archetype)) {
+			return false
+		}
+
+		if (target.store && ! target.store.includes(storeType)) {
 			return false
 		}
 
@@ -240,7 +245,7 @@ export function Store({ character, storeType, sortOption, filterOption, enableRu
 			targets = JSON.parse(localStorage.getItem('filter-rules'))
 			if (targets.length > 0) {
 				store.personal.map(function (offer) {
-					filterFunc(character, offer, targets)
+					filterFunc(character, storeType, offer, targets)
 				})
 			}
 		} catch(e) {
