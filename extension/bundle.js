@@ -35306,9 +35306,7 @@
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: {}, children: "Modifiers" }),
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
                     /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("img", { src: rating_default, style: { height: "1em" } }),
-                    offer.description.overrides.base_stats?.reduce((sum, stat) => {
-                      return Math.round(sum + stat.value * 100);
-                    }, 0)
+                    offer.description.overrides.baseItemLevel
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "stats", children: offer.description.overrides.base_stats?.map((stat) => {
