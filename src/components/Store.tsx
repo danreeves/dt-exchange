@@ -209,7 +209,7 @@ function filterFunc(char: Character | undefined, storeType: StoreType, offer: Pe
 					return false
 				}
 				return true
-			})) { return false }	
+			})) { return false }
 		}
 
 		if (target.minPerkRarity) {
@@ -309,9 +309,7 @@ export function Store({ character, storeType, sortOption, filterOption, enableRu
 											<span style={{}}>Modifiers</span>
 											<div style={{ display: 'flex', alignItems: 'center' }}>
 												<img src={rating} style={{ height: '1em' }} />
-												{offer.description.overrides.base_stats?.reduce((sum, stat) => {
-													return Math.round(sum + (stat.value * 100))
-												}, 0)}
+												{offer.description.overrides.baseItemLevel}
 											</div>
 										</div>
 										<div className="stats">
