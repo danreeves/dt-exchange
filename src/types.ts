@@ -208,10 +208,10 @@ interface PlayerItems {
 
 export interface FilterRule {
   character?: ("veteran" | "zealot" | "psyker" | "ogryn")[]
-  item?: string[]
-  blessing?: string[]
-  perk?: string[]
-  store?: StoreType[]
+  item?: string[] | string
+  blessing?: string[] | string
+  perk?: string[] | string
+  store?: StoreType[] | string
   minBlessingRarity?: number
   minPerkRarity?: number
   minStats?: number
