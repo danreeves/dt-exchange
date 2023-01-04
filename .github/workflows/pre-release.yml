@@ -2,11 +2,11 @@
 name: "pre-release"
 
 on:
-  push:
-    branches:
-      - "main"
-    tags-ignore:
-      - "*"
+  push #:
+  # branches:
+  #   - "main"
+  # tags-ignore:
+  #   - "*"
 
 jobs:
   gh_pre_release:
@@ -16,6 +16,13 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v3.2.0"
+
+      - name: "Build"
+        uses: actions/setup-node@v3
+        with:
+          node-version: current
+      - run: npm run build
+      - run: npm test
 
       - name: Create zip
         uses: thedoctor0/zip-release@0.6.2
