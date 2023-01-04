@@ -98,6 +98,7 @@ export interface Overrides {
 	traits: Trait[]
 	perks: Perk[]
 	base_stats?: BaseStat[]
+	filter_match?: boolean
 }
 
 export interface BaseStat {
@@ -201,5 +202,18 @@ interface PlayerItems {
 	version: string
 }
 
+export interface FilterRule {
+	character?: ("veteran" | "zealot" | "psyker" | "ogryn")[]
+	item?: string[]
+	blessing?: string[]
+	perk?: string[]
+	store?: StoreType[]
+	minBlessingRarity?: number
+	minPerkRarity?: number
+	minStats?: number
+	minRating?: number
+}
+
 export const STORE_TYPES = ['credits', 'marks'] as const
 export type StoreType = typeof STORE_TYPES[number]
+

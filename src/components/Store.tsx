@@ -2,12 +2,13 @@ import type { ReactNode } from "react"
 import { credits, rating } from "../icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type { Character, Items, Personal, StoreType } from "../types"
+import type { Character, Items, Personal, StoreType, FilterRule } from "../types"
 import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
 import "./Store.css"
 import { Countdown } from "./Countdown"
+import { takeRightWhile } from "lodash"
 
 function Divider() {
 	return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
@@ -82,6 +83,15 @@ const traitRarityToRating = {
 	5: 65
 } as const
 
+export const deemphasizeClass = {
+	"none": "offer-display-normal",
+	"opacity": "offer-display-miss",
+	"hide": "offer-display-hide"
+} as const
+
+export type DeemphasizeOption = keyof typeof deemphasizeClass
+export const DEEMPHASIZE_OPTIONS = Object.keys(deemphasizeClass) as DeemphasizeOption[]
+
 const sortOptions = {
 
 	modifiersRating: (a: Personal, b: Personal) => {
@@ -146,12 +156,103 @@ let filterOptions = {
 export type FilterOption = keyof typeof filterOptions
 export const FILTER_OPTIONS = Object.keys(filterOptions) as FilterOption[]
 
-export function Store({ character, storeType, sortOption, filterOption }: { character: Character | undefined, storeType: StoreType, sortOption: SortOption, filterOption: FilterOption }) {
+function filterFunc(char: Character | undefined, storeType: StoreType, offer: Personal, targets: FilterRule[]) {
+	if (!char) {
+		return
+	}
+
+	var statRoll = offer.description.overrides.base_stats?.reduce((sum, stat) => {
+		return Math.round(sum + (stat.value * 100))
+	}, 0) || 0
+
+	var found = targets.find(function(target) {
+		if (target.character && ! target.character.includes(char.archetype)) {
+			return false
+		}
+
+		if (target.store && ! target.store.includes(storeType)) {
+			return false
+		}
+
+		if (target.item && ! target.item.find(element => localisation[offer.description.id].display_name.match(new RegExp(element,"i")))) {
+			return false
+		}
+
+		if (target.minStats && target.minStats > statRoll) {
+			return false
+		}
+		if (target.minRating && target.minRating > offer.description.overrides.itemLevel) {
+			return false
+		}
+
+		if (target.blessing) {
+			if (! offer.description.overrides.traits.find(function(blessing){
+				if (! target.blessing.find(element => (localisation[blessing.id].display_name).match(new RegExp(element,"i")))) {
+					return false
+				}
+				return true
+			})) { return false }
+		}
+
+		if (target.minBlessingRarity) {
+			if (! offer.description.overrides.traits.find(function(blessing){
+				if (blessing.rarity >= target.minBlessingRarity) {
+					return true
+				}
+				return false
+			})) { return false }
+		}
+
+		if (target.perk) {
+			if (! offer.description.overrides.perks.find(function(perk){
+				if (! target.perk.find(element => (localisation[perk.id].description).match(new RegExp(element, "i")))) {
+					return false
+				}
+				return true
+			})) { return false }	
+		}
+
+		if (target.minPerkRarity) {
+			if (! offer.description.overrides.perks.find(function(perk){
+				if (perk.rarity >= target.minPerkRarity) {
+					return true
+				}
+				return false
+			})) { return false }
+		}
+
+		return true
+	})
+
+	if (found) {
+		offer.description.overrides.filter_match = true
+	} else {
+		offer.description.overrides.filter_match = false
+	}
+}
+
+export function Store({ character, storeType, sortOption, filterOption, enableRuleBasedFilterOption, deemphasizeOption }: { character: Character | undefined, storeType: StoreType, sortOption: SortOption, filterOption: FilterOption, enableRuleBasedFilterOption: boolean, deemphasizeOption: DeemphasizeOption }) {
 	let store = useStore(character, storeType)
 	let items = useMasterList()
+	var targets: FilterRule[]
 
 	if (!store || !items) {
 		return <Loading />
+	}
+
+	if (enableRuleBasedFilterOption) {
+		try {
+			targets = JSON.parse(localStorage.getItem('filter-rules'))
+			if (targets.length > 0) {
+				store.personal.map(function (offer) {
+					filterFunc(character, storeType, offer, targets)
+				})
+			}
+		} catch(e) {
+			console.log("Failed to parse filter rules", e)
+		}
+	} else {
+		deemphasizeOption = "none"
 	}
 
 	return (
@@ -167,7 +268,7 @@ export function Store({ character, storeType, sortOption, filterOption }: { char
 					// console.log(offer)
 
 					return (
-						<div className="MuiBox-root css-178yklu" key={offer.offerId}>
+						<div className={`MuiBox-root css-178yklu ${enableRuleBasedFilterOption ? offer.description.overrides.filter_match ? "offer-match" : deemphasizeClass[deemphasizeOption] : ""}`} key={offer.offerId}>
 							<Title>{localisation[offer.description.id].display_name}</Title>
 
 							{offer.state === "completed" ? <Text>Owned</Text> : null}
