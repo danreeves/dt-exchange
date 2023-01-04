@@ -42,4 +42,4 @@ export const UserContextProvider = ({ children }: { children: ReactNode}) => {
     return <UserContext.Provider value={user}>
         {children}
     </UserContext.Provider>
-};
+}
