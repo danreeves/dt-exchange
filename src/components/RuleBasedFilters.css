@@ -1,0 +1,20 @@
+.rule-input {
+  width: 100%;
+}
+
+.rule-input:invalid {
+  border: 1px solid red;
+  color: red;
+}
+
+.error-text {
+  color: orange;
+}
+
+.rbf-details-panel {
+  flex: 1;
+}
+
+.rbf-details-summary {
+  text-align: right !important;
+}

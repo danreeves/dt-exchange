@@ -3,6 +3,7 @@
 Rule-based filtering allows you to setup rules for items you're interested in the shop.
 
 Basic layout looks like this:
+
 ```
 [
 RULE-1,
@@ -15,6 +16,7 @@ RULE-n
 Multiple rules can be defined successively, with each item in a shop being compared against every rule separately and considered a match if it matches one or more of the rules.
 
 Each `RULE` contains one or more filters, that each need to match for that specific rule to be considered a match:
+
 ```
 {
 FILTER-1,
@@ -32,51 +34,52 @@ Note: The format is called JSON and it can be quite strict with formatting. If y
 
 ### Array based
 
-Arrays filters (`[]`) allow listing **one or more** matches. If the item matches *any* of the array contents it's considered a match for that filter.
+Arrays filters (`[]`) allow listing **one or more** matches. If the item matches _any_ of the array contents it's considered a match for that filter.
 
--   `character`: character archetype(s) that has the item in their store
-	- possible values: `veteran`, `psyker`, `ogryn`, `zealot`
-	- example: `"character": ["psyker", "veteran"]`
--   `item`: item name(s)
-	- possible values: any part of item name
-	- example: `"item": ["Mk V Infantry Autogun", "Recon Lasgun"]`
--   `blessing`: blessing name(s)
-	- possible values: any part of the blessings **name**
-	- example: `"blessing": ["Deflect", "Brutal Momentum"]`
--   `perk`: perk name(s)
-	- possible values: any part of the perks **description**
-	- example: `"perk": ["Sprint Efficiency", "Critical Hit Chance"]`
+- `character`: character archetype(s) that has the item in their store
+  - possible values: `veteran`, `psyker`, `ogryn`, `zealot`
+  - example: `"character": ["psyker", "veteran"]`
+- `item`: item name(s)
+  - possible values: any part of item name
+  - example: `"item": ["Mk V Infantry Autogun", "Recon Lasgun"]`
+- `blessing`: blessing name(s)
+  - possible values: any part of the blessings **name**
+  - example: `"blessing": ["Deflect", "Brutal Momentum"]`
+- `perk`: perk name(s)
+  - possible values: any part of the perks **description**
+  - example: `"perk": ["Sprint Efficiency", "Critical Hit Chance"]`
 
 ### Numeric
 
 Numeric filters are just normal integers, only a single value can be defined at a time.
 
--   `minStats`: minimum sum of all modifiers combined
-	- example: `"minStats": 360`
--   `minRating`: minimum total rating of the item
-	- example: `"minRating": 500`
--   `minBlessingRarity`: requirement for a blessing to be of specific rarity, if there are multiple blessings it's considered a match if any of the blessings has this rarity.
-	- possible values: `1`, `2`, `3`, `4`
-	- example: `"minBlessingRarity": 3`
--   `minPerkRarity`: same as above, but for perks
-	- possible values: `1`, `2`, `3`, `4`
-	- example: `"minPerkRarity": 4`
+- `minStats`: minimum sum of all modifiers combined
+  - example: `"minStats": 360`
+- `minRating`: minimum total rating of the item
+  - example: `"minRating": 500`
+- `minBlessingRarity`: requirement for a blessing to be of specific rarity, if there are multiple blessings it's considered a match if any of the blessings has this rarity.
+  - possible values: `1`, `2`, `3`, `4`
+  - example: `"minBlessingRarity": 3`
+- `minPerkRarity`: same as above, but for perks
+  - possible values: `1`, `2`, `3`, `4`
+  - example: `"minPerkRarity": 4`
 
 ### Strings
 
 String filters allow defining only a single possible value.
 
 - `shop`: require item to be in a specific shop
-	- possible values: `credits`, `marks`
-	- example: `"shop": "marks"`
+  - possible values: `credits`, `marks`
+  - example: `"shop": "marks"`
 
 ## Default configuration
 
 By default the configuration looks like this:
+
 ```json
 [
   {
-    "minStats":360
+    "minStats": 360
   }
 ]
 ```
@@ -86,30 +89,31 @@ This is a configuration with single rule that has a single filter. This specific
 ## Advanced examples
 
 Lets consider the following example:
-``` json
+
+```json
 [
-	{
-		"item":["Power Sword"],
-		"blessing":["Power Cycler"]
-	},
-	{
-		"item":["Antax Mk V Combat Axe"],
-		"blessing":["Brutal Momentum"]
-	},
-	{
-		"minStats":360
-	},
-	{
-		"minBlessingRarity":3,
-		"store":"credits"
-	},
-	{
-		"character": ["veteran"],
-		"item":["(Reliquary)", "(Caged)", "(Casket)"],
-		"blessing":["Endurance"],
-		"perk":["Block Efficiency"],
-		"minRating": 80
-	}
+  {
+    "item": ["Power Sword"],
+    "blessing": ["Power Cycler"]
+  },
+  {
+    "item": ["Antax Mk V Combat Axe"],
+    "blessing": ["Brutal Momentum"]
+  },
+  {
+    "minStats": 360
+  },
+  {
+    "minBlessingRarity": 3,
+    "store": "credits"
+  },
+  {
+    "character": ["veteran"],
+    "item": ["(Reliquary)", "(Caged)", "(Casket)"],
+    "blessing": ["Endurance"],
+    "perk": ["Block Efficiency"],
+    "minRating": 80
+  }
 ]
 ```
 
@@ -118,28 +122,30 @@ This configuration contains five separate rules with various amounts of filters 
 The five rules in this configurations are the following:
 
 ### Example: Item with specific blessing
-```	json
+
+```json
 {
-	"item":["Power Sword"],
-	"blessing":["Power Cycler"]
+  "item": ["Power Sword"],
+  "blessing": ["Power Cycler"]
 }
 ```
+
 This would match any Power Sword with the blessing `Power Cycler`. Since there is only one item that has `Power Sword` in it's name there's no need to write the complete name of the item.
 
-``` json
+```json
 {
-	"item":["Antax Mk V Combat Axe"],
-	"blessing":["Brutal Momentum"]
+  "item": ["Antax Mk V Combat Axe"],
+  "blessing": ["Brutal Momentum"]
 }
 ```
 
-Similar to the first one, but here we're looking for specific variation of the Combat Axe, and are required to write down more specific name. Variations that would also work are things like `Antax Mk V` or `Mk V Combat Axe`. 
+Similar to the first one, but here we're looking for specific variation of the Combat Axe, and are required to write down more specific name. Variations that would also work are things like `Antax Mk V` or `Mk V Combat Axe`.
 
-### Example: any item with good enough combined stats 
+### Example: any item with good enough combined stats
 
-``` json
+```json
 {
-	"minStats":360
+  "minStats": 360
 }
 ```
 
@@ -147,23 +153,24 @@ This rule will match any shop item that has sum of all stat modifiers combined 3
 
 ### Example: any blessing with higher rarity
 
-``` json
+```json
 {
-	"minBlessingRarity":3,
-	"store":"credits"
+  "minBlessingRarity": 3,
+  "store": "credits"
 }
 ```
 
 This rule will match any item in the hourly shop that has blessing of rarity 3 or higher.
 
 ### Example: curios for specific character
-``` json
+
+```json
 {
-	"character": ["veteran"],
-	"item":["(Reliquary)", "(Caged)", "(Casket)"],
-	"blessing":["Endurance"],
-	"perk":["Block Efficiency"],
-	"minRating": 80
+  "character": ["veteran"],
+  "item": ["(Reliquary)", "(Caged)", "(Casket)"],
+  "blessing": ["Endurance"],
+  "perk": ["Block Efficiency"],
+  "minRating": 80
 }
 ```
 

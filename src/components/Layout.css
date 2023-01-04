@@ -40,6 +40,13 @@
   justify-content: flex-end;
 }
 
+.rbf-row {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
 .sort-row label {
   margin-right: 0.5em;
 }
@@ -53,7 +60,7 @@
 }
 
 .offer-match > .item-title ~ .item-title {
-  color: white
+  color: white;
 }
 
 .offer-display-miss {
