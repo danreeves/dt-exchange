@@ -139,8 +139,8 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 {
   "item": "Kantrael MG XII Infantry Lasgun",
   "blessing": [
-	"Infernus",
-	"Ghost"
+    "Infernus",
+    "Ghost"
   ]
 }
 ```
