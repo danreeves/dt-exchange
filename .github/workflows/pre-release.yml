@@ -1,5 +1,5 @@
 ---
-name: "pre-release"
+name: "Prerelease"
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   gh_pre_release:
-    name: "Pre-release"
+    name: "Prerelease"
     runs-on: "ubuntu-latest"
 
     steps:
