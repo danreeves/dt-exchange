@@ -1,5 +1,5 @@
 ---
-name: "pre-release"
+name: "Build PR"
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build_pr:
-    name: "Pre-release"
+    name: "Build PR"
     runs-on: "ubuntu-latest"
 
     steps:
