@@ -32,13 +32,14 @@ export function safeParseJSON<T>(jsonString: string): T | undefined {
 	let input = jsonString
 	let parsed: T | undefined
 
-	let accountNameRe = /"AccountName":".*",|,"AccountName":".*"|"AccountName":".*"/
+	let accountNameRe =
+		/"AccountName":".*",|,"AccountName":".*"|"AccountName":".*"/
 
 	try {
 		parsed = JSON.parse(input)
 	} catch {
 		try {
-			parsed = JSON.parse(input.replace(accountNameRe, ''))
+			parsed = JSON.parse(input.replace(accountNameRe, ""))
 		} catch {
 			warn("User could not be decoded")
 			parsed = undefined
@@ -63,4 +64,11 @@ export function log(msg: string) {
 
 export function warn(msg: string) {
 	console.warn(`++! ${msg} !++`)
+}
+
+export function camelToSentence(str: string): string {
+	let parts = str.split(/(?=[A-Z])/)
+	return parts
+		.map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase())
+		.join(" ")
 }

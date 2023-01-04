@@ -9,7 +9,7 @@ export function Countdown({ until }: { until: number }): ReactElement {
 			setMins(Math.ceil((until - Date.now()) / 1000 / 60))
 		}, 1000)
 		return () => clearInterval(intervalId)
-	})
+	}, [until])
 
 	return (
 		<>

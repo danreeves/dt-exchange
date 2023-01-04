@@ -8,20 +8,29 @@ let key = (char: Character | undefined, storeType: StoreType) =>
 		? `/store/storefront/${storeType}_store_${char.archetype}?accountId=:sub&personal=true&characterId=${char.id}`
 		: null
 
-export function useStore(char: Character | undefined, storeType: StoreType, poll = true): Store | undefined {
+export function useStore(
+	char: Character | undefined,
+	storeType: StoreType,
+	poll = true
+): Store | undefined {
 	let fetcher = useFetcher()
 	let { data, mutate } = useSWR<Store>(key(char, storeType), fetcher)
 
 	useEffect(() => {
 		if (poll) {
 			let intervalId = setInterval(() => {
-				if (data?.currentRotationEnd && parseInt(data.currentRotationEnd, 10) <= Date.now()) {
+				if (
+					data?.currentRotationEnd &&
+					parseInt(data.currentRotationEnd, 10) <= Date.now()
+				) {
 					mutate()
 				}
 			}, 1000)
-			return () => { clearInterval(intervalId) }
+			return () => {
+				clearInterval(intervalId)
+			}
 		}
-		return () => { }
+		return () => {}
 	})
 
 	return data

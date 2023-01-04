@@ -1,14 +1,14 @@
 .my-button {
-  --webkit-appearance: none;
-  height: auto;
-  width: auto;
-  padding: 1em;
-  position: relative;
-  color: white;
-  cursor: pointer;
-  background: rgb(11, 11, 11);
+	--webkit-appearance: none;
+	height: auto;
+	width: auto;
+	padding: 1em;
+	position: relative;
+	color: white;
+	cursor: pointer;
+	background: rgb(11, 11, 11);
 }
 
 .my-button:hover {
-  background: rgb(33, 33, 33);
+	background: rgb(33, 33, 33);
 }

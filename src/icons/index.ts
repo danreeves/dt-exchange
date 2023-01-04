@@ -6,8 +6,8 @@ export { default as credits } from "./credits.png"
 export { default as rating } from "./rating.png"
 
 export const archetype = {
-  veteran,
-  psyker,
-  zealot,
-  ogryn,
+	veteran,
+	psyker,
+	zealot,
+	ogryn,
 }

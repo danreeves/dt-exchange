@@ -2,7 +2,7 @@ import { App } from "./components/App"
 import { createRoot } from "react-dom/client"
 import { log } from "./utils"
 
-window.addEventListener("popstate", function(event) {
+window.addEventListener("popstate", function (event) {
 	// Log the state data to the console
 	console.log(event)
 })
@@ -42,8 +42,8 @@ async function main() {
 
 				// Clone the details panel
 				let myContainer = accountDetailsEl.cloneNode(true)
-					// Empty it
-					; (myContainer.firstChild!.firstChild as HTMLElement).innerHTML = ""
+				// Empty it
+				;(myContainer.firstChild!.firstChild as HTMLElement).innerHTML = ""
 				// Insert the clone before the details panel
 				accountDetailsEl.parentElement?.insertBefore(
 					myContainer,

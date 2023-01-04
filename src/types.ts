@@ -117,7 +117,7 @@ export interface Trait {
 	value?: number
 }
 
-export interface Properties { }
+export interface Properties {}
 
 export interface Entitlement {
 	id: string
@@ -186,7 +186,11 @@ export interface Items {
 		display_name: string
 		dev_name: string
 		dev_description: string
-		description_values: { rarity: string, string_key: string, string_value: string }[]
+		description_values: {
+			rarity: string
+			string_key: string
+			string_value: string
+		}[]
 		icon: string
 		item_type: ItemType
 		slots: string[]
@@ -214,6 +218,5 @@ export interface FilterRule {
 	minRating?: number
 }
 
-export const STORE_TYPES = ['credits', 'marks'] as const
+export const STORE_TYPES = ["credits", "marks"] as const
 export type StoreType = typeof STORE_TYPES[number]
-

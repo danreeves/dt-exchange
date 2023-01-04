@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react"
-import { isEqual } from 'lodash'
+import { isEqual } from "lodash"
 import { createFetcher, getLocalStorage } from "../utils"
 import type { User } from "../types"
 
