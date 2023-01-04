@@ -17,6 +17,14 @@ jobs:
       - name: "Checkout code"
         uses: "actions/checkout@v3.2.0"
 
+      - name: "Build"
+        uses: actions/setup-node@v3
+        with:
+          node-version: current
+      - run: npm i
+      - run: npm run build
+      - run: npm test
+
       - name: "Create zip"
         uses: thedoctor0/zip-release@0.6.2
         with:
