@@ -200,3 +200,6 @@ interface PlayerItems {
 	href: string
 	version: string
 }
+
+export const STORE_TYPES = ['credits', 'marks'] as const
+export type StoreType = typeof STORE_TYPES[number]
