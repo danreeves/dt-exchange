@@ -171,13 +171,16 @@ function filterFunc(
     return
   }
 
+  let arr: string[]
+
   var statRoll =
     offer.description.overrides.base_stats?.reduce((sum, stat) => {
       return Math.round(sum + stat.value * 100)
     }, 0) || 0
 
   var found = targets.find(function (target) {
-    if (target.character && !target.character.includes(char.archetype)) {
+    arr = typeof target.character === 'string' ? [target.character] : target.character
+    if (target.character && !arr.includes(char.archetype)) {
       return false
     }
 
@@ -185,15 +188,17 @@ function filterFunc(
       return false
     }
 
-    if (
-      target.item &&
-      !target.item.find((element) =>
-        localisation[offer.description.id].display_name.match(
-          new RegExp(element, "i")
+    if (target.item) {
+      arr = typeof target.item === 'string' ? [target.item] : target.item
+      if (
+        !arr.find((element) =>
+          localisation[offer.description.id].display_name.match(
+            new RegExp(element, "i")
+          )
         )
-      )
-    ) {
-      return false
+      ) {
+        return false
+      }
     }
 
     if (target.minStats && target.minStats > statRoll) {
@@ -207,10 +212,11 @@ function filterFunc(
     }
 
     if (target.blessing) {
+      arr = typeof target.blessing === 'string' ? [target.blessing] : target.blessing
       if (
         !offer.description.overrides.traits.find(function (blessing) {
           if (
-            !target.blessing.find((element) =>
+            !arr.find((element) =>
               localisation[blessing.id].display_name.match(
                 new RegExp(element, "i")
               )
@@ -239,10 +245,11 @@ function filterFunc(
     }
 
     if (target.perk) {
+      arr = typeof target.perk === 'string' ? [target.perk] : target.perk
       if (
         !offer.description.overrides.perks.find(function (perk) {
           if (
-            !target.perk.find((element) =>
+            !arr.find((element) =>
               localisation[perk.id].description.match(new RegExp(element, "i"))
             )
           ) {
