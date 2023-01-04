@@ -2,13 +2,19 @@ import type { ReactNode } from "react"
 import { credits, rating } from "../icons"
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type { haracter, Items, Personal, StoreType, FilterRule } from "../types"
+import type {
+  Items,
+  Personal,
+  StoreType,
+  FilterRule,
+  Character,
+} from "../types"
 import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation.json"
 import "./Store.css"
 import { Countdown } from "./Countdown"
-import { takeRightWhile } from "lodash"
+import { ItemState } from "./ItemState"
 
 function Divider() {
   return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
@@ -146,15 +152,15 @@ let filterOptions = {
   none: () => () => true,
 
   ranged: (items: Items) => (item: Personal) => {
-    return items[item.description.id].item_type === "WEAPON_RANGED"
+    return items[item.description.id]?.item_type === "WEAPON_RANGED"
   },
 
   melee: (items: Items) => (item: Personal) => {
-    return items[item.description.id].item_type === "WEAPON_MELEE"
+    return items[item.description.id]?.item_type === "WEAPON_MELEE"
   },
 
   trinket: (items: Items) => (item: Personal) => {
-    return items[item.description.id].item_type === "GADGET"
+    return items[item.description.id]?.item_type === "GADGET"
   },
 }
 
@@ -340,20 +346,30 @@ export function Store({
         .map((offer) => {
           // console.log(offer)
 
+          let alreadyOwnedClass =
+            offer.state === "completed" ? "item-already-owned" : ""
+          let filterMatchClass = enableRuleBasedFilterOption
+            ? offer.description.overrides.filter_match
+              ? "offer-match"
+              : deemphasizeClass[deemphasizeOption]
+            : ""
+
           return (
             <div
-              className={`MuiBox-root css-178yklu ${
-                enableRuleBasedFilterOption
-                  ? offer.description.overrides.filter_match
-                    ? "offer-match"
-                    : deemphasizeClass[deemphasizeOption]
-                  : ""
-              }`}
+              className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
               key={offer.offerId}
             >
               <Title>{localisation[offer.description.id].display_name}</Title>
 
-              {offer.state === "completed" ? <Text>Owned</Text> : null}
+              {offer.state === "completed" ? (
+                <ItemState>You already own this</ItemState>
+              ) : offer.description.overrides.characterLevel >
+                (character?.level ?? 0) ? (
+                <ItemState>
+                  Equippable at Level{" "}
+                  {offer.description.overrides.characterLevel}
+                </ItemState>
+              ) : null}
 
               {/* <details> */}
               {/* 	<summary className="MuiFormHelperText-root MuiFormHelperText-sizeMedium css-13fvtaj"> */}
