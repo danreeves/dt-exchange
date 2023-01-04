@@ -60,11 +60,12 @@ function calculateGadgetTraitStrength(trait_id: string, value: number): string {
 }
 
 const ratingColor = {
-	1: 'grey', // grey
-	2: "#36AE7C", // green
-	3: '#3AB0FF', // blue
-	4: '#FFB200', // orange
-	5: 'red', // red?
+	1: 'rgb(152, 152, 152)', // grey
+	2: 'rgb(74, 177, 85)', // green
+	3: 'rgb(76, 132, 196)', // blue
+	4: 'rgb(143, 94, 196)', // purple
+	5: 'rgb(208, 136, 48)', // orange
+	6: 'rgb(198, 52, 53)', // red
 } as const
 
 const raritySymbol = {
