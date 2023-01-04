@@ -3,8 +3,6 @@ name: "Tagged release"
 
 on:
   push:
-    branches:
-      - "main"
     tags:
       - "v*"
 
