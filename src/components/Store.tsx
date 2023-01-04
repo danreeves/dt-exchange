@@ -168,7 +168,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 			return false
 		}
 
-		if (target.item && ! target.item.find(element => localisation[offer.description.id].display_name.match(element))) {
+		if (target.item && ! target.item.find(element => localisation[offer.description.id].display_name.match(new RegExp(element,"i")))) {
 			return false
 		}
 
@@ -181,7 +181,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 		if (target.blessing) {
 			if (! offer.description.overrides.traits.find(function(blessing){
-				if (! target.blessing.find(element => (localisation[blessing.id].display_name).match(element))) {
+				if (! target.blessing.find(element => (localisation[blessing.id].display_name).match(new RegExp(element,"i")))) {
 					return false
 				}
 				return true
@@ -199,7 +199,7 @@ function filterFunc(char: Character | undefined, offer: Personal, targets: Filte
 
 		if (target.perk) {
 			if (! offer.description.overrides.perks.find(function(perk){
-				if (! target.perk.find(element => (localisation[perk.id].description).match(element))) {
+				if (! target.perk.find(element => (localisation[perk.id].description).match(new RegExp(element, "i")))) {
 					return false
 				}
 				return true
