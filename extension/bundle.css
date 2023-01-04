@@ -121,3 +121,15 @@
 .sort-row label:not(:first-of-type) {
   margin-left: 0.5em;
 }
+.offer-match > .item-title {
+  color: red;
+}
+.offer-match > .item-title ~ .item-title {
+  color: white;
+}
+.offer-display-miss {
+  opacity: 33%;
+}
+.offer-display-hide {
+  display: none;
+}

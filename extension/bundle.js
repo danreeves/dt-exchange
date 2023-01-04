@@ -6233,7 +6233,7 @@
             n = length - n;
             return baseSlice(array, n < 0 ? 0 : n, length);
           }
-          function takeRightWhile(array, predicate) {
+          function takeRightWhile2(array, predicate) {
             return array && array.length ? baseWhile(array, getIteratee(predicate, 3), false, true) : [];
           }
           function takeWhile(array, predicate) {
@@ -7901,7 +7901,7 @@
           lodash.tail = tail;
           lodash.take = take;
           lodash.takeRight = takeRight;
-          lodash.takeRightWhile = takeRightWhile;
+          lodash.takeRightWhile = takeRightWhile2;
           lodash.takeWhile = takeWhile;
           lodash.tap = tap;
           lodash.throttle = throttle;
@@ -35072,6 +35072,7 @@
   }
 
   // src/components/Store.tsx
+  var import_lodash2 = __toESM(require_lodash());
   var import_jsx_runtime6 = __toESM(require_jsx_runtime());
   function Divider() {
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("hr", { className: "MuiDivider-root MuiDivider-fullWidth css-pj146d" });
@@ -35128,6 +35129,12 @@
     4: 55,
     5: 65
   };
+  var deemphasizeClass = {
+    "none": "offer-display-normal",
+    "opacity": "offer-display-miss",
+    "hide": "offer-display-hide"
+  };
+  var DEEMPHASIZE_OPTIONS = Object.keys(deemphasizeClass);
   var sortOptions = {
     modifiersRating: (a, b) => {
       let aRating = a.description.overrides.base_stats?.reduce((sum, stat) => {
@@ -35170,11 +35177,97 @@
     }
   };
   var FILTER_OPTIONS = Object.keys(filterOptions);
-  function Store({ character, storeType, sortOption, filterOption }) {
+  function filterFunc(char, storeType, offer, targets) {
+    if (!char) {
+      return;
+    }
+    var statRoll = offer.description.overrides.base_stats?.reduce((sum, stat) => {
+      return Math.round(sum + stat.value * 100);
+    }, 0) || 0;
+    var found = targets.find(function(target) {
+      if (target.character && !target.character.includes(char.archetype)) {
+        return false;
+      }
+      if (target.store && !target.store.includes(storeType)) {
+        return false;
+      }
+      if (target.item && !target.item.find((element) => localisation_default[offer.description.id].display_name.match(new RegExp(element, "i")))) {
+        return false;
+      }
+      if (target.minStats && target.minStats > statRoll) {
+        return false;
+      }
+      if (target.minRating && target.minRating > offer.description.overrides.itemLevel) {
+        return false;
+      }
+      if (target.blessing) {
+        if (!offer.description.overrides.traits.find(function(blessing) {
+          if (!target.blessing.find((element) => localisation_default[blessing.id].display_name.match(new RegExp(element, "i")))) {
+            return false;
+          }
+          return true;
+        })) {
+          return false;
+        }
+      }
+      if (target.minBlessingRarity) {
+        if (!offer.description.overrides.traits.find(function(blessing) {
+          if (blessing.rarity >= target.minBlessingRarity) {
+            return true;
+          }
+          return false;
+        })) {
+          return false;
+        }
+      }
+      if (target.perk) {
+        if (!offer.description.overrides.perks.find(function(perk) {
+          if (!target.perk.find((element) => localisation_default[perk.id].description.match(new RegExp(element, "i")))) {
+            return false;
+          }
+          return true;
+        })) {
+          return false;
+        }
+      }
+      if (target.minPerkRarity) {
+        if (!offer.description.overrides.perks.find(function(perk) {
+          if (perk.rarity >= target.minPerkRarity) {
+            return true;
+          }
+          return false;
+        })) {
+          return false;
+        }
+      }
+      return true;
+    });
+    if (found) {
+      offer.description.overrides.filter_match = true;
+    } else {
+      offer.description.overrides.filter_match = false;
+    }
+  }
+  function Store({ character, storeType, sortOption, filterOption, enableRuleBasedFilterOption, deemphasizeOption }) {
     let store = useStore(character, storeType);
     let items = useMasterList();
+    var targets;
     if (!store || !items) {
       return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Loading, {});
+    }
+    if (enableRuleBasedFilterOption) {
+      try {
+        targets = JSON.parse(localStorage.getItem("filter-rules"));
+        if (targets.length > 0) {
+          store.personal.map(function(offer) {
+            filterFunc(character, storeType, offer, targets);
+          });
+        }
+      } catch (e) {
+        console.log("Failed to parse filter rules", e);
+      }
+    } else {
+      deemphasizeOption = "none";
     }
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Text, { children: [
@@ -35183,7 +35276,7 @@
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Countdown, { until: parseInt(store.currentRotationEnd, 10) })
       ] }),
       store.personal.filter(filterOptions[filterOption](items)).sort(sortOptions[sortOption]).map((offer) => {
-        return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "MuiBox-root css-178yklu", children: [
+        return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `MuiBox-root css-178yklu ${enableRuleBasedFilterOption ? offer.description.overrides.filter_match ? "offer-match" : deemphasizeClass[deemphasizeOption] : ""}`, children: [
           /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Title, { children: localisation_default[offer.description.id].display_name }),
           offer.state === "completed" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Text, { children: "Owned" }) : null,
           /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { display: "flex" }, children: [
@@ -35330,14 +35423,69 @@
 
   // src/components/Layout.tsx
   var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+  var handleRBFSubmit = (e, setState) => {
+    e.preventDefault();
+    try {
+      JSON.parse(e.target.firstChild.value);
+    } catch (e2) {
+      console.log("Invalid JSON string");
+    }
+    localStorage.setItem("filter-rules", e.target.firstChild.value);
+    setState(e.target.firstChild.value);
+  };
+  var RuleBasedFilters = (props) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { id: "match-rules-page", className: "match-rules", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "deemphasize-by", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "De-emphasize: " }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+      "select",
+      {
+        id: "deemphasize-by",
+        defaultValue: props.DE,
+        onChange: (event) => {
+          event.preventDefault();
+          props.setDE(event.target.value);
+          localStorage.setItem("deemphasize-selection", event.target.value);
+        },
+        children: [
+          DEEMPHASIZE_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: opt, children: camelToSentence(opt) }, opt)),
+          " "
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "match-rules", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Filter rules" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("form", { onSubmit: (e) => handleRBFSubmit(e, props.setState), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("textarea", { id: "match-rules", name: "match-rules-area", rows: "40", cols: "50", defaultValue: props.state }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "submit", children: "Save" })
+    ] })
+  ] });
+  var toggleCheckboxChange = (e, setState) => {
+    if (e.target.type === "checkbox") {
+      setState(e.target.checked ? "true" : "false");
+      localStorage.setItem(e.target.id, e.target.checked ? "true" : "false");
+    }
+  };
   function Layout() {
     let account = useAccount();
     let [activeChar, setActiveChar] = (0, import_react7.useState)();
     let [sortOption, setSortOption] = (0, import_react7.useState)(SORT_OPTIONS[0]);
+    let [rbfOption, setRBFOption] = (0, import_react7.useState)(localStorage.getItem("filter-rules") || '[{"minStats":360}]');
     let [filterOption, setFilterOption] = (0, import_react7.useState)(
       FILTER_OPTIONS[0]
     );
     let [storeType, setStoreType] = (0, import_react7.useState)("credits");
+    let deemphasizeSelection;
+    switch (localStorage.getItem("deemphasize-selection")) {
+      case "hide":
+        deemphasizeSelection = "hide";
+        break;
+      case "opacity":
+        deemphasizeSelection = "opacity";
+        break;
+      case "none":
+      default:
+        deemphasizeSelection = "none";
+    }
+    let [enableRuleBasedFilterOption, setEnableRuleBasedFilterOption] = (0, import_react7.useState)(localStorage.getItem("enable-rule-based-filter") || "false");
+    let [deemphasizeOption, setDeemphasizeOption] = (0, import_react7.useState)(deemphasizeSelection);
     if (!account) {
       return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Title2, { children: "Armoury Exchange" }),
@@ -35412,13 +35560,33 @@
           }
         )
       ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "sort-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "enable-rule-based-filter", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Enable rule based filtering: " }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          "input",
+          {
+            type: "checkbox",
+            id: "enable-rule-based-filter",
+            checked: enableRuleBasedFilterOption == "true",
+            onChange: (event) => {
+              toggleCheckboxChange(event, setEnableRuleBasedFilterOption);
+            }
+          }
+        )
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "sort-row", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("details", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("summary", { children: "Show rules" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(RuleBasedFilters, { state: rbfOption, setState: setRBFOption, DE: deemphasizeOption, setDE: setDeemphasizeOption })
+      ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         Store,
         {
           character: account.characters.find((char) => char.id === activeChar),
           storeType,
           sortOption,
-          filterOption
+          filterOption,
+          enableRuleBasedFilterOption: enableRuleBasedFilterOption == "true" ? true : false,
+          deemphasizeOption
         }
       )
     ] });
