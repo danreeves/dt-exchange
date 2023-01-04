@@ -1951,6 +1951,7 @@
       if (authData) {
         const fetcher = createFetcher(authData, true);
         fetcher("https://bsp-auth-prod.atoma.cloud/queue/refresh").then((result) => {
+          authData = result;
           atomaTabs.forEach((tabId) => {
             chrome.tabs.sendMessage(tabId, { type: "user-auth-update", user: result });
           });
