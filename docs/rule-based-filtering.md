@@ -34,7 +34,7 @@ Note: The format is called JSON and it can be quite strict with formatting. If y
 
 ### Array based
 
-Arrays filters (`[]`) allow listing **one or more** matches. If the item matches _any_ of the array contents it's considered a match for that filter.
+Array filters (`[]`) allow listing **one or more** matches. If the item matches _any_ of the array contents it's considered a match for that filter. If only one value is specified the brackets are optional: `"character": "psyker"` is evaluated the same way as `"character": ["psyker"]`
 
 - `character`: character archetype(s) that has the item in their store
   - possible values: `veteran`, `psyker`, `ogryn`, `zealot`
@@ -93,13 +93,16 @@ Lets consider the following example:
 ```json
 [
   {
-    "item": ["Power Sword"],
-    "blessing": ["Power Cycler"]
+    "item": "Power Sword",
+    "blessing": "Power Cycler"
   },
   {
-    "item": ["Antax Mk V Combat Axe"],
-    "blessing": ["Brutal Momentum"]
-  },
+    "item": "Kantrael MG XII Infantry Lasgun",
+    "blessing": [
+      "Infernus",
+      "Ghost"
+    ]
+  }
   {
     "minStats": 360
   },
@@ -108,10 +111,10 @@ Lets consider the following example:
     "store": "credits"
   },
   {
-    "character": ["veteran"],
+    "character": "veteran",
     "item": ["(Reliquary)", "(Caged)", "(Casket)"],
-    "blessing": ["Endurance"],
-    "perk": ["Block Efficiency"],
+    "blessing": "Endurance",
+    "perk": "Block Efficiency",
     "minRating": 80
   }
 ]
@@ -125,8 +128,8 @@ The five rules in this configurations are the following:
 
 ```json
 {
-  "item": ["Power Sword"],
-  "blessing": ["Power Cycler"]
+  "item": "Power Sword",
+  "blessing": "Power Cycler"
 }
 ```
 
@@ -134,12 +137,17 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 
 ```json
 {
-  "item": ["Antax Mk V Combat Axe"],
-  "blessing": ["Brutal Momentum"]
+  "item": "Kantrael MG XII Infantry Lasgun",
+  "blessing": [
+	"Infernus",
+	"Ghost"
+  ]
 }
 ```
 
-Similar to the first one, but here we're looking for specific variation of the Combat Axe, and are required to write down more specific name. Variations that would also work are things like `Antax Mk V` or `Mk V Combat Axe`.
+Similar to the first one, but here we're looking for specific variation of the Infantry Lasgun, and are required to write down more specific name. Variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`. 
+
+In addition we're looking for more than one possible blessing, so they're inside square brackets. Note that while the filter spans multiple lines, it's exactly same as `"blessing": ["Infernus","Ghost"]`.
 
 ### Example: any item with good enough combined stats
 
@@ -166,10 +174,10 @@ This rule will match any item in the hourly shop that has blessing of rarity 3 o
 
 ```json
 {
-  "character": ["veteran"],
+  "character": "veteran",
   "item": ["(Reliquary)", "(Caged)", "(Casket)"],
-  "blessing": ["Endurance"],
-  "perk": ["Block Efficiency"],
+  "blessing": "Endurance",
+  "perk": "Block Efficiency",
   "minRating": 80
 }
 ```
