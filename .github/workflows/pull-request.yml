@@ -1,16 +1,15 @@
 ---
-name: "tagged-release"
+name: "Build PR"
 
 on:
   push:
     branches:
-      - "main"
-    tags:
-      - "v*"
+      - "*"
+      - "!master"
 
 jobs:
-  tagged-release:
-    name: "Tagged Release"
+  build_pr:
+    name: "Build PR"
     runs-on: "ubuntu-latest"
 
     steps:
@@ -25,18 +24,14 @@ jobs:
       - run: npm run build
       - run: npm test
 
-      - name: "Create zip"
+      - name: Create zip
         uses: thedoctor0/zip-release@0.6.2
         with:
           type: "zip"
           filename: "extension.zip"
           directory: extension
 
-      - name: "Create new release"
-        uses: marvinpinto/action-automatic-releases@v1.2.1
+      - uses: actions/upload-artifact@v3
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Latest Build"
-          files: "extension/extension.zip"
+          name: extension
+          path: extension/extension.zip
