@@ -70,7 +70,6 @@ export function RuleBasedFilters(props: Props) {
             onKeyDown={(event) => {
                 // Workaround for Chrome specific bug: https://github.com/danreeves/dt-exchange/issues/41
                 if (event.key === 'PageUp' || event.key === 'PageDown') {
-                  console.log(event.target)
                   const cursorPosition = event.key === 'PageUp' ? 0 : event.target.textLength;
               
                   event.preventDefault();
