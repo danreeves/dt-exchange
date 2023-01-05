@@ -67,6 +67,15 @@ export function RuleBasedFilters(props: Props) {
             className="rule-input"
             name="match-rules-area"
             rows={15}
+            onKeyDown={(event) => {
+                // Workaround for Chrome specific bug: https://github.com/danreeves/dt-exchange/issues/41
+                if (event.key === 'PageUp' || event.key === 'PageDown') {
+                  const cursorPosition = event.key === 'PageUp' ? 0 : event.target.textLength;
+              
+                  event.preventDefault();
+                  event.target.setSelectionRange(cursorPosition, cursorPosition);
+                }
+            }}
             onChange={(e) => {
               if (textAreaRef.current) {
                 textAreaRef.current.setCustomValidity("")
