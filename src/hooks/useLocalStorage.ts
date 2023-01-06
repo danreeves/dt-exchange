@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react"
-import { safeParseJSON } from "../utils"
 
 const NAMESPACE = "armoury-exchange-"
 
@@ -10,7 +9,7 @@ function setLocalStorage(key: string, value: unknown) {
 }
 
 function getLocalStorage<T>(key: string): T | undefined {
-  return safeParseJSON<T>(localStorage.getItem(makeKey(key)) ?? "undefined")
+  return JSON.parse(localStorage.getItem(makeKey(key)) ?? "undefined")
 }
 
 export function useLocalStorage<T>(

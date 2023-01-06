@@ -1,6 +1,6 @@
 import test from "ava"
-import { safeParseJSON } from "./utils"
 import { Buffer } from "buffer/"
+import { safeUserParse } from "./utils"
 
 let userNames = [
   `【パンツ】Pantsu`,
@@ -22,28 +22,36 @@ function encode(obj: Record<string, unknown>): string {
 }
 
 for (let user of userNames) {
-  test(`safeParseJSON can decode special user names: ${user}`, (t) => {
-    const TestValue = "This Should Be Returned"
-    let userString = encode({ TestValue, AccountName: user })
-    let decoded = safeParseJSON<{ AccountName: string; TestValue: string }>(
-      userString
-    )
+  test(`safeUserParse can decode special user names: ${user}`, (t) => {
+    const TestAccessToken = "This Should Be Returned"
+    let userString = encode({ AccessToken: TestAccessToken, AccountName: user })
+    let decoded = safeUserParse(userString)
     t.not(decoded, undefined)
-    t.is(decoded!.TestValue, TestValue)
+    t.is(decoded!.AccessToken, TestAccessToken)
+    t.not(decoded?.AccountName, undefined)
+    t.not(decoded?.AccountName, '')
+    if (decoded?.AccountName) {
+      t.is(/[\w-#]+/.test(decoded?.AccessToken), true)
+    }
   })
 }
 
 test(" safely removes bad usernames anywhere in json", (t) => {
-  const TestValue = "This Should Be Returned"
+  const TestAccessToken = "This Should Be Returned"
   const user = userNames[0]
   let strings = [
     encode({ AccountName: user }),
-    encode({ TestValue, AccountName: user }),
-    encode({ AccountName: user, TestValue }),
-    encode({ TestValue, AccountName: user, TestValue2: TestValue }),
+    encode({ AccessToken: TestAccessToken, AccountName: user }),
+    encode({ AccountName: user, AccessToken: TestAccessToken }),
+    encode({ AccessToken: TestAccessToken, AccountName: user, RefreshToken: TestAccessToken }),
   ]
   for (let str of strings) {
-    let decoded = safeParseJSON<{ AccountName: string; TestValue: string }>(str)
+    let decoded = safeUserParse(str)
     t.not(decoded, undefined)
+    t.not(decoded?.AccountName, undefined)
+    t.not(decoded?.AccountName, '')
+    if (decoded?.AccountName) {
+      t.is(/[\w-#]+/.test(decoded?.AccessToken), true)
+    }
   }
 })
