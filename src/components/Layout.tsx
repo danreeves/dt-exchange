@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button } from "./Button"
 import { archetype } from "../icons"
 import { Loading } from "./Loading"
