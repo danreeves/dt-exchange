@@ -9,7 +9,7 @@ function setLocalStorage(key: string, value: unknown) {
 }
 
 function getLocalStorage<T>(key: string): T | undefined {
-  return JSON.parse(localStorage.getItem(makeKey(key)) ?? "undefined")
+  return JSON.parse(localStorage.getItem(makeKey(key)) ?? "null")
 }
 
 export function useLocalStorage<T>(
