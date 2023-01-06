@@ -40,7 +40,7 @@ export function safeUserParse(input: string): User | undefined {
     try {
       // If the user contains a special character, lets just rip that out, since there's
       // no logic I could figure out to repair the AccountName from the resulting mess
-      let accountNameRegex = /"AccountName":"(.*)"[,}]/g
+      let accountNameRegex = /"AccountName":"(.*)#\d{4}"[,}]/g
 
       let matches = accountNameRegex.exec(input)
       let accountName: string
