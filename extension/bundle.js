@@ -1013,7 +1013,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect7(create, deps) {
+          function useEffect6(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1793,7 +1793,7 @@
           exports.useContext = useContext3;
           exports.useDebugValue = useDebugValue2;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect7;
+          exports.useEffect = useEffect6;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1866,7 +1866,7 @@
             return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
           }
           var objectIs = typeof Object.is === "function" ? Object.is : is;
-          var useState5 = React3.useState, useEffect7 = React3.useEffect, useLayoutEffect2 = React3.useLayoutEffect, useDebugValue2 = React3.useDebugValue;
+          var useState5 = React3.useState, useEffect6 = React3.useEffect, useLayoutEffect2 = React3.useLayoutEffect, useDebugValue2 = React3.useDebugValue;
           var didWarnOld18Alpha = false;
           var didWarnUncachedGetSnapshot = false;
           function useSyncExternalStore2(subscribe, getSnapshot, getServerSnapshot) {
@@ -1903,7 +1903,7 @@
                 });
               }
             }, [subscribe, value, getSnapshot]);
-            useEffect7(function() {
+            useEffect6(function() {
               if (checkIfSnapshotChanged(inst)) {
                 forceUpdate({
                   inst

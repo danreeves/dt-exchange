@@ -1929,37 +1929,39 @@
   var ext = chrome || browser;
   var dashboardUrl = "https://accounts.atoma.cloud/dashboard";
   var authData = null;
+  var urlRegex = /accounts\.atoma\.cloud/g;
   ext.browserAction.onClicked.addListener(() => {
     window.open(dashboardUrl, "_blank");
   });
-  var createTimer = () => ext.alarms.create("user-auth-refresh", { delayInMinutes: 1 });
-  var atomaTabs = [];
+  var createTimer = (delayInMinutes) => ext.alarms.create("user-auth-refresh", { delayInMinutes });
   ext.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message && message.type == "user-auth") {
-      if (sender.tab && sender.tab.id)
-        atomaTabs.push(sender.tab.id);
       authData = message.user;
     }
     sendResponse();
   });
-  ext.tabs.onRemoved.addListener((tabId) => {
-    atomaTabs = atomaTabs.filter((tab) => tab != tabId);
-  });
   ext.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name == "user-auth-refresh") {
-      createTimer();
       if (authData) {
         const fetcher = createFetcher(authData, true);
         fetcher("https://bsp-auth-prod.atoma.cloud/queue/refresh").then((result) => {
+          const expiresInMinutes = Math.floor((result.ExpiresIn ?? 1800) / 60) - 5;
+          createTimer(expiresInMinutes);
           authData = result;
-          atomaTabs.forEach((tabId) => {
-            chrome.tabs.sendMessage(tabId, { type: "user-auth-update", user: result });
+          chrome.tabs.query({}, (tabs) => {
+            tabs.forEach((tab) => {
+              if (tab.url && tab.id && tab.url.match(urlRegex)) {
+                chrome.tabs.sendMessage(tab.id, { type: "user-auth-update", user: result });
+              }
+            });
           });
+        }).catch((error) => {
+          createTimer(10);
         });
       }
     }
   });
-  createTimer();
+  createTimer(1);
 })();
 /*! Bundled license information:
 

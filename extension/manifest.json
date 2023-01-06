@@ -8,7 +8,8 @@
     "128": "icon128.png"
   },
   "permissions": [
-    "alarms"
+    "alarms",
+    "*://accounts.atoma.cloud/*"
   ],
   "content_scripts": [
     {
