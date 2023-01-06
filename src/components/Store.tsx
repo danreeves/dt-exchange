@@ -179,11 +179,6 @@ function filterFunc(
 
   let arr: string[]
 
-  var statRoll =
-    offer.description.overrides.base_stats?.reduce((sum, stat) => {
-      return Math.round(sum + stat.value * 100)
-    }, 0) || 0
-
   var found = targets.find(function (target) {
     arr = typeof target.character === 'string' ? [target.character] : target.character
     if (target.character && !arr.includes(char.archetype)) {
@@ -207,7 +202,7 @@ function filterFunc(
       }
     }
 
-    if (target.minStats && target.minStats > statRoll) {
+    if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
       return false
     }
     if (
