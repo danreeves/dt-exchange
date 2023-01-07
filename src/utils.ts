@@ -2,20 +2,20 @@ import { Buffer } from "buffer/"
 import type { User } from "./types"
 
 export function createFetcher(user: User, isAuth = false) {
-	return async function fetchApi(path: string) {
-		let url = path.startsWith("https")
-			? path
-			: `https://bsp-td-prod.atoma.cloud${path}`
+  return async function fetchApi(path: string) {
+    let url = path.startsWith("https")
+      ? path
+      : `https://bsp-td-prod.atoma.cloud${path}`
 
     if (url.includes(":sub")) {
       url = url.replace(":sub", user.Sub)
     }
 
-		let res = await fetch(url, {
-			headers: {
-				authorization: `Bearer ${isAuth ? user.RefreshToken : user.AccessToken}`,
-			},
-		})
+    let res = await fetch(url, {
+      headers: {
+        authorization: `Bearer ${isAuth ? user.RefreshToken : user.AccessToken}`,
+      },
+    })
 
     if (res.ok) {
       try {

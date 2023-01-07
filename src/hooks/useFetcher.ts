@@ -5,8 +5,8 @@ import { useUser } from "../components/context/UserContextProvider"
 type Fetcher = <T>(path: string) => Promise<T>
 
 export function useFetcher(): Fetcher {
-	// Fall back to local storage
-	const user = useUser() || getFatSharkUser();
+  // Fall back to local storage
+  const user = useUser() || getFatSharkUser();
 
 	let fetcher = useMemo(() => {
 		if (user) {
