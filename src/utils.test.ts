@@ -1,4 +1,4 @@
-import test from "ava"
+import { expect, test } from "@jest/globals"
 import { safeUserParse } from "./utils"
 
 let userNames = [
@@ -25,19 +25,19 @@ function mangle(obj: Record<string, unknown>): string {
 }
 
 for (let user of userNames) {
-  test(`safeUserParse can parse special user names: ${user}`, (t) => {
+  test(`safeUserParse can parse special user names: ${user}`, () => {
     const TestAccessToken = "This Should Be Returned"
     let userString = mangle({AccessToken: TestAccessToken, AccountName:user})
     let decoded = safeUserParse(userString)
-    t.not(decoded, undefined)
-    t.is(decoded!.AccessToken, TestAccessToken)
-    t.not(decoded?.AccountName, undefined)
-    t.not(decoded?.AccountName, '')
-    t.is(/[\w-#]+/.test(decoded!.AccessToken), true)
+    expect(decoded).not.toBe(undefined)
+    expect(decoded!.AccessToken).toBe(TestAccessToken)
+    expect(decoded?.AccountName).not.toBe(undefined)
+    expect(decoded?.AccountName).not.toBe('')
+    expect(/[\w-#]+/.test(decoded!.AccessToken)).toBe(true)
   })
 }
 
-test(" safely removes bad usernames anywhere in json", (t) => {
+test(" safely removes bad usernames anywhere in json", () => {
   const TestAccessToken = "This Should Be Returned"
   for (let user of userNames) {
     let objs = [
@@ -48,10 +48,10 @@ test(" safely removes bad usernames anywhere in json", (t) => {
     ]
     for (let obj of objs) {
       let decoded = safeUserParse(mangle(obj))
-      t.not(decoded, undefined)
-      t.not(decoded?.AccountName, undefined)
-      t.not(decoded?.AccountName, '')
-      t.is(/[\w-#]+/.test(decoded!.AccessToken), true)
+      expect(decoded).not.toBe(undefined)
+      expect(decoded?.AccountName).not.toBe(undefined)
+      expect(decoded?.AccountName).not.toBe('')
+      expect(/[\w-#]+/.test(decoded!.AccessToken)).toBe(true)
     }
   }
 })
