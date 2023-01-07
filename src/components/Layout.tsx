@@ -1,27 +1,53 @@
 import { useState } from "react"
 import { Button } from "./Button"
-import { Countdown } from "./Countdown"
 import { archetype } from "../icons"
 import { Loading } from "./Loading"
-import { Store, SORT_OPTIONS, FILTER_OPTIONS, FilterOption } from "./Store"
+import {
+  Store,
+  SORT_OPTIONS,
+  FILTER_OPTIONS,
+  FilterOption,
+  DeemphasizeOption,
+} from "./Store"
 import { Text } from "./Text"
 import { Title } from "./Title"
 import { useAccount } from "../hooks/useAccount"
-import { useStore } from "../hooks/useStore"
-import "./Layout.css"
-
 import type { SortOption } from "./Store"
+import type { StoreType, FilterRule } from "../types"
+import "./Layout.css"
+import { STORE_TYPES } from "../types"
+import { camelToSentence } from "../utils"
+import { RuleBasedFilters } from "./RuleBasedFilters"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 export function Layout() {
   let account = useAccount()
-  let store = useStore(account?.characters?.[0], false) // Don't poll here
   let [activeChar, setActiveChar] = useState<string>()
-  let [sortOption, setSortOption] = useState<SortOption>(SORT_OPTIONS[0])
-  let [filterOption, setFilterOption] = useState<FilterOption>(
-    FILTER_OPTIONS[0]
+  let [sortOption, setSortOption] = useLocalStorage<SortOption>(
+    "sort-option",
+    SORT_OPTIONS[0]!
   )
-  
-  if (!account || !store) {
+
+  let [rbfOption, setRBFOption] = useLocalStorage<FilterRule[]>(
+    "filter-rules",
+    [{ minStats: 360 }]
+  )
+  let [filterOption, setFilterOption] = useLocalStorage<FilterOption>(
+    "filter-option",
+    FILTER_OPTIONS[0]!
+  )
+  let [storeType, setStoreType] = useLocalStorage<StoreType>(
+    "store-type",
+    "credits"
+  )
+  let [enableRuleBasedFiltering, setEnableRuleBasedFiltering] = useLocalStorage(
+    "enable-rule-based-filter",
+    false
+  )
+  let [deemphasizeOption, setDeemphasizeOption] =
+    useLocalStorage<DeemphasizeOption>("deemphasize-selection", "none")
+
+  if (!account) {
     return (
       <>
         <Title>Armoury Exchange</Title>
@@ -36,13 +62,7 @@ export function Layout() {
 
   return (
     <>
-      <Title>
-        Armoury Exchange
-        <Text>
-          Refresh in{" "}
-          <Countdown until={parseInt(store.currentRotationEnd, 10)} />
-        </Text>
-      </Title>
+      <Title>Armoury Exchange</Title>
       <ul className="char-list">
         {account.characters.map((character) => {
           return (
@@ -60,7 +80,11 @@ export function Layout() {
                   />
                   <div>
                     <div>{character.name}</div>
-                    <div style={{ textTransform: "capitalize" }}>
+                    <div
+                      style={{
+                        textTransform: "capitalize",
+                      }}
+                    >
                       {character.archetype} {character.level}
                     </div>
                   </div>
@@ -72,20 +96,37 @@ export function Layout() {
       </ul>
 
       <div className="sort-row">
+        <label htmlFor="store-type">
+          <Text>Store type: </Text>
+        </label>
+        <select
+          id="store-type"
+          value={storeType}
+          onChange={(event) => {
+            setStoreType(event.target.value as StoreType)
+          }}
+        >
+          {STORE_TYPES.map((opt) => (
+            <option key={opt} value={opt}>
+              {camelToSentence(opt)}
+            </option>
+          ))}
+        </select>
         <label htmlFor="filter-by">
           <Text>Filter by: </Text>
         </label>
         <select
           id="filter-by"
+          value={filterOption}
           onChange={(event) => {
-            setFilterOption(event.target.value)
+            setFilterOption(event.target.value as FilterOption)
           }}
         >
           {FILTER_OPTIONS.map((opt) => (
             <option key={opt} value={opt}>
               {camelToSentence(opt)}
             </option>
-          ))}{" "}
+          ))}
         </select>
 
         <label htmlFor="sort-by">
@@ -93,30 +134,53 @@ export function Layout() {
         </label>
         <select
           id="sort-by"
+          value={sortOption}
           onChange={(event) => {
-            setSortOption(event.target.value)
+            setSortOption(event.target.value as SortOption)
           }}
         >
           {SORT_OPTIONS.map((opt) => (
             <option key={opt} value={opt}>
               {camelToSentence(opt)}
             </option>
-          ))}{" "}
+          ))}
         </select>
       </div>
 
+      <div className="sort-row">
+        <label htmlFor="enable-rule-based-filter">
+          <Text>Enable rule based filtering: </Text>
+        </label>
+        <input
+          type="checkbox"
+          id="enable-rule-based-filter"
+          checked={enableRuleBasedFiltering}
+          onChange={(event) => {
+            setEnableRuleBasedFiltering(event.target.checked)
+          }}
+        />
+      </div>
+
+      {enableRuleBasedFiltering ? (
+        <div className="rbf-row">
+          <RuleBasedFilters
+            state={rbfOption}
+            setState={setRBFOption}
+            DE={deemphasizeOption}
+            setDE={setDeemphasizeOption}
+          />
+        </div>
+      ) : null}
+
       <Store
         character={account.characters.find((char) => char.id === activeChar)}
+        storeType={storeType}
         sortOption={sortOption}
         filterOption={filterOption}
+        enableRuleBasedFilterOption={enableRuleBasedFiltering}
+        filterRules={rbfOption}
+        deemphasizeOption={deemphasizeOption}
       />
     </>
   )
-}
-
-function camelToSentence(str: string): string {
-  let parts = str.split(/(?=[A-Z])/)
-  return parts
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase())
-    .join(" ")
 }

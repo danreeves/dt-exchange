@@ -7,8 +7,8 @@ let authData: User | null = null;
 const urlRegex = /accounts\.atoma\.cloud/g
 
 ext.browserAction.onClicked.addListener(() => {
-	window.open(dashboardUrl, "_blank")
-});
+	ext.tabs.create({ url: dashboardUrl })
+})
 
 const createTimer = (delayInMinutes: number) => ext.alarms.create("user-auth-refresh", { delayInMinutes })
 

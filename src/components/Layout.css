@@ -40,10 +40,33 @@
   justify-content: flex-end;
 }
 
+.rbf-row {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
 .sort-row label {
   margin-right: 0.5em;
 }
 
 .sort-row label:not(:first-of-type) {
   margin-left: 0.5em;
+}
+
+.offer-match > .item-title {
+  color: red;
+}
+
+.offer-match > .item-title ~ .item-title {
+  color: white;
+}
+
+.offer-display-miss {
+  opacity: 33%;
+}
+
+.offer-display-hide {
+  display: none;
 }

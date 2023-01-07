@@ -7,9 +7,9 @@ export function createFetcher(user: User, isAuth = false) {
 			? path
 			: `https://bsp-td-prod.atoma.cloud${path}`
 
-		if (url.includes(":sub")) {
-			url = url.replace(":sub", user.Sub)
-		}
+    if (url.includes(":sub")) {
+      url = url.replace(":sub", user.Sub)
+    }
 
 		let res = await fetch(url, {
 			headers: {
@@ -17,46 +17,67 @@ export function createFetcher(user: User, isAuth = false) {
 			},
 		})
 
-		if (res.ok) {
-			try {
-				let json = await res.clone().json()
-				return json
-			} catch {
-				return await res.text()
-			}
-		}
-	}
+    if (res.ok) {
+      try {
+        let json = await res.clone().json()
+        return json
+      } catch {
+        return await res.text()
+      }
+    }
+  }
 }
 
-function safeParseJSON<T>(jsonString: string): T | undefined {
-	let parsed: T | undefined
+export function safeUserParse(input: string): User | undefined {
+  // FS currently have a bug where non-ASCII characters are utterly mangled by their
+  // backend, and the "AccountName" field of the user JSON can contain very weird
+  // characters. It may contain unescaped double quotes, control characters, or
+  // even bonkers unicode characters like \uFFFD.
+  try {
+    // Most users will work first time, so lets try that first
+    return JSON.parse(input)
+  } catch (error) {
+    try {
+      // If the user contains a special character, lets just rip that out, since there's
+      // no logic I could figure out to repair the AccountName from the resulting mess
+      let accountNameRegex = /"AccountName":\W?"(.*)#\d{4}"[,}]/g
 
-	let accountNameRe = /"AccountName".*",/
-	let quoteInAccountNameRe = /"AccountName":".*(").*",/
+      let matches = accountNameRegex.exec(input)
+      let accountName: string
+      // Make sure the response actually included an AccountName field
+      if (matches && matches[1]) {
+        accountName = matches[1]
+      } else {
+        // If it didn't, and it failed the first parse, give up here.
+        warn("User could not be decoded, unable to repair accountName")
+        return undefined
+      }
 
-	// If the account name has special characters it might be malformed
-	// and have quotes in it. This breaks JSON.parse. Remove it.
-	if (jsonString.search(quoteInAccountNameRe) > 0) {
-		jsonString = jsonString.replace(accountNameRe, '')
-	}
+      // Remove all non-alphanumerics, plus hyphen and hash. We don't show this field anyway.
+      let safeAccountName = accountName.replace(/[^\w-#]/g, "?")
+      // Replace the crazy characters with something safe
+      input = input.replace(accountName, safeAccountName)
 
-	try {
-		parsed = JSON.parse(jsonString)
-	} catch {
-		warn("User could not be decoded")
-		parsed = undefined
-	}
-
-	return parsed
+      return JSON.parse(input)
+    } catch (error) {
+      warn("User could not be decoded")
+      return undefined
+    }
+  }
 }
 
-export function getLocalStorage<T>(key: string): T | undefined {
-	const encoded = localStorage.getItem(key)
-	const decoded = encoded
-		? safeParseJSON<T>(Buffer.from(encoded, "base64").toString())
-		: undefined
+export function getFatSharkUser(): User | undefined {
+  // This key is set by FatShark, so it's not in our namespace.
+  let userEncoded = localStorage.getItem('user')
+  if (!userEncoded) {
+    warn("No user present in localstorage")
+    return undefined
+  }
 
-	return decoded
+  // The user is a base64 encoded version of the response to /queue/refresh
+  let userDecoded = Buffer.from(userEncoded, 'base64').toString()
+
+  return safeUserParse(userDecoded)
 }
 
 export function setLocalStorage<T>(key: string, value: T) {
@@ -65,9 +86,16 @@ export function setLocalStorage<T>(key: string, value: T) {
 }
 
 export function log(msg: string) {
-	console.log(`++[ ${msg} ]++`)
+  console.log(`++[ ${msg} ]++`)
 }
 
 export function warn(msg: string) {
-	console.warn(`++! ${msg} !++`)
+  console.warn(`++! ${msg} !++`)
+}
+
+export function camelToSentence(str: string): string {
+  let parts = str.split(/(?=[A-Z])/)
+  return parts
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase())
+    .join(" ")
 }

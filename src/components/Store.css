@@ -1,5 +1,13 @@
+.item-container {
+  position: relative;
+}
+
 .item-title {
   margin-bottom: 0.5em;
+}
+
+.item-already-owned {
+  opacity: 0.5;
 }
 
 .row:not(:first-child) {

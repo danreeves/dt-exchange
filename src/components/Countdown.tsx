@@ -2,19 +2,19 @@ import { ReactElement, useEffect, useState } from "react"
 import { Spinner } from "./Spinner"
 
 export function Countdown({ until }: { until: number }): ReactElement {
-	let [mins, setMins] = useState(Math.ceil((until - Date.now()) / 1000 / 60))
+  let [mins, setMins] = useState(Math.ceil((until - Date.now()) / 1000 / 60))
 
-	useEffect(() => {
-		let intervalId = setInterval(() => {
-			setMins(Math.ceil((until - Date.now()) / 1000 / 60))
-		}, 1000)
-		return () => clearInterval(intervalId)
-	})
+  useEffect(() => {
+    let intervalId = setInterval(() => {
+      setMins(Math.ceil((until - Date.now()) / 1000 / 60))
+    }, 1000)
+    return () => clearInterval(intervalId)
+  }, [until])
 
-	return (
-		<>
-			{`${mins} minutes`}
-			<Spinner kind="dots" />
-		</>
-	)
+  return (
+    <>
+      {mins < 60 ? `${mins} minutes` : `${Math.floor(mins / 60)} hours`}
+      <Spinner kind="dots" />
+    </>
+  )
 }

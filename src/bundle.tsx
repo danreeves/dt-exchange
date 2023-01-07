@@ -2,63 +2,64 @@ import { App } from "./components/App"
 import { createRoot } from "react-dom/client"
 import { log } from "./utils"
 
-window.addEventListener("popstate", function(event) {
-	// Log the state data to the console
-	console.log(event)
+window.addEventListener("popstate", function (event) {
+  // Log the state data to the console
+  console.log(event)
 })
 
 async function main() {
-	log("Armoury Exchange booting")
-	let observer = new MutationObserver(() => {
-		let accountDetailsTitle = document
-			.evaluate(
-				'//p[contains(., "Account Details")]',
-				document,
-				null,
-				XPathResult.ANY_TYPE,
-				null
-			)
-			.iterateNext()
+  log("Armoury Exchange booting")
 
-		let armouryExchangeTitle = document
-			.evaluate(
-				'//p[contains(., "Armoury Exchange")]',
-				document,
-				null,
-				XPathResult.ANY_TYPE,
-				null
-			)
-			.iterateNext()
+  let observer = new MutationObserver(() => {
+    let accountDetailsTitle = document
+      .evaluate(
+        '//p[contains(., "Account Details")]',
+        document,
+        null,
+        XPathResult.ANY_TYPE,
+        null
+      )
+      .iterateNext()
 
-		// We're on the account page but haven't mounted
-		if (accountDetailsTitle && !armouryExchangeTitle) {
-			let accountDetailsEl = document.querySelector(".MuiBox-root.css-1yafv85")
-			if (accountDetailsEl) {
-				log("Vendor Mounting")
+    let armouryExchangeTitle = document
+      .evaluate(
+        '//p[contains(., "Armoury Exchange")]',
+        document,
+        null,
+        XPathResult.ANY_TYPE,
+        null
+      )
+      .iterateNext()
 
-				// Disconnect MutationObserver
-				observer.disconnect()
+    // We're on the account page but haven't mounted
+    if (accountDetailsTitle && !armouryExchangeTitle) {
+      let accountDetailsEl = document.querySelector(".MuiBox-root.css-1yafv85")
+      if (accountDetailsEl) {
+        log("Vendor Mounting")
 
-				// Clone the details panel
-				let myContainer = accountDetailsEl.cloneNode(true)
-					// Empty it
-					; (myContainer.firstChild!.firstChild as HTMLElement).innerHTML = ""
-				// Insert the clone before the details panel
-				accountDetailsEl.parentElement?.insertBefore(
-					myContainer,
-					accountDetailsEl
-				)
-				// Mount react app there
-				requestIdleCallback(() => {
-					createRoot(myContainer.firstChild!.firstChild! as HTMLElement).render(
-						<App />
-					)
-				})
-			}
-		}
-	})
+        // Disconnect MutationObserver
+        observer.disconnect()
 
-	observer.observe(document, { subtree: true, childList: true })
+        // Clone the details panel
+        let myContainer = accountDetailsEl.cloneNode(true)
+        // Empty it
+        ;(myContainer.firstChild!.firstChild as HTMLElement).innerHTML = ""
+        // Insert the clone before the details panel
+        accountDetailsEl.parentElement?.insertBefore(
+          myContainer,
+          accountDetailsEl
+        )
+        // Mount react app there
+        requestIdleCallback(() => {
+          createRoot(myContainer.firstChild!.firstChild! as HTMLElement).render(
+            <App />
+          )
+        })
+      }
+    }
+  })
+
+  observer.observe(document, { subtree: true, childList: true })
 }
 
 main()

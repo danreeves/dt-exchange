@@ -1,13 +1,12 @@
 import { useMemo } from "react"
-import { createFetcher, getLocalStorage } from "../utils"
-import type { User } from "../types"
+import { createFetcher, getFatSharkUser } from "../utils"
 import { useUser } from "../components/context/UserContextProvider"
 
 type Fetcher = <T>(path: string) => Promise<T>
 
 export function useFetcher(): Fetcher {
 	// Fall back to local storage
-	const user = useUser() || getLocalStorage<User>("user");
+	const user = useUser() || getFatSharkUser();
 
 	let fetcher = useMemo(() => {
 		if (user) {
@@ -16,7 +15,7 @@ export function useFetcher(): Fetcher {
 		return async () => {
 			throw new Error("User Auth not found...")
 		}
-	}, [user])
+	}, [user]);
 
-	return fetcher
+  return fetcher
 }

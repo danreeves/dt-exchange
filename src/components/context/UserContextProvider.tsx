@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import type { User } from "../../types";
-import { getLocalStorage, setLocalStorage } from "../../utils"
+import { getFatSharkUser, setLocalStorage } from "../../utils"
 
 let ext = chrome || browser
 
@@ -18,7 +18,7 @@ export const useUser = (): User | null => {
 export const UserContextProvider = ({ children }: { children: ReactNode}) => {
     const [user, setUser] = useState<User | null>(null);
     useEffect(() => {
-		let storedUser = getLocalStorage<User>("user")
+		let storedUser = getFatSharkUser();
 		if (storedUser) {
 			// Send initial auth data to background
 			ext.runtime.sendMessage({ type: 'user-auth', user: storedUser });
