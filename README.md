@@ -21,3 +21,10 @@ Dependencies: node & npm
 1. `npm install`
 2. `npm start`
 3. The `src/` directory is now being bundled into the `extension/` directory on change
+
+### Contributors
+
+- [Dan Reeves](https://github.com/danreeves)
+- [Coconutcoo](https://github.com/Coconutcoo)
+- [errnoh](https://github.com/errnoh)
+- [Chris Bitler](https://github.com/Chris-Bitler)
