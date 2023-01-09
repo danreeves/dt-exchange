@@ -1,5 +1,5 @@
 import { expect, test } from "@jest/globals"
-import { safeUserParse } from "./utils"
+import { safeUserParse } from "../src/utils"
 
 let userNames = [
   `【パンツ】Pantsu#1234`,

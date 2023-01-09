@@ -8,7 +8,8 @@
     "target": "es2021",
     "lib": ["ES2021", "DOM"],
     "types": ["chrome"],
-    "jsx": "react-jsx",
-    "include": ["src/**/*"]
-  }
+    "typeRoots": ["./node_modules/@types", "./node_modules/web-ext-types"],
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*", "tests/**/*"]
 }

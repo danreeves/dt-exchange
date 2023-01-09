@@ -223,3 +223,5 @@ export interface FilterRule {
 
 export const STORE_TYPES = ["credits", "marks"] as const
 export type StoreType = typeof STORE_TYPES[number]
+
+declare module browser {}
