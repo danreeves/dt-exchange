@@ -68,9 +68,9 @@ Numeric filters are just normal integers, only a single value can be defined at 
 
 String filters allow defining only a single possible value.
 
-- `shop`: require item to be in a specific shop
+- `store`: require item to be in a specific shop
   - possible values: `credits`, `marks`
-  - example: `"shop": "marks"`
+  - example: `"store": "marks"`
 
 ## Default configuration
 
