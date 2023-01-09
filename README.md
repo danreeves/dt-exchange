@@ -1,6 +1,6 @@
 # Darktide Armoury Exchange Extension
 
-## [Chrome Extension](https://chrome.google.com/webstore/detail/armoury-exchange/hcjihmkcnjkfkaeebhnpjcnnibpoolgc) | [Opera Addon](https://addons.opera.com/en-gb/extensions/details/armoury-exchange/) | [Firefox Addon](https://addons.mozilla.org/en-GB/firefox/addon/armoury-exchange/)
+## [Chrome Extension](https://chrome.google.com/webstore/detail/armoury-exchange/hcjihmkcnjkfkaeebhnpjcnnibpoolgc) | [Firefox Addon](https://addons.mozilla.org/en-GB/firefox/addon/armoury-exchange/)
 
 ## Usage
 
