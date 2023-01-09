@@ -56,8 +56,16 @@ describe("UserContextProvider tests", () => {
     })
 
     test("should update user when message occurs", () => {
-        jest.useFakeTimers("modern")
-        jest.setSystemTime(new Date(2023, 1, 5))
+        const mockDate = new Date("2023-01-03T00:00:00.000Z")
+        const DateReal = global.Date
+        jest
+        .spyOn(global, "Date")
+        .mockImplementation((...args) => {
+            if (args.length) {
+                return new DateReal(...args)
+            }
+            return mockDate
+        })
         const user = {
             AccessToken: "string",
             RefreshToken: "string",
@@ -69,7 +77,7 @@ describe("UserContextProvider tests", () => {
             AccessToken: "string",
             AccountName: "test person",
             ExpiresIn: 600,
-            RefreshAt: 1675584300000,
+            RefreshAt: 1672704300000,
             RefreshToken: "string",
             Sub: "test",
         }
