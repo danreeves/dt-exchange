@@ -171,7 +171,8 @@ function filterFunc(
   char: Character | undefined,
   storeType: StoreType,
   offer: Personal,
-  targets: FilterRule[]
+  targets: FilterRule[],
+  items: Items
 ) {
   if (!char) {
     return
@@ -202,9 +203,32 @@ function filterFunc(
       }
     }
 
+    if (target.type) {
+      arr = typeof target.type === 'string' ? [target.type] : target.type
+      if (
+        !arr.find(function(element){
+          switch (items[offer.description.id]?.item_type) {
+            case "WEAPON_RANGED":
+              return target.type.toLowerCase() == "ranged" ? true : false
+            case "WEAPON_MELEE":
+              return target.type.toLowerCase() == "melee" ? true : false
+            case "GADGET":
+              return target.type.toLowerCase() == "curio" ? true : false
+            default:
+              return false
+          }
+        })
+      ) {
+        return false
+      }
+    }
+
+
+
     if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
       return false
     }
+
     if (
       target.minRating &&
       target.minRating > offer.description.overrides.itemLevel
@@ -316,7 +340,7 @@ export function Store({
       targets = filterRules
       if (targets.length > 0) {
         store.personal.map(function (offer) {
-          filterFunc(character, storeType, offer, targets)
+          filterFunc(character, storeType, offer, targets, items)
         })
       }
     } catch (e) {
