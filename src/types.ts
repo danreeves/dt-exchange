@@ -209,6 +209,9 @@ interface PlayerItems {
 export const CLASS_TYPES = ["veteran", "zealot", "psyker", "ogryn"] as const
 export type ClassType = typeof CLASS_TYPES[number]
 
+export const STORE_TYPES = ["credits", "marks"] as const
+export type StoreType = typeof STORE_TYPES[number]
+
 export interface FilterRule {
   character?: ClassType[] | ClassType
   item?: string[] | string
@@ -221,5 +224,21 @@ export interface FilterRule {
   minRating?: number
 }
 
-export const STORE_TYPES = ["credits", "marks"] as const
-export type StoreType = typeof STORE_TYPES[number]
+export interface FormFilterRule {
+  character: string
+  item: string
+  blessing: string
+  perk: string
+  store: string
+  minBlessingRarity: string
+  minPerkRarity: string
+  minStats: string
+  minRating: string
+  isOpen: boolean
+}
+
+export enum Size {
+  Small,
+  Medium,
+  Large
+}
