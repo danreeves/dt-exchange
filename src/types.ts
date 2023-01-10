@@ -98,7 +98,7 @@ export interface Overrides {
   traits: Trait[]
   perks: Perk[]
   base_stats?: BaseStat[]
-  filter_match?: boolean
+  filter_match?: number // index of rule, or undefined/-1 if didn't match any?
 }
 
 export interface BaseStat {
@@ -220,6 +220,7 @@ export interface FilterRule {
   minPerkRarity?: number
   minStats?: number
   minRating?: number
+  color?: string
 }
 
 export const STORE_TYPES = ["credits", "marks"] as const

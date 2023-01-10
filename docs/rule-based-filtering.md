@@ -30,6 +30,10 @@ where each `FILTER` is some type of `"key": value` pair, explained further below
 
 Note: The format is called JSON and it can be quite strict with formatting. If you feel like your configuration should work but it doesn't, it's usually good idea to check with a tool like https://jsoneditoronline.org/ to make sure you're not missing comma or a quote from somewhere.
 
+## Evaluation order
+
+Rules are checked in the order they're defined. Item is (only) considered to be a match for the topmost rule it matches. While this doesn't matter in many cases, it does matter if you're using some of the rule-specific customization options like `color`. This means that usually you'll want your more specific rules be at the top and ones that match wider set of items at the bottom.
+
 ## Supported filters
 
 ### Array based
@@ -74,6 +78,14 @@ String filters allow defining only a single possible value.
 - `store`: require item to be in a specific shop
   - possible values: `credits`, `marks`
   - example: `"store": "marks"`
+
+### Meta
+
+In addition there are some fields that are not filters, but instead allow additional customization
+
+- `color`: color the matching item with this color (values are picked from the topmost rule that the item matches)
+  - possible values: any HTML color code, e.g. `"blue"`, `#ff5733`
+  - example: `"color": "#ff5733"`
 
 ## Default configuration
 
