@@ -1,0 +1,54 @@
+.rule-input {
+  width: 100%;
+}
+
+.rule-input:invalid {
+  border: 1px solid red;
+  color: red;
+}
+
+.error-text {
+  color: orange;
+}
+
+.rbf-details-panel {
+  flex: 1;
+}
+
+.rbf-details-summary {
+  text-align: right !important;
+}
+
+.help-button {
+  font-family: monospace;
+  text-decoration: underline;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+  margin: 0.25em;
+}
+
+.help-dialog {
+  max-width: 75ch;
+  width: 80%;
+  height: 90%;
+  overflow: hidden;
+}
+
+.help-dialog-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+  z-index: 2;
+}
+
+.help-dialog-content {
+  position: relative;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+}

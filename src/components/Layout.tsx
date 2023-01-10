@@ -17,7 +17,7 @@ import type { StoreType, FilterRule } from "../types"
 import "./Layout.css"
 import { STORE_TYPES } from "../types"
 import { camelToSentence } from "../utils"
-import { RuleBasedFilters } from "./RuleBasedFilters/RuleBasedFilters"
+import { RuleBasedFilters } from "./RuleBasedFilters"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 
 export function Layout() {
