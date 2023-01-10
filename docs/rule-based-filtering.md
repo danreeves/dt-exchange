@@ -105,7 +105,7 @@ Lets consider the following example:
       "Infernus",
       "Ghost"
     ]
-  }
+  },
   {
     "minStats": 360
   },
