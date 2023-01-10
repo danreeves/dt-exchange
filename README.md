@@ -1,6 +1,6 @@
 # Darktide Armoury Exchange Extension
 
-## [Chrome Extension](https://chrome.google.com/webstore/detail/armoury-exchange/hcjihmkcnjkfkaeebhnpjcnnibpoolgc) | [Opera Addon](https://addons.opera.com/en-gb/extensions/details/armoury-exchange/) | [Firefox Addon](https://addons.mozilla.org/en-GB/firefox/addon/armoury-exchange/)
+## [Chrome Extension](https://chrome.google.com/webstore/detail/armoury-exchange/hcjihmkcnjkfkaeebhnpjcnnibpoolgc) | [Firefox Addon](https://addons.mozilla.org/en-GB/firefox/addon/armoury-exchange/)
 
 ## Usage
 
@@ -21,3 +21,10 @@ Dependencies: node & npm
 1. `npm install`
 2. `npm start`
 3. The `src/` directory is now being bundled into the `extension/` directory on change
+
+### Contributors
+
+- [Dan Reeves](https://github.com/danreeves)
+- [Coconutcoo](https://github.com/Coconutcoo)
+- [errnoh](https://github.com/errnoh)
+- [Chris Bitler](https://github.com/Chris-Bitler)

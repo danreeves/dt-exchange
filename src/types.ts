@@ -215,6 +215,7 @@ export type StoreType = typeof STORE_TYPES[number]
 export interface FilterRule {
   character?: ClassType[] | ClassType
   item?: string[] | string
+  type?: string[] | string
   blessing?: string[] | string
   perk?: string[] | string
   store?: StoreType[] | string

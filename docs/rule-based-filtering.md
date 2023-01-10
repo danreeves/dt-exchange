@@ -48,6 +48,9 @@ Array filters (`[]`) allow listing **one or more** matches. If the item matches 
 - `perk`: perk name(s)
   - possible values: any part of the perks **description**
   - example: `"perk": ["Sprint Efficiency", "Critical Hit Chance"]`
+- `type`: item type
+  - possible values: `curio`, `ranged` or `melee`
+  - example: `"type": ["melee", "ranged"]`
 
 ### Numeric
 
@@ -68,9 +71,9 @@ Numeric filters are just normal integers, only a single value can be defined at 
 
 String filters allow defining only a single possible value.
 
-- `shop`: require item to be in a specific shop
+- `store`: require item to be in a specific shop
   - possible values: `credits`, `marks`
-  - example: `"shop": "marks"`
+  - example: `"store": "marks"`
 
 ## Default configuration
 
@@ -97,12 +100,12 @@ Lets consider the following example:
     "blessing": "Power Cycler"
   },
   {
-    "item": "Kantrael MG XII Infantry Lasgun",
+    "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
     "blessing": [
       "Infernus",
       "Ghost"
     ]
-  }
+  },
   {
     "minStats": 360
   },
@@ -112,7 +115,7 @@ Lets consider the following example:
   },
   {
     "character": "veteran",
-    "item": ["(Reliquary)", "(Caged)", "(Casket)"],
+    "type": "curio",
     "blessing": "Endurance",
     "perk": "Block Efficiency",
     "minRating": 80
@@ -137,7 +140,7 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 
 ```json
 {
-  "item": "Kantrael MG XII Infantry Lasgun",
+  "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
   "blessing": [
     "Infernus",
     "Ghost"
@@ -145,7 +148,7 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 }
 ```
 
-Similar to the first one, but here we're looking for specific variation of the Infantry Lasgun, and are required to write down more specific name. Variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`. 
+Similar to the first one, but here we're looking either for a specific variation of the Infantry Lasgun or any type of Recon Lasgun. In order to match specific Infrantry Lasgun variant we are required to write down more specific name. It's not required to write the whole name, variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`. 
 
 In addition we're looking for more than one possible blessing, so they're inside square brackets. Note that while the filter spans multiple lines, it's exactly same as `"blessing": ["Infernus","Ghost"]`.
 
@@ -175,11 +178,11 @@ This rule will match any item in the hourly shop that has blessing of rarity 3 o
 ```json
 {
   "character": "veteran",
-  "item": ["(Reliquary)", "(Caged)", "(Casket)"],
+  "type": "curio",
   "blessing": "Endurance",
   "perk": "Block Efficiency",
   "minRating": 80
 }
 ```
 
-First of all this rule only matches items that are available to your `veteran` character. While there isn't a specific filter to match Curios specifically, `"item": ["(Reliquary)", "(Caged)", "(Casket)"]` should do just that.
+This would look for specific kind of curios that are available to your `veteran` character.
