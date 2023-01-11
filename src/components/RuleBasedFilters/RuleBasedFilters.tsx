@@ -15,6 +15,7 @@ import { RulesJsonEditor } from "./components/RulesJsonEditor"
 import { SaveButton } from "./components/Buttons/SaveButton"
 import { CancelButton } from "./components/Buttons/CancelButton"
 import { RuleText } from "./components/RuleText"
+import { ShowRulesButton } from "./components/Buttons/ShowRulesButton"
 
 type Props = {
   DE: DeemphasizeOption
@@ -23,25 +24,18 @@ type Props = {
   setState: (rules: FilterRule[]) => void
 }
 
-const StyledDetailsPanel = styled.details`
+const Wrapper = styled.div`
   & {
-    width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+`
+const HeaderRow = styled.div`
+  & {
     display: block;
-  }
-`
-
-const StyledSummary = styled.summary`
-  & {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.66;
     text-align: right;
-    margin: 3px 0 0;
-    color: rgb(189, 189, 189);
   }
 `
-
 const StyledRulesSectionHeader = styled.div`
   & {
     width: 100%;
@@ -55,10 +49,14 @@ const StyledRulesSectionHeader = styled.div`
     flex: 1 1 100%;
   }
 `
-
 const StyledLabel = styled.label`
   & {
     color: #BDBDBDFF;
+  }
+`
+const StyledForm = styled.form`
+  & {
+    margin-bottom: 15px;
   }
 `
 
@@ -80,6 +78,8 @@ export function RuleBasedFilters(props: Props) {
 
   let [ruleFields, setRuleFields] = useState(props.state ? rulesToFormData(props.state) : [newRule()])
   let [ruleFormDirty, setRuleFormDirty] = useState(false)
+  let [ruleFormOpen, setRuleFormOpen] = useState(false)
+  let [ruleJsonFormOpen, setRuleJsonFormOpen] = useState(false)
 
   const handleFormChange = (index: number, event: FormEvent<HTMLInputElement>) => {
     let data: FormFilterRule[] = [...ruleFields]
@@ -128,11 +128,13 @@ export function RuleBasedFilters(props: Props) {
   }
 
   return (
-    <>
-      <StyledDetailsPanel>
-        <StyledSummary>Show rules</StyledSummary>
+    <Wrapper>
+      <HeaderRow>
+        <ShowRulesButton onClick={() => setRuleFormOpen(!ruleFormOpen)} isOpen={ruleFormOpen}>Show rules</ShowRulesButton>
+      </HeaderRow>
+      {ruleFormOpen ? (
         <div>
-          <form onSubmit={handleRuleFormSubmit}>
+          <StyledForm onSubmit={handleRuleFormSubmit}>
             <StyledRulesSectionHeader>
               <div>
                 <StyledLabel htmlFor="deemphasize-by">
@@ -171,14 +173,17 @@ export function RuleBasedFilters(props: Props) {
               )
             })}
             <AddRuleButton onClick={handleAddFormRule} />
-          </form>
+          </StyledForm>
+          <HeaderRow>
+            <ShowRulesButton onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)} isOpen={ruleJsonFormOpen}>Show JSON</ShowRulesButton>
+          </HeaderRow>
+          {ruleJsonFormOpen ? (
+            <div>
+              <RulesJsonEditor state={props.state} onSubmit={handleSubmitJson} />
+            </div>
+          ) : undefined}
         </div>
-        <br />
-        <details>
-          <StyledSummary>Rules JSON</StyledSummary>
-          <RulesJsonEditor state={props.state} onSubmit={handleSubmitJson} />
-        </details>
-      </StyledDetailsPanel>
-    </>
+      ) : undefined}
+    </Wrapper>
   )
 }

@@ -9,7 +9,7 @@ export const Icon = styled.i.attrs((props: IconProps) => ({
   scale:
     props.size === Size.Large ? "1.2"
       : props.size === Size.Medium ? "1"
-        : props.size === Size.Small ? "0.8" : "1",
+        : props.size === Size.Small ? "0.6" : "1",
 }))`
   & {
     box-sizing: border-box;

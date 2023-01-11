@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Text } from "../../Text"
 import React, { FormEvent, useRef, useState } from "react"
 import type { FilterRule } from "../../../types"
 import { rulesToJson } from "../RuleBasedFilters.service"
@@ -41,9 +40,6 @@ export const RulesJsonEditor = ((props: JsonEditorProps) => {
   return (
     <>
       <form onSubmit={handleSubmitJson}>
-        <label htmlFor="match-rules">
-          <Text>Filter rules</Text>
-        </label>
         <StyledTextArea
           ref={jsonTextAreaRef}
           id="match-rules"
