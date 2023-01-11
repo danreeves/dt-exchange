@@ -224,8 +224,6 @@ function filterFunc(
       }
     }
 
-
-
     if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
       return false
     }
@@ -365,14 +363,13 @@ export function Store({
           let alreadyOwnedClass =
             offer.state === "completed" ? "item-already-owned" : ""
           let filterMatchClass = enableRuleBasedFilterOption
-            ? offer.description.overrides.filter_match && offer.description.overrides.filter_match >= 0
+            ? offer.description.overrides.filter_match >= 0
               ? `offer-match match-rule-${offer.description.overrides.filter_match}`
               : deemphasizeClass[deemphasizeOption]
             : ""
           let filterMatchStyle = enableRuleBasedFilterOption && offer.description.overrides.filter_match >= 0
             ? {color: targets[offer.description.overrides.filter_match].color}
             : undefined
-
           return (
             <div
               className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
