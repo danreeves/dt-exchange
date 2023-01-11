@@ -98,7 +98,7 @@ export interface Overrides {
   traits: Trait[]
   perks: Perk[]
   base_stats?: BaseStat[]
-  filter_match?: number // index of rule, or undefined/-1 if didn't match any?
+  filter_match?: number // index of the first rule that the item matched to
 }
 
 export interface BaseStat {
