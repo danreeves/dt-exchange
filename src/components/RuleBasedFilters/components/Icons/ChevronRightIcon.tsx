@@ -1,11 +1,11 @@
-import { Size } from "../../../../types"
+import type { Size } from "../../../../types"
 import "./ChevronRightIcon.css"
 
 export function ChevronRightIcon(props: { size: Size }) {
   const iconSize: string =
-    props.size === Size.Large ? "filter-rules-large-icon"
-      : props.size === Size.Medium ? "filter-rules-medium-icon"
-        : props.size === Size.Small ? "filter-rules-small-icon" : "filter-rules-medium-icon";
+    props.size === "large" ? "filter-rules-large-icon"
+      : props.size === "medium" ? "filter-rules-medium-icon"
+        : props.size === "small" ? "filter-rules-small-icon" : "filter-rules-medium-icon";
 
   return (
     <>

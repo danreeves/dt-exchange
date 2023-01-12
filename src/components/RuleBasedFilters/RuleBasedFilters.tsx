@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import type { FilterRule, FormFilterRule } from "../../types"
-import { Size } from "../../types"
 import { camelToSentence } from "../../utils"
 import { DEEMPHASIZE_OPTIONS, DeemphasizeOption } from "../Store"
 import { CloseButton } from "./components/Buttons/CloseButton"
@@ -107,7 +106,7 @@ export function RuleBasedFilters(props: Props) {
             <div className={"filter-rules-section-header"}>
               <div>
                 <label className={"filter-rules-de-emphasis-label"} htmlFor="deemphasize-by">
-                  <RuleText size={Size.Medium}>De-emphasize: </RuleText>
+                  <RuleText size={"medium"}>De-emphasize: </RuleText>
                 </label>
                 <select
                   id="deemphasize-by"

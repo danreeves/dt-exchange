@@ -1,5 +1,4 @@
 import { RuleText } from "../RuleText"
-import { Size } from "../../../../types"
 import { ChevronDownIcon } from "../Icons/ChevronDownIcon"
 import { ChevronRightIcon } from "../Icons/ChevronRightIcon"
 import "./ShowRulesButton.css"
@@ -19,11 +18,11 @@ export function ShowRulesButton(props: ShowRulesBtnProps) {
       >
         <div className={"filter-rules-show-rules-inner-wrapper"}>
           {props.isOpen ? (
-            <ChevronDownIcon size={Size.Small} />
+            <ChevronDownIcon size={"small"} />
           ) : (
-            <ChevronRightIcon size={Size.Small} />
+            <ChevronRightIcon size={"small"} />
           )}
-          <RuleText size={Size.Small}>{ props.children }</RuleText>
+          <RuleText size={"small"}>{ props.children }</RuleText>
         </div>
       </button>
     </>

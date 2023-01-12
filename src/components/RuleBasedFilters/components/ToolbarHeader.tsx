@@ -1,5 +1,4 @@
 import type { FormFilterRule } from "../../../types"
-import { Size } from "../../../types"
 import { RuleText } from "./RuleText"
 import "./ToolbarHeader.css"
 
@@ -23,7 +22,7 @@ export function ToolbarHeader(props: ToolbarHeaderProps) {
   return (
     <>
       <div className={"filter-rules-toolbar-header"} title={ header }>
-        <RuleText size={Size.Small}>{ header }</RuleText>
+        <RuleText size={"small"}>{ header }</RuleText>
       </div>
     </>
   )

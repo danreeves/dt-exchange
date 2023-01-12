@@ -1,4 +1,3 @@
-import { Size } from "../../../../types"
 import { RuleText } from "../RuleText"
 import "./SaveButton.css"
 
@@ -13,7 +12,7 @@ export function SaveButton(props: SaveBtnProps) {
         type={"submit"}
         disabled={props.disabled}
       >
-        <RuleText size={Size.Medium}>Save</RuleText>
+        <RuleText size={"medium"}>Save</RuleText>
       </button>
     </>
   )

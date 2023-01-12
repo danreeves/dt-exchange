@@ -1,7 +1,6 @@
 import { SharedToolbarBtnProps, ToolbarButton } from "./ToolbarButton"
 import { ChevronDownIcon } from "../Icons/ChevronDownIcon"
 import { ChevronRightIcon } from "../Icons/ChevronRightIcon"
-import { Size } from "../../../../types"
 
 interface CollapseBtnProps extends SharedToolbarBtnProps {
   isOpen: boolean;
@@ -11,9 +10,9 @@ export function CollapseButton(props: CollapseBtnProps) {
     <>
       <ToolbarButton onClick={props.onClick}>
         {props.isOpen ? (
-          <ChevronDownIcon size={Size.Large} />
+          <ChevronDownIcon size={"large"} />
         ) : (
-          <ChevronRightIcon size={Size.Large} />
+          <ChevronRightIcon size={"large"} />
         )}
       </ToolbarButton>
     </>

@@ -1,5 +1,4 @@
 import { RuleText } from "../RuleText"
-import { Size } from "../../../../types"
 import "./CancelButton.css"
 
 export type CancelBtnProps = {
@@ -15,7 +14,7 @@ export function CancelButton (props: CancelBtnProps) {
         disabled={props.disabled}
         onClick={props.onClick}
       >
-        <RuleText size={Size.Medium}>Cancel</RuleText>
+        <RuleText size={"medium"}>Cancel</RuleText>
       </button>
     </>
   )

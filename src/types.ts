@@ -239,8 +239,5 @@ export interface FormFilterRule {
   isOpen: boolean
 }
 
-export enum Size {
-  Small,
-  Medium,
-  Large
-}
+export const SIZE = ["small", "medium", "large"] as const
+export type Size = typeof SIZE[number]
