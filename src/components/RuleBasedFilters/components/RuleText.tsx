@@ -1,30 +1,21 @@
-import styled from "styled-components"
 import { Size } from "../../../types"
+import "./RuleText.css"
 
 export type TextProps = {
   size: Size
   children?: any
 }
+export function RuleText(props: TextProps) {
+  const fontSize: string =
+    props.size === Size.Large ? "large-text"
+      : props.size === Size.Medium ? "medium-text"
+        : props.size === Size.Small ? "small-text" : "medium-text";
 
-export const StyledRuleText = styled.span.attrs((props: TextProps) => ({
-  fontSize:
-    props.size === Size.Large ? "1rem"
-      : props.size === Size.Medium ? "0.9rem"
-        : props.size === Size.Small ? "0.75rem" : "1rem",
-}))<TextProps>`
-  & {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 400;
-    font-size: ${props => props.fontSize};
-    line-height: 1.4em;
-  }
-`
-export const RuleText = ((props: TextProps) => {
   return (
     <>
-      <StyledRuleText size={ props.size }>
+      <span className={`filter-rules-text ${fontSize}`}>
         { props.children }
-      </StyledRuleText>
+      </span>
     </>
   )
-})
+}

@@ -1,7 +1,7 @@
 import type React from "react"
-import styled from "styled-components"
 import { RuleLabel } from "./RuleLabel"
 import { RuleInput } from "./RuleInput"
+import "./Rule.css"
 
 type RuleProps = {
   label: string
@@ -16,26 +16,11 @@ type RuleProps = {
   onFocus: (event: React.ChangeEvent<HTMLInputElement>) => void
   onBlur: () => void
 }
-
-const StyledWrapper = styled.div`
-  & {
-    display: inline-flex;
-    flex-direction: column;
-    position: relative;
-    min-width: 0;
-    padding: 0;
-    margin: 7px 0;
-    border: 0;
-    vertical-align: top;
-    width: 100%;
-  }
-`
-
-export const Rule = ((props: RuleProps) => {
+export function Rule(props: RuleProps) {
   const isFocused: boolean = props.focus === `${props.name}_${props.index}`
   return (
     <>
-      <StyledWrapper>
+      <div className={"filter-rule-wrapper"}>
         <RuleLabel
           label={props.label}
           name={props.name}
@@ -52,7 +37,7 @@ export const Rule = ((props: RuleProps) => {
           onFocus={event => props.onFocus(event)}
           onBlur={() => props.onBlur()}
           isFocused={isFocused} />
-      </StyledWrapper>
+      </div>
     </>
   )
-})
+}

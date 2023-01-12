@@ -1,26 +1,11 @@
-import styled from "styled-components"
+import "./SplitRuleWrapper.css"
 
-const StyledWrapper = styled.div`
-  & {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin-top: 15px;
-  }
-  & > * {
-    flex: 1 1 50%;
-    margin-top: 0;
-    &:first-child {
-      padding-right: 4%;
-    }
-  }
-`
-export const SplitRuleWrapper =((props: any) => {
+export function SplitRuleWrapper(props: any) {
   return (
     <>
-      <StyledWrapper>
+      <div className={"filter-rules-split-rules-wrapper"}>
         { props.children }
-      </StyledWrapper>
+      </div>
     </>
   )
-})
+}

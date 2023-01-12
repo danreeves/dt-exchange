@@ -1,28 +1,15 @@
-import styled from "styled-components"
-import { Icon, IconProps } from "./Icon"
+import { Size } from "../../../../types"
+import "./ChevronDownIcon.css"
 
-const StyledChevronDown = styled(Icon)`
-  & {
-    border-radius: 100px;
-  }
-  &::after {
-    content: '';
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-    transform: rotate(45deg);
-    left: 4px;
-    top: 2px;
-  }
-`
-export const ChevronDownIcon = ((props: IconProps) => {
+export function ChevronDownIcon(props: { size: Size }) {
+  const iconSize: string =
+    props.size === Size.Large ? "filter-rules-large-icon"
+      : props.size === Size.Medium ? "filter-rules-medium-icon"
+        : props.size === Size.Small ? "filter-rules-small-icon" : "filter-rules-medium-icon";
+
   return (
     <>
-      <StyledChevronDown {...props} icon-role="chevron-down" />
+      <i className={`filter-rules-icon filter-rules-chevron-down-icon ${iconSize}`} />
     </>
   )
-})
+}

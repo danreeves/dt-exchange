@@ -10,12 +10,12 @@ import { CollapseButton } from "./components/Buttons/CollapseButton"
 import { formDataToRules, rulesToFormData } from "./RuleBasedFilters.service"
 import { ToolbarHeader } from "./components/ToolbarHeader"
 import { AddRuleButton } from "./components/Buttons/AddRuleButton"
-import styled from "styled-components"
 import { RulesJsonEditor } from "./components/RulesJsonEditor"
 import { SaveButton } from "./components/Buttons/SaveButton"
 import { CancelButton } from "./components/Buttons/CancelButton"
 import { RuleText } from "./components/RuleText"
 import { ShowRulesButton } from "./components/Buttons/ShowRulesButton"
+import "./RuleBasedFilters.css"
 
 type Props = {
   DE: DeemphasizeOption
@@ -24,44 +24,8 @@ type Props = {
   setState: (rules: FilterRule[]) => void
 }
 
-const Wrapper = styled.div`
-  & {
-    flex: 1 1 100%;
-    min-width: 0;
-  }
-`
-const HeaderRow = styled.div`
-  & {
-    display: block;
-    text-align: right;
-  }
-`
-const StyledRulesSectionHeader = styled.div`
-  & {
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  & > * {
-    flex: 0 0 auto;
-  }
-  & > *:first-child {
-    flex: 1 1 100%;
-  }
-`
-const StyledLabel = styled.label`
-  & {
-    color: #BDBDBDFF;
-  }
-`
-const StyledForm = styled.form`
-  & {
-    margin-bottom: 15px;
-  }
-`
-
 export function RuleBasedFilters(props: Props) {
-  const newRule = (): FormFilterRule => {
+  function newRule(): FormFilterRule {
     return {
       character: "",
       item: "",
@@ -81,7 +45,7 @@ export function RuleBasedFilters(props: Props) {
   let [ruleFormOpen, setRuleFormOpen] = useState(false)
   let [ruleJsonFormOpen, setRuleJsonFormOpen] = useState(false)
 
-  const handleFormChange = (index: number, event: FormEvent<HTMLInputElement>) => {
+  function handleFormChange(index: number, event: FormEvent<HTMLInputElement>) {
     let data: FormFilterRule[] = [...ruleFields]
     const eventTarget: HTMLInputElement = event.target as HTMLInputElement
     // @ts-ignore
@@ -90,31 +54,31 @@ export function RuleBasedFilters(props: Props) {
     if (!ruleFormDirty) setRuleFormDirty(true)
   }
 
-  const handleAddFormRule = () => {
+  function handleAddFormRule() {
     let newFormRule: FormFilterRule = newRule()
     setRuleFields([...ruleFields, newFormRule])
   }
 
-  const handleRuleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  function handleRuleFormSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const rules: FilterRule[] = formDataToRules(ruleFields)
     props.setState(rules)
     if (ruleFormDirty) setRuleFormDirty(false)
   }
 
-  const handleRemoveRule = (index: number) => {
+  function handleRemoveRule(index: number) {
     let newRules: FormFilterRule[] = [...ruleFields]
     newRules.splice(index, 1)
     setRuleFields(newRules)
     if (!ruleFormDirty) setRuleFormDirty(true)
   }
 
-  const handleResetRules = () => {
+  function handleResetRules() {
     setRuleFields(props.state ? rulesToFormData(props.state) : [newRule()])
     if (ruleFormDirty) setRuleFormDirty(false)
   }
 
-  const handleToggleCollapseRule = (index: number) => {
+  function handleToggleCollapseRule(index: number) {
     let data: FormFilterRule[] = [...ruleFields]
     data[index]!.isOpen = !data[index]!.isOpen
     setRuleFields(data)
@@ -128,22 +92,22 @@ export function RuleBasedFilters(props: Props) {
   }
 
   return (
-    <Wrapper>
-      <HeaderRow>
+    <div className={"filter-rules-section"}>
+      <div className={"filter-rules-show-btn-wrapper"}>
         <ShowRulesButton onClick={() => setRuleFormOpen(!ruleFormOpen)} isOpen={ruleFormOpen}>Show rules</ShowRulesButton>
-      </HeaderRow>
+      </div>
       {ruleFormOpen ? (
         <div>
-          <StyledForm onSubmit={handleRuleFormSubmit}>
-            <StyledRulesSectionHeader>
+          <form className={"filter-rules-form"} onSubmit={handleRuleFormSubmit}>
+            <div className={"filter-rules-section-header"}>
               <div>
-                <StyledLabel htmlFor="deemphasize-by">
+                <label className={"filter-rules-de-emphasis-label"} htmlFor="deemphasize-by">
                   <RuleText size={Size.Medium}>De-emphasize: </RuleText>
-                </StyledLabel>
+                </label>
                 <select
                   id="deemphasize-by"
                   value={props.DE}
-                  onChange={(event) => {
+                  onChange={function (event) {
                     props.setDE(event.target.value as DeemphasizeOption)
                     localStorage.setItem("deemphasize-selection", event.target.value)
                   }}
@@ -157,8 +121,8 @@ export function RuleBasedFilters(props: Props) {
               </div>
               <CancelButton disabled={!ruleFormDirty} onClick={handleResetRules} />
               <SaveButton disabled={!ruleFormDirty} />
-            </StyledRulesSectionHeader>
-            {ruleFields.map((input, index) => {
+            </div>
+            {ruleFields.map(function (input, index) {
               return (
                 <div key={index}>
                   <RuleToolbar>
@@ -173,10 +137,10 @@ export function RuleBasedFilters(props: Props) {
               )
             })}
             <AddRuleButton onClick={handleAddFormRule} />
-          </StyledForm>
-          <HeaderRow>
+          </form>
+          <div className={"filter-rules-show-btn-wrapper"}>
             <ShowRulesButton onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)} isOpen={ruleJsonFormOpen}>Show JSON</ShowRulesButton>
-          </HeaderRow>
+          </div>
           {ruleJsonFormOpen ? (
             <div>
               <RulesJsonEditor state={props.state} onSubmit={handleSubmitJson} />
@@ -184,6 +148,6 @@ export function RuleBasedFilters(props: Props) {
           ) : undefined}
         </div>
       ) : undefined}
-    </Wrapper>
+    </div>
   )
 }

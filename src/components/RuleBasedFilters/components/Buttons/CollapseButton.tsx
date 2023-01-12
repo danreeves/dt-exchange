@@ -6,8 +6,7 @@ import { Size } from "../../../../types"
 interface CollapseBtnProps extends SharedToolbarBtnProps {
   isOpen: boolean;
 }
-
-export const CollapseButton = ((props: CollapseBtnProps) => {
+export function CollapseButton(props: CollapseBtnProps) {
   return (
     <>
       <ToolbarButton onClick={props.onClick}>
@@ -19,4 +18,4 @@ export const CollapseButton = ((props: CollapseBtnProps) => {
       </ToolbarButton>
     </>
   )
-})
+}

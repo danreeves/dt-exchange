@@ -1,38 +1,26 @@
 import type React from "react"
 import { FormEvent, useState } from "react"
-import styled from "styled-components"
 import { Rule } from "./Rule"
 import { SplitRuleWrapper } from "./SplitRuleWrapper"
 import type { FormFilterRule } from "../../../types"
+import "./Rules.css"
 
 type RulesProps = {
   input: FormFilterRule
   index: number
   onChange: (index: number, event: React.ChangeEvent<HTMLInputElement>) => void
 }
-
-const StyledWrapper = styled.div`
-  & {
-    border-width: 1px;
-    border-style: solid;
-    border-color: #5df8ff;
-    border-top: none;
-    padding: 8px 15px;
-    margin-bottom: 10px;
-  }
-`
-
-export const Rules = ((props: RulesProps) => {
+export function Rules(props: RulesProps) {
   let [focusedRule, setFocusedRule] = useState<string>("")
 
-  const handleFormFocus = (event: FormEvent<HTMLInputElement>) => {
+  function handleFormFocus(event: FormEvent<HTMLInputElement>) {
     const eventTarget: HTMLInputElement = event.target as HTMLInputElement
     setFocusedRule(eventTarget.id)
   }
 
   return (
     <>
-      <StyledWrapper>
+      <div className={"filter-rules-wrapper"}>
         <Rule
           label={ "Characters" }
           type={ "text" }
@@ -133,7 +121,7 @@ export const Rules = ((props: RulesProps) => {
             onBlur={ () => setFocusedRule("") }
           />
         </SplitRuleWrapper>
-      </StyledWrapper>
+      </div>
     </>
   )
-})
+}

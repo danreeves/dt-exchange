@@ -1,28 +1,22 @@
-import styled from "styled-components"
 import { RuleText } from "../RuleText"
 import { Size } from "../../../../types"
-import { RuleButton } from "./RuleButton"
+import "./CancelButton.css"
 
 export type CancelBtnProps = {
   onClick: () => void
   disabled: boolean
 }
-
-const StyledCancelButton = styled(RuleButton)`
-  &:hover {
-    color: #d32239;
-  }
-  &:disabled {
-    color: transparent;
-  }
-`
-
-export const CancelButton = ((props: CancelBtnProps) => {
+export function CancelButton (props: CancelBtnProps) {
   return (
     <>
-      <StyledCancelButton type={"button"} disabled={props.disabled} onClick={props.onClick}>
+      <button
+        className={"filter-rules-btn cancel-filter-rule-changes-btn"}
+        type={"button"}
+        disabled={props.disabled}
+        onClick={props.onClick}
+      >
         <RuleText size={Size.Medium}>Cancel</RuleText>
-      </StyledCancelButton>
+      </button>
     </>
   )
-})
+}

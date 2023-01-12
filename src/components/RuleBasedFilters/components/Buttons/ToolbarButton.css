@@ -1,0 +1,13 @@
+.filter-rules-toolbar-btn {
+  height: 40px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  flex: 0 0 38px;
+  cursor: pointer;
+  transition: background 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+
+.filter-rules-toolbar-btn:hover {
+  background: rgba(93, 248, 255, 0.1);
+}

@@ -1,0 +1,11 @@
+.filter-rule-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 7px 0;
+  border: 0;
+  vertical-align: top;
+  width: 100%;
+}

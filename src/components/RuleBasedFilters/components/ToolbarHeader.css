@@ -1,0 +1,15 @@
+.filter-rules-toolbar-header {
+  color: #bdbdbd;
+  flex: 1 1 100%;
+  padding: 0 20px 0 10px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  min-width: 0;
+}
+
+.filter-rules-toolbar-header > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

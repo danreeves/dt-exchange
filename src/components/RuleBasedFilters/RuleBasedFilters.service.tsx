@@ -1,7 +1,7 @@
 import type { ClassType, FilterRule, FormFilterRule, StoreType } from "../../types"
 
-export const formDataToRules = (rulesFormData: FormFilterRule[]): FilterRule[] => {
-  return rulesFormData.map((formRule: FormFilterRule): FilterRule => {
+export function formDataToRules(rulesFormData: FormFilterRule[]): FilterRule[] {
+  return rulesFormData.map(function (formRule: FormFilterRule): FilterRule {
     return {
       minStats: parseFloat(formRule.minStats),
       minRating: parseFloat(formRule.minRating),
@@ -16,8 +16,8 @@ export const formDataToRules = (rulesFormData: FormFilterRule[]): FilterRule[] =
   })
 }
 
-export const rulesToFormData = (rulesData: FilterRule[]): FormFilterRule[] => {
-  return rulesData.map((rule: FilterRule): FormFilterRule => {
+export function rulesToFormData(rulesData: FilterRule[]): FormFilterRule[] {
+  return rulesData.map(function (rule: FilterRule): FormFilterRule {
     return {
       isOpen: false,
       minStats: rule.minStats?.toString() || "0",
@@ -33,17 +33,17 @@ export const rulesToFormData = (rulesData: FilterRule[]): FormFilterRule[] => {
   })
 }
 
-export const rulesToJson = (rulesData: FilterRule[]): string => {
-  return JSON.stringify(rulesData, null, 4);
+export function rulesToJson(rulesData: FilterRule[]): string {
+  return JSON.stringify(rulesData, null, 4)
 }
 
-const ruleStringToValue = (ruleString: string): string[] | undefined => {
+function ruleStringToValue(ruleString: string): string[] | undefined {
   if (!ruleString.length) return
   const splitAtCommas: string[] = ruleString.split(',')
-  return splitAtCommas.map((item: string) => item.trim())
+  return splitAtCommas.map(function (item: string) { return item.trim() })
 }
 
-const ruleValueToString = (value: any): string => {
+function ruleValueToString(value: any): string {
   if (typeof value === "string") {
     return value
   }

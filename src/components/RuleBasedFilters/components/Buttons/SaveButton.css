@@ -1,0 +1,9 @@
+.filter-rules-btn.filter-rules-save-btn {
+  padding: 0 25px;
+  margin: 0;
+}
+
+.filter-rules-btn.filter-rules-save-btn:hover {
+  color: #66BB6AFF;
+  background: rgba(102, 187, 106, 0.1);
+}

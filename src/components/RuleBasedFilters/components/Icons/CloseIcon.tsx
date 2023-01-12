@@ -1,32 +1,15 @@
-import styled from "styled-components"
-import { Icon, IconProps } from "./Icon"
+import { Size } from "../../../../types"
+import "./CloseIcon.css"
 
-const StyledClose = styled(Icon)`
-  & {
-    border-radius: 40px;
-  }
-  &::after,
-  &::before {
-    content: '';
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 16px;
-    height: 2px;
-    background: currentColor;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    top: 8px;
-    left: 1px;
-  }
-  &::after {
-    transform: rotate(-45deg);
-  }
-`
-export const CloseIcon = ((props: IconProps) => {
+export function CloseIcon(props: { size: Size }) {
+  const iconSize: string =
+    props.size === Size.Large ? "filter-rules-large-icon"
+      : props.size === Size.Medium ? "filter-rules-medium-icon"
+        : props.size === Size.Small ? "filter-rules-small-icon" : "filter-rules-medium-icon";
+
   return (
     <>
-      <StyledClose {...props} icon-role="close" />
+      <i className={`filter-rules-icon filter-rules-close-icon ${iconSize}`} />
     </>
   )
-})
+}
