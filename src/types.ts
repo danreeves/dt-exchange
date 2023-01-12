@@ -98,7 +98,7 @@ export interface Overrides {
   traits: Trait[]
   perks: Perk[]
   base_stats?: BaseStat[]
-  filter_match?: boolean
+  filter_match?: number // index of the first rule that the item matched to
 }
 
 export interface BaseStat {
@@ -223,6 +223,7 @@ export interface FilterRule {
   minPerkRarity?: number
   minStats?: number
   minRating?: number
+  color?: string
 }
 
 export interface FormFilterRule {

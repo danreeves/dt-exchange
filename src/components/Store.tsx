@@ -15,13 +15,14 @@ import localisation from "../localisation.json"
 import "./Store.css"
 import { Countdown } from "./Countdown"
 import { ItemState } from "./ItemState"
+import type React from "react"
 
 function Divider() {
   return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
 }
 
-function Title({ children }: { children: ReactNode }) {
-  return <div className="item-title">{children}</div>
+function Title({ children, style }: { children: ReactNode, style?: React.CSSProperties}) {
+  return <div className="item-title" style={style}>{children}</div>
 }
 
 // Linearly interpolate input between min and max. E.g. lerp(1, 2, 0.5) returns 1.5
@@ -180,7 +181,7 @@ function filterFunc(
 
   let arr: string[]
 
-  var found = targets.find(function (target) {
+  var found = targets.findIndex(function (target) {
     arr = typeof target.character === 'string' ? [target.character] : target.character
     if (target.character && !arr.includes(char.archetype)) {
       return false
@@ -222,8 +223,6 @@ function filterFunc(
         return false
       }
     }
-
-
 
     if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
       return false
@@ -303,11 +302,7 @@ function filterFunc(
     return true
   })
 
-  if (found) {
-    offer.description.overrides.filter_match = true
-  } else {
-    offer.description.overrides.filter_match = false
-  }
+  offer.description.overrides.filter_match = found
 }
 
 export function Store({
@@ -368,17 +363,19 @@ export function Store({
           let alreadyOwnedClass =
             offer.state === "completed" ? "item-already-owned" : ""
           let filterMatchClass = enableRuleBasedFilterOption
-            ? offer.description.overrides.filter_match
-              ? "offer-match"
+            ? offer.description.overrides.filter_match >= 0
+              ? `offer-match match-rule-${offer.description.overrides.filter_match}`
               : deemphasizeClass[deemphasizeOption]
             : ""
-
+          let filterMatchStyle = enableRuleBasedFilterOption && offer.description.overrides.filter_match >= 0
+            ? {color: targets[offer.description.overrides.filter_match].color}
+            : undefined
           return (
             <div
               className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
               key={offer.offerId}
             >
-              <Title>{localisation[offer.description.id].display_name}</Title>
+              <Title style={filterMatchStyle}>{localisation[offer.description.id].display_name}</Title>
 
               {offer.state === "completed" ? (
                 <ItemState>You already own this</ItemState>
