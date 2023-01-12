@@ -7,7 +7,7 @@ export type SharedToolbarBtnProps = {
 
 const StyledToolbarButton = styled.button`
   & {
-    height: 38px;
+    height: 40px;
     color: #fff;
     background: transparent;
     border: none;
