@@ -16,6 +16,7 @@ import { CancelButton } from "./components/Buttons/CancelButton"
 import { RuleText } from "./components/RuleText"
 import { ShowRulesButton } from "./components/Buttons/ShowRulesButton"
 import "./RuleBasedFilters.css"
+import { useLocalStorage } from "../../hooks/useLocalStorage"
 
 type Props = {
   DE: DeemphasizeOption
@@ -44,6 +45,10 @@ export function RuleBasedFilters(props: Props) {
   let [ruleFormDirty, setRuleFormDirty] = useState(false)
   let [ruleFormOpen, setRuleFormOpen] = useState(false)
   let [ruleJsonFormOpen, setRuleJsonFormOpen] = useState(false)
+  let [deemphasisStyle, setDeemphasisStyle] = useLocalStorage<DeemphasizeOption>(
+    "deemphasize-selection",
+    DEEMPHASIZE_OPTIONS[0]!
+  )
 
   function handleFormChange(index: number, event: FormEvent<HTMLInputElement>) {
     let data: FormFilterRule[] = [...ruleFields]
@@ -106,10 +111,10 @@ export function RuleBasedFilters(props: Props) {
                 </label>
                 <select
                   id="deemphasize-by"
-                  value={props.DE}
+                  value={deemphasisStyle}
                   onChange={function (event) {
                     props.setDE(event.target.value as DeemphasizeOption)
-                    localStorage.setItem("deemphasize-selection", event.target.value)
+                    setDeemphasisStyle(event.target.value as DeemphasizeOption)
                   }}
                 >
                   {DEEMPHASIZE_OPTIONS.map((opt) => (
