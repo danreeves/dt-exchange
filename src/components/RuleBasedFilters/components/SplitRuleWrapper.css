@@ -10,6 +10,10 @@
   margin-top: 0;
 }
 
-.filter-rules-split-rules-wrapper > *:first-child {
-  padding-right: 4%;
+.filter-rules-split-rules-wrapper > *:not(:last-child) {
+  padding-right: 15px;
+}
+
+.filter-rules-split-rules-wrapper.filter-rules-split-3-col > * {
+  flex: 1 1 33%;
 }

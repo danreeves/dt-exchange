@@ -229,6 +229,7 @@ export interface FilterRule {
 export interface FormFilterRule {
   character: string
   item: string
+  type: string
   blessing: string
   perk: string
   store: string
@@ -236,8 +237,11 @@ export interface FormFilterRule {
   minPerkRarity: string
   minStats: string
   minRating: string
+  color: string
   isOpen: boolean
 }
 
 export const SIZE = ["small", "medium", "large"] as const
 export type Size = typeof SIZE[number]
+
+export const defaultEmphasisColor: string = "#FF0000"

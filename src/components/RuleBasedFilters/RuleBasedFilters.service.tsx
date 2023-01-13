@@ -1,17 +1,20 @@
 import type { ClassType, FilterRule, FormFilterRule, StoreType } from "../../types"
+import { defaultEmphasisColor } from "../../types"
 
 export function formDataToRules(rulesFormData: FormFilterRule[]): FilterRule[] {
   return rulesFormData.map(function (formRule: FormFilterRule): FilterRule {
     return {
-      minStats: parseFloat(formRule.minStats),
-      minRating: parseFloat(formRule.minRating),
-      minBlessingRarity: parseFloat(formRule.minBlessingRarity),
-      minPerkRarity: parseFloat(formRule.minPerkRarity),
+      minStats: parseFloat(formRule.minStats) || undefined,
+      minRating: parseFloat(formRule.minRating) || undefined,
+      minBlessingRarity: parseFloat(formRule.minBlessingRarity) || undefined,
+      minPerkRarity: parseFloat(formRule.minPerkRarity) || undefined,
       character: ruleStringToValue(formRule.character) as ClassType[],
       item: ruleStringToValue(formRule.item),
+      type: formRule.type || undefined,
       blessing: ruleStringToValue(formRule.blessing),
       perk: ruleStringToValue(formRule.perk),
-      store: ruleStringToValue(formRule.store) as StoreType[]
+      store: ruleStringToValue(formRule.store) as StoreType[],
+      color: formRule.color && formRule.color !== defaultEmphasisColor.toLowerCase() ? formRule.color : undefined
     }
   })
 }
@@ -26,9 +29,11 @@ export function rulesToFormData(rulesData: FilterRule[]): FormFilterRule[] {
       minPerkRarity: rule.minPerkRarity?.toString() || "0",
       character: ruleValueToString(rule.character),
       item: ruleValueToString(rule.item),
+      type: ruleValueToString(rule.type),
       blessing: ruleValueToString(rule.blessing),
       perk: ruleValueToString(rule.perk),
-      store: ruleValueToString(rule.store)
+      store: ruleValueToString(rule.store),
+      color: rule.color || ""
     }
   })
 }

@@ -29,6 +29,7 @@ export function RuleBasedFilters(props: Props) {
     return {
       character: "",
       item: "",
+      type: "",
       blessing: "",
       minBlessingRarity: "0",
       perk: "",
@@ -36,6 +37,7 @@ export function RuleBasedFilters(props: Props) {
       minStats: "0",
       minRating: "0",
       store: "",
+      color: "",
       isOpen: true
     }
   }
@@ -104,27 +106,23 @@ export function RuleBasedFilters(props: Props) {
         <div>
           <form className={"filter-rules-form"} onSubmit={handleRuleFormSubmit}>
             <div className={"filter-rules-section-header"}>
-              <div>
-                <label className={"filter-rules-de-emphasis-label"} htmlFor="deemphasize-by">
-                  <RuleText size={"medium"}>De-emphasize: </RuleText>
-                </label>
-                <select
-                  id="deemphasize-by"
-                  value={deemphasisStyle}
-                  onChange={function (event) {
-                    props.setDE(event.target.value as DeemphasizeOption)
-                    setDeemphasisStyle(event.target.value as DeemphasizeOption)
-                  }}
-                >
-                  {DEEMPHASIZE_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {camelToSentence(opt)}
-                    </option>
-                  ))}{" "}
-                </select>
-              </div>
-              <CancelButton disabled={!ruleFormDirty} onClick={handleResetRules} />
-              <SaveButton disabled={!ruleFormDirty} />
+              <label className={"filter-rules-de-emphasis-label"} htmlFor="deemphasize-by">
+                <RuleText size={"medium"}>De-emphasize: </RuleText>
+              </label>
+              <select
+                id="deemphasize-by"
+                value={deemphasisStyle}
+                onChange={function (event) {
+                  props.setDE(event.target.value as DeemphasizeOption)
+                  setDeemphasisStyle(event.target.value as DeemphasizeOption)
+                }}
+              >
+                {DEEMPHASIZE_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {camelToSentence(opt)}
+                  </option>
+                ))}{" "}
+              </select>
             </div>
             {ruleFields.map(function (input, index) {
               return (
@@ -141,6 +139,10 @@ export function RuleBasedFilters(props: Props) {
               )
             })}
             <AddRuleButton onClick={handleAddFormRule} />
+            <div className={"filter-rules-section-footer"}>
+              <CancelButton disabled={!ruleFormDirty} onClick={handleResetRules} />
+              <SaveButton disabled={!ruleFormDirty} />
+            </div>
           </form>
           <div className={"filter-rules-show-btn-wrapper"}>
             <ShowRulesButton onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)} isOpen={ruleJsonFormOpen}>Show JSON</ShowRulesButton>

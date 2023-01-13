@@ -8,16 +8,14 @@
   text-align: right;
 }
 
-.filter-rules-section-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
+.filter-rules-section-header,
+.filter-rules-section-footer {
+  display: block;
 }
-.filter-rules-section-header > * {
-  flex: 0 0 auto;
-}
-.filter-rules-section-header > *:first-child {
-  flex: 1 1 100%;
+
+.filter-rules-section-footer {
+  text-align: right;
+  margin-top: 10px;
 }
 
 .filter-rules-de-emphasis-label {
@@ -25,7 +23,7 @@
 }
 
 .filter-rules-form {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* buttons */
