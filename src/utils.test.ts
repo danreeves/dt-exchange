@@ -6,7 +6,8 @@ let userNames = [
   `🎃 ASH  П (◣_◢) П  🎃#1234`,
   `七曜曜#1234`,
   `Dunesca ʕ•͡ᴥ•ʔ#1234`,
-  `Deadsiesthe•̪̀●́#1234`
+  `Deadsiesthe•̪̀●́#1234`,
+  `F̶̍̋I̶̔̀Q#1234`
 ]
 
 function toB64(str: string): string {
