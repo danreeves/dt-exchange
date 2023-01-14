@@ -130,7 +130,12 @@ export function RuleBasedFilters(props: Props) {
       </div>
       {ruleFormOpen ? (
         <div>
-          <form className={"filter-rules-form"} onSubmit={handleRuleFormSubmit}>
+          <form
+            className={"filter-rules-form"}
+            onSubmit={handleRuleFormSubmit}
+            onDragEnter={function (e) { e.preventDefault() }}
+            onDragOver={function (e) { e.preventDefault() }}
+          >
             <div className={"filter-rules-section-header"}>
               <label className={"filter-rules-de-emphasis-label"} htmlFor="deemphasize-by">
                 <RuleText size={"medium"}>De-emphasize: </RuleText>
