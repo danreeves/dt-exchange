@@ -30,3 +30,4 @@ Dependencies: node & npm
 - [Coconutcoo](https://github.com/Coconutcoo)
 - [errnoh](https://github.com/errnoh)
 - [Chris Bitler](https://github.com/Chris-Bitler)
+- [CautemocSg](https://github.com/CautemocSg)

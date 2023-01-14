@@ -1,0 +1,7 @@
+.filter-rules-btn.cancel-filter-rule-changes-btn:hover {
+  color: #d32239;
+}
+
+.filter-rules-btn.cancel-filter-rule-changes-btn:disabled {
+  color: transparent;
+}

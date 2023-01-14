@@ -1,0 +1,8 @@
+.filter-rules-wrapper {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #5df8ff;
+  border-top: none;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+}
