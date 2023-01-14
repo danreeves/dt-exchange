@@ -16,6 +16,7 @@ import { RuleText } from "./components/RuleText"
 import { ShowRulesButton } from "./components/Buttons/ShowRulesButton"
 import "./RuleBasedFilters.css"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
+import { DragHandleIcon } from "./components/Icons/DragHandle"
 
 type Props = {
   DE: DeemphasizeOption
@@ -42,6 +43,8 @@ export function RuleBasedFilters(props: Props) {
     }
   }
 
+  let [dragItem, setDragItem] = useState<number | undefined>(undefined)
+  let [dragOverItem, setDragOverItem] = useState<number | undefined>(undefined)
   let [ruleFields, setRuleFields] = useState(props.state ? rulesToFormData(props.state) : [newRule()])
   let [ruleFormDirty, setRuleFormDirty] = useState(false)
   let [ruleFormOpen, setRuleFormOpen] = useState(false)
@@ -50,6 +53,27 @@ export function RuleBasedFilters(props: Props) {
     "deemphasize-selection",
     DEEMPHASIZE_OPTIONS[0]!
   )
+
+  function dragStart(position: number) {
+    setDragItem(position)
+  }
+
+  function dragEnter(position: number) {
+    setDragOverItem(position)
+  }
+
+  function drop() {
+    if (dragItem !== undefined && dragOverItem !== undefined && dragItem !== dragOverItem) {
+      let data: FormFilterRule[] = [...ruleFields]
+      const dragItemContent: FormFilterRule = data[dragItem]!
+      data.splice(dragItem, 1)
+      data.splice(dragOverItem, 0, dragItemContent)
+      setRuleFields(data)
+      if (!ruleFormDirty) setRuleFormDirty(true)
+    }
+    setDragItem(undefined)
+    setDragOverItem(undefined)
+  }
 
   function handleFormChange(index: number, event: FormEvent<HTMLInputElement>) {
     let data: FormFilterRule[] = [...ruleFields]
@@ -100,7 +124,9 @@ export function RuleBasedFilters(props: Props) {
   return (
     <div className={"filter-rules-section"}>
       <div className={"filter-rules-show-btn-wrapper"}>
-        <ShowRulesButton onClick={() => setRuleFormOpen(!ruleFormOpen)} isOpen={ruleFormOpen}>Show rules</ShowRulesButton>
+        <ShowRulesButton onClick={() => setRuleFormOpen(!ruleFormOpen)} isOpen={ruleFormOpen}>
+          Show rules
+        </ShowRulesButton>
       </div>
       {ruleFormOpen ? (
         <div>
@@ -127,11 +153,22 @@ export function RuleBasedFilters(props: Props) {
             {ruleFields.map(function (input, index) {
               return (
                 <div key={index}>
-                  <RuleToolbar>
-                    <CollapseButton isOpen={input.isOpen} onClick={() => handleToggleCollapseRule(index)} />
-                    <ToolbarHeader input={input} />
-                    <CloseButton onClick={() => handleRemoveRule(index)} />
-                  </RuleToolbar>
+                  <div draggable
+                    onDragStart={function () { dragStart(index) }}
+                    onDragEnter={function (e) {
+                      e.preventDefault()
+                      dragEnter(index)
+                    }}
+                    onDragOver={function (e) { e.preventDefault() }}
+                    onDragEnd={drop}
+                  >
+                    <RuleToolbar>
+                      <DragHandleIcon size={"medium"} />
+                      <CollapseButton isOpen={input.isOpen} onClick={() => handleToggleCollapseRule(index)} />
+                      <ToolbarHeader input={input} />
+                      <CloseButton onClick={() => handleRemoveRule(index)} />
+                    </RuleToolbar>
+                  </div>
                   {input.isOpen ? (
                     <Rules index={index} input={input} onChange={handleFormChange} />
                   ) : undefined}
@@ -145,7 +182,9 @@ export function RuleBasedFilters(props: Props) {
             </div>
           </form>
           <div className={"filter-rules-show-btn-wrapper"}>
-            <ShowRulesButton onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)} isOpen={ruleJsonFormOpen}>Show JSON</ShowRulesButton>
+            <ShowRulesButton onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)} isOpen={ruleJsonFormOpen}>
+              Show JSON
+            </ShowRulesButton>
           </div>
           {ruleJsonFormOpen ? (
             <div>

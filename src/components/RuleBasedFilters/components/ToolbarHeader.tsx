@@ -1,6 +1,7 @@
 import type { FormFilterRule } from "../../../types"
 import { RuleText } from "./RuleText"
 import "./ToolbarHeader.css"
+import { defaultEmphasisColor } from "../../../types"
 
 type ToolbarHeaderProps = {
   input: FormFilterRule
@@ -41,7 +42,15 @@ export function ToolbarHeader(props: ToolbarHeaderProps) {
 
   return (
     <>
-      <div className={"filter-rules-toolbar-header"} title={ header }>
+      <div
+        className={"filter-rules-toolbar-header"}
+        title={ header }
+        onMouseDown={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+        }}
+      >
+        <div className={"filter-rules-toolbar-header-color"} style={{ background: props.input.color || defaultEmphasisColor }} />
         <RuleText size={"small"}>{ header }</RuleText>
       </div>
     </>

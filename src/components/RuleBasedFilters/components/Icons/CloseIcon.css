@@ -2,7 +2,8 @@
   border-radius: 100px;
 }
 
-.filter-rules-close-icon::after, .filter-rules-close-icon::before {
+.filter-rules-close-icon::after,
+.filter-rules-close-icon::before {
   content: '';
   display: block;
   box-sizing: border-box;

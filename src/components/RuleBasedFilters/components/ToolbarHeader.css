@@ -8,6 +8,13 @@
   min-width: 0;
 }
 
+.filter-rules-toolbar-header-color {
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
 .filter-rules-toolbar-header > span {
   overflow: hidden;
   white-space: nowrap;
