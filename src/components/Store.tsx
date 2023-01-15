@@ -15,13 +15,14 @@ import localisation from "../localisation.json"
 import "./Store.css"
 import { Countdown } from "./Countdown"
 import { ItemState } from "./ItemState"
+import type React from "react"
 
 function Divider() {
   return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
 }
 
-function Title({ children }: { children: ReactNode }) {
-  return <div className="item-title">{children}</div>
+function Title({ children, style }: { children: ReactNode, style?: React.CSSProperties}) {
+  return <div className="item-title" style={style}>{children}</div>
 }
 
 // Linearly interpolate input between min and max. E.g. lerp(1, 2, 0.5) returns 1.5
@@ -171,7 +172,8 @@ function filterFunc(
   char: Character | undefined,
   storeType: StoreType,
   offer: Personal,
-  targets: FilterRule[]
+  targets: FilterRule[],
+  items: Items
 ) {
   if (!char) {
     return
@@ -179,11 +181,8 @@ function filterFunc(
 
   let arr: string[]
 
-  var found = targets.find(function (target) {
-    arr =
-      typeof target.character === "string"
-        ? [target.character]
-        : target.character
+  var found = targets.findIndex(function (target) {
+    arr = typeof target.character === 'string' ? [target.character] : target.character
     if (target.character && !arr.includes(char.archetype)) {
       return false
     }
@@ -205,12 +204,30 @@ function filterFunc(
       }
     }
 
-    if (
-      target.minStats &&
-      target.minStats > offer.description.overrides.baseItemLevel
-    ) {
+    if (target.type) {
+      arr = typeof target.type === 'string' ? [target.type] : target.type
+      if (
+        !arr.find(function(element){
+          switch (items[offer.description.id]?.item_type) {
+            case "WEAPON_RANGED":
+              return target.type.toLowerCase() == "ranged" ? true : false
+            case "WEAPON_MELEE":
+              return target.type.toLowerCase() == "melee" ? true : false
+            case "GADGET":
+              return target.type.toLowerCase() == "curio" ? true : false
+            default:
+              return false
+          }
+        })
+      ) {
+        return false
+      }
+    }
+
+    if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
       return false
     }
+
     if (
       target.minRating &&
       target.minRating > offer.description.overrides.itemLevel
@@ -288,11 +305,7 @@ function filterFunc(
     return true
   })
 
-  if (found) {
-    offer.description.overrides.filter_match = true
-  } else {
-    offer.description.overrides.filter_match = false
-  }
+  offer.description.overrides.filter_match = found
 }
 
 export function Store({
@@ -325,7 +338,7 @@ export function Store({
       targets = filterRules
       if (targets.length > 0) {
         store.personal.map(function (offer) {
-          filterFunc(character, storeType, offer, targets)
+          filterFunc(character, storeType, offer, targets, items)
         })
       }
     } catch (e) {
@@ -353,17 +366,19 @@ export function Store({
           let alreadyOwnedClass =
             offer.state === "completed" ? "item-already-owned" : ""
           let filterMatchClass = enableRuleBasedFilterOption
-            ? offer.description.overrides.filter_match
-              ? "offer-match"
+            ? offer.description.overrides.filter_match >= 0
+              ? `offer-match match-rule-${offer.description.overrides.filter_match}`
               : deemphasizeClass[deemphasizeOption]
             : ""
-
+          let filterMatchStyle = enableRuleBasedFilterOption && offer.description.overrides.filter_match >= 0
+            ? {color: targets[offer.description.overrides.filter_match].color}
+            : undefined
           return (
             <div
               className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
               key={offer.offerId}
             >
-              <Title>{localisation[offer.description.id].display_name}</Title>
+              <Title style={filterMatchStyle}>{localisation[offer.description.id].display_name}</Title>
 
               {offer.state === "completed" ? (
                 <ItemState>You already own this</ItemState>

@@ -98,7 +98,7 @@ export interface Overrides {
   traits: Trait[]
   perks: Perk[]
   base_stats?: BaseStat[]
-  filter_match?: boolean
+  filter_match?: number // index of the first rule that the item matched to
 }
 
 export interface BaseStat {
@@ -209,9 +209,13 @@ interface PlayerItems {
 export const CLASS_TYPES = ["veteran", "zealot", "psyker", "ogryn"] as const
 export type ClassType = typeof CLASS_TYPES[number]
 
+export const STORE_TYPES = ["credits", "marks"] as const
+export type StoreType = typeof STORE_TYPES[number]
+
 export interface FilterRule {
   character?: ClassType[] | ClassType
   item?: string[] | string
+  type?: string[] | string
   blessing?: string[] | string
   perk?: string[] | string
   store?: StoreType[] | string
@@ -219,7 +223,25 @@ export interface FilterRule {
   minPerkRarity?: number
   minStats?: number
   minRating?: number
+  color?: string
 }
 
-export const STORE_TYPES = ["credits", "marks"] as const
-export type StoreType = typeof STORE_TYPES[number]
+export interface FormFilterRule {
+  character: string
+  item: string
+  type: string
+  blessing: string
+  perk: string
+  store: string
+  minBlessingRarity: string
+  minPerkRarity: string
+  minStats: string
+  minRating: string
+  color: string
+  isOpen: boolean
+}
+
+export const SIZE = ["small", "medium", "large"] as const
+export type Size = typeof SIZE[number]
+
+export const defaultEmphasisColor: string = "#FF0000"

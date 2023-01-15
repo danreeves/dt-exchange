@@ -30,6 +30,10 @@ where each `FILTER` is some type of `"key": value` pair, explained further below
 
 Note: The format is called JSON and it can be quite strict with formatting. If you feel like your configuration should work but it doesn't, it's usually good idea to check with a tool like https://jsoneditoronline.org/ to make sure you're not missing comma or a quote from somewhere.
 
+## Evaluation order
+
+Rules are checked in the order they're defined. Item is (only) considered to be a match for the topmost rule it matches. While this doesn't matter in many cases, it does matter if you're using some of the rule-specific customization options like `color`. This means that usually you'll want your more specific rules be at the top and ones that match wider set of items at the bottom.
+
 ## Supported filters
 
 ### Array based
@@ -48,6 +52,9 @@ Array filters (`[]`) allow listing **one or more** matches. If the item matches 
 - `perk`: perk name(s)
   - possible values: any part of the perks **description**
   - example: `"perk": ["Sprint Efficiency", "Critical Hit Chance"]`
+- `type`: item type
+  - possible values: `curio`, `ranged` or `melee`
+  - example: `"type": ["melee", "ranged"]`
 
 ### Numeric
 
@@ -68,9 +75,17 @@ Numeric filters are just normal integers, only a single value can be defined at 
 
 String filters allow defining only a single possible value.
 
-- `shop`: require item to be in a specific shop
+- `store`: require item to be in a specific shop
   - possible values: `credits`, `marks`
-  - example: `"shop": "marks"`
+  - example: `"store": "marks"`
+
+### Meta
+
+In addition there are some fields that are not filters, but instead allow additional customization
+
+- `color`: color the matching item with this color (values are picked from the topmost rule that the item matches)
+  - possible values: any HTML color code, e.g. `"blue"`, `#ff5733`
+  - example: `"color": "#ff5733"`
 
 ## Default configuration
 
@@ -97,12 +112,12 @@ Lets consider the following example:
     "blessing": "Power Cycler"
   },
   {
-    "item": "Kantrael MG XII Infantry Lasgun",
+    "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
     "blessing": [
       "Infernus",
       "Ghost"
     ]
-  }
+  },
   {
     "minStats": 360
   },
@@ -112,7 +127,7 @@ Lets consider the following example:
   },
   {
     "character": "veteran",
-    "item": ["(Reliquary)", "(Caged)", "(Casket)"],
+    "type": "curio",
     "blessing": "Endurance",
     "perk": "Block Efficiency",
     "minRating": 80
@@ -137,7 +152,7 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 
 ```json
 {
-  "item": "Kantrael MG XII Infantry Lasgun",
+  "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
   "blessing": [
     "Infernus",
     "Ghost"
@@ -145,7 +160,7 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 }
 ```
 
-Similar to the first one, but here we're looking for specific variation of the Infantry Lasgun, and are required to write down more specific name. Variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`. 
+Similar to the first one, but here we're looking either for a specific variation of the Infantry Lasgun or any type of Recon Lasgun. In order to match specific Infrantry Lasgun variant we are required to write down more specific name. It's not required to write the whole name, variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`. 
 
 In addition we're looking for more than one possible blessing, so they're inside square brackets. Note that while the filter spans multiple lines, it's exactly same as `"blessing": ["Infernus","Ghost"]`.
 
@@ -175,11 +190,11 @@ This rule will match any item in the hourly shop that has blessing of rarity 3 o
 ```json
 {
   "character": "veteran",
-  "item": ["(Reliquary)", "(Caged)", "(Casket)"],
+  "type": "curio",
   "blessing": "Endurance",
   "perk": "Block Efficiency",
   "minRating": 80
 }
 ```
 
-First of all this rule only matches items that are available to your `veteran` character. While there isn't a specific filter to match Curios specifically, `"item": ["(Reliquary)", "(Caged)", "(Casket)"]` should do just that.
+This would look for specific kind of curios that are available to your `veteran` character.

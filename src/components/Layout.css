@@ -70,3 +70,7 @@
 .offer-display-hide {
   display: none;
 }
+
+.MuiBox-root {
+  min-width: 0;
+}

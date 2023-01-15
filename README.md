@@ -1,6 +1,6 @@
 # Darktide Armoury Exchange Extension
 
-## [Chrome Extension](https://chrome.google.com/webstore/detail/armoury-exchange/hcjihmkcnjkfkaeebhnpjcnnibpoolgc) | [Opera Addon](https://addons.opera.com/en-gb/extensions/details/armoury-exchange/) | [Firefox Addon](https://addons.mozilla.org/en-GB/firefox/addon/armoury-exchange/)
+## [Chrome Extension](https://chrome.google.com/webstore/detail/armoury-exchange/hcjihmkcnjkfkaeebhnpjcnnibpoolgc) | [Firefox Addon](https://addons.mozilla.org/en-GB/firefox/addon/armoury-exchange/)
 
 ## Usage
 
@@ -9,7 +9,9 @@
 
 ## Installing from source
 
-1. Download this source code. The extension is in the `extension` folder. You can also [download the latest build](https://github.com/danreeves/dt-exchange/releases/tag/latest) from the releases page
+1. Download the source
+   - Clone this repo and follow the Development steps
+   - [Download the auto-generated latest build](https://github.com/danreeves/dt-exchange/releases/tag/latest) from the releases page
 2. Follow the instructions for your browser:
    - [Chrome/Opera/Edge](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked)
    - [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
@@ -28,3 +30,4 @@ Dependencies: node & npm
 - [Coconutcoo](https://github.com/Coconutcoo)
 - [errnoh](https://github.com/errnoh)
 - [Chris Bitler](https://github.com/Chris-Bitler)
+- [CautemocSg](https://github.com/CautemocSg)

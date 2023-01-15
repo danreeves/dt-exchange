@@ -1,0 +1,19 @@
+.filter-rules-split-rules-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 15px;
+}
+
+.filter-rules-split-rules-wrapper > * {
+  flex: 1 1 50%;
+  margin-top: 0;
+}
+
+.filter-rules-split-rules-wrapper > *:not(:last-child) {
+  padding-right: 15px;
+}
+
+.filter-rules-split-rules-wrapper.filter-rules-split-3-col > * {
+  flex: 1 1 33%;
+}
