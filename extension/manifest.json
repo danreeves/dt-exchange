@@ -9,7 +9,9 @@
   },
   "permissions": [
     "alarms",
-    "*://accounts.atoma.cloud/*"
+    "https://accounts.atoma.cloud/*",
+    "https://bsp-td-prod.atoma.cloud/*",
+    "https://bsp-cdn-prod.atoma.cloud/*"
   ],
   "content_scripts": [
     {

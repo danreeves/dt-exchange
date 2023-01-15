@@ -1,6 +1,8 @@
 import { App } from "./components/App"
 import { createRoot } from "react-dom/client"
-import { log } from "./utils"
+import { getFatSharkUser, log, setLocalStorage } from "./utils"
+
+let ext = chrome || browser
 
 window.addEventListener("popstate", function (event) {
   // Log the state data to the console
@@ -8,17 +10,17 @@ window.addEventListener("popstate", function (event) {
 })
 
 async function main() {
-	log("Armoury Exchange booting")
-	let observer = new MutationObserver(() => {
-		let accountDetailsTitle = document
-			.evaluate(
-				'//p[contains(., "Account Details")]',
-				document,
-				null,
-				XPathResult.ANY_TYPE,
-				null
-			)
-			.iterateNext()
+  log("Armoury Exchange booting")
+  let observer = new MutationObserver(() => {
+    let accountDetailsTitle = document
+      .evaluate(
+        '//p[contains(., "Account Details")]',
+        document,
+        null,
+        XPathResult.ANY_TYPE,
+        null
+      )
+      .iterateNext()
 
     let armouryExchangeTitle = document
       .evaluate(
@@ -48,6 +50,28 @@ async function main() {
           myContainer,
           accountDetailsEl
         )
+
+        // Handle user updates from the background page
+        ext.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+          if (message && message.type == "user-auth-update") {
+            // Update the user info we have, and set it in local storage
+            const getExpirationTimeInMs =
+              ((message.user.ExpiresIn ?? 1800) - 300) * 1000 // Taken from account dashboard code
+            const newUser = {
+              ...message.user,
+              RefreshAt: new Date(
+                new Date().getTime() + getExpirationTimeInMs
+              ).getTime(),
+            }
+            setLocalStorage("user", newUser)
+          }
+          sendResponse()
+        })
+
+        console.log("Send auth")
+        // Send auth
+        ext.runtime.sendMessage({ type: "user-auth", user: getFatSharkUser() })
+
         // Mount react app there
         requestIdleCallback(() => {
           createRoot(myContainer.firstChild!.firstChild! as HTMLElement).render(

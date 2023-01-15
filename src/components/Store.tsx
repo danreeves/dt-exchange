@@ -180,7 +180,10 @@ function filterFunc(
   let arr: string[]
 
   var found = targets.find(function (target) {
-    arr = typeof target.character === 'string' ? [target.character] : target.character
+    arr =
+      typeof target.character === "string"
+        ? [target.character]
+        : target.character
     if (target.character && !arr.includes(char.archetype)) {
       return false
     }
@@ -190,7 +193,7 @@ function filterFunc(
     }
 
     if (target.item) {
-      arr = typeof target.item === 'string' ? [target.item] : target.item
+      arr = typeof target.item === "string" ? [target.item] : target.item
       if (
         !arr.find((element) =>
           localisation[offer.description.id].display_name.match(
@@ -202,7 +205,10 @@ function filterFunc(
       }
     }
 
-    if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
+    if (
+      target.minStats &&
+      target.minStats > offer.description.overrides.baseItemLevel
+    ) {
       return false
     }
     if (
@@ -213,7 +219,10 @@ function filterFunc(
     }
 
     if (target.blessing) {
-      arr = typeof target.blessing === 'string' ? [target.blessing] : target.blessing
+      arr =
+        typeof target.blessing === "string"
+          ? [target.blessing]
+          : target.blessing
       if (
         !offer.description.overrides.traits.find(function (blessing) {
           if (
@@ -246,7 +255,7 @@ function filterFunc(
     }
 
     if (target.perk) {
-      arr = typeof target.perk === 'string' ? [target.perk] : target.perk
+      arr = typeof target.perk === "string" ? [target.perk] : target.perk
       if (
         !offer.description.overrides.perks.find(function (perk) {
           if (

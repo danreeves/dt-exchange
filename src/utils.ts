@@ -13,12 +13,15 @@ export function createFetcher(user: User, isAuth = false) {
 
     let res = await fetch(url, {
       headers: {
-        authorization: `Bearer ${isAuth ? user.RefreshToken : user.AccessToken}`,
+        authorization: `Bearer ${
+          isAuth ? user.RefreshToken : user.AccessToken
+        }`,
       },
     })
 
     if (res.ok) {
       try {
+        console.dir(res.clone())
         let json = await res.clone().json()
         return json
       } catch {
@@ -68,21 +71,21 @@ export function safeUserParse(input: string): User | undefined {
 
 export function getFatSharkUser(): User | undefined {
   // This key is set by FatShark, so it's not in our namespace.
-  let userEncoded = localStorage.getItem('user')
+  let userEncoded = localStorage.getItem("user")
   if (!userEncoded) {
     warn("No user present in localstorage")
     return undefined
   }
 
   // The user is a base64 encoded version of the response to /queue/refresh
-  let userDecoded = Buffer.from(userEncoded, 'base64').toString()
+  let userDecoded = Buffer.from(userEncoded, "base64").toString()
 
   return safeUserParse(userDecoded)
 }
 
-export function setLocalStorage<T>(key: string, value: T) {
-	const encoded = btoa(JSON.stringify(value));
-	localStorage.setItem(key, encoded);
+export function setLocalStorage<T>(key: string, data: T): void {
+  const encoded = Buffer.from(JSON.stringify(data), "binary").toString("base64")
+  localStorage.setItem(key, encoded)
 }
 
 export function log(msg: string) {

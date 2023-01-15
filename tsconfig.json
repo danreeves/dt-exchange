@@ -7,8 +7,8 @@
     "moduleResolution": "node",
     "target": "es2021",
     "lib": ["ES2021", "DOM"],
-    "types": ["chrome"],
-    "typeRoots": ["./node_modules/@types", "./node_modules/web-ext-types"],
+    "types": ["chrome", "jest", "web-ext-types"],
+    "typeRoots": ["node_modules/@types", "node_modules/web-ext-types"],
     "jsx": "react-jsx"
   },
   "include": ["src/**/*", "tests/**/*"]
