@@ -5,6 +5,7 @@ import { SplitRuleWrapper } from "./SplitRuleWrapper"
 import type { FormFilterRule } from "../../../types"
 import "./Rules.css"
 import { defaultEmphasisColor, ITEM_OPTIONS, STORE_OPTIONS } from "../../../types"
+import { RuleText } from "./RuleText"
 
 type RulesProps = {
   input: FormFilterRule
@@ -27,6 +28,46 @@ export function Rules(props: RulesProps) {
   return (
     <>
       <div className={"filter-rules-wrapper"}>
+        <SplitRuleWrapper columns={3}>
+          <Rule
+            label={"Item Type"}
+            type={"select"}
+            name={"type"}
+            index={props.index}
+            value={props.input.type}
+            focus={focusedRule}
+            dataValues={ITEM_OPTIONS}
+            addAnyValue
+            onChange={(event) => props.onChange(props.index, event)}
+            onFocus={(event) => handleFormFocus(event)}
+            onBlur={() => setFocusedRule("")}
+          />
+          <Rule
+            label={"Store"}
+            type={"select"}
+            name={"store"}
+            index={props.index}
+            value={props.input.store}
+            focus={focusedRule}
+            dataValues={STORE_OPTIONS}
+            addAnyValue
+            onChange={(event) => props.onChange(props.index, event)}
+            onFocus={(event) => handleFormFocus(event)}
+            onBlur={() => setFocusedRule("")}
+          />
+          <Rule
+            label={"Emphasis Color"}
+            type={"color"}
+            name={"color"}
+            index={props.index}
+            value={props.input.color || defaultEmphasisColor}
+            focus={focusedRule}
+            dataValues={["#FF0000", "#F1C40F", "#00FF00", "#00FFFF", "#FF00FF"]}
+            onChange={(event) => props.onChange(props.index, event)}
+            onFocus={(event) => handleFormFocus(event)}
+            onBlur={() => setFocusedRule("")}
+          />
+        </SplitRuleWrapper>
         <Rule
           label={"Characters"}
           type={"text"}
@@ -72,9 +113,12 @@ export function Rules(props: RulesProps) {
           onFocus={(event) => handleFormFocus(event)}
           onBlur={() => setFocusedRule("")}
         />
-        <SplitRuleWrapper>
+        <div className={"filter-rules-group-header"}>
+          <RuleText size={"medium"}>Minimums</RuleText>
+        </div>
+        <SplitRuleWrapper columns={4}>
           <Rule
-            label={"Minimum Blessing Rarity"}
+            label={"Blessing Rarity"}
             type={"number"}
             min={0}
             max={4}
@@ -87,7 +131,7 @@ export function Rules(props: RulesProps) {
             onBlur={() => setFocusedRule("")}
           />
           <Rule
-            label={"Minimum Perk Rarity"}
+            label={"Perk Rarity"}
             type={"number"}
             min={0}
             max={4}
@@ -99,10 +143,8 @@ export function Rules(props: RulesProps) {
             onFocus={(event) => handleFormFocus(event)}
             onBlur={() => setFocusedRule("")}
           />
-        </SplitRuleWrapper>
-        <SplitRuleWrapper>
           <Rule
-            label={"Minimum Stats"}
+            label={"Stats"}
             type={"number"}
             min={0}
             max={1000}
@@ -115,7 +157,7 @@ export function Rules(props: RulesProps) {
             onBlur={() => setFocusedRule("")}
           />
           <Rule
-            label={"Minimum Rating"}
+            label={"Rating"}
             type={"number"}
             min={0}
             max={1000}
@@ -123,46 +165,6 @@ export function Rules(props: RulesProps) {
             index={props.index}
             value={props.input.minRating}
             focus={focusedRule}
-            onChange={(event) => props.onChange(props.index, event)}
-            onFocus={(event) => handleFormFocus(event)}
-            onBlur={() => setFocusedRule("")}
-          />
-        </SplitRuleWrapper>
-        <SplitRuleWrapper columns={3}>
-          <Rule
-            label={"Item Type"}
-            type={"select"}
-            name={"type"}
-            index={props.index}
-            value={props.input.type}
-            focus={focusedRule}
-            dataValues={ITEM_OPTIONS}
-            addAnyValue
-            onChange={(event) => props.onChange(props.index, event)}
-            onFocus={(event) => handleFormFocus(event)}
-            onBlur={() => setFocusedRule("")}
-          />
-          <Rule
-            label={"Store"}
-            type={"select"}
-            name={"store"}
-            index={props.index}
-            value={props.input.store}
-            focus={focusedRule}
-            dataValues={STORE_OPTIONS}
-            addAnyValue
-            onChange={(event) => props.onChange(props.index, event)}
-            onFocus={(event) => handleFormFocus(event)}
-            onBlur={() => setFocusedRule("")}
-          />
-          <Rule
-            label={"Emphasis Color"}
-            type={"color"}
-            name={"color"}
-            index={props.index}
-            value={props.input.color || defaultEmphasisColor}
-            focus={focusedRule}
-            dataValues={["#FF0000", "#F1C40F", "#00FF00", "#00FFFF", "#FF00FF"]}
             onChange={(event) => props.onChange(props.index, event)}
             onFocus={(event) => handleFormFocus(event)}
             onBlur={() => setFocusedRule("")}
