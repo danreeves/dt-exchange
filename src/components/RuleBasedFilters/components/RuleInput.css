@@ -1,11 +1,12 @@
-.filter-rules-input {
+.filter-rules-input,
+.filter-rules-select {
   color: #fff;
   font: inherit;
   letter-spacing: inherit;
-  padding: 4px 0 5px;
+  padding: 4px 0 10px;
   border: 0;
   box-sizing: content-box;
-  background: none;
+  background: #0b0b0b;
   height: 1.4em;
   margin: 0;
   display: block;
@@ -17,14 +18,12 @@
 .filter-rules-input-wrapper {
   margin-top: 16px;
   padding-top: 4px;
-  padding-bottom: 8px;
   font-family: "Roboto Mono", monospace;
   font-weight: 400;
   font-size: 0.9rem;
   line-height: 1.4em;
   color: #fff;
   box-sizing: border-box;
-  cursor: text;
   display: inline-flex;
   align-items: center;
   position: relative;

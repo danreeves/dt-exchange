@@ -13,6 +13,10 @@
   display: block;
 }
 
+.filter-rules-section-header > div {
+  max-width: 300px;
+}
+
 .filter-rules-section-footer {
   text-align: right;
   margin-top: 10px;
