@@ -1,24 +1,24 @@
-.filter-rules-show-rules-btn {
-  padding: 0;
+.filter-rules-btn.filter-rules-show-rules-btn {
+  padding: 4px 0;
   margin: 0;
   height: auto;
   color: #BDBDBDFF;
 }
 
-.filter-rules-show-rules-btn:hover {
+.filter-rules-btn.filter-rules-show-rules-btn:hover {
   color: #358B93FF;
 }
 
-.filter-rules-show-rules-inner-wrapper {
+.filter-rules-btn .filter-rules-show-rules-inner-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.filter-rules-show-rules-inner-wrapper > i {
+.filter-rules-btn .filter-rules-show-rules-inner-wrapper > i {
   width: 24px;
 }
 
-.filter-rules-show-rules-inner-wrapper > span {
+.filter-rules-btn .filter-rules-show-rules-inner-wrapper > span {
   flex: 1 1 100%;
 }
