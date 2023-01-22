@@ -2,35 +2,33 @@ import React, { FormEvent, useRef, useState } from "react"
 import type { FilterRule } from "../../../types"
 import { rulesToJson } from "../RuleBasedFilters.service"
 import "./RulesJsonEditor.css"
+import { SaveButton } from "./Buttons/SaveButton"
+import { CancelButton } from "./Buttons/CancelButton"
 
 export type JsonEditorProps = {
   state: FilterRule[]
   onSubmit: (rules: FilterRule[]) => void
 }
 export function RulesJsonEditor(props: JsonEditorProps) {
+  let [ruleFormDirty, setRuleFormDirty] = useState(false)
   let [jsonState, setJsonState] = useState<string>(rulesToJson(props.state))
   let [jsonError, setJsonError] = useState(false)
   let jsonTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
   function setRulesToState() {
+    setJsonError(false)
+    setRuleFormDirty(false)
     setJsonState(rulesToJson(props.state))
   }
 
-  React.useEffect(setRulesToState, [props.state]);
+  React.useEffect(setRulesToState, [props.state])
 
   function handleSubmitJson(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-
-    setJsonError(false)
-
-    try {
-      // Parse the string
-      let rules: FilterRule[] = JSON.parse(jsonState)
-      // Propagate change up
-      props.onSubmit(rules)
-    } catch (e) {
-      setJsonError(true)
-    }
+    // Parse the string
+    let rules: FilterRule[] = JSON.parse(jsonState)
+    // Propagate change up
+    props.onSubmit(rules)
   }
 
   return (
@@ -54,21 +52,28 @@ export function RulesJsonEditor(props: JsonEditorProps) {
           }}
           onChange={function (e) {
             if (jsonTextAreaRef.current) {
+              setJsonError(false)
               jsonTextAreaRef.current.setCustomValidity("")
               try {
                 JSON.parse(e.target.value)
               } catch {
+                setJsonError(true)
                 jsonTextAreaRef.current.setCustomValidity("Invalid JSON")
               }
 
               jsonTextAreaRef.current.reportValidity()
             }
             setJsonState(e.target.value)
+            setRuleFormDirty(true)
           }}
           value={jsonState}
         />
-        {jsonError ? <div className="error-text">Rules not saved due to invalid JSON</div> : null}
-        <button type="submit">Save JSON</button>
+        <div className={"filter-rules-section-footer"}>
+          <CancelButton disabled={!ruleFormDirty} onClick={setRulesToState} />
+          <SaveButton disabled={!ruleFormDirty || jsonError}>
+            Save JSON
+          </SaveButton>
+        </div>
       </form>
     </>
   )

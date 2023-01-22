@@ -3,6 +3,7 @@ import "./SaveButton.css"
 
 export type SaveBtnProps = {
   disabled: boolean
+  children?: any
 }
 export function SaveButton(props: SaveBtnProps) {
   return (
@@ -12,7 +13,7 @@ export function SaveButton(props: SaveBtnProps) {
         type={"submit"}
         disabled={props.disabled}
       >
-        <RuleText size={"medium"}>Save</RuleText>
+        <RuleText size={"medium"}>{ props.children || "Save" }</RuleText>
       </button>
     </>
   )
