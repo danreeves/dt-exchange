@@ -4,7 +4,7 @@ import { Rule } from "./Rule"
 import { SplitRuleWrapper } from "./SplitRuleWrapper"
 import type { FormFilterRule } from "../../../types"
 import "./Rules.css"
-import { defaultEmphasisColor } from "../../../types"
+import { defaultEmphasisColor, ITEM_OPTIONS, STORE_OPTIONS } from "../../../types"
 
 type RulesProps = {
   input: FormFilterRule
@@ -136,7 +136,8 @@ export function Rules(props: RulesProps) {
             index={props.index}
             value={props.input.type}
             focus={focusedRule}
-            dataValues={["curio", "ranged", "melee"]}
+            dataValues={ITEM_OPTIONS}
+            addAnyValue
             onChange={(event) => props.onChange(props.index, event)}
             onFocus={(event) => handleFormFocus(event)}
             onBlur={() => setFocusedRule("")}
@@ -148,7 +149,8 @@ export function Rules(props: RulesProps) {
             index={props.index}
             value={props.input.store}
             focus={focusedRule}
-            dataValues={["credits", "marks"]}
+            dataValues={STORE_OPTIONS}
+            addAnyValue
             onChange={(event) => props.onChange(props.index, event)}
             onFocus={(event) => handleFormFocus(event)}
             onBlur={() => setFocusedRule("")}

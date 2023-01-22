@@ -3,7 +3,7 @@
   color: #fff;
   font: inherit;
   letter-spacing: inherit;
-  padding: 4px 0 10px;
+  padding: 10px 0;
   border: 0;
   box-sizing: content-box;
   background: #0b0b0b;
@@ -16,11 +16,9 @@
 }
 
 .filter-rules-input-wrapper {
-  margin-top: 16px;
-  padding-top: 4px;
   font-family: "Roboto Mono", monospace;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.4em;
   color: #fff;
   box-sizing: border-box;

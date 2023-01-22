@@ -16,6 +16,7 @@ import "./RuleBasedFilters.css"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
 import { DragHandleIcon } from "./components/Icons/DragHandle"
 import { Rule } from "./components/Rule"
+import { SplitRuleWrapper } from "./components/SplitRuleWrapper"
 
 type Props = {
   DE: DeemphasizeOption
@@ -156,24 +157,22 @@ export function RuleBasedFilters(props: Props) {
               e.preventDefault()
             }}
           >
-            <div className={"filter-rules-section-header"}>
+            <SplitRuleWrapper columns={3}>
               <Rule
                 label={"De-emphasize Style"}
                 type={"select"}
                 name={"deemphasis"}
-                index={0}
                 value={deemphasisStyle}
-                focus={focusedInput ? `${focusedInput}_0` : ""}
+                focus={focusedInput}
                 dataValues={DEEMPHASIZE_OPTIONS}
-                removeAnyValue={true}
                 onChange={function (event) {
                   props.setDE(event.target.value as DeemphasizeOption)
                   setDeemphasisStyle(event.target.value as DeemphasizeOption)
                 }}
-                onFocus={() => setFocusedInput("deemphasis")}
+                onFocus={event => setFocusedInput(event.target.id)}
                 onBlur={() => setFocusedInput("")}
               />
-            </div>
+            </SplitRuleWrapper>
             {ruleFields.map(function (input, index) {
               return (
                 <div key={index}>

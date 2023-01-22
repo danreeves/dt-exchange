@@ -7,12 +7,12 @@ type RuleInputProps = {
   min?: number
   max?: number
   name: string
-  index: number
+  index?: number
   value: string | number
   isFocused: boolean
   placeholder?: string
   dataValues?: string[]
-  removeAnyValue?: boolean
+  addAnyValue?: boolean
   onChange: (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void
@@ -22,6 +22,7 @@ type RuleInputProps = {
   onBlur: () => void
 }
 export function RuleInput(props: RuleInputProps) {
+  const index: number = props.index !== undefined ? props.index : 0
   return (
     <>
       <div
@@ -32,22 +33,22 @@ export function RuleInput(props: RuleInputProps) {
         {props.type === "select" ? (
           <select
             className={"filter-rules-select"}
-            id={`${props.name}_${props.index}`}
+            id={`${props.name}_${index}`}
             name={props.name}
             value={props.value}
             onChange={(event) => props.onChange(event)}
             onFocus={(event) => props.onFocus(event)}
             onBlur={() => props.onBlur()}
           >
-            {!props.removeAnyValue ? (
-              <option key={`${props.name}_${props.index}_any`} value={""}>
+            {props.addAnyValue ? (
+              <option key={`${props.name}_${index}_any`} value={""}>
                 Any
               </option>
             ) : undefined}
             {props.dataValues?.map((option: string) => {
               return (
                 <option
-                  key={`${props.name}_${props.index}_${option}`}
+                  key={`${props.name}_${index}_${option}`}
                   value={option}
                 >
                   {camelToSentence(option)}
@@ -64,13 +65,13 @@ export function RuleInput(props: RuleInputProps) {
               max={props.type === "number" ? props.max : undefined}
               step={props.type === "number" ? 1 : undefined}
               autoComplete={"off"}
-              id={`${props.name}_${props.index}`}
+              id={`${props.name}_${index}`}
               name={props.name}
               value={props.value}
               placeholder={props.placeholder}
               list={
                 props.dataValues?.length
-                  ? `${props.name}_${props.index}_options`
+                  ? `${props.name}_${index}_options`
                   : undefined
               }
               onChange={(event) => props.onChange(event)}
@@ -78,11 +79,11 @@ export function RuleInput(props: RuleInputProps) {
               onBlur={() => props.onBlur()}
             />
             {props.dataValues?.length ? (
-              <datalist id={`${props.name}_${props.index}_options`}>
+              <datalist id={`${props.name}_${index}_options`}>
                 {props.dataValues.map(function (value: string, index: number) {
                   return (
                     <option
-                      key={`${props.name}_${props.index}_option${index}`}
+                      key={`${props.name}_${index}_option${index}`}
                       value={value}
                     />
                   )

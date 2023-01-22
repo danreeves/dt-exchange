@@ -9,12 +9,12 @@ type RuleProps = {
   min?: number
   max?: number
   name: string
-  index: number
+  index?: number
   value: string | number
   focus: string
   placeholder?: string
   dataValues?: string[]
-  removeAnyValue?: boolean
+  addAnyValue?: boolean
   onChange: (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void
@@ -24,7 +24,7 @@ type RuleProps = {
   onBlur: () => void
 }
 export function Rule(props: RuleProps) {
-  const isFocused: boolean = props.focus === `${props.name}_${props.index}`
+  const isFocused: boolean = props.focus === `${props.name}_${props.index || 0}`
   return (
     <>
       <div className={"filter-rule-wrapper"}>
@@ -43,7 +43,7 @@ export function Rule(props: RuleProps) {
           value={props.value}
           placeholder={props.placeholder}
           dataValues={props.dataValues}
-          removeAnyValue={props.removeAnyValue}
+          addAnyValue={props.addAnyValue}
           onChange={(event) => props.onChange(event)}
           onFocus={(event) => props.onFocus(event)}
           onBlur={() => props.onBlur()}

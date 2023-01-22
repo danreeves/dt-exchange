@@ -4,7 +4,7 @@ import "./RuleLabel.css"
 type RuleLabelProps = {
   label: string
   name: string
-  index: number
+  index?: number
   isFocused: boolean
 }
 export function RuleLabel(props: RuleLabelProps) {
@@ -12,9 +12,9 @@ export function RuleLabel(props: RuleLabelProps) {
     <>
       <label
         className={`filter-rules-label ${props.isFocused ? "filter-rules-label-focused" : ""}`}
-        htmlFor={`${props.name}_${props.index}`}
+        htmlFor={`${props.name}_${props.index || 0}`}
       >
-        <RuleText size={"large"}>{ props.label }</RuleText>
+        <RuleText size={"small"}>{ props.label }</RuleText>
       </label>
     </>
   )

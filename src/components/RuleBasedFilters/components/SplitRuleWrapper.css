@@ -2,18 +2,19 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin-top: 15px;
+  margin: 5px 0 10px 0;
 }
 
 .filter-rules-split-rules-wrapper > * {
-  flex: 1 1 50%;
+  flex: 0 0 50%;
   margin-top: 0;
 }
 
-.filter-rules-split-rules-wrapper > *:not(:last-child) {
+.filter-rules-split-rules-wrapper > *:first-child,
+.filter-rules-split-rules-wrapper > *:nth-child(2) {
   padding-right: 15px;
 }
 
 .filter-rules-split-rules-wrapper.filter-rules-split-3-col > * {
-  flex: 1 1 33%;
+  flex: 0 0 33%;
 }

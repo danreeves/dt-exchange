@@ -1,16 +1,11 @@
 .filter-rules-label {
-  color: #fff;
+  color: #bdbdbd;
   padding: 0;
-  display: block;
-  transform-origin: left top;
+  display: flex;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 133%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(0px, -1.5px) scale(0.75);
   transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
 
