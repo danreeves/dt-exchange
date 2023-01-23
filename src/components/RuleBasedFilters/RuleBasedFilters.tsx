@@ -157,7 +157,7 @@ export function RuleBasedFilters(props: Props) {
               e.preventDefault()
             }}
           >
-            <SplitRuleWrapper columns={3}>
+            <SplitRuleWrapper columns={3} className={"deemphasis-wrapper"}>
               <Rule
                 label={"De-emphasize Style"}
                 type={"select"}
@@ -169,7 +169,7 @@ export function RuleBasedFilters(props: Props) {
                   props.setDE(event.target.value as DeemphasizeOption)
                   setDeemphasisStyle(event.target.value as DeemphasizeOption)
                 }}
-                onFocus={event => setFocusedInput(event.target.id)}
+                onFocus={(event) => setFocusedInput(event.target.id)}
                 onBlur={() => setFocusedInput("")}
               />
             </SplitRuleWrapper>
@@ -212,6 +212,14 @@ export function RuleBasedFilters(props: Props) {
             })}
             <AddRuleButton onClick={handleAddFormRule} />
             <div className={"filter-rules-section-footer"}>
+              <div className={"divide-left"}>
+                <ShowRulesButton
+                  onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)}
+                  isOpen={ruleJsonFormOpen}
+                >
+                  Show JSON
+                </ShowRulesButton>
+              </div>
               <CancelButton
                 disabled={!ruleFormDirty}
                 onClick={handleResetRules}
@@ -219,14 +227,6 @@ export function RuleBasedFilters(props: Props) {
               <SaveButton disabled={!ruleFormDirty} />
             </div>
           </form>
-          <div className={"filter-rules-show-btn-wrapper"}>
-            <ShowRulesButton
-              onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)}
-              isOpen={ruleJsonFormOpen}
-            >
-              Show JSON
-            </ShowRulesButton>
-          </div>
           {ruleJsonFormOpen ? (
             <div>
               <RulesJsonEditor
