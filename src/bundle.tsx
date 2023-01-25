@@ -2,11 +2,6 @@ import { App } from "./components/App"
 import { createRoot } from "react-dom/client"
 import { log } from "./utils"
 
-window.addEventListener("popstate", function (event) {
-  // Log the state data to the console
-  console.log(event)
-})
-
 async function main() {
   log("Armoury Exchange booting")
 
@@ -60,6 +55,18 @@ async function main() {
   })
 
   observer.observe(document, { subtree: true, childList: true })
+}
+
+// migrations
+// TODO - remove this and make it more generic
+if (
+  JSON.parse(localStorage.getItem("armoury-exchange-filter-option")) ===
+  "trinket"
+) {
+  localStorage.setItem(
+    "armoury-exchange-filter-option",
+    JSON.stringify("curio")
+  )
 }
 
 main()
