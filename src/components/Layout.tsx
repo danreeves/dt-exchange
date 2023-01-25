@@ -23,7 +23,7 @@ import { Rule } from "./RuleBasedFilters/components/Rule"
 
 export function Layout() {
   let account = useAccount()
-  let [activeChar, setActiveChar] = useState<string>()
+  let [activeChar, setActiveChar] = useLocalStorage<string>("active-char", "")
   let [sortOption, setSortOption] = useLocalStorage<SortOption>(
     "sort-option",
     SORT_OPTIONS[0]!
@@ -59,6 +59,14 @@ export function Layout() {
   }
 
   if (account.characters[0] && !activeChar) {
+    setActiveChar(account.characters[0].id)
+  }
+
+  if (
+    activeChar &&
+    account.characters.length &&
+    !account.characters.find((char) => char.id === activeChar)
+  ) {
     setActiveChar(account.characters[0].id)
   }
 
