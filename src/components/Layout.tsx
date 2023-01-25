@@ -108,7 +108,7 @@ export function Layout() {
           onChange={function (event) {
             setStoreType(event.target.value as StoreType)
           }}
-          onFocus={event => setFocusedInput(event.target.id)}
+          onFocus={(event) => setFocusedInput(event.target.id)}
           onBlur={() => setFocusedInput("")}
         />
         <Rule
@@ -121,7 +121,7 @@ export function Layout() {
           onChange={function (event) {
             setFilterOption(event.target.value as FilterOption)
           }}
-          onFocus={event => setFocusedInput(event.target.id)}
+          onFocus={(event) => setFocusedInput(event.target.id)}
           onBlur={() => setFocusedInput("")}
         />
         <Rule
@@ -134,7 +134,7 @@ export function Layout() {
           onChange={function (event) {
             setSortOption(event.target.value as SortOption)
           }}
-          onFocus={event => setFocusedInput(event.target.id)}
+          onFocus={(event) => setFocusedInput(event.target.id)}
           onBlur={() => setFocusedInput("")}
         />
       </SplitRuleWrapper>

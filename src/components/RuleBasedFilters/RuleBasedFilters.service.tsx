@@ -91,7 +91,11 @@ function ruleStringToArrayValue(
   })
 }
 
-function ruleValueToString(value: any, options?: any, mapAllToEmpty?: boolean): string {
+function ruleValueToString(
+  value: any,
+  options?: any,
+  mapAllToEmpty?: boolean
+): string {
   if (typeof value === "string") {
     if (options?.length && options.indexOf(value) === -1) return ""
     return value

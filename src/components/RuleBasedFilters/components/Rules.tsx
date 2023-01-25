@@ -4,7 +4,11 @@ import { Rule } from "./Rule"
 import { SplitRuleWrapper } from "./SplitRuleWrapper"
 import type { FormFilterRule } from "../../../types"
 import "./Rules.css"
-import { defaultEmphasisColor, ITEM_OPTIONS, STORE_OPTIONS } from "../../../types"
+import {
+  defaultEmphasisColor,
+  ITEM_OPTIONS,
+  STORE_OPTIONS,
+} from "../../../types"
 import { RuleText } from "./RuleText"
 
 type RulesProps = {

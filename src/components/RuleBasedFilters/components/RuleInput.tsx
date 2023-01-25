@@ -47,10 +47,7 @@ export function RuleInput(props: RuleInputProps) {
             ) : undefined}
             {props.dataValues?.map((option: string) => {
               return (
-                <option
-                  key={`${props.name}_${index}_${option}`}
-                  value={option}
-                >
+                <option key={`${props.name}_${index}_${option}`} value={option}>
                   {camelToSentence(option)}
                 </option>
               )

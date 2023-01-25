@@ -21,8 +21,18 @@ function Divider() {
   return <hr className="MuiDivider-root MuiDivider-fullWidth css-pj146d" />
 }
 
-function Title({ children, style }: { children: ReactNode, style?: React.CSSProperties}) {
-  return <div className="item-title" style={style}>{children}</div>
+function Title({
+  children,
+  style,
+}: {
+  children: ReactNode
+  style?: React.CSSProperties
+}) {
+  return (
+    <div className="item-title" style={style}>
+      {children}
+    </div>
+  )
 }
 
 // Linearly interpolate input between min and max. E.g. lerp(1, 2, 0.5) returns 1.5
@@ -182,7 +192,10 @@ function filterFunc(
   let arr: string[]
 
   var found = targets.findIndex(function (target) {
-    arr = typeof target.character === 'string' ? [target.character] : target.character
+    arr =
+      typeof target.character === "string"
+        ? [target.character]
+        : target.character
     if (target.character && !arr.includes(char.archetype)) {
       return false
     }
@@ -192,7 +205,7 @@ function filterFunc(
     }
 
     if (target.item) {
-      arr = typeof target.item === 'string' ? [target.item] : target.item
+      arr = typeof target.item === "string" ? [target.item] : target.item
       if (
         !arr.find((element) =>
           localisation[offer.description.id].display_name.match(
@@ -205,9 +218,9 @@ function filterFunc(
     }
 
     if (target.type) {
-      arr = typeof target.type === 'string' ? [target.type] : target.type
+      arr = typeof target.type === "string" ? [target.type] : target.type
       if (
-        !arr.find(function(element){
+        !arr.find(function (element) {
           switch (items[offer.description.id]?.item_type) {
             case "WEAPON_RANGED":
               return target.type.toLowerCase() == "ranged" ? true : false
@@ -224,7 +237,10 @@ function filterFunc(
       }
     }
 
-    if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
+    if (
+      target.minStats &&
+      target.minStats > offer.description.overrides.baseItemLevel
+    ) {
       return false
     }
 
@@ -236,7 +252,10 @@ function filterFunc(
     }
 
     if (target.blessing) {
-      arr = typeof target.blessing === 'string' ? [target.blessing] : target.blessing
+      arr =
+        typeof target.blessing === "string"
+          ? [target.blessing]
+          : target.blessing
       if (
         !offer.description.overrides.traits.find(function (blessing) {
           if (
@@ -269,7 +288,7 @@ function filterFunc(
     }
 
     if (target.perk) {
-      arr = typeof target.perk === 'string' ? [target.perk] : target.perk
+      arr = typeof target.perk === "string" ? [target.perk] : target.perk
       if (
         !offer.description.overrides.perks.find(function (perk) {
           if (
@@ -367,15 +386,22 @@ export function Store({
               ? `offer-match match-rule-${offer.description.overrides.filter_match}`
               : deemphasizeClass[deemphasizeOption]
             : ""
-          let filterMatchStyle = enableRuleBasedFilterOption && offer.description.overrides.filter_match >= 0
-            ? {color: targets[offer.description.overrides.filter_match].color}
-            : undefined
+          let filterMatchStyle =
+            enableRuleBasedFilterOption &&
+            offer.description.overrides.filter_match >= 0
+              ? {
+                  color:
+                    targets[offer.description.overrides.filter_match].color,
+                }
+              : undefined
           return (
             <div
               className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
               key={offer.offerId}
             >
-              <Title style={filterMatchStyle}>{localisation[offer.description.id].display_name}</Title>
+              <Title style={filterMatchStyle}>
+                {localisation[offer.description.id].display_name}
+              </Title>
 
               {offer.state === "completed" ? (
                 <ItemState>You already own this</ItemState>

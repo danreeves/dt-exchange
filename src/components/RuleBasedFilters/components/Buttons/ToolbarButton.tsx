@@ -16,7 +16,7 @@ export function ToolbarButton(props: SharedToolbarBtnProps) {
           e.stopPropagation()
         }}
       >
-        { props.children }
+        {props.children}
       </button>
     </>
   )

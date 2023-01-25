@@ -24,7 +24,7 @@
 }
 
 .filter-rules-de-emphasis-label {
-  color: #BDBDBDFF;
+  color: #bdbdbdff;
 }
 
 .filter-rules-form {
@@ -39,19 +39,18 @@
 
 .filter-rules-btn {
   height: 36px;
-  color: #FFF;
+  color: #fff;
   background: transparent;
   border: none;
   cursor: pointer;
-  transition:
-    background 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+  transition: background 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
     color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   padding: 0 10px;
   margin: 0 10px;
 }
 
 .filter-rules-btn:disabled {
-  color: #808080FF;
+  color: #808080ff;
   pointer-events: none;
   cursor: default;
 }

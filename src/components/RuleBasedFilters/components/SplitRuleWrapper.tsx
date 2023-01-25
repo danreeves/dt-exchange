@@ -3,7 +3,7 @@ import "./SplitRuleWrapper.css"
 export type TextProps = {
   columns?: 2 | 3 | 4
   children?: any
-  className?: string;
+  className?: string
 }
 export function SplitRuleWrapper(props: any) {
   return (

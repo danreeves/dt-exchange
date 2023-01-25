@@ -13,7 +13,7 @@ export function SaveButton(props: SaveBtnProps) {
         type={"submit"}
         disabled={props.disabled}
       >
-        <RuleText size={"medium"}>{ props.children || "Save" }</RuleText>
+        <RuleText size={"medium"}>{props.children || "Save"}</RuleText>
       </button>
     </>
   )

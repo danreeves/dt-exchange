@@ -4,7 +4,7 @@
 
 .filter-rules-close-icon::after,
 .filter-rules-close-icon::before {
-  content: '';
+  content: "";
   display: block;
   box-sizing: border-box;
   position: absolute;
