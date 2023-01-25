@@ -68,16 +68,13 @@ export function safeUserParse(input: string): User | undefined {
 
 export function getFatSharkUser(): User | undefined {
   // This key is set by FatShark, so it's not in our namespace.
-  let userEncoded = localStorage.getItem('user')
-  if (!userEncoded) {
+  let user = localStorage.getItem('user')
+  if (!user) {
     warn("No user present in localstorage")
     return undefined
   }
 
-  // The user is a base64 encoded version of the response to /queue/refresh
-  let userDecoded = Buffer.from(userEncoded, 'base64').toString()
-
-  return safeUserParse(userDecoded)
+  return safeUserParse(user)
 }
 
 export function log(msg: string) {
