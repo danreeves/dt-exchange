@@ -160,7 +160,7 @@ let filterOptions = {
     return items[item.description.id]?.item_type === "WEAPON_MELEE"
   },
 
-  trinket: (items: Items) => (item: Personal) => {
+  curio: (items: Items) => (item: Personal) => {
     return items[item.description.id]?.item_type === "GADGET"
   },
 }

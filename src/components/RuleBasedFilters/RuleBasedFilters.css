@@ -4,18 +4,23 @@
 }
 
 .filter-rules-show-btn-wrapper {
-  display: block;
-  text-align: right;
-}
-
-.filter-rules-section-header,
-.filter-rules-section-footer {
-  display: block;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .filter-rules-section-footer {
-  text-align: right;
+  display: flex;
   margin-top: 10px;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.filter-rules-section-footer > .divide-left {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .filter-rules-de-emphasis-label {
@@ -24,6 +29,10 @@
 
 .filter-rules-form {
   margin-bottom: 10px;
+}
+
+.deemphasis-wrapper {
+  margin-bottom: 15px;
 }
 
 /* buttons */

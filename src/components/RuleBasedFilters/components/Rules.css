@@ -6,3 +6,10 @@
   padding: 8px 15px;
   margin-bottom: 10px;
 }
+
+.filter-rules-group-header {
+  margin-top: 2px;
+  display: flex;
+  width: 100%;
+  color: #bdbdbd;
+}
