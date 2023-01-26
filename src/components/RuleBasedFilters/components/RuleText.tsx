@@ -7,15 +7,17 @@ export type TextProps = {
 }
 export function RuleText(props: TextProps) {
   const fontSize: string =
-    props.size === "large" ? "large-text"
-      : props.size === "medium" ? "medium-text"
-        : props.size === "small" ? "small-text" : "medium-text";
+    props.size === "large"
+      ? "large-text"
+      : props.size === "medium"
+      ? "medium-text"
+      : props.size === "small"
+      ? "small-text"
+      : "medium-text"
 
   return (
     <>
-      <span className={`filter-rules-text ${fontSize}`}>
-        { props.children }
-      </span>
+      <span className={`filter-rules-text ${fontSize}`}>{props.children}</span>
     </>
   )
 }

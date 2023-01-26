@@ -208,17 +208,23 @@ interface PlayerItems {
 
 export const CLASS_TYPES = ["veteran", "zealot", "psyker", "ogryn"] as const
 export type ClassType = typeof CLASS_TYPES[number]
+export const CLASS_OPTIONS = Object.values(CLASS_TYPES) as ClassType[]
 
 export const STORE_TYPES = ["credits", "marks"] as const
 export type StoreType = typeof STORE_TYPES[number]
+export const STORE_OPTIONS = Object.values(STORE_TYPES) as StoreType[]
+
+export const ITEM_CATEGORIES = ["ranged", "melee", "curio"] as const
+export type ItemCategory = typeof ITEM_CATEGORIES[number]
+export const ITEM_OPTIONS = Object.values(ITEM_CATEGORIES) as ItemCategory[]
 
 export interface FilterRule {
   character?: ClassType[] | ClassType
   item?: string[] | string
-  type?: string[] | string
+  type?: ItemCategory
   blessing?: string[] | string
   perk?: string[] | string
-  store?: StoreType[] | string
+  store?: StoreType[] | StoreType
   minBlessingRarity?: number
   minPerkRarity?: number
   minStats?: number

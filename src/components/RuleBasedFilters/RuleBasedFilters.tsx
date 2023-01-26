@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import type { FilterRule, FormFilterRule } from "../../types"
-import { camelToSentence } from "../../utils"
 import { DEEMPHASIZE_OPTIONS, DeemphasizeOption } from "../Store"
 import { CloseButton } from "./components/Buttons/CloseButton"
 import { RuleToolbar } from "./components/RuleToolbar"
@@ -12,11 +11,12 @@ import { AddRuleButton } from "./components/Buttons/AddRuleButton"
 import { RulesJsonEditor } from "./components/RulesJsonEditor"
 import { SaveButton } from "./components/Buttons/SaveButton"
 import { CancelButton } from "./components/Buttons/CancelButton"
-import { RuleText } from "./components/RuleText"
 import { ShowRulesButton } from "./components/Buttons/ShowRulesButton"
 import "./RuleBasedFilters.css"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
 import { DragHandleIcon } from "./components/Icons/DragHandle"
+import { Rule } from "./components/Rule"
+import { SplitRuleWrapper } from "./components/SplitRuleWrapper"
 
 type Props = {
   DE: DeemphasizeOption
@@ -39,20 +39,24 @@ export function RuleBasedFilters(props: Props) {
       minRating: "0",
       store: "",
       color: "",
-      isOpen: true
+      isOpen: true,
     }
   }
 
   let [dragItem, setDragItem] = useState<number | undefined>(undefined)
   let [dragOverItem, setDragOverItem] = useState<number | undefined>(undefined)
-  let [ruleFields, setRuleFields] = useState(props.state ? rulesToFormData(props.state) : [newRule()])
+  let [ruleFields, setRuleFields] = useState(
+    props.state ? rulesToFormData(props.state) : [newRule()]
+  )
   let [ruleFormDirty, setRuleFormDirty] = useState(false)
   let [ruleFormOpen, setRuleFormOpen] = useState(false)
   let [ruleJsonFormOpen, setRuleJsonFormOpen] = useState(false)
-  let [deemphasisStyle, setDeemphasisStyle] = useLocalStorage<DeemphasizeOption>(
-    "deemphasize-selection",
-    DEEMPHASIZE_OPTIONS[0]!
-  )
+  let [deemphasisStyle, setDeemphasisStyle] =
+    useLocalStorage<DeemphasizeOption>(
+      "deemphasize-selection",
+      DEEMPHASIZE_OPTIONS[0]!
+    )
+  let [focusedInput, setFocusedInput] = useState<string>("")
 
   function dragStart(position: number) {
     setDragItem(position)
@@ -63,7 +67,11 @@ export function RuleBasedFilters(props: Props) {
   }
 
   function drop() {
-    if (dragItem !== undefined && dragOverItem !== undefined && dragItem !== dragOverItem) {
+    if (
+      dragItem !== undefined &&
+      dragOverItem !== undefined &&
+      dragItem !== dragOverItem
+    ) {
       let data: FormFilterRule[] = [...ruleFields]
       const dragItemContent: FormFilterRule = data[dragItem]!
       data.splice(dragItem, 1)
@@ -75,9 +83,14 @@ export function RuleBasedFilters(props: Props) {
     setDragOverItem(undefined)
   }
 
-  function handleFormChange(index: number, event: FormEvent<HTMLInputElement>) {
+  function handleFormChange(
+    index: number,
+    event: FormEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     let data: FormFilterRule[] = [...ruleFields]
-    const eventTarget: HTMLInputElement = event.target as HTMLInputElement
+    const eventTarget: HTMLInputElement | HTMLSelectElement = event.target as
+      | HTMLInputElement
+      | HTMLSelectElement
     // @ts-ignore
     data[index][eventTarget.name] = eventTarget.value
     setRuleFields(data)
@@ -93,6 +106,7 @@ export function RuleBasedFilters(props: Props) {
     event.preventDefault()
     const rules: FilterRule[] = formDataToRules(ruleFields)
     props.setState(rules)
+    setRuleFields(rulesToFormData(rules))
     if (ruleFormDirty) setRuleFormDirty(false)
   }
 
@@ -124,7 +138,10 @@ export function RuleBasedFilters(props: Props) {
   return (
     <div className={"filter-rules-section"}>
       <div className={"filter-rules-show-btn-wrapper"}>
-        <ShowRulesButton onClick={() => setRuleFormOpen(!ruleFormOpen)} isOpen={ruleFormOpen}>
+        <ShowRulesButton
+          onClick={() => setRuleFormOpen(!ruleFormOpen)}
+          isOpen={ruleFormOpen}
+        >
           Show rules
         </ShowRulesButton>
       </div>
@@ -133,67 +150,89 @@ export function RuleBasedFilters(props: Props) {
           <form
             className={"filter-rules-form"}
             onSubmit={handleRuleFormSubmit}
-            onDragEnter={function (e) { e.preventDefault() }}
-            onDragOver={function (e) { e.preventDefault() }}
+            onDragEnter={function (e) {
+              e.preventDefault()
+            }}
+            onDragOver={function (e) {
+              e.preventDefault()
+            }}
           >
-            <div className={"filter-rules-section-header"}>
-              <label className={"filter-rules-de-emphasis-label"} htmlFor="deemphasize-by">
-                <RuleText size={"medium"}>De-emphasize: </RuleText>
-              </label>
-              <select
-                id="deemphasize-by"
+            <SplitRuleWrapper columns={3} className={"deemphasis-wrapper"}>
+              <Rule
+                label={"De-emphasize Style"}
+                type={"select"}
+                name={"deemphasis"}
                 value={deemphasisStyle}
+                focus={focusedInput}
+                dataValues={DEEMPHASIZE_OPTIONS}
                 onChange={function (event) {
                   props.setDE(event.target.value as DeemphasizeOption)
                   setDeemphasisStyle(event.target.value as DeemphasizeOption)
                 }}
-              >
-                {DEEMPHASIZE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {camelToSentence(opt)}
-                  </option>
-                ))}{" "}
-              </select>
-            </div>
+                onFocus={(event) => setFocusedInput(event.target.id)}
+                onBlur={() => setFocusedInput("")}
+              />
+            </SplitRuleWrapper>
             {ruleFields.map(function (input, index) {
               return (
                 <div key={index}>
-                  <div draggable
-                    onDragStart={function () { dragStart(index) }}
+                  <div
+                    draggable
+                    onDragStart={function () {
+                      dragStart(index)
+                    }}
                     onDragEnter={function (e) {
                       e.preventDefault()
                       dragEnter(index)
                     }}
-                    onDragOver={function (e) { e.preventDefault() }}
+                    onDragOver={function (e) {
+                      e.preventDefault()
+                    }}
                     onDragEnd={drop}
                   >
                     <RuleToolbar>
                       <DragHandleIcon size={"medium"} />
-                      <CollapseButton isOpen={input.isOpen} onClick={() => handleToggleCollapseRule(index)} />
+                      <CollapseButton
+                        isOpen={input.isOpen}
+                        onClick={() => handleToggleCollapseRule(index)}
+                      />
                       <ToolbarHeader input={input} />
                       <CloseButton onClick={() => handleRemoveRule(index)} />
                     </RuleToolbar>
                   </div>
                   {input.isOpen ? (
-                    <Rules index={index} input={input} onChange={handleFormChange} />
+                    <Rules
+                      index={index}
+                      input={input}
+                      onChange={handleFormChange}
+                    />
                   ) : undefined}
                 </div>
               )
             })}
             <AddRuleButton onClick={handleAddFormRule} />
             <div className={"filter-rules-section-footer"}>
-              <CancelButton disabled={!ruleFormDirty} onClick={handleResetRules} />
+              <div className={"divide-left"}>
+                <ShowRulesButton
+                  onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)}
+                  isOpen={ruleJsonFormOpen}
+                >
+                  Show JSON
+                </ShowRulesButton>
+              </div>
+              <CancelButton
+                disabled={!ruleFormDirty}
+                onClick={handleResetRules}
+              />
               <SaveButton disabled={!ruleFormDirty} />
             </div>
           </form>
-          <div className={"filter-rules-show-btn-wrapper"}>
-            <ShowRulesButton onClick={() => setRuleJsonFormOpen(!ruleJsonFormOpen)} isOpen={ruleJsonFormOpen}>
-              Show JSON
-            </ShowRulesButton>
-          </div>
           {ruleJsonFormOpen ? (
             <div>
-              <RulesJsonEditor state={props.state} onSubmit={handleSubmitJson} />
+              <RulesJsonEditor
+                state={props.state}
+                onSubmit={handleSubmitJson}
+              />
             </div>
           ) : undefined}
         </div>

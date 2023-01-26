@@ -5,7 +5,7 @@ export type CancelBtnProps = {
   onClick: () => void
   disabled: boolean
 }
-export function CancelButton (props: CancelBtnProps) {
+export function CancelButton(props: CancelBtnProps) {
   return (
     <>
       <button

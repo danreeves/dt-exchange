@@ -113,10 +113,7 @@ Lets consider the following example:
   },
   {
     "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
-    "blessing": [
-      "Infernus",
-      "Ghost"
-    ]
+    "blessing": ["Infernus", "Ghost"]
   },
   {
     "minStats": 360
@@ -153,14 +150,11 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 ```json
 {
   "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
-  "blessing": [
-    "Infernus",
-    "Ghost"
-  ]
+  "blessing": ["Infernus", "Ghost"]
 }
 ```
 
-Similar to the first one, but here we're looking either for a specific variation of the Infantry Lasgun or any type of Recon Lasgun. In order to match specific Infrantry Lasgun variant we are required to write down more specific name. It's not required to write the whole name, variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`. 
+Similar to the first one, but here we're looking either for a specific variation of the Infantry Lasgun or any type of Recon Lasgun. In order to match specific Infrantry Lasgun variant we are required to write down more specific name. It's not required to write the whole name, variations that would also work are things like `Kantrael MG XII` or `XII Infantry Lasgun`.
 
 In addition we're looking for more than one possible blessing, so they're inside square brackets. Note that while the filter spans multiple lines, it's exactly same as `"blessing": ["Infernus","Ghost"]`.
 

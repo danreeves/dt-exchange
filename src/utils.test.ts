@@ -1,5 +1,6 @@
 import { expect, test } from "@jest/globals"
-import { safeUserParse } from "./utils"
+import { safeJsonParse } from "./utils"
+import type { User } from "./types"
 
 let userNames = [
   `【パンツ】Pantsu#1234`,
@@ -7,29 +8,17 @@ let userNames = [
   `七曜曜#1234`,
   `Dunesca ʕ•͡ᴥ•ʔ#1234`,
   `Deadsiesthe•̪̀●́#1234`,
-  `F̶̍̋I̶̔̀Q#1234`
+  `F̶̍̋I̶̔̀Q#1234`,
 ]
-
-function toB64(str: string): string {
-  return Buffer.from(str, "ascii").toString("base64")
-}
-
-function fromB64(str: string): string {
-  return Buffer.from(str, "base64").toString()
-}
-
-// @danreeves did a great job of figuring out how FS are mangling these strings,
-// so we're replicating the process here. In particular, some elements like
-// Deadsiesthe•̪̀●́#1234 get mangled to Deadsiesthe"*�#1234
-function mangle(obj: Record<string, unknown>): string {
-  return fromB64(toB64(JSON.stringify(obj)))
-}
 
 for (let user of userNames) {
   test(`safeUserParse can parse special user names: ${user}`, () => {
     const TestAccessToken = "This Should Be Returned"
-    let userString = mangle({ AccessToken: TestAccessToken, AccountName: user })
-    let decoded = safeUserParse(userString)
+    let userString = JSON.stringify({
+      AccessToken: TestAccessToken,
+      AccountName: user,
+    })
+    let decoded = safeJsonParse<User>(userString)
     expect(decoded).not.toBe(undefined)
     expect(decoded!.AccessToken).toBe(TestAccessToken)
     expect(decoded?.AccountName).not.toBe(undefined)
@@ -52,7 +41,7 @@ test(" safely removes bad usernames anywhere in json", () => {
       },
     ]
     for (let obj of objs) {
-      let decoded = safeUserParse(mangle(obj))
+      let decoded = safeJsonParse<User>(JSON.stringify(obj))
       expect(decoded).not.toBe(undefined)
       expect(decoded?.AccountName).not.toBe(undefined)
       expect(decoded?.AccountName).not.toBe("")

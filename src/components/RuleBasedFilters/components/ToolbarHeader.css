@@ -13,6 +13,7 @@
   width: 12px;
   border-radius: 6px;
   margin-right: 10px;
+  flex: 0 0 12px;
 }
 
 .filter-rules-toolbar-header > span {

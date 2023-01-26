@@ -15,14 +15,15 @@ import { useAccount } from "../hooks/useAccount"
 import type { SortOption } from "./Store"
 import type { StoreType, FilterRule } from "../types"
 import "./Layout.css"
-import { STORE_TYPES } from "../types"
-import { camelToSentence } from "../utils"
+import { STORE_OPTIONS } from "../types"
 import { RuleBasedFilters } from "./RuleBasedFilters/RuleBasedFilters"
 import { useLocalStorage } from "../hooks/useLocalStorage"
+import { SplitRuleWrapper } from "./RuleBasedFilters/components/SplitRuleWrapper"
+import { Rule } from "./RuleBasedFilters/components/Rule"
 
 export function Layout() {
   let account = useAccount()
-  let [activeChar, setActiveChar] = useState<string>()
+  let [activeChar, setActiveChar] = useLocalStorage<string>("active-char", "")
   let [sortOption, setSortOption] = useLocalStorage<SortOption>(
     "sort-option",
     SORT_OPTIONS[0]!
@@ -47,6 +48,8 @@ export function Layout() {
   let [deemphasizeOption, setDeemphasizeOption] =
     useLocalStorage<DeemphasizeOption>("deemphasize-selection", "none")
 
+  let [focusedInput, setFocusedInput] = useState<string>("")
+
   if (!account) {
     return (
       <>
@@ -57,6 +60,14 @@ export function Layout() {
   }
 
   if (account.characters[0] && !activeChar) {
+    setActiveChar(account.characters[0].id)
+  }
+
+  if (
+    activeChar &&
+    account.characters.length &&
+    !account.characters.find((char) => char.id === activeChar)
+  ) {
     setActiveChar(account.characters[0].id)
   }
 
@@ -94,59 +105,48 @@ export function Layout() {
           )
         })}
       </ul>
-
-      <div className="sort-row">
-        <label htmlFor="store-type">
-          <Text>Store type: </Text>
-        </label>
-        <select
-          id="store-type"
+      <br />
+      <SplitRuleWrapper columns={3}>
+        <Rule
+          label={"Store Type"}
+          type={"select"}
+          name={"store_type"}
           value={storeType}
-          onChange={(event) => {
+          focus={focusedInput}
+          dataValues={STORE_OPTIONS}
+          onChange={function (event) {
             setStoreType(event.target.value as StoreType)
           }}
-        >
-          {STORE_TYPES.map((opt) => (
-            <option key={opt} value={opt}>
-              {camelToSentence(opt)}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="filter-by">
-          <Text>Filter by: </Text>
-        </label>
-        <select
-          id="filter-by"
+          onFocus={(event) => setFocusedInput(event.target.id)}
+          onBlur={() => setFocusedInput("")}
+        />
+        <Rule
+          label={"Filter By"}
+          type={"select"}
+          name={"filter_by"}
           value={filterOption}
-          onChange={(event) => {
+          focus={focusedInput}
+          dataValues={FILTER_OPTIONS}
+          onChange={function (event) {
             setFilterOption(event.target.value as FilterOption)
           }}
-        >
-          {FILTER_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
-              {camelToSentence(opt)}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="sort-by">
-          <Text>Sort by: </Text>
-        </label>
-        <select
-          id="sort-by"
+          onFocus={(event) => setFocusedInput(event.target.id)}
+          onBlur={() => setFocusedInput("")}
+        />
+        <Rule
+          label={"Sort By"}
+          type={"select"}
+          name={"sort_by"}
           value={sortOption}
-          onChange={(event) => {
+          focus={focusedInput}
+          dataValues={SORT_OPTIONS}
+          onChange={function (event) {
             setSortOption(event.target.value as SortOption)
           }}
-        >
-          {SORT_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
-              {camelToSentence(opt)}
-            </option>
-          ))}
-        </select>
-      </div>
-
+          onFocus={(event) => setFocusedInput(event.target.id)}
+          onBlur={() => setFocusedInput("")}
+        />
+      </SplitRuleWrapper>
       <div className="sort-row">
         <label htmlFor="enable-rule-based-filter">
           <Text>Enable rule based filtering: </Text>

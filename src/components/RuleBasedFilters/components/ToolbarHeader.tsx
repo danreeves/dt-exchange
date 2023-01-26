@@ -16,7 +16,9 @@ export function ToolbarHeader(props: ToolbarHeaderProps) {
     // Blessings
     if (input.blessing) {
       if (parseFloat(input.minBlessingRarity)) {
-        newHeaderAr.push(`${input.blessing} (Min Rarity: ${input.minBlessingRarity})`)
+        newHeaderAr.push(
+          `${input.blessing} (Min Rarity: ${input.minBlessingRarity})`
+        )
       } else {
         newHeaderAr.push(input.blessing)
       }
@@ -33,8 +35,10 @@ export function ToolbarHeader(props: ToolbarHeaderProps) {
     } else if (parseFloat(input.minPerkRarity)) {
       newHeaderAr.push(`Min Perk Rarity: ${input.minPerkRarity}`)
     }
-    if (parseFloat(input.minStats)) newHeaderAr.push(`Min Stats: ${input.minStats}`)
-    if (parseFloat(input.minRating)) newHeaderAr.push(`Min Rating: ${input.minRating}`)
+    if (parseFloat(input.minStats))
+      newHeaderAr.push(`Min Stats: ${input.minStats}`)
+    if (parseFloat(input.minRating))
+      newHeaderAr.push(`Min Rating: ${input.minRating}`)
     return newHeaderAr.length ? newHeaderAr.join(" - ") : ""
   }
 
@@ -44,14 +48,17 @@ export function ToolbarHeader(props: ToolbarHeaderProps) {
     <>
       <div
         className={"filter-rules-toolbar-header"}
-        title={ header }
+        title={header}
         onMouseDown={(e) => {
           e.preventDefault()
           e.stopPropagation()
         }}
       >
-        <div className={"filter-rules-toolbar-header-color"} style={{ background: props.input.color || defaultEmphasisColor }} />
-        <RuleText size={"small"}>{ header }</RuleText>
+        <div
+          className={"filter-rules-toolbar-header-color"}
+          style={{ background: props.input.color || defaultEmphasisColor }}
+        />
+        <RuleText size={"small"}>{header}</RuleText>
       </div>
     </>
   )

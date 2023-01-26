@@ -22,7 +22,7 @@ export function ShowRulesButton(props: ShowRulesBtnProps) {
           ) : (
             <ChevronRightIcon size={"small"} />
           )}
-          <RuleText size={"small"}>{ props.children }</RuleText>
+          <RuleText size={"small"}>{props.children}</RuleText>
         </div>
       </button>
     </>

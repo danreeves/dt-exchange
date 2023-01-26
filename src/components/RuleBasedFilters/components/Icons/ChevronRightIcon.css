@@ -3,7 +3,7 @@
 }
 
 .filter-rules-chevron-right-icon::after {
-  content: '';
+  content: "";
   display: block;
   box-sizing: border-box;
   position: absolute;
