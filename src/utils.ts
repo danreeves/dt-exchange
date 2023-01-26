@@ -1,6 +1,6 @@
 import type { User } from "./types"
 
-export function createFetcher(user: User) {
+export function createFetcher(user: User, isAuth = false) {
   return async function fetchApi(path: string) {
     let url = path.startsWith("https")
       ? path
@@ -12,12 +12,15 @@ export function createFetcher(user: User) {
 
     let res = await fetch(url, {
       headers: {
-        authorization: `Bearer ${user.AccessToken}`,
+        authorization: `Bearer ${
+          isAuth ? user.RefreshToken : user.AccessToken
+        }`,
       },
     })
 
     if (res.ok) {
       try {
+        console.dir(res.clone())
         let json = await res.clone().json()
         return json
       } catch {
@@ -45,6 +48,11 @@ export function getFatSharkUser(): User | undefined {
   }
 
   return safeJsonParse<User>(user)
+}
+
+export function setLocalStorage<T>(key: string, data: T): void {
+  const encoded = Buffer.from(JSON.stringify(data), "binary").toString("base64")
+  localStorage.setItem(key, encoded)
 }
 
 export function log(msg: string) {

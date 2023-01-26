@@ -28,6 +28,7 @@ export function Layout() {
     "sort-option",
     SORT_OPTIONS[0]!
   )
+
   let [rbfOption, setRBFOption] = useLocalStorage<FilterRule[]>(
     "filter-rules",
     [{ minStats: 360 }]
