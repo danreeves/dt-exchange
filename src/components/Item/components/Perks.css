@@ -1,0 +1,7 @@
+.perk {
+  display: flex;
+}
+
+.perk-rarity {
+  margin-right: 1em;
+}

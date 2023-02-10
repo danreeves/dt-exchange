@@ -285,6 +285,7 @@ export function Store({
               rbfEnabled={enableRuleBasedFilterOption}
               deemphasizeOption={deemphasizeOption}
               items={items!}
+              targets={targets}
             />
           )
         })}

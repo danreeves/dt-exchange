@@ -1,0 +1,29 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+.stat {
+}
+.stat-name {
+  color: rgb(189, 189, 189);
+}
+.stat-bar-row {
+  display: flex;
+  align-items: center;
+}
+.stat-p {
+  margin-right: 0.5em;
+}
+.stat-bar-outer {
+  width: 100%;
+  height: 0.7em;
+  border: 1px solid gold;
+  padding: 1px;
+}
+.stat-bar-inner {
+  position: relative;
+  background: gold;
+  height: 100%;
+}
