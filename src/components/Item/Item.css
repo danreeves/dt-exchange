@@ -1,0 +1,37 @@
+.item-container {
+  position: relative;
+}
+
+.item-already-owned {
+  opacity: 0.5;
+}
+
+.row:not(:first-child) {
+  border-top: 1px solid grey;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+
+  border-right-color: white;
+  border-right-width: 1px;
+  border-right-style: solid;
+  margin-right: 0.75em;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-right: 0.75em;
+  text-transform: capitalize;
+}
+
+.info-item img {
+  height: 3em;
+  float: left;
+  padding: 0.2em;
+}

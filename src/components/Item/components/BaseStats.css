@@ -1,0 +1,52 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.stat {
+}
+
+.stat:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.stat:nth-child(2) {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.stat:nth-child(3) {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.stat:nth-child(4) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.stat:nth-child(5) {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.stat-name {
+  color: rgb(189, 189, 189);
+}
+
+.stat-bar-row {
+  display: flex;
+  align-items: center;
+}
+
+.stat-p {
+  margin-right: 0.5em;
+}
+
+.stat-bar-outer {
+  width: 100%;
+  height: 0.7em;
+  border: 1px solid gold;
+  padding: 1px;
+}
+
+.stat-bar-inner {
+  position: relative;
+  background: gold;
+  height: 100%;
+}

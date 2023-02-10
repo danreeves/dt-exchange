@@ -49,6 +49,7 @@ export function Layout() {
 
   let [focusedInput, setFocusedInput] = useState<string>("")
 
+
   if (!account) {
     return (
       <>
@@ -57,6 +58,7 @@ export function Layout() {
       </>
     )
   }
+
 
   if (account.characters[0] && !activeChar) {
     setActiveChar(account.characters[0].id)
@@ -67,7 +69,21 @@ export function Layout() {
     account.characters.length &&
     !account.characters.find((char) => char.id === activeChar)
   ) {
-    setActiveChar(account.characters[0].id)
+    const charId = account?.characters[0]?.id
+    if (charId) {
+      setActiveChar(charId)
+    }
+  }
+
+  const character = account.characters.find((char) => char.id === activeChar)
+
+  if (!character) {
+    return (
+      <>
+        <Title>Armoury Exchange</Title>
+        <p>You don't have any characters!</p>
+      </>
+    )
   }
 
   return (
@@ -173,7 +189,7 @@ export function Layout() {
       ) : null}
 
       <Store
-        character={account.characters.find((char) => char.id === activeChar)}
+        character={character}
         storeType={storeType}
         sortOption={sortOption}
         filterOption={filterOption}
