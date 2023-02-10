@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react"
 import type { FilterRule, FormFilterRule } from "../../types"
-import { DEEMPHASIZE_OPTIONS, DeemphasizeOption } from "../Store"
+import { DEEMPHASIZE_OPTIONS, DeemphasizeOption } from "../Item"
 import { CloseButton } from "./components/Buttons/CloseButton"
 import { RuleToolbar } from "./components/RuleToolbar"
 import { Rules } from "./components/Rules"
@@ -150,10 +150,10 @@ export function RuleBasedFilters(props: Props) {
           <form
             className={"filter-rules-form"}
             onSubmit={handleRuleFormSubmit}
-            onDragEnter={function (e) {
+            onDragEnter={function(e) {
               e.preventDefault()
             }}
-            onDragOver={function (e) {
+            onDragOver={function(e) {
               e.preventDefault()
             }}
           >
@@ -165,7 +165,7 @@ export function RuleBasedFilters(props: Props) {
                 value={deemphasisStyle}
                 focus={focusedInput}
                 dataValues={DEEMPHASIZE_OPTIONS}
-                onChange={function (event) {
+                onChange={function(event) {
                   props.setDE(event.target.value as DeemphasizeOption)
                   setDeemphasisStyle(event.target.value as DeemphasizeOption)
                 }}
@@ -173,19 +173,19 @@ export function RuleBasedFilters(props: Props) {
                 onBlur={() => setFocusedInput("")}
               />
             </SplitRuleWrapper>
-            {ruleFields.map(function (input, index) {
+            {ruleFields.map(function(input, index) {
               return (
                 <div key={index}>
                   <div
                     draggable
-                    onDragStart={function () {
+                    onDragStart={function() {
                       dragStart(index)
                     }}
-                    onDragEnter={function (e) {
+                    onDragEnter={function(e) {
                       e.preventDefault()
                       dragEnter(index)
                     }}
-                    onDragOver={function (e) {
+                    onDragOver={function(e) {
                       e.preventDefault()
                     }}
                     onDragEnd={drop}

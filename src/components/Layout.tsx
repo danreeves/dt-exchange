@@ -49,6 +49,7 @@ export function Layout() {
 
   let [focusedInput, setFocusedInput] = useState<string>("")
 
+
   if (!account) {
     return (
       <>
@@ -57,6 +58,7 @@ export function Layout() {
       </>
     )
   }
+
 
   if (account.characters[0] && !activeChar) {
     setActiveChar(account.characters[0].id)
@@ -67,7 +69,21 @@ export function Layout() {
     account.characters.length &&
     !account.characters.find((char) => char.id === activeChar)
   ) {
-    setActiveChar(account.characters[0].id)
+    const charId = account?.characters[0]?.id
+    if (charId) {
+      setActiveChar(charId)
+    }
+  }
+
+  const character = account.characters.find((char) => char.id === activeChar)
+
+  if (!character) {
+    return (
+      <>
+        <Title>Armoury Exchange</Title>
+        <p>You don't have any characters!</p>
+      </>
+    )
   }
 
   return (
@@ -113,7 +129,7 @@ export function Layout() {
           value={storeType}
           focus={focusedInput}
           dataValues={STORE_OPTIONS}
-          onChange={function (event) {
+          onChange={function(event) {
             setStoreType(event.target.value as StoreType)
           }}
           onFocus={(event) => setFocusedInput(event.target.id)}
@@ -126,7 +142,7 @@ export function Layout() {
           value={filterOption}
           focus={focusedInput}
           dataValues={FILTER_OPTIONS}
-          onChange={function (event) {
+          onChange={function(event) {
             setFilterOption(event.target.value as FilterOption)
           }}
           onFocus={(event) => setFocusedInput(event.target.id)}
@@ -139,7 +155,7 @@ export function Layout() {
           value={sortOption}
           focus={focusedInput}
           dataValues={SORT_OPTIONS}
-          onChange={function (event) {
+          onChange={function(event) {
             setSortOption(event.target.value as SortOption)
           }}
           onFocus={(event) => setFocusedInput(event.target.id)}
@@ -172,7 +188,7 @@ export function Layout() {
       ) : null}
 
       <Store
-        character={account.characters.find((char) => char.id === activeChar)}
+        character={character}
         storeType={storeType}
         sortOption={sortOption}
         filterOption={filterOption}
