@@ -2,7 +2,7 @@
   "name": "dt-exchange",
   "private": true,
   "scripts": {
-    "start": "npm run build -- --watch --sourcemap",
+    "start": "npm run build -- --watch",
     "build": "esbuild --bundle --jsx=automatic --loader:.png=dataurl --loader:.md=text ./src/bundle.tsx ./src/background --outdir=extension",
     "test": "jest",
     "typecheck": "tsc"

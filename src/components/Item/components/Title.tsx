@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import "./Title.css"
 
 export function Title({
   children,

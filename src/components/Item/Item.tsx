@@ -102,21 +102,47 @@ export function Item({
         </div>
 
         <div style={{ flex: 1 }}>
-          {offer.description.overrides.base_stats ? (
-            <BaseStats offer={offer} rating={rating} />
-          ) : null}
-
-          {offer.description.overrides.perks.length > 0 ? (
-            <Perks offer={offer} items={items} />
-          ) : null}
-
-          {offer.description.overrides.traits.length > 0 ? (
-            <Blessings offer={offer} items={items} />
-          ) : null}
+          {offer.description.type === "gadget" ? (
+            <CurioLayout offer={offer} items={items} />
+          ) : (
+            <WeaponLayout offer={offer} items={items} />
+          )}
         </div>
       </div>
 
       <Divider />
     </div>
+  )
+}
+
+function CurioLayout({ offer, items }: { offer: Personal; items: Items }) {
+  return (
+    <>
+      {offer.description.overrides.traits.length > 0 ? (
+        <Blessings offer={offer} items={items} />
+      ) : null}
+
+      {offer.description.overrides.perks.length > 0 ? (
+        <Perks offer={offer} items={items} />
+      ) : null}
+    </>
+  )
+}
+
+function WeaponLayout({ offer, items }: { offer: Personal; items: Items }) {
+  return (
+    <>
+      {offer.description.overrides.base_stats ? (
+        <BaseStats offer={offer} />
+      ) : null}
+
+      {offer.description.overrides.perks.length > 0 ? (
+        <Perks offer={offer} items={items} />
+      ) : null}
+
+      {offer.description.overrides.traits.length > 0 ? (
+        <Blessings offer={offer} items={items} />
+      ) : null}
+    </>
   )
 }

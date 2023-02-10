@@ -1,8 +1,13 @@
 import localisation from "../../../localisation.json"
+import { rating } from "../../../icons"
 import "./BaseStats.css"
 import { Text } from "../../Text"
+import type { Personal } from "../../../types"
 
-export function BaseStats({ rating, offer }) {
+type Props = {
+  offer: Personal
+}
+export function BaseStats({ offer }: Props) {
   return (
     <div className="row">
       <div

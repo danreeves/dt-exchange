@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/background.ts"],
-  "sourcesContent": ["let ext = chrome || browser\nlet dashboardUrl = \"https://accounts.atoma.cloud/dashboard\"\n\next.browserAction.onClicked.addListener(() => {\n  ext.tabs.create({ url: dashboardUrl })\n})\n"],
-  "mappings": ";;;AAAA,MAAI,MAAM,UAAU;AACpB,MAAI,eAAe;AAEnB,MAAI,cAAc,UAAU,YAAY,MAAM;AAC5C,QAAI,KAAK,OAAO,EAAE,KAAK,aAAa,CAAC;AAAA,EACvC,CAAC;",
-  "names": []
-}
