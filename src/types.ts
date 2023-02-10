@@ -117,7 +117,7 @@ export interface Trait {
   value?: number
 }
 
-export interface Properties {}
+export interface Properties { }
 
 export interface Entitlement {
   id: string
@@ -213,6 +213,10 @@ export const CLASS_OPTIONS = Object.values(CLASS_TYPES) as ClassType[]
 export const STORE_TYPES = ["credits", "marks"] as const
 export type StoreType = typeof STORE_TYPES[number]
 export const STORE_OPTIONS = Object.values(STORE_TYPES) as StoreType[]
+export const STORE_LABELS: Record<StoreType, string> = {
+  "credits": "Armoury Exchange",
+  "marks": "Melk's Requisitorium"
+}
 
 export const ITEM_CATEGORIES = ["ranged", "melee", "curio"] as const
 export type ItemCategory = typeof ITEM_CATEGORIES[number]
