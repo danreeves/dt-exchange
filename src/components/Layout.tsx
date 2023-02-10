@@ -15,7 +15,7 @@ import { useAccount } from "../hooks/useAccount"
 import type { SortOption } from "./Store"
 import type { StoreType, FilterRule } from "../types"
 import "./Layout.css"
-import { STORE_OPTIONS } from "../types"
+import { STORE_OPTIONS, STORE_LABELS } from "../types"
 import { RuleBasedFilters } from "./RuleBasedFilters/RuleBasedFilters"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 import { SplitRuleWrapper } from "./RuleBasedFilters/components/SplitRuleWrapper"
@@ -113,7 +113,8 @@ export function Layout() {
           value={storeType}
           focus={focusedInput}
           dataValues={STORE_OPTIONS}
-          onChange={function (event) {
+          labels={STORE_LABELS}
+          onChange={function(event) {
             setStoreType(event.target.value as StoreType)
           }}
           onFocus={(event) => setFocusedInput(event.target.id)}
@@ -126,7 +127,7 @@ export function Layout() {
           value={filterOption}
           focus={focusedInput}
           dataValues={FILTER_OPTIONS}
-          onChange={function (event) {
+          onChange={function(event) {
             setFilterOption(event.target.value as FilterOption)
           }}
           onFocus={(event) => setFocusedInput(event.target.id)}
@@ -139,7 +140,7 @@ export function Layout() {
           value={sortOption}
           focus={focusedInput}
           dataValues={SORT_OPTIONS}
-          onChange={function (event) {
+          onChange={function(event) {
             setSortOption(event.target.value as SortOption)
           }}
           onFocus={(event) => setFocusedInput(event.target.id)}
