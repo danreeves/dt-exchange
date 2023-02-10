@@ -20,15 +20,15 @@ type RuleInputProps = {
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void
   onBlur: () => void
+  labels?: Record<string, string>
 }
 export function RuleInput(props: RuleInputProps) {
   const index: number = props.index !== undefined ? props.index : 0
   return (
     <>
       <div
-        className={`filter-rules-input-wrapper ${
-          props.isFocused ? "filter-rules-input-focused" : ""
-        }`}
+        className={`filter-rules-input-wrapper ${props.isFocused ? "filter-rules-input-focused" : ""
+          }`}
       >
         {props.type === "select" ? (
           <select
@@ -46,9 +46,10 @@ export function RuleInput(props: RuleInputProps) {
               </option>
             ) : undefined}
             {props.dataValues?.map((option: string) => {
+              const label = props.labels ? props.labels[option] : camelToSentence(option)
               return (
                 <option key={`${props.name}_${index}_${option}`} value={option}>
-                  {camelToSentence(option)}
+                  {label}
                 </option>
               )
             })}
@@ -77,7 +78,7 @@ export function RuleInput(props: RuleInputProps) {
             />
             {props.dataValues?.length ? (
               <datalist id={`${props.name}_${index}_options`}>
-                {props.dataValues.map(function (value: string, index: number) {
+                {props.dataValues.map(function(value: string, index: number) {
                   return (
                     <option
                       key={`${props.name}_${index}_option${index}`}

@@ -15,7 +15,7 @@ import { useAccount } from "../hooks/useAccount"
 import type { SortOption } from "./Store"
 import type { StoreType, FilterRule } from "../types"
 import "./Layout.css"
-import { STORE_OPTIONS } from "../types"
+import { STORE_OPTIONS, STORE_LABELS } from "../types"
 import { RuleBasedFilters } from "./RuleBasedFilters/RuleBasedFilters"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 import { SplitRuleWrapper } from "./RuleBasedFilters/components/SplitRuleWrapper"
@@ -129,6 +129,7 @@ export function Layout() {
           value={storeType}
           focus={focusedInput}
           dataValues={STORE_OPTIONS}
+          labels={STORE_LABELS}
           onChange={function(event) {
             setStoreType(event.target.value as StoreType)
           }}

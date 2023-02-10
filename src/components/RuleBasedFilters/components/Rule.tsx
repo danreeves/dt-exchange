@@ -14,6 +14,7 @@ type RuleProps = {
   focus: string
   placeholder?: string
   dataValues?: string[]
+  labels?: Record<string, string>
   addAnyValue?: boolean
   onChange: (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -43,6 +44,7 @@ export function Rule(props: RuleProps) {
           value={props.value}
           placeholder={props.placeholder}
           dataValues={props.dataValues}
+          labels={props.labels}
           addAnyValue={props.addAnyValue}
           onChange={(event) => props.onChange(event)}
           onFocus={(event) => props.onFocus(event)}
