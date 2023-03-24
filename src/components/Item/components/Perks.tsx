@@ -1,5 +1,5 @@
 import { raritySymbol } from "../consts"
-import localisation from "../../../localisation.json"
+import localisation from "../../../localisation"
 import { Text } from "../../Text"
 import { rating } from "../../../icons"
 import type { Items, Personal } from "../../../types"

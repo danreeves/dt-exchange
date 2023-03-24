@@ -31,3 +31,4 @@ Dependencies: node & npm
 - [errnoh](https://github.com/errnoh)
 - [Chris Bitler](https://github.com/Chris-Bitler)
 - [CautemocSg](https://github.com/CautemocSg)
+- [Duncan Krassikoff](https://github.com/dkrassikoff)
