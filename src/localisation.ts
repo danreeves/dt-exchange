@@ -5,7 +5,7 @@ let localisation = new Proxy(strings, {
     return new Proxy(target[prop] || {}, {
       get(t: { [key: string]: string }, p: string) {
         if (p in t) {
-          return t[p] + "test"
+          return t[p]
         }
         return `<${prop}.${p}>`
       },
