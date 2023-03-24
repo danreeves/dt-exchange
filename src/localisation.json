@@ -2789,5 +2789,41 @@
   "content/items/traits/bespoke_powersword_p1/infinite_armor_cleave_on_activated_attacks": {
     "display_name": "Sunder",
     "description": "Your Energised Attacks have increased Cleave"
+  },
+  "content/items/weapons/player/melee/forcesword_p1_m2": {
+    "display_name": "Deimos Mk IV Blaze Force Sword",
+    "description": "Force Sword with a focus on single target damage and precision stab attacks."
+  },
+  "content/items/weapons/player/melee/forcesword_p1_m3": {
+    "display_name": "Illisi Mk V Blaze Force Sword",
+    "description": "Force Sword with a focus on horde management. When charged with Warp Energy it cuts through groups of enemies with increased power."
+  },
+  "content/items/weapons/player/melee/ogryn_club_p2_m3": {
+    "display_name": "\"Brunt's Basher\" Mk IIIb Bully Club",
+    "description": "Send opponents flying with tanky uppercut swings or strike them down with lethal Strikedown combos."
+  },
+  "content/items/weapons/player/melee/powersword_p1_m2": {
+    "display_name": "Munitorum Mk VI Power Sword",
+    "description": "A Power Sword with a more varied moveset."
+  },
+  "content/items/weapons/player/melee/thunderhammer_2h_p1_m2": {
+    "display_name": "Ironhelm Mk IV Thunder Hammer",
+    "description": "A Thunderhammer slightly more capable of dealing with several enemies. It can cleave through multiple light enemies before dealing the obliterating blow while activated."
+  },
+  "content/items/weapons/player/ranged/ogryn_heavystubber_p1_m2": {
+    "display_name": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
+    "description": "An even heavier Heavy Stubber. Hard hitting, slow rate of fire."
+  },
+  "content/items/weapons/player/ranged/ogryn_heavystubber_p1_m3": {
+    "display_name": "Achlys Mk VII Twin-Linked Heavy Stubber",
+    "description": "A relatively light twin-linked Heavy Stubber that has increased mobility and is preferably used at a shorter range."
+  },
+  "content/items/weapons/player/ranged/shotgun_p1_m2": {
+    "display_name": "Agripinaa Mk VII Combat Shotgun",
+    "description": "An accurate and fast-firing long-range Combat Shotgun with a boost to weak spot damage. It can also be loaded with a powerful and hard-hitting single-shot slug round."
+  },
+  "content/items/weapons/player/ranged/shotgun_p1_m3": {
+    "display_name": "Kantrael Mk IX Combat Shotgun",
+    "description": "A powerful and aggressive Combat Shotgun with a wide spread and high damage. It can also be loaded with an incendiary round that sets enemies ablaze."
   }
 }
