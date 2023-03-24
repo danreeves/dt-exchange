@@ -1,10 +1,10 @@
 {
-  "forcestaff_p2_m1_size_of_flame_stat": "Cloud Radius",
-  "powersword_p1_m3_cleave_damage_stat": "Cleave Damage",
+  "forcestaff_p2_m1_size_of_flame_stat": { "display_name": "Cloud Radius" },
+  "powersword_p1_m3_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "content/items/gadgets/defensive_gadget_15": {
     "display_name": "Laurel of the Righteous (Reliquary)"
   },
-  "combatsword_p2_m2_cleave_damage_stat": "Cleave Damage",
+  "combatsword_p2_m2_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "content/items/traits/bespoke_combatsword_p3/dodge_grants_finesse_damage": {
     "display_name": "Precognition",
     "description": "+{damage:%s} Weak Spot Damage & Critical Damage for {time:%s}s on successful Dodge."
@@ -17,8 +17,8 @@
     "display_name": "Momentum",
     "description": "Hitting at least {multiple_hit:%s} enemies with an attack, restores {toughness:%s} toughness."
   },
-  "combataxe_p3_m1_defence_stat": "Defences",
-  "powersword_p1_m1_finesse_stat": "Finesse",
+  "combataxe_p3_m1_defence_stat": { "display_name": "Defences" },
+  "powersword_p1_m1_finesse_stat": { "display_name": "Finesse" },
   "content/items/curios/curio_c_f02": {
     "display_name": "Obsidiax-Sheathed Bullet (Casket)",
     "description": "Those I sent to the flame were steeped in perfidy. Heretics one and all. I am bereft of guilt.\n\nAttributed to Saint Messelina \n>>timestamp -6.7.32.KE.M39<<"
@@ -46,9 +46,11 @@
     "display_name": "Cavalcade",
     "description": "+{crit_chance:%s} Critical Chance. Stacks up to {stacks:%s} based on duration of Continuous Fire."
   },
-  "ogryn_gauntlet_p1_m1_dps_stat": "Melee Damage",
-  "combataxe_p2_m2_mobility_stat": "Mobility",
-  "forcestaff_p3_m1_warp_charge_cost_stat": "Warp Resistance",
+  "ogryn_gauntlet_p1_m1_dps_stat": { "display_name": "Melee Damage" },
+  "combataxe_p2_m2_mobility_stat": { "display_name": "Mobility" },
+  "forcestaff_p3_m1_warp_charge_cost_stat": {
+    "display_name": "Warp Resistance"
+  },
   "content/items/perks/gadget_common/trait_gadget_cooldown": {
     "description": "+{ability_cooldown_modifier:%s} Combat Ability Regeneration"
   },
@@ -60,8 +62,8 @@
     "display_name": "Blazing Spirit",
     "description": "Enemy gains +{stacks:%s} Stack(s) of Soulblaze on Critical Hit to a maximum of {max_stacks:%s} Stack(s). "
   },
-  "chainsword_2h_mobility_stat": "Mobility",
-  "ogryn_club_p2_m1_defence_stat": "Defences",
+  "chainsword_2h_mobility_stat": { "display_name": "Mobility" },
+  "ogryn_club_p2_m1_defence_stat": { "display_name": "Defences" },
   "content/items/traits/bespoke_ogryn_club_p1/infinite_melee_cleave_on_weakspot_kill": {
     "display_name": "Brutal Momentum",
     "description": "Ignore Enemy Hit Mass for {time:%s}s on Weak Spot Kill."
@@ -73,7 +75,7 @@
   "content/items/perks/ranged_common/wield_increase_super_armor_damage": {
     "description": "+{damage:%s} Damage (Carapace Armoured Enemies)"
   },
-  "lasgun_p3_m3_control_stat": "Collateral",
+  "lasgun_p3_m3_control_stat": { "display_name": "Collateral" },
   "content/items/traits/bespoke_autogun_p1/followup_shots_ranged_damage": {
     "display_name": "Sustained Fire",
     "description": "+{damage:%s} Damage on Second and Third shots in a Salvo."
@@ -86,14 +88,14 @@
     "display_name": "Headtaker",
     "description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
   },
-  "lasgun_p1_m1_ammo_stat": "Ammo",
-  "chainsword_p1_m1_armor_pierce_stat": "Penetration",
+  "lasgun_p1_m1_ammo_stat": { "display_name": "Ammo" },
+  "chainsword_p1_m1_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/curios/curio_a_k01": {
     "display_name": "Guardian Nocturnus (Caged)",
     "description": "I had never seen Sister Messelina as I had that day. Timid no longer, but reborn in wrath.\n\nFrom Caladoc's Life of Messelina, Vol. III"
   },
-  "forcestaff_p2_m1_damage_stat": "Damage",
-  "lasgun_p1_m3_ammo_stat": "Ammo",
+  "forcestaff_p2_m1_damage_stat": { "display_name": "Damage" },
+  "lasgun_p1_m3_ammo_stat": { "display_name": "Ammo" },
   "content/items/traits/bespoke_combataxe_p2/chained_hits_increases_crit_chance": {
     "display_name": "Shred",
     "description": "+{crit_chance:%s} Bonus Critical Chance on Repeated Hit. Stacks {stacks:%s} times."
@@ -106,8 +108,10 @@
     "display_name": "Opportunist",
     "description": "+{rending:%s} Rending vs Staggered Enemies."
   },
-  "lasgun_p2_m2_dps_stat": "Damage",
-  "ogryn_thumper_p1_m2_explosion_damage_stat": "Blast Damage",
+  "lasgun_p2_m2_dps_stat": { "display_name": "Damage" },
+  "ogryn_thumper_p1_m2_explosion_damage_stat": {
+    "display_name": "Blast Damage"
+  },
   "content/items/perks/melee_common/wield_increase_armored_damage": {
     "description": "+{damage:%s} Damage (Flak Armoured Enemies)"
   },
@@ -132,12 +136,12 @@
     "display_name": "Brute-Brainer Mk III Latrine Shovel",
     "description": "It's a dirty job, but someone's got to do it. And nine times out of ten, that someone is an Ogryn."
   },
-  "powersword_p1_m3_dps_stat": "Damage",
+  "powersword_p1_m3_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_forcesword_p1/dodge_grants_crit_chance": {
     "display_name": "Riposte",
     "description": "+{crit_chance:%s} Critical Chance for {time:%s} s on successful Dodge."
   },
-  "stubrevolver_mobility_stat": "Mobility",
+  "stubrevolver_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/player/ranged/laspistol_p1_m1": {
     "display_name": "Accatran MG Mk II Heavy Laspistol",
     "description": "Used by officers of the Astra Militarum throughout the galaxy, this heavy laspistol packs a considerable punch."
@@ -154,13 +158,13 @@
     "display_name": "Kantrael MG Ia Infantry Lasgun ",
     "description": "++DILIGENCE IS DUTY++"
   },
-  "combatsword_p3_m3_armor_pierce_stat": "Penetration",
-  "autogun_p3_m1_dps_stat": "Damage",
+  "combatsword_p3_m3_armor_pierce_stat": { "display_name": "Penetration" },
+  "autogun_p3_m1_dps_stat": { "display_name": "Damage" },
   "content/items/weapons/player/ranged/forcestaff_p4_m1": {
     "display_name": "Equinox Mk IV Voidstrike Force Staff",
     "description": "\rLet your mind be the weapon. The staff is merely there to light the darkness.\n\nPrimaris Psyker Glena Tor"
   },
-  "autogun_p2_m3_stability_stat": "Stability",
+  "autogun_p2_m3_stability_stat": { "display_name": "Stability" },
   "content/items/curios/curio_c_a02": {
     "display_name": "Gilded Fragment (Casket)",
     "description": "I now deem Gloriana's renaming a necessary spur to action. Komaris languishes in heresy. It shall do so no longer.\n\nAttributed to Saint Messelina \n>>timestamp -34.11.32.KE.M39<<"
@@ -177,12 +181,12 @@
     "display_name": "Agripinaa Mk IX Headhunter Autogun",
     "description": "One of the newest autogun STCs to be uncovered by the Tech-Priests of Agripinaa, the Mk VIII couples excellent range with a devastating burst firing mode."
   },
-  "bolter_reload_speed_stat": "Reload Speed",
+  "bolter_reload_speed_stat": { "display_name": "Reload Speed" },
   "content/items/curios/curio_b_a02": {
     "display_name": "Gilded Fragment (Reliquary)",
     "description": "She took my hand and bade me rise from that mortis field. So many had died for her. For the God-Emperor.\n\nFrom Caladoc's Life of Messelina, Vol. III"
   },
-  "lasgun_p2_m1_charge_speed_stat": "Charge Rate",
+  "lasgun_p2_m1_charge_speed_stat": { "display_name": "Charge Rate" },
   "content/items/perks/ranged_common/wield_increase_stamina": {
     "description": "+{stamina:%s} Stamina (Weapon is Active)"
   },
@@ -199,8 +203,8 @@
     "display_name": "Ceaseless Barrage",
     "description": "Continuous firing increases Suppression over time."
   },
-  "lasgun_p3_m2_control_stat": "Collateral",
-  "bolter_p1_m1_control_stat": "Stopping Power",
+  "lasgun_p3_m2_control_stat": { "display_name": "Collateral" },
+  "bolter_p1_m1_control_stat": { "display_name": "Stopping Power" },
   "content/items/weapons/player/melee/combatsword_p1_m1": {
     "display_name": "Catachan Mk I \"Devil's Claw\" Sword",
     "description": "The Catachans refer to these massive blades as knives. To everyone else, they're hefty swords."
@@ -216,7 +220,7 @@
     "display_name": "Opening Salvo",
     "description": "+{power_level:%s} Power on Salvo's First shot."
   },
-  "combataxe_p3_m1_mobility_stat": "Mobility",
+  "combataxe_p3_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/player/melee/forcesword_p1_m1": {
     "display_name": "Obscurus Mk II Blaze Force Sword",
     "description": "An elegant weapon, made powerful indeed in the hands of a psyker. "
@@ -228,7 +232,7 @@
   "content/items/perks/gadget_common/trait_gadget_toughness_increase": {
     "description": "+{toughness_bonus:%s} Toughness"
   },
-  "autogun_p2_m2_control_stat": "Collateral",
+  "autogun_p2_m2_control_stat": { "display_name": "Collateral" },
   "content/items/traits/bespoke_ogryn_combatblade_p1/power_bonus_based_on_charge_time": {
     "display_name": "Thrust",
     "description": "Up to +{power_level:%s} Power, scaling with Charge Time (Heavy Attack). Stacks {stacks:%s} times."
@@ -261,12 +265,12 @@
     "display_name": "Kantrael Mk IV Lasgun",
     "description": "++DILIGENCE IS DUTY++"
   },
-  "plasmagun_charge_speed_stat": "Charge Rate",
+  "plasmagun_charge_speed_stat": { "display_name": "Charge Rate" },
   "content/items/traits/bespoke_thumper_p2/increased_damage_on_staggered_enemies": {
     "display_name": "Finisher",
     "description": "+{damage:%s} Damage (Staggered Enemies)."
   },
-  "combatsword_p3_m1_cleave_damage_stat": "Cleave Damage",
+  "combatsword_p3_m1_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "content/items/traits/bespoke_rippergun_p1/power_bonus_on_continuous_fire": {
     "display_name": "Blaze Away",
     "description": "Up to +{power_level:%s} Power based on how long you keep shooting. Stacks {stacks:%s} times."
@@ -275,7 +279,7 @@
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
   },
-  "lasgun_p2_m2_power_stat": "Stopping Power",
+  "lasgun_p2_m2_power_stat": { "display_name": "Stopping Power" },
   "content/items/traits/bespoke_thunderhammer_2h_p1/staggered_targets_receive_increased_stagger_debuff": {
     "display_name": "Thunderstrike",
     "description": "Target receives {stacks:%s} Stack(s) of +{impact:%s} Impact if already Staggered. Lasts {time:%s}s."
@@ -292,7 +296,7 @@
     "display_name": "Precognition",
     "description": "+{damage:%s} Weak Spot Damage & Critical Damage for {time:%s}s on successful Dodge."
   },
-  "laspistol_stability_stat": "Stability",
+  "laspistol_stability_stat": { "display_name": "Stability" },
   "content/items/traits/bespoke_plasmagun_p1/power_bonus_on_continuous_fire": {
     "display_name": "Blaze Away",
     "description": "Up to +{power_level:%s} Power based on how long you keep shooting. Stacks {stacks:%s} times."
@@ -309,7 +313,7 @@
     "display_name": "Stripped Down",
     "description": "+{sprint_speed:%s} Sprint Speed (Weapon is Active)."
   },
-  "autogun_p2_m3_power_stat": "Stopping Power",
+  "autogun_p2_m3_power_stat": { "display_name": "Stopping Power" },
   "content/items/perks/ranged_common/wield_increase_disgustingly_resilient_damage": {
     "description": "+{damage:%s} Damage (Infested Enemies)"
   },
@@ -329,7 +333,7 @@
     "display_name": "Ferrocrete Hide",
     "description": "+{toughness_bonus:%s} Toughness"
   },
-  "chainsword_p1_m1_dps_stat": "Damage",
+  "chainsword_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_laspistol_p1/suppression_negation_on_weakspot": {
     "display_name": "Between the Eyes",
     "description": "Clears Suppression (Self) & grants Suppression Immunity (Self) for {time:%s}s on Weak Spot Hit."
@@ -338,7 +342,7 @@
     "display_name": "Blaze Away",
     "description": "Up to +{power_level:%s} Power based on how long you keep shooting. Stacks {stacks:%s} times."
   },
-  "forcesword_p1_m1_first_target_stat": "First Target",
+  "forcesword_p1_m1_first_target_stat": { "display_name": "First Target" },
   "content/items/traits/bespoke_thumper_p2/pass_past_armor_on_weapon_special": {
     "display_name": "Pierce",
     "description": "Special Attacks ignore Hit Mass Bonus from Armour."
@@ -371,7 +375,7 @@
     "display_name": "No Respite",
     "description": "Up to +{damage:%s} Damage on Hit (Staggered Enemy), scaling with Stagger."
   },
-  "thunderhammer_p1_m1_dps_stat": "Damage",
+  "thunderhammer_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/curios/curio_a_c01": {
     "display_name": "Redeemer's Hand (Caged)",
     "description": ">>Timestamp: -3.11.40.KE.M39<<\n>>Private Datastack: Taric/Dn<<\n\nSister Messelina is a diligent soul, rightly modest."
@@ -383,13 +387,13 @@
   "content/items/gadgets/defensive_gadget_9": {
     "display_name": "Inquisitorial Rosette (Reliquary)"
   },
-  "combataxe_p3_m2_defence_stat": "Defences",
-  "combatsword_p1_m1_cleave_damage_stat": "Cleave Damage",
+  "combataxe_p3_m2_defence_stat": { "display_name": "Defences" },
+  "combatsword_p1_m1_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "content/items/traits/bespoke_shotgun_p1/count_as_dodge_vs_ranged_on_close_kill": {
     "display_name": "Hit & Run",
     "description": "Immune to Ranged Attacks for {time:%s}s seconds on Close Range Kill."
   },
-  "autogun_p2_m1_mobility_stat": "Mobility",
+  "autogun_p2_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_powermaul_p1/staggered_targets_receive_increased_damage_debuff": {
     "display_name": "Skullcrusher",
     "description": "Target receives {stacks:%s} Stack(s) of +{damage:%s} Damage if already Staggered. Lasts {time:%s}s."
@@ -420,8 +424,8 @@
     "display_name": "Roaring Advance",
     "description": "+{movement_speed:%s} Movement Speed while firing."
   },
-  "ogryn_club_p1_m1_dps_stat": "Damage",
-  "shotgun_p1_m1_power_stat": "Stopping Power",
+  "ogryn_club_p1_m1_dps_stat": { "display_name": "Damage" },
+  "shotgun_p1_m1_power_stat": { "display_name": "Stopping Power" },
   "content/items/traits/bespoke_ogryn_powermaul_p1/taunt_target_on_hit": {
     "display_name": "Taunting Blow",
     "description": "Hit Enemies prioritise you as a Target."
@@ -430,17 +434,17 @@
     "display_name": "Accatran Mk VId Recon Lasgun",
     "description": "The Mk VI series is an evolutionary offshoot of the Mk IV, so beloved of the Elysian Drop Troops. The improved rate of fire from its more efficient charge pack comes at the expense of stopping power."
   },
-  "combatknife_p1_m1_mobility_stat": "Mobility",
+  "combatknife_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_ogryn_heavystubber_p1/power_bonus_on_continuous_fire": {
     "display_name": "Blaze Away",
     "description": "Up to +{power_level:%s} Power based on how long you keep shooting. Stacks {stacks:%s} times."
   },
-  "combataxe_p2_m3_mobility_stat": "Mobility",
+  "combataxe_p2_m3_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_chainsword_p1/increased_attack_cleave_on_multiple_hits": {
     "display_name": "Savage Sweep",
     "description": "Hitting atleast {multiple_hit:%s} enemies with an attack, increases your cleave by {cleave:%s} for {time:%s} seconds."
   },
-  "lasgun_p3_m2_dps_stat": "Damage",
+  "lasgun_p3_m2_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_forcestaff_p2/uninterruptable_while_charging": {
     "display_name": "Focused Channelling",
     "description": "Your Secondary Attack cannot be interrupted."
@@ -449,7 +453,7 @@
     "display_name": "Bladed Momentum",
     "description": "Hitting multiple enemies in one sweep gives {rending:%s} Rending for {time:%s} seconds. Stacks {stacks:%s} times."
   },
-  "autogun_p2_m3_dps_stat": "Damage",
+  "autogun_p2_m3_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_ogryn_combatblade_p1/infinite_melee_cleave_on_crit": {
     "display_name": "Devastating Strike",
     "description": "Ignore Enemy Hit Mass on Critical Hit. Lasts {time:%s}s."
@@ -474,9 +478,11 @@
     "display_name": "Punishing Salvo",
     "description": "+{damage:%s} Weak Spot Damage on Second and Third shots in a Salvo."
   },
-  "ogryn_powermaul_slabshield_dps_stat": "Damage",
-  "combatsword_p3_m1_finesse_stat": "Finesse",
-  "lasgun_p3_m1_control_stat": "Collateral",
+  "ogryn_powermaul_slabshield_dps_stat": { "display_name": "Damage" },
+  "combatsword_p3_m1_finesse_stat": {
+    "display_name": { "display_name": "Finesse" }
+  },
+  "lasgun_p3_m1_control_stat": { "display_name": "Collateral" },
   "content/items/curios/curio_b_h02": {
     "display_name": "Laurel of the Just (Reliquary)",
     "description": "Gloriana belongs to the Emperor. He that would rest while even one heretic draws breath defies the God-Emperor!\n\nAttributed to Saint Messelina \n>>timestamp -18.2.35.KE.M39<<"
@@ -485,12 +491,12 @@
     "display_name": "Reassuringly Accurate",
     "description": "+{toughness:%s} Toughness on Critical Hit Kill."
   },
-  "forcesword_p1_m1_finesse_stat": "Finesse",
+  "forcesword_p1_m1_finesse_stat": { "display_name": "Finesse" },
   "content/items/traits/bespoke_lasgun_p2/burninating_on_crit": {
     "display_name": "Infernus",
     "description": "+{stacks:%s} Burn Stack(s) on Critical Hit to a maximum of {max_stacks:%s} Stack(s)."
   },
-  "shotgun_p1_m2_stability_stat": "Stability",
+  "shotgun_p1_m2_stability_stat": { "display_name": "Stability" },
   "content/items/traits/bespoke_lasgun_p1/suppression_negation_on_weakspot": {
     "display_name": "Between the Eyes",
     "description": "Clears Suppression (Self) & grants Suppression Immunity (Self) for {time:%s}s on Weak Spot Hit."
@@ -519,12 +525,12 @@
     "display_name": "Shred",
     "description": "+{crit_chance:%s} Bonus Critical Chance on Repeated Hit. Stacks {stacks:%s} times."
   },
-  "shotgun_p1_m3_ammo_stat": "Ammo",
-  "combatsword_p2_m2_first_target_stat": "First Target",
+  "shotgun_p1_m3_ammo_stat": { "display_name": "Ammo" },
+  "combatsword_p2_m2_first_target_stat": { "display_name": "First Target" },
   "content/items/gadgets/defensive_gadget_17": {
     "display_name": "Mechanicus Icon Exemplar (Casket)"
   },
-  "ogryn_club_p1_m1_control_stat": "Crowd Control",
+  "ogryn_club_p1_m1_control_stat": { "display_name": "Crowd Control" },
   "content/items/traits/bespoke_forcestaff_p4/allow_hipfire_while_sprinting": {
     "display_name": "Run 'n' Gun",
     "description": "You can Hipfire with this weapon while Sprinting."
@@ -540,7 +546,7 @@
     "display_name": "Warp Flurry",
     "description": "{charge_time:%s}  Charge Time on Chained Secondary Attack. Stacks {stacks:%s} times."
   },
-  "powermaul_2h_control_stat": "Crowd Control",
+  "powermaul_2h_control_stat": { "display_name": "Crowd Control" },
   "content/items/traits/bespoke_autogun_p2/toughness_on_continuous_fire": {
     "display_name": "Inspiring Barrage",
     "description": " Replenish {toughness:%s} Toughness over time during Continuous Fire. Stacks up to {stacks:%s} times."
@@ -644,12 +650,12 @@
     "display_name": "Gloryhunter",
     "description": "+{toughness:%s} Toughness on Elite Kill."
   },
-  "shotgun_p1_m1_stability_stat": "Stability",
+  "shotgun_p1_m1_stability_stat": { "display_name": "Stability" },
   "content/items/traits/bespoke_combatsword_p1/increased_attack_cleave_on_multiple_hits": {
     "display_name": "Savage Sweep",
     "description": "Hitting atleast {multiple_hit:%s} enemies with an attack, increases your cleave by {cleave:%s} for {time:%s} seconds."
   },
-  "stubrevolver_dps_stat": "Damage",
+  "stubrevolver_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_combataxe_p1/power_bonus_scaled_on_stamina": {
     "display_name": "All or Nothing",
     "description": "Up to +{power_level:%s} Power, scaling with Stamina."
@@ -666,7 +672,7 @@
     "display_name": "Sucker Punch",
     "description": "+{crit_chance:%s} Critical Chance for {time:%s}s on Special Action Hit."
   },
-  "plasmagun_p1_m1_dps_stat": "Damage",
+  "plasmagun_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_autopistol_p1/allow_hipfire_while_sprinting": {
     "display_name": "Run 'n' Gun",
     "description": "You can Hipfire with this weapon while Sprinting."
@@ -682,7 +688,7 @@
     "display_name": "Ripper Rounds",
     "description": "Shots Cleave and never Explode vs Unarmoured targets."
   },
-  "flamer_p1_m1_burninating_stat": "Burn",
+  "flamer_p1_m1_burninating_stat": { "display_name": "Burn" },
   "content/items/curios/curio_a_h02": {
     "display_name": "Laurel of the Just (Caged)",
     "description": ">>Timestamp: -10.3.39.KE.M39<<\n>>Private Datastack: Taric/Dn<<\n\nThe shrine cannot be held. Emperor protect me, but I must make arrangements for its treasures to be preserved elsewhere."
@@ -712,7 +718,7 @@
     "display_name": "Perfect Strike",
     "description": "Critical Hits ignore Hit Mass Bonus from Armour."
   },
-  "shotgun_p1_m1_mobility_stat": "Mobility",
+  "shotgun_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_forcestaff_p1/uninterruptable_while_charging": {
     "display_name": "Focused Channelling",
     "description": "Your Secondary Attack cannot be interrupted."
@@ -725,7 +731,7 @@
     "display_name": "Rampage",
     "description": "Hitting at least {multiple_hit:%s} enemies with an attack, increases your damage by {damage:%s} for {time:%s} seconds."
   },
-  "ogryn_club_p2_m1_mobility_stat": "Mobility",
+  "ogryn_club_p2_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_plasmagun_p1/armor_rend_on_projectile_hit": {
     "display_name": "Shattering Impact",
     "description": "+{rend:%s} Rending (Armoured Enemies)."
@@ -742,13 +748,13 @@
     "display_name": "Bash",
     "description": "+{crit_chance:%s} Critical Chance for {time:%s}s on Pushing Enemies. "
   },
-  "powersword_p1_m2_mobility_stat": "Mobility",
-  "combataxe_p3_m2_first_target_stat": "First Target",
+  "powersword_p1_m2_mobility_stat": { "display_name": "Mobility" },
+  "combataxe_p3_m2_first_target_stat": { "display_name": "First Target" },
   "content/items/traits/bespoke_combatknife_p1/increased_weakspot_damage_against_bleeding": {
     "display_name": "Mercy Killer",
     "description": "+{damage:%s} Weak Spot Damage (Enemies with Bleed Stacks)."
   },
-  "lasgun_p2_m3_power_stat": "Stopping Power",
+  "lasgun_p2_m3_power_stat": { "display_name": "Stopping Power" },
   "content/items/traits/bespoke_combatsword_p1/stacking_increase_impact_on_hit": {
     "display_name": "Hammerblow",
     "description": "+{impact:%s} Impact for {time:%s}s on Hit. Stacks {stacks:%s} times."
@@ -781,8 +787,8 @@
     "display_name": "Lorenz Mk VI Rumbler",
     "description": "One of the simplest grenade launchers constructed in the Imperium, \"rumblers\" have more in common with primitive mortars than the usual weaponry made on the Lorenz forge world."
   },
-  "combataxe_p2_m3_dps_stat": "Damage",
-  "flamer_p1_m1_ammo_stat": "Ammo",
+  "combataxe_p2_m3_dps_stat": { "display_name": "Damage" },
+  "flamer_p1_m1_ammo_stat": { "display_name": "Ammo" },
   "content/items/traits/bespoke_bolter_p1/armor_rend_on_projectile_hit": {
     "display_name": "Shattering Impact",
     "description": "+{rend:%s} Rending (Armoured Enemies)."
@@ -795,7 +801,7 @@
     "display_name": "Trickshooter",
     "description": "+{power_level:%s} Power on Chained Weak Spot Hit (Any Target). Stacks {stacks:%s} times. "
   },
-  "ogryn_powermaul_slabshield_defence_stat": "Defences",
+  "ogryn_powermaul_slabshield_defence_stat": { "display_name": "Defences" },
   "content/items/traits/bespoke_autogun_p2/increased_sprint_speed": {
     "display_name": "Stripped Down",
     "description": "+{sprint_speed:%s} Sprint Speed (Weapon is Active)."
@@ -804,7 +810,7 @@
     "display_name": "Hit & Run",
     "description": "+{movement_speed:%s} Movement Speed for {time:%s}s on Special Action Hit. "
   },
-  "stubrevolver_armor_piercing_stat": "Penetration",
+  "stubrevolver_armor_piercing_stat": { "display_name": "Penetration" },
   "content/items/perks/gadget_common/trait_gadget_mission_xp_increase": {
     "description": "+{mission_reward_xp_modifier:%s} Experience"
   },
@@ -822,12 +828,12 @@
   "content/items/perks/ranged_common/wield_increase_roaming_enemy_damage": {
     "description": "+{damage:%s} Increased Ranged Damage (Roamers)"
   },
-  "autogun_p3_m1_stability_stat": "Stability",
-  "powermaul_2h_armor_pierce_stat": "Penetration",
+  "autogun_p3_m1_stability_stat": { "display_name": "Stability" },
+  "powermaul_2h_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/perks/ranged_common/wield_increase_horde_enemy_damage": {
     "description": "+{damage:%s} Ranged Damage (Groaners, Poxwalkers)"
   },
-  "stubrevolver_reload_speed_stat": "Reload Speed",
+  "stubrevolver_reload_speed_stat": { "display_name": "Reload Speed" },
   "content/items/curios/curio_c_c02": {
     "display_name": "Redeemer's Gilded Hand (Casket)",
     "description": "Such sights were seen on Komaris as would make a saint weep.\n\nFrom Caladoc's Life of Messelina, Vol. XV"
@@ -866,7 +872,7 @@
   "content/items/perks/gadget_common/trait_gadget_dr_vs_gunners": {
     "description": "+{damage_reduction:%s} Damage Resistance (Gunners)"
   },
-  "powermaul_control_stat": "Crowd Control",
+  "powermaul_control_stat": { "display_name": "Crowd Control" },
   "content/items/traits/bespoke_bolter_p1/toughness_on_continuous_fire": {
     "display_name": "Inspiring Barrage",
     "description": " Replenish {toughness:%s} Toughness over time during Continuous Fire. Stacks up to {stacks:%s} times."
@@ -876,12 +882,12 @@
     "description": "+{rending:%s} Rending on Enemy Weak Spot Hit for {time:%s}s. Stacks {stacks:%s} times."
   },
   "content/items/weapons/npc/lasgun_d7_veteran_m": {},
-  "combatsword_p2_m3_defence_stat": "Defences",
+  "combatsword_p2_m3_defence_stat": { "display_name": "Defences" },
   "content/items/traits/bespoke_autogun_p3/power_bonus_on_first_shot": {
     "display_name": "Opening Salvo",
     "description": "+{power_level:%s} Power on Salvo's First shot."
   },
-  "lasgun_p2_m1_stability_stat": "Stability",
+  "lasgun_p2_m1_stability_stat": { "display_name": "Stability" },
   "content/items/traits/bespoke_thunderhammer_2h_p1/increase_power_on_kill": {
     "display_name": "Slaughterer",
     "description": "+{power_level:%s} Power for {time:%s}s on Kill. Stacks {stacks:%s} times."
@@ -925,7 +931,7 @@
   "content/items/perks/ranged_common/wield_increase_reload_speed": {
     "description": "+{reload_speed:%s} Reload Speed"
   },
-  "combataxe_p2_m3_armor_pierce_stat": "Penetration",
+  "combataxe_p2_m3_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/perks/melee_common/wield_reduce_sprint_cost": {
     "description": "+{sprinting_cost_multiplier:%s} Sprint Efficiency"
   },
@@ -941,7 +947,7 @@
     "display_name": "Saintly Fragment (Casket)",
     "description": "I sought neither plaudits nor glory, and now a world bears my name. I hath become a waystation on the idolator's road.\n\nAttributed to Saint Messelina \n>>timestamp -1.12.32.KE.M39<<"
   },
-  "lasgun_p3_m2_mobility_stat": "Mobility",
+  "lasgun_p3_m2_mobility_stat": { "display_name": "Mobility" },
   "content/items/curios/curio_b_k02": {
     "display_name": "Guardian Gloriana (Reliquary)",
     "description": "But one honour was bestowed upon the Saint without her knowledge. The world she had saved would ever after bear her name alongside its own.\n\nFrom Caladoc's Life of Messelina, Vol. IX"
@@ -958,8 +964,8 @@
     "display_name": "Guardian of the Hateful (Reliquary)",
     "description": "Gloriana had fallen but the faithful saw it reclaimed. If thou be true of heart, thou shalt ever find thy path in flame! \n\nAttributed to Saint Messelina \n>>timestamp -10.12.32.KE.M39<<"
   },
-  "combatknife_p1_m1_dps_stat": "Damage",
-  "combataxe_p3_m1_dps_stat": "Damage",
+  "combatknife_p1_m1_dps_stat": { "display_name": "Damage" },
+  "combataxe_p3_m1_dps_stat": { "display_name": "Damage" },
   "content/items/curios/curio_b_j01": {
     "display_name": "Guardian of the Lost (Reliquary)",
     "description": "A hand raised in the God-Emperor's service is worth more than gold.~\n\nAttributed to Saint Messelina \n>>timestamp -10.12.34.KE.M39<<"
@@ -1004,7 +1010,7 @@
     "display_name": "Laurel of the Righteous (Reliquary)",
     "description": "Hatred holdeth power beyond mortal might. It shalt serve thee unto death.\n\nAttributed to Saint Messelina \n>>timestamp -20.9.35.KE.M39<<"
   },
-  "autogun_p1_m1_ammo_stat": "Ammo",
+  "autogun_p1_m1_ammo_stat": { "display_name": "Ammo" },
   "content/items/weapons/player/ranged/forcestaff_p1_m1": {
     "display_name": "Equinox Mk III Trauma Force Staff",
     "description": "Through the intricate psi-convectors of a force staff, a psyker harnesses the pure energy of the Warp, unleashing it upon their enemies in ferocious psychic cavalcades. "
@@ -1013,7 +1019,7 @@
     "display_name": "Stable Cooling",
     "description": "Active Ventilation is slower but you don't take damage."
   },
-  "ogryn_thumper_default_range_stat": "Range",
+  "ogryn_thumper_default_range_stat": { "display_name": "Range" },
   "content/items/curios/curio_b_g02": {
     "display_name": "Herald's Seal (Reliquary)",
     "description": "Let hatred be thy sword and shield. \n\nAttributed to Saint Messelina \n>>timestamp -20.9.35.KE.M39<<"
@@ -1045,12 +1051,14 @@
   "content/items/perks/melee_common/wield_increase_special_enemy_damage": {
     "description": "+{damage:%s} Increased Melee Damage (Specialists)"
   },
-  "ogryn_combatblade_p1_m1_armor_pierce_stat": "Penetration",
+  "ogryn_combatblade_p1_m1_armor_pierce_stat": {
+    "display_name": "Penetration"
+  },
   "content/items/traits/bespoke_forcestaff_p4/peril_vent_on_weakspot_hit": {
     "display_name": "Transfer Peril",
     "description": "Quell {warp_charge:%s} of your Peril on Weak Spot Hit."
   },
-  "autogun_p1_m1_dps_stat": "Damage",
+  "autogun_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/curios/curio_b_d01": {
     "display_name": "Scrap of Scripture (Reliquary)",
     "description": "Lowborn and lords alike bowed to her. Not for her victories, but out of fealty to destiny apparent.\n\nFrom Caladoc's Life of Messelina, Vol. IV"
@@ -1083,7 +1091,7 @@
     "display_name": "Columnus Mk II Braced Autogun",
     "description": "A commander's prime concern is strategy. A soldier's duty is to plant their feet and blaze away.\n- Lord Militant Ennic Baross"
   },
-  "powermaul_2h_dps_stat": "Damage",
+  "powermaul_2h_dps_stat": { "display_name": "Damage" },
   "content/items/curios/curio_b_a01": {
     "display_name": "Saintly Fragment (Reliquary)",
     "description": "In the hour of victory, Messelina stood among the slain, her white robes now blood-red, and a fearful light upon her brow.\n\nFrom Caladoc's Life of Messelina, Vol. III"
@@ -1100,7 +1108,7 @@
     "display_name": "Inquisitorial Rosette (Caged)",
     "description": "Each day, the God-Emperor's grace filleth our cloisters, but pilgrims warn of darkness beyond the walls.\n\nFrom the Journal of Novitiate Messelina "
   },
-  "rippergun_p1_m1_stability_stat": "Stability",
+  "rippergun_p1_m1_stability_stat": { "display_name": "Stability" },
   "content/items/curios/curio_a_d01": {
     "display_name": "Scrap of Scripture (Caged)",
     "description": ">>Timestamp: -10.3.40.KE.M39<<\n>>Private Datastack: Taric/Dn<<\n\nAlas that Messelina will never amount to much. Still, service to the God-Emperor is its own reward."
@@ -1112,7 +1120,7 @@
     "display_name": "Gilded Mandible (Caged)",
     "description": "My quarters offer humility, as they should. For is not humility next to hatred in the God-Emperor's sight?\n\nFrom the Record of Novitiate Messelina "
   },
-  "ogryn_combatblade_p1_m1_cleave_stat": "Cleave Damage",
+  "ogryn_combatblade_p1_m1_cleave_stat": { "display_name": "Cleave Damage" },
   "content/items/traits/bespoke_flamer_p1/armor_rending_from_dot_burning": {
     "display_name": "Penetrating Flame",
     "description": "+{rending:%s} Rending on Burn Stacks. "
@@ -1133,13 +1141,13 @@
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
   },
-  "lasgun_p3_m3_stability_stat": "Stability",
+  "lasgun_p3_m3_stability_stat": { "display_name": "Stability" },
   "content/items/weapons/player/ranged/forcestaff_p3_m1": {
     "display_name": "Nomanus Mk VI Surge Force Staff",
     "description": "A Force Staff grounds a Psyker, helping them resist daemonic possession."
   },
-  "powersword_p1_m2_finesse_stat": "Finesse",
-  "thunderhammer_p1_m2_first_target_stat": "First Target",
+  "powersword_p1_m2_finesse_stat": { "display_name": "Finesse" },
+  "thunderhammer_p1_m2_first_target_stat": { "display_name": "First Target" },
   "content/items/curios/curio_c_k02": {
     "display_name": "Guardian Gloriana (Casket)",
     "description": "I have been blind, but now see clearly the ruin that will be wrought in my name. May the God-Emperor forgive me.\n\nAttributed to Saint Messelina \n>>timestamp -0.0.0.KE.M39<<"
@@ -1160,13 +1168,15 @@
     "display_name": "Turtolsky Mk IX Heavy Sword",
     "description": "Taking their design from the traditional shashka swords of the Vostroyan Astra Militarum regiments, these popular weapons are effective at both slashing and thrusting."
   },
-  "ogryn_powermaul_slabshield_cleave_damage_stat": "Cleave Damage",
+  "ogryn_powermaul_slabshield_cleave_damage_stat": {
+    "display_name": "Cleave Damage"
+  },
   "content/items/traits/bespoke_combataxe_p1/targets_receive_rending_debuff": {
     "display_name": "Thunderous",
     "description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on Hit. Lasts {time:%s}s."
   },
-  "chainsword_p1_m1_mobility_stat": "Mobility",
-  "lasgun_p1_m2_stability_stat": "Stability",
+  "chainsword_p1_m1_mobility_stat": { "display_name": "Mobility" },
+  "lasgun_p1_m2_stability_stat": { "display_name": "Stability" },
   "content/items/weapons/player/ranged/ogryn_rippergun_p1_m2": {
     "display_name": "Foe-Rend Mk V Ripper Gun",
     "description": "A rare pattern of ripper gun, the Foe-Rend Mk V was an attempt to use a tightly focussed scatter shell to improve the Ogryns' aim at long range. Given the Ogryn propensity for charging wildly into combat, the experiment was quickly abandoned."
@@ -1174,12 +1184,12 @@
   "content/items/gadgets/defensive_gadget_18": {
     "display_name": "Mechanicus Icon Illustrious (Casket)"
   },
-  "lasgun_p1_m1_dps_stat": "Damage",
+  "lasgun_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/weapons/player/melee/bot_combatsword_linesman_p2": {
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
   },
-  "laspistol_mobility_stat": "Mobility",
+  "laspistol_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/npc/autogun_npc_05": {
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
@@ -1197,17 +1207,17 @@
     "display_name": "Rampage",
     "description": "Hitting at least {multiple_hit:%s} enemies with an attack, increases your damage by {damage:%s} for {time:%s} seconds."
   },
-  "chainsword_2h_defence_stat": "Defences",
+  "chainsword_2h_defence_stat": { "display_name": "Defences" },
   "content/items/perks/ranged_common/wield_increase_crit_chance": {
     "description": "Increase Ranged Critical Strike Chance by {crit_chance:%s}"
   },
-  "forcestaff_p4_m1_dps_stat": "Damage",
+  "forcestaff_p4_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_ogryn_combatblade_p1/toughness_recovery_on_multiple_hits": {
     "display_name": "Momentum",
     "description": "Hitting at least {multiple_hit:%s} enemies with an attack, restores {toughness:%s} toughness."
   },
-  "combatsword_p1_m1_finesse_stat": "Finesse",
-  "powersword_p1_m3_mobility_stat": "Mobility",
+  "combatsword_p1_m1_finesse_stat": { "display_name": "Finesse" },
+  "powersword_p1_m3_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_thunderhammer_2h_p1/more_power_on_longer_charge": {
     "display_name": "Mighty Smite",
     "description": "Up to +{damage:%s} Damage on Next Attack scaling with Charge Time (Heavy Attack)."
@@ -1264,13 +1274,13 @@
     "display_name": "Wrath",
     "description": "+{cleave:%s} Cleave on Hit. Stacks {stacks:%s} times."
   },
-  "bolter_p1_m1_reload_speed_stat": "Reload Speed",
-  "lasgun_p3_m3_mobility_stat": "Mobility",
+  "bolter_p1_m1_reload_speed_stat": { "display_name": "Reload Speed" },
+  "lasgun_p3_m3_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_combataxe_p1/stacking_rending_on_one_hit_kills": {
     "display_name": "Decapitator",
     "description": "+{rending:%s} Rending for {time:%s}s on Enemy One-Shot. Stacks {stacks:%s} times."
   },
-  "autogun_p2_m2_dps_stat": "Damage",
+  "autogun_p2_m2_dps_stat": { "display_name": "Damage" },
   "content/items/weapons/player/melee/ogryn_powermaul_p1_m2": {},
   "content/items/curios/curio_a_f01": {
     "display_name": "Blessed Bullet (Caged)",
@@ -1295,7 +1305,7 @@
     "display_name": "Blaze Away",
     "description": "Up to +{power_level:%s} Power based on how long you keep shooting. Stacks {stacks:%s} times."
   },
-  "autogun_p2_m1_dps_stat": "Damage",
+  "autogun_p2_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_powersword_p1/chained_hits_increases_cleave": {
     "display_name": "Wrath",
     "description": "+{cleave:%s} Cleave on Hit. Stacks {stacks:%s} times."
@@ -1312,8 +1322,8 @@
     "display_name": "Gilded Inquisitorial Rosette (Caged)",
     "description": "The soldier's warning of heretics reaving the mirelands was to be a greater burden than his passing.\n\nFrom the Record of Novitiate Messelina "
   },
-  "combatsword_p2_m2_dps_stat": "Damage",
-  "combatsword_p2_m2_defence_stat": "Defences",
+  "combatsword_p2_m2_dps_stat": { "display_name": "Damage" },
+  "combatsword_p2_m2_defence_stat": { "display_name": "Defences" },
   "content/items/weapons/npc/lasgun_npc_01": {},
   "content/items/traits/bespoke_stubrevolver_p1/toughness_on_elite_kills": {
     "display_name": "Gloryhunter",
@@ -1322,8 +1332,8 @@
   "content/items/perks/gadget_common/trait_gadget_corruption_resistance": {
     "description": "+{corruption_taken_multiplier:%s} Corruption Resistance"
   },
-  "combatknife_p1_m1_armor_pierce_stat": "Penetration",
-  "chainaxe_dps_stat": "Damage",
+  "combatknife_p1_m1_armor_pierce_stat": { "display_name": "Penetration" },
+  "chainaxe_dps_stat": { "display_name": "Damage" },
   "content/items/perks/gadget_common/trait_gadget_stamina_regeneration": {
     "description": "+{stamina_regeneration_modifier:%s} Stamina Regeneration"
   },
@@ -1343,13 +1353,13 @@
     "display_name": "Reassuringly Accurate",
     "description": "+{toughness:%s} Toughness on Critical Hit Kill."
   },
-  "combataxe_p2_m1_mobility_stat": "Mobility",
+  "combataxe_p2_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_forcestaff_p1/increased_crit_chance_scaled_on_peril": {
     "display_name": "Warp Nexus",
     "description": "+Critical Chance based on current Peril. Max of {crit_chance:%s} Critical Chance. Stacks {stacks:%s} times."
   },
-  "lasgun_p2_m2_charge_speed_stat": "Charge Rate",
-  "ogryn_thumper_reload_speed_stat": "Reload Speed",
+  "lasgun_p2_m2_charge_speed_stat": { "display_name": "Charge Rate" },
+  "ogryn_thumper_reload_speed_stat": { "display_name": "Reload Speed" },
   "content/items/weapons/player/ranged/autogun_p3_m1": {
     "display_name": "Vraks Mk III Headhunter Autogun",
     "description": "A prized autogun pattern from the vaunted manufactorums of Vraks, the Mk III sacrifices rate of fire in favour of increased range."
@@ -1361,12 +1371,12 @@
   "content/items/perks/gadget_common/trait_gadget_dr_vs_grenadiers": {
     "description": "+{damage_reduction:%s} Damage Resistance (Bombers)"
   },
-  "ogryn_club_p1_m1_first_target_stat": "First Target",
+  "ogryn_club_p1_m1_first_target_stat": { "display_name": "First Target" },
   "content/items/weapons/player/ranged/flamer_p1_m1": {
     "display_name": "Artemia Mk III Purgation Flamer",
     "description": "Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire."
   },
-  "autogun_p2_m2_mobility_stat": "Mobility",
+  "autogun_p2_m2_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_ogryn_powermaul_p1/staggered_targets_receive_increased_damage_debuff": {
     "display_name": "Skullcrusher",
     "description": "Target receives {stacks:%s} Stack(s) of +{damage:%s} Damage if already Staggered. Lasts {time:%s}s."
@@ -1375,10 +1385,10 @@
     "display_name": "Headhunter",
     "description": "+{crit_chance:%s} Critical Chance on Weak Spot Hit until your next Critical Hit. Stacks {stacks:%s} times."
   },
-  "shotgun_p1_m3_mobility_stat": "Mobility",
-  "powersword_p1_m2_cleave_targets_stat": "Cleave Targets",
-  "chainsword_2h_sawing_stat": "Shredder",
-  "combatsword_p2_m2_cleave_targets_stat": "Cleave Targets",
+  "shotgun_p1_m3_mobility_stat": { "display_name": "Mobility" },
+  "powersword_p1_m2_cleave_targets_stat": { "display_name": "Cleave Targets" },
+  "chainsword_2h_sawing_stat": { "display_name": "Shredder" },
+  "combatsword_p2_m2_cleave_targets_stat": { "display_name": "Cleave Targets" },
   "content/items/weapons/player/ranged/bot_zola_laspistol": {
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
@@ -1403,7 +1413,7 @@
     "display_name": "Stalwart's Mandible (Casket)",
     "description": "Messelina emerged from meditation renewed, blessed with a holy vision. She led, and we followed.\n\nFrom Caladoc's Life of Messelina, Vol. XIII"
   },
-  "stubrevolver_crit_stat": "Critical Bonus",
+  "stubrevolver_crit_stat": { "display_name": "Critical Bonus" },
   "content/items/traits/bespoke_shotgun_p1/power_bonus_on_hitting_single_enemy_with_all": {
     "display_name": "Full Bore",
     "description": "+{power_level:%s} Power for {time:%s}s when every pellet in a shot hits the same enemy."
@@ -1444,7 +1454,7 @@
     "display_name": "Perfect Strike",
     "description": "Critical Hits ignore Hit Mass Bonus from Armour."
   },
-  "forcesword_p1_m1_mobility_stat": "Mobility",
+  "forcesword_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/npc/powersword_npc_01": {},
   "content/items/traits/bespoke_chainsword_2h_p1/increased_attack_cleave_on_multiple_hits": {
     "display_name": "Savage Sweep",
@@ -1454,7 +1464,7 @@
     "display_name": "Deathspitter",
     "description": "+{power_level:%s} Power for {time:%s}s on Close Range Kill."
   },
-  "ogryn_powermaul_dps_stat": "Damage",
+  "ogryn_powermaul_dps_stat": { "display_name": "Damage" },
   "content/items/perks/ranged_common/wield_increase_unarmored_damage": {
     "description": "+{damage:%s} Damage (Unarmoured Enemies)"
   },
@@ -1476,7 +1486,7 @@
     "display_name": "Bloodletter",
     "description": "+{stacks:%s} Bleed Stacks from Special Attacks."
   },
-  "combataxe_p1_m1_armor_pierce_stat": "Penetration",
+  "combataxe_p1_m1_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/curios/curio_c_g02": {
     "display_name": "Herald's Seal (Casket)",
     "description": "Goeth forth and drive out the heretic and the xenos, for these worlds belong to the God-Emperor, and to no other.\n\n\nAttributed to Saint Messelina \n>>timestamp -20.5.-29.KE.M39<<"
@@ -1552,7 +1562,7 @@
     "display_name": "Trauma",
     "description": "+{impact:%s} Impact for {time:%s} seconds on Repeated Hit. Stacks {stacks:%s} times."
   },
-  "lasgun_p2_m3_dps_stat": "Damage",
+  "lasgun_p2_m3_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_chainaxe_p1/increase_power_on_hit": {
     "display_name": "Headtaker",
     "description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
@@ -1583,12 +1593,12 @@
   "content/items/perks/gadget_common/trait_gadget_reduced_block_cost": {
     "description": "+{block_cost_multiplier:%s}  Block Efficiency"
   },
-  "combataxe_p3_m2_dps_stat": "Damage",
+  "combataxe_p3_m2_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_lasgun_p1/count_as_dodge_vs_ranged_on_weakspot": {
     "display_name": "Ghost",
     "description": "Immune to Ranged Attacks for {time:%s}s seconds on Weak Spot Hit."
   },
-  "chainaxe_mobility_stat": "Mobility",
+  "chainaxe_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_autogun_p1/reload_speed_on_dodge": {
     "display_name": "Quickloader",
     "description": "+{reload_speed:%s} Reload Speed after Dodging for {time:%s}s."
@@ -1612,11 +1622,11 @@
     "display_name": "Executor",
     "description": "+{power_level:%s} Power Level on Repeated Weak Spot Hit. Stacks {stacks:%s} times."
   },
-  "ogryn_thumper_power_stat": "Stopping Power",
-  "lasgun_p3_m3_ammo_stat": "Ammo",
+  "ogryn_thumper_power_stat": { "display_name": "Stopping Power" },
+  "lasgun_p3_m3_ammo_stat": { "display_name": "Ammo" },
   "content/items/perks/unknown_perk": { "description": "NEW Perk" },
-  "lasgun_p2_m2_ammo_stat": "Ammo",
-  "combataxe_p1_m1_dps_stat": "Damage",
+  "lasgun_p2_m2_ammo_stat": { "display_name": "Ammo" },
+  "combataxe_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_flamer_p1/ammo_spent_from_reserve_on_crit": {
     "display_name": "Everlasting Flame",
     "description": "Critical Hits spend Ammo from your Reserve instead of you current fuel tank."
@@ -1625,9 +1635,9 @@
     "display_name": "Savage Sweep",
     "description": "Hitting atleast {multiple_hit:%s} enemies with an attack, increases your cleave by {cleave:%s} for {time:%s} seconds."
   },
-  "autogun_p2_m1_stability_stat": "Stability",
-  "lasgun_p1_m1_power_stat": "Stopping Power",
-  "shotgun_p1_m2_power_stat": "Stopping Power",
+  "autogun_p2_m1_stability_stat": { "display_name": "Stability" },
+  "lasgun_p1_m1_power_stat": { "display_name": "Stopping Power" },
+  "shotgun_p1_m2_power_stat": { "display_name": "Stopping Power" },
   "content/items/traits/bespoke_combataxe_p1/power_bonus_on_first_attack": {
     "display_name": "Limbsplitter",
     "description": "+{power_level:%s} Power on First Attack in a Chain. Subsequent Attacks have -{power_level:%s} Power."
@@ -1647,13 +1657,13 @@
   "content/items/gadgets/defensive_gadget_1": {
     "display_name": "Saintly Fragment (Caged)"
   },
-  "thunderhammer_p1_m1_first_target_stat": "First Target",
+  "thunderhammer_p1_m1_first_target_stat": { "display_name": "First Target" },
   "content/items/traits/bespoke_powersword_p1/extended_activation_duration_on_chained_attacks": {
     "display_name": "Power Cycler",
     "description": "Increased Energised Duration on Chained Energised Hits."
   },
-  "forcestaff_p3_m1_charge_speed_stat": "Charge Rate",
-  "ogryn_thumper_mobility_stat": "Mobility",
+  "forcestaff_p3_m1_charge_speed_stat": { "display_name": "Charge Rate" },
+  "ogryn_thumper_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_combatsword_p1/infinite_melee_cleave_on_crit": {
     "display_name": "Devastating Strike",
     "description": "Ignore Enemy Hit Mass on Critical Hit. Lasts {time:%s}s."
@@ -1662,25 +1672,25 @@
     "display_name": "Mighty Blow",
     "description": "Guaranteed Stagger (Next Attack) on Critical Hit."
   },
-  "plasmagun_p1_m1_power_stat": "Stopping Power",
+  "plasmagun_p1_m1_power_stat": { "display_name": "Stopping Power" },
   "content/items/gadgets/defensive_gadget_21": {
     "display_name": "Guardian Nocturnus (Casket)"
   },
-  "shotgun_p1_m3_stability_stat": "Stability",
+  "shotgun_p1_m3_stability_stat": { "display_name": "Stability" },
   "content/items/traits/bespoke_forcestaff_p1/peril_vent_on_weakspot_hit": {
     "display_name": "Transfer Peril",
     "description": "Quell {warp_charge:%s} of your Peril on Weak Spot Hit."
   },
-  "shotgun_p1_m2_mobility_stat": "Mobility",
+  "shotgun_p1_m2_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_combataxe_p1/increase_power_on_hit": {
     "display_name": "Headtaker",
     "description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
   },
-  "lasgun_p2_m1_dps_stat": "Damage",
-  "lasgun_p1_m1_stability_stat": "Stability",
-  "lasgun_p1_m3_mobility_stat": "Mobility",
-  "shotgun_p1_m1_ammo_stat": "Ammo",
-  "combatsword_p3_m2_armor_pierce_stat": "Penetration",
+  "lasgun_p2_m1_dps_stat": { "display_name": "Damage" },
+  "lasgun_p1_m1_stability_stat": { "display_name": "Stability" },
+  "lasgun_p1_m3_mobility_stat": { "display_name": "Mobility" },
+  "shotgun_p1_m1_ammo_stat": { "display_name": "Ammo" },
+  "combatsword_p3_m2_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_combatsword_p3/stacking_rending_on_weakspot": {
     "display_name": "Uncanny Strike",
     "description": "+{rending:%s} Rending on Enemy Weak Spot Hit for {time:%s}s. Stacks {stacks:%s} times."
@@ -1689,12 +1699,12 @@
     "display_name": "Hit & Run",
     "description": "Immune to Ranged Attacks for {time:%s}s seconds on Close Range Kill."
   },
-  "combatsword_p3_m2_mobility_stat": "Mobility",
+  "combatsword_p3_m2_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_autogun_p3/damage_bonus_on_stagger_count": {
     "display_name": "No Respite",
     "description": "Up to +{damage:%s} Damage on Hit (Staggered Enemy), scaling with Stagger."
   },
-  "combataxe_p2_m2_finesse_stat": "Finesse",
+  "combataxe_p2_m2_finesse_stat": { "display_name": "Finesse" },
   "content/items/traits/bespoke_lasgun_p2/negate_stagger_reduction_on_weakspot": {
     "display_name": "Falter",
     "description": "+{stagger:%s} Target Stagger on Weak Spot Hit."
@@ -1711,8 +1721,8 @@
     "display_name": "Vraks Mk VII Headhunter Autogun",
     "description": "Heavily modified to combat snipers during siege actions, the Vraks Headhunter is an unusual single-shot autogun designed for high-accuracy takedowns."
   },
-  "autogun_p3_m1_ammo_stat": "Ammo",
-  "combatsword_p2_m1_cleave_damage_stat": "Cleave Damage",
+  "autogun_p3_m1_ammo_stat": { "display_name": "Ammo" },
+  "combatsword_p2_m1_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "forcesword_p1_m1_weapon_special_warp_charge_cost": "Warp Resistance",
   "content/items/traits/bespoke_ogryn_club_p2/heavy_chained_hits_increases_killing_blow_chance": {
     "display_name": "Haymaker",
@@ -1726,7 +1736,7 @@
     "display_name": "Bull Butcher Mk III Cleaver",
     "description": "In the hands of an Ogryn, these massive, crude cleavers can rend a grown man in half with a single swipe."
   },
-  "combatsword_p3_m1_dps_stat": "Damage",
+  "combatsword_p3_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_thunderhammer_2h_p1/power_bonus_based_on_charge_time": {
     "display_name": "Thrust",
     "description": "Up to +{power_level:%s} Power, scaling with Charge Time (Heavy Attack). Stacks {stacks:%s} times."
@@ -1751,7 +1761,7 @@
     "display_name": "Lucius Mk II Helbore Lasgun",
     "description": "A more elegant design of the Lucius Mk I. Once the preserve of officers in the Death Korps of Krieg, this aging but reliable model has found its way into the hands of soldiers across the galaxy."
   },
-  "chainsword_2h_cleave_targets_stat": "Cleave Targets",
+  "chainsword_2h_cleave_targets_stat": { "display_name": "Cleave Targets" },
   "content/items/traits/bespoke_ogryn_heavystubber_p1/increase_power_on_close_kill": {
     "display_name": "Deathspitter",
     "description": "+{power_level:%s} Power for {time:%s}s on Close Range Kill."
@@ -1764,7 +1774,7 @@
     "display_name": "Atrox Mk IV Tactical Axe",
     "description": "Axes, hammers, knives, sticks and stones. These are the weapons of humble, working folk. These are the tools of our liberation.\n- Jax Groll"
   },
-  "thunderhammer_p1_m2_armor_pierce_stat": "Penetration",
+  "thunderhammer_p1_m2_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_ogryn_club_p1/targets_receive_rending_debuff": {
     "display_name": "Thunderous",
     "description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on Hit. Lasts {time:%s}s."
@@ -1849,7 +1859,7 @@
     "display_name": "Crucian Roulette",
     "description": "+{crit_chance:%s} Critical Chance for each empty chamber in your weapon."
   },
-  "chainsword_p1_m1_sawing_stat": "Shredder",
+  "chainsword_p1_m1_sawing_stat": { "display_name": "Shredder" },
   "content/items/perks/melee_common/wield_increase_disgustingly_resilient_damage": {
     "description": "+{damage:%s} Damage (Infested Enemies)"
   },
@@ -1873,12 +1883,12 @@
     "display_name": "Quickflame",
     "description": "+{reload_speed:%s} Reload Speed if empty."
   },
-  "combatsword_p1_m1_mobility_stat": "Mobility",
+  "combatsword_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_ogryn_club_p1/toughness_recovery_on_chained_attacks": {
     "display_name": "Confident Strike",
     "description": "+{toughness:%s} replenish toughness on Chained Hit."
   },
-  "bolter_p1_m1_dps_stat": "Damage",
+  "bolter_p1_m1_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_rippergun_p1/toughness_on_continuous_fire": {
     "display_name": "Inspiring Barrage",
     "description": " Replenish {toughness:%s} Toughness over time during Continuous Fire. Stacks up to {stacks:%s} times."
@@ -1887,7 +1897,7 @@
     "display_name": "\"Brunt's Pride\" Mk II Bully Club",
     "description": "Best club I ever made, dis. Modelled after me favourite club dat I lost on Fortanis. Eaten by a bleedin' Tyranid. Nearly brought me to tears, I tell ya.\n- Gurry “Brunt” Cernik"
   },
-  "ogryn_club_p1_m1_armor_pierce_stat": "Penetration",
+  "ogryn_club_p1_m1_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_ogryn_gauntlet_p1/increased_damage_on_staggered_enemies": {
     "display_name": "Finisher",
     "description": "+{damage:%s} Damage (Staggered Enemies)."
@@ -1899,7 +1909,7 @@
     "display_name": "Hot-Shot",
     "description": "Weak Spot Hits gain Cleave."
   },
-  "autogun_p1_m1_power_stat": "Stopping Power",
+  "autogun_p1_m1_power_stat": { "display_name": "Stopping Power" },
   "content/items/traits/bespoke_ogryn_club_p2/ignore_stagger_reduction_on_punch_weakspot_hit": {
     "display_name": "Batter",
     "description": "-{stagger_reduction:%s} Target Stagger Resistance for {time:%s}s on Weak Spot Special Action Hit."
@@ -1915,7 +1925,7 @@
     "display_name": "Sustained Fire",
     "description": "+{damage:%s} Damage on Second and Third shots in a Salvo."
   },
-  "lasgun_p2_m3_stability_stat": "Stability",
+  "lasgun_p2_m3_stability_stat": { "display_name": "Stability" },
   "content/items/weapons/npc/thunderhammer_d7_zealot_f": {},
   "content/items/weapons/player/melee/ogryn_powermaul_p1_empty": {},
   "content/items/traits/bespoke_combatsword_p3/chained_hits_increases_crit_chance": {
@@ -1948,7 +1958,7 @@
   "content/items/perks/gadget_common/trait_gadget_health_increase": {
     "description": "+{max_health_modifier:%s} Max Health"
   },
-  "autogun_p2_m3_mobility_stat": "Mobility",
+  "autogun_p2_m3_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_lasgun_p3/increase_power_on_close_kill": {
     "display_name": "Deathspitter",
     "description": "+{power_level:%s} Power for {time:%s}s on Close Range Kill."
@@ -1992,7 +2002,7 @@
     "display_name": "Fire Frenzy",
     "description": "Gain a {power_level:%s} Power increase against nearby enemies for {time:%s} seconds after killing an enemy at close range."
   },
-  "combatsword_p3_m2_dps_stat": "Damage",
+  "combatsword_p3_m2_dps_stat": { "display_name": "Damage" },
   "content/items/weapons/player/ranged/forcestaff_p2_m1": {
     "display_name": "Rifthaven Mk II Purgatus Force Staff",
     "description": "The Inquisitor leads the way with words of benevolence, his force staff held like a symbol of faith. But make no mistake: they are no shepherds of the meek. They are destroyers of worlds.\n- High Ecclesiarch Renald Kothar"
@@ -2001,18 +2011,18 @@
     "display_name": "Rev it Up",
     "description": "+{movement_speed:%s} Movement Speed for {time:%s}s on Weapon Special Activation."
   },
-  "ogryn_powermaul_control_stat": "Crowd Control",
+  "ogryn_powermaul_control_stat": { "display_name": "Crowd Control" },
   "ogryn_gauntlet_p1_m1_explosion_antiarmor": "Penetration (Blast)",
   "content/items/traits/bespoke_combataxe_p3/consecutive_hits_increases_stagger": {
     "display_name": "Trauma",
     "description": "+{impact:%s} Impact for {time:%s} seconds on Repeated Hit. Stacks {stacks:%s} times."
   },
-  "combatknife_p1_m1_finesse_stat": "Finesse",
+  "combatknife_p1_m1_finesse_stat": { "display_name": "Finesse" },
   "content/items/traits/bespoke_autopistol_p1/recoil_reduction_and_suppression_increase_on_close_kills": {
     "display_name": "Powderburn",
     "description": "+{suppression:%s} Suppression & -{recoil_reduction:%s} Recoil on Close Range Kill. "
   },
-  "combatsword_p3_m3_defence_stat": "Defences",
+  "combatsword_p3_m3_defence_stat": { "display_name": "Defences" },
   "content/items/traits/bespoke_powersword_p1/increased_melee_damage_on_multiple_hits": {
     "display_name": "Rampage",
     "description": "Hitting at least {multiple_hit:%s} enemies with an attack, increases your damage by {damage:%s} for {time:%s} seconds."
@@ -2044,7 +2054,7 @@
     "display_name": "Fire Frenzy",
     "description": "Gain a {power_level:%s} Power increase against nearby enemies for {time:%s} seconds after killing an enemy at close range."
   },
-  "forcestaff_p3_m1_crit_stat": "Critical Bonus",
+  "forcestaff_p3_m1_crit_stat": { "display_name": "Critical Bonus" },
   "content/items/traits/bespoke_lasgun_p2/rend_armor_on_charged_shots": {
     "display_name": "Armourbane",
     "description": "+{rend:%s} Rending on Charged Hit."
@@ -2064,10 +2074,10 @@
     "display_name": "Dumdum",
     "description": "+{damage:%s} Close Range damage on Repeated Hit. Stacks {stacks:%s} times."
   },
-  "shotgun_p1_m3_power_stat": "Stopping Power",
-  "ogryn_club_p2_m2_armor_pierce_stat": "Penetration",
-  "chainaxe_armor_pierce_stat": "Penetration",
-  "thunderhammer_p1_m1_defence_stat": "Defences",
+  "shotgun_p1_m3_power_stat": { "display_name": "Stopping Power" },
+  "ogryn_club_p2_m2_armor_pierce_stat": { "display_name": "Penetration" },
+  "chainaxe_armor_pierce_stat": { "display_name": "Penetration" },
+  "thunderhammer_p1_m1_defence_stat": { "display_name": "Defences" },
   "content/items/traits/bespoke_ogryn_heavystubber_p1/armor_rend_on_chained_hits": {
     "display_name": "Perforate",
     "description": "+{rend:%s} Rending (Armoured Enemies) on Repeated Hit."
@@ -2083,7 +2093,7 @@
     "display_name": "Gauntlet Momentum",
     "description": "+{power:%s} Power for {time:%s}s on Chained Melee Hit (Any Target)."
   },
-  "ogryn_heavystubber_range_stat": "Range",
+  "ogryn_heavystubber_range_stat": { "display_name": "Range" },
   "content/items/traits/bespoke_ogryn_gauntlet_p1/toughness_on_elite_kills": {
     "display_name": "Gloryhunter",
     "description": "+{toughness:%s} Toughness on Elite Kill."
@@ -2092,8 +2102,8 @@
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
   },
-  "lasgun_p3_m1_dps_stat": "Damage",
-  "combataxe_p2_m2_crit_stat": "Critical Bonus",
+  "lasgun_p3_m1_dps_stat": { "display_name": "Damage" },
+  "combataxe_p2_m2_crit_stat": { "display_name": "Critical Bonus" },
   "content/items/traits/bespoke_combataxe_p2/chained_hits_increases_power": {
     "display_name": "Decimator",
     "description": "Continuously chaining more than 2 attacks gives +{power_level:%s} Power. Stacks {stacks:%s} times."
@@ -2141,8 +2151,8 @@
     "display_name": "Slaughterer",
     "description": "+{power_level:%s} Power for {time:%s}s on Kill. Stacks {stacks:%s} times."
   },
-  "ogryn_club_p1_m1_defence_stat": "Defences",
-  "combatsword_p3_m1_mobility_stat": "Mobility",
+  "ogryn_club_p1_m1_defence_stat": { "display_name": "Defences" },
+  "combatsword_p3_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/player/ranged/plasmagun_p1_m1": {
     "display_name": "M35 Magnacore Mk II Plasma Gun",
     "description": "Firing an energized ball of hydrogen-based plasma along a linear electromagnetic accelerator, plasma guns are deadly, if prone to dangerous overheating."
@@ -2186,7 +2196,7 @@
     "display_name": "++DILIGENCE IS DUTY++",
     "description": "Graia Mk II Autogun"
   },
-  "laspistol_dps_stat": "Damage",
+  "laspistol_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_combatknife_p1/increased_crit_chance_on_staggered_weapon_special_hit": {
     "display_name": "Smackdown",
     "description": "+{crit_chance:%s} Critical Chance for {time:%s}s on Special Action Hit (Staggered Enemy)."
@@ -2207,8 +2217,8 @@
     "display_name": "Riposte",
     "description": "+{crit_chance:%s} Critical Chance for {time:%s} s on successful Dodge."
   },
-  "shotgun_p1_m3_dps_stat": "Damage",
-  "combataxe_p2_m3_finesse_stat": "Finesse",
+  "shotgun_p1_m3_dps_stat": { "display_name": "Damage" },
+  "combataxe_p2_m3_finesse_stat": { "display_name": "Finesse" },
   "content/items/weapons/player/melee/ogryn_powermaul_slabshield_p1_m1": {
     "display_name": "Orox Mk II Battle Maul & Mk III Slab Shield",
     "description": "Simple but effective, a slab shield turns an Ogryn into a wall of walking cover, near impervious to enemy attacks."
@@ -2217,8 +2227,8 @@
     "display_name": "Thunderous",
     "description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on Hit. Lasts {time:%s}s."
   },
-  "chainaxe_defence_stat": "Defences",
-  "chainsword_2h_dps_stat": "Damage",
+  "chainaxe_defence_stat": { "display_name": "Defences" },
+  "chainsword_2h_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_forcestaff_p4/followup_shots_ranged_damage": {
     "display_name": "Sustained Fire",
     "description": "+{damage:%s} Damage on Second and Third shots in a Salvo."
@@ -2227,12 +2237,12 @@
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
   },
-  "plasmagun_p1_m1_ammo_stat": "Ammo",
+  "plasmagun_p1_m1_ammo_stat": { "display_name": "Ammo" },
   "content/items/traits/bespoke_lasgun_p3/followup_shots_ranged_weakspot_damage": {
     "display_name": "Punishing Salvo",
     "description": "+{damage:%s} Weak Spot Damage on Second and Third shots in a Salvo."
   },
-  "flamer_p1_m1_size_of_flame_stat": "Cloud Radius",
+  "flamer_p1_m1_size_of_flame_stat": { "display_name": "Cloud Radius" },
   "content/items/traits/bespoke_autogun_p2/count_as_dodge_vs_ranged_on_close_kill": {
     "display_name": "Hit & Run",
     "description": "Immune to Ranged Attacks for {time:%s}s seconds on Close Range Kill."
@@ -2244,9 +2254,9 @@
     "display_name": "Terrifying Barrage",
     "description": "Suppress Enemies within {range:%s} Radius on Close Range Kill."
   },
-  "ogryn_club_p2_m3_finesse_stat": "Finesse",
-  "lasgun_p3_m2_ammo_stat": "Ammo",
-  "combatsword_p2_m1_dps_stat": "Damage",
+  "ogryn_club_p2_m3_finesse_stat": { "display_name": "Finesse" },
+  "lasgun_p3_m2_ammo_stat": { "display_name": "Ammo" },
+  "combatsword_p2_m1_dps_stat": { "display_name": "Damage" },
   "content/items/gadgets/defensive_gadget_20": {
     "display_name": "Guardian of the Hateful (Casket)"
   },
@@ -2254,7 +2264,7 @@
     "display_name": "Deathblow",
     "description": "Ignore Enemy Hit Mass for {time:%s}s on Weak Spot Kill."
   },
-  "laspistol_ammo_stat": "Ammo",
+  "laspistol_ammo_stat": { "display_name": "Ammo" },
   "content/items/traits/bespoke_chainsword_2h_p1/toughness_recovery_on_multiple_hits": {
     "display_name": "Momentum",
     "description": "Hitting at least {multiple_hit:%s} enemies with an attack, restores {toughness:%s} toughness."
@@ -2287,7 +2297,7 @@
     "display_name": "NEW Blessing",
     "description": "Consecrating this item will add a Blessing."
   },
-  "ogryn_powermaul_cleave_damage_stat": "Cleave Damage",
+  "ogryn_powermaul_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "content/items/gadgets/defensive_gadget_6": {
     "display_name": "Redeemer's Gilded Hand (Caged)"
   },
@@ -2303,10 +2313,10 @@
     "display_name": "Ghost",
     "description": "Immune to Ranged Attacks for {time:%s}s seconds on Weak Spot Hit."
   },
-  "powersword_p1_m1_dps_stat": "Damage",
-  "autogun_p1_m1_mobility_stat": "Mobility",
-  "ogryn_thumper_p1_m2_ammo_stat": "Ammo",
-  "ogryn_thumper_dps_stat": "Damage",
+  "powersword_p1_m1_dps_stat": { "display_name": "Damage" },
+  "autogun_p1_m1_mobility_stat": { "display_name": "Mobility" },
+  "ogryn_thumper_p1_m2_ammo_stat": { "display_name": "Ammo" },
+  "ogryn_thumper_dps_stat": { "display_name": "Damage" },
   "content/items/perks/ranged_common/wield_increase_weakspot_damage": {
     "description": "+{weakspot_damage:%s} Ranged Weak Spot Damage"
   },
@@ -2314,17 +2324,17 @@
     "display_name": "Shred",
     "description": "+{crit_chance:%s} Bonus Critical Chance on Repeated Hit. Stacks {stacks:%s} times."
   },
-  "ogryn_club_p2_m3_dps_stat": "Damage",
+  "ogryn_club_p2_m3_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_combatknife_p1/dodge_grants_finesse_damage": {
     "display_name": "Precognition",
     "description": "+{damage:%s} Weak Spot Damage & Critical Damage for {time:%s}s on successful Dodge."
   },
-  "ogryn_thumper_p1_m2_explosion_size_stat": "Blast Radius",
-  "ogryn_heavystubber_dps_stat": "Damage",
-  "lasgun_p2_m1_ammo_stat": "Ammo",
-  "combatknife_p1_m1_first_target_stat": "First Target",
-  "plasmagun_charge_cost_stat": "Thermal Resistance",
-  "combatsword_p1_m1_cleave_targets_stat": "Cleave Targets",
+  "ogryn_thumper_p1_m2_explosion_size_stat": { "display_name": "Blast Radius" },
+  "ogryn_heavystubber_dps_stat": { "display_name": "Damage" },
+  "lasgun_p2_m1_ammo_stat": { "display_name": "Ammo" },
+  "combatknife_p1_m1_first_target_stat": { "display_name": "First Target" },
+  "plasmagun_charge_cost_stat": { "display_name": "Thermal Resistance" },
+  "combatsword_p1_m1_cleave_targets_stat": { "display_name": "Cleave Targets" },
   "content/items/weapons/player/ranged/bot_laspistol_killshot": {
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
@@ -2333,36 +2343,38 @@
     "display_name": "Between the Eyes",
     "description": "Clears Suppression (Self) & grants Suppression Immunity (Self) for {time:%s}s on Weak Spot Hit."
   },
-  "autogun_p2_m1_control_stat": "Collateral",
-  "powersword_p1_m1_cleave_targets_stat": "Cleave Targets",
-  "thunderhammer_p1_m2_dps_stat": "Damage",
-  "powersword_p1_m1_mobility_stat": "Mobility",
+  "autogun_p2_m1_control_stat": { "display_name": "Collateral" },
+  "powersword_p1_m1_cleave_targets_stat": { "display_name": "Cleave Targets" },
+  "thunderhammer_p1_m2_dps_stat": { "display_name": "Damage" },
+  "powersword_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/player/ranged/bolter_p1_m1": {
     "display_name": "Locke Mk IIb Spearhead Boltgun",
     "description": "A variant of an old Adeptus Arbites design, Lock-pattern boltguns are known for their reliability and stopping power."
   },
-  "combataxe_p2_m2_dps_stat": "Damage",
-  "shotgun_p1_m2_dps_stat": "Damage",
-  "forcestaff_p1_m1_charge_speed_stat": "Charge Rate",
+  "combataxe_p2_m2_dps_stat": { "display_name": "Damage" },
+  "shotgun_p1_m2_dps_stat": { "display_name": "Damage" },
+  "forcestaff_p1_m1_charge_speed_stat": { "display_name": "Charge Rate" },
   "content/items/traits/bespoke_shotgun_p1/bleed_on_crit": {
     "display_name": "Flechette",
     "description": "+{stacks:%s} Bleed Stacks on Critical Hit."
   },
-  "lasgun_p2_m1_power_stat": "Stopping Power",
-  "ogryn_combatblade_p1_m1_mobility_stat": "Mobility",
-  "autogun_p3_m1_mobility_stat": "Mobility",
-  "ogryn_heavystubber_ammo_stat": "Ammo",
-  "ogryn_combatblade_p1_m1_first_target_stat": "First Target",
+  "lasgun_p2_m1_power_stat": { "display_name": "Stopping Power" },
+  "ogryn_combatblade_p1_m1_mobility_stat": { "display_name": "Mobility" },
+  "autogun_p3_m1_mobility_stat": { "display_name": "Mobility" },
+  "ogryn_heavystubber_ammo_stat": { "display_name": "Ammo" },
+  "ogryn_combatblade_p1_m1_first_target_stat": {
+    "display_name": "First Target"
+  },
   "content/items/weapons/player/melee/combataxe_p2_m3": {
     "display_name": "Atrox Mk VII Tactical Axe",
     "description": "After seeing the effectiveness of simple axes in small melee actions, the Inquisitors of Crucis ordered a large custom shipment from Atrox with which to equip their strike teams."
   },
-  "combataxe_p2_m1_crit_stat": "Critical Bonus",
+  "combataxe_p2_m1_crit_stat": { "display_name": "Critical Bonus" },
   "content/items/weapons/player/melee/ogryn_powermaul_p1_m1": {
     "display_name": "Achlys Mk I Power Maul",
     "description": "Essentially a mace surrounded by a power field, the power maul's concussive strikes can be overcharged into a mighty blow, generating a powerful shockwave."
   },
-  "autogun_p2_m3_ammo_stat": "Ammo",
+  "autogun_p2_m3_ammo_stat": { "display_name": "Ammo" },
   "content/items/weapons/player/ranged/autogun_p1_m3": {
     "display_name": "Graia Mk VIII Infantry Autogun",
     "description": "Well-regarded for their high rate of fire and sturdy construction, these autoguns are in short supply after a series of calamities befell the forge world of Graia."
@@ -2370,12 +2382,12 @@
   "content/items/gadgets/defensive_gadget_10": {
     "display_name": "Gilded Inquisitorial Rosette (Reliquary)"
   },
-  "forcestaff_p1_m1_dps_stat": "Damage",
-  "ogryn_club_p2_m2_finesse_stat": "Finesse",
-  "autogun_p3_m1_power_stat": "Stopping Power",
-  "autogun_p1_m1_stability_stat": "Stability",
-  "combataxe_p3_m1_armor_pierce_stat": "Penetration",
-  "combataxe_cleave_targets_stat": "Cleave Targets",
+  "forcestaff_p1_m1_dps_stat": { "display_name": "Damage" },
+  "ogryn_club_p2_m2_finesse_stat": { "display_name": "Finesse" },
+  "autogun_p3_m1_power_stat": { "display_name": "Stopping Power" },
+  "autogun_p1_m1_stability_stat": { "display_name": "Stability" },
+  "combataxe_p3_m1_armor_pierce_stat": { "display_name": "Penetration" },
+  "combataxe_cleave_targets_stat": { "display_name": "Cleave Targets" },
   "content/items/perks/ranged_common/wield_increase_damage": {
     "description": "+{damage:%s} Ranged Damage"
   },
@@ -2387,8 +2399,8 @@
     "display_name": "Hand-Cannon",
     "description": "+{rend:%s} Rending on Critical Hit."
   },
-  "ogryn_club_p2_m1_finesse_stat": "Finesse",
-  "combatsword_p3_m1_armor_pierce_stat": "Penetration",
+  "ogryn_club_p2_m1_finesse_stat": { "display_name": "Finesse" },
+  "combatsword_p3_m1_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_lasgun_p2/faster_charge_on_chained_attacks": {
     "display_name": "Onslaught",
     "description": "Chaining Charged Attacks reduces their Charge Time by {charge_time:%s}. Stacks {stacks:%s} times."
@@ -2397,12 +2409,14 @@
     "display_name": "Speedload",
     "description": "+{reload_speed:%s} Reload Speed for {time:%s} seconds after Sliding."
   },
-  "ogryn_thumper_p1_m2_explosion_antiarmor_stat": "Penetration (Blast)",
+  "ogryn_thumper_p1_m2_explosion_antiarmor_stat": {
+    "display_name": "Penetration (Blast)"
+  },
   "content/items/curios/curio_c_d01": {
     "display_name": "Scrap of Scripture (Casket)",
     "description": "Messelina bore each act of heresy as a personal wound. \n\nFrom Caladoc's Life of Messelina, Vol. XV"
   },
-  "ogryn_club_p2_m1_dps_stat": "Damage",
+  "ogryn_club_p2_m1_dps_stat": { "display_name": "Damage" },
   "content/items/gadgets/defensive_gadget_2": {
     "display_name": "Gilded Fragment (Caged)"
   },
@@ -2410,7 +2424,7 @@
     "display_name": "Rashad Mk II Combat Axe",
     "description": "The humble combat axe is an unfashionable but effective weapon, its weighted head often doing far more damage on the swing that the blade itself."
   },
-  "lasgun_p2_m2_stability_stat": "Stability",
+  "lasgun_p2_m2_stability_stat": { "display_name": "Stability" },
   "content/items/perks/melee_common/wield_increase_crit_chance": {
     "description": "+{crit_chance:%s} Melee Critical Hit Chance"
   },
@@ -2426,7 +2440,7 @@
     "display_name": "Lucius Mk III Helbore Lasgun",
     "description": "With their extended barrels and bayonet loops, Lucius-pattern lasguns are well-regarded by assault troops who seek out melee after discharging a few volleys."
   },
-  "lasgun_p3_m1_mobility_stat": "Mobility",
+  "lasgun_p3_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/gadgets/defensive_gadget_22": {
     "display_name": "Guardian Gloriana (Casket)"
   },
@@ -2438,14 +2452,14 @@
     "display_name": "\"Brunt Special\" Mk I Bully Club",
     "description": "Junk? Oo called it junk? Extra special club, this is. My own design. I got two meself just like it.\n- Gurry “Brunt” Cernik"
   },
-  "lasgun_p3_m1_ammo_stat": "Ammo",
+  "lasgun_p3_m1_ammo_stat": { "display_name": "Ammo" },
   "content/items/weapons/player/ranged/lasgun_p3_m1": {
     "display_name": "Accatran Mk II Recon Lasgun",
     "description": "Accatran lasguns are typified by their short, almost carbine-like profile, and high rate of fire, which make them ideal for use in the confines of boarding actions, cityfights, or trench warfare."
   },
-  "forcesword_p1_m1_dps_stat": "Damage",
-  "ogryn_powermaul_power_output_stat": "Power Output",
-  "combatsword_p2_m3_cleave_damage_stat": "Cleave Damage",
+  "forcesword_p1_m1_dps_stat": { "display_name": "Damage" },
+  "ogryn_powermaul_power_output_stat": { "display_name": "Power Output" },
+  "combatsword_p2_m3_cleave_damage_stat": { "display_name": "Cleave Damage" },
   "content/items/weapons/player/melee/ogryn_combatblade_p1_m3": {
     "display_name": "Krourk Mk IV Cleaver",
     "description": "These enormous blades are almost too heavy for a guardsman to lift, but in the hands of an Ogryn they're little more than lightweight daggers."
@@ -2454,23 +2468,23 @@
     "display_name": "Blessed Bullet (Casket)",
     "description": "In Messelina's name, I rousted every tainted soul and gave them the redemption of fire.\n\nFrom Caladoc's Life of Messelina, Vol. XV"
   },
-  "powermaul_mobility_stat": "Mobility",
-  "powersword_p1_m2_cleave_damage_stat": "Cleave Damage",
-  "lasgun_p1_m3_power_stat": "Stopping Power",
-  "combatsword_p2_m3_dps_stat": "Damage",
-  "ogryn_club_p2_m2_mobility_stat": "Mobility",
-  "combatsword_p3_m2_finesse_stat": "Finesse",
-  "combataxe_p2_m1_dps_stat": "Damage",
-  "lasgun_p1_m2_mobility_stat": "Mobility",
-  "shotgun_default_range_stat": "Range",
-  "combataxe_p1_m1_finesse_stat": "Finesse",
-  "autogun_p2_m2_stability_stat": "Stability",
-  "ogryn_heavystubber_stability_stat": "Stability",
-  "shotgun_p1_m1_dps_stat": "Damage",
-  "flamer_p1_m1_mobility_stat": "Mobility",
-  "forcestaff_p4_m1_charge_speed_stat": "Charge Rate",
-  "combatsword_p2_m1_defence_stat": "Defences",
-  "shotgun_p1_m2_ammo_stat": "Ammo",
+  "powermaul_mobility_stat": { "display_name": "Mobility" },
+  "powersword_p1_m2_cleave_damage_stat": { "display_name": "Cleave Damage" },
+  "lasgun_p1_m3_power_stat": { "display_name": "Stopping Power" },
+  "combatsword_p2_m3_dps_stat": { "display_name": "Damage" },
+  "ogryn_club_p2_m2_mobility_stat": { "display_name": "Mobility" },
+  "combatsword_p3_m2_finesse_stat": { "display_name": "Finesse" },
+  "combataxe_p2_m1_dps_stat": { "display_name": "Damage" },
+  "lasgun_p1_m2_mobility_stat": { "display_name": "Mobility" },
+  "shotgun_default_range_stat": { "display_name": "Range" },
+  "combataxe_p1_m1_finesse_stat": { "display_name": "Finesse" },
+  "autogun_p2_m2_stability_stat": { "display_name": "Stability" },
+  "ogryn_heavystubber_stability_stat": { "display_name": "Stability" },
+  "shotgun_p1_m1_dps_stat": { "display_name": "Damage" },
+  "flamer_p1_m1_mobility_stat": { "display_name": "Mobility" },
+  "forcestaff_p4_m1_charge_speed_stat": { "display_name": "Charge Rate" },
+  "combatsword_p2_m1_defence_stat": { "display_name": "Defences" },
+  "shotgun_p1_m2_ammo_stat": { "display_name": "Ammo" },
   "content/items/traits/bespoke_thumper_p1/power_bonus_on_hitting_single_enemy_with_all": {
     "display_name": "Full Bore",
     "description": "+{power_level:%s} Power for {time:%s}s when every pellet in a shot hits the same enemy."
@@ -2478,23 +2492,23 @@
   "content/items/perks/ranged_common/wield_increase_critical_strike_damage": {
     "description": "+{crit_damage:%s} Ranged Critical Hit Damage"
   },
-  "ogryn_club_p2_m1_armor_pierce_stat": "Penetration",
-  "combataxe_p2_m2_armor_pierce_stat": "Penetration",
-  "combataxe_p2_p3_crit_stat": "Critical Bonus",
+  "ogryn_club_p2_m1_armor_pierce_stat": { "display_name": "Penetration" },
+  "combataxe_p2_m2_armor_pierce_stat": { "display_name": "Penetration" },
+  "combataxe_p2_p3_crit_stat": { "display_name": "Critical Bonus" },
   "content/items/perks/melee_common/wield_increase_critical_strike_damage": {
     "description": "+{crit_damage:%s} Melee Critical Hit Damage"
   },
-  "autopistol_p1_m1_dps_stat": "Damage",
-  "lasgun_p3_m2_stability_stat": "Stability",
-  "shotgun_p1_m1_control_stat": "Collateral",
-  "powermaul_dps_stat": "Damage",
-  "lasgun_p1_m2_power_stat": "Stopping Power",
+  "autopistol_p1_m1_dps_stat": { "display_name": "Damage" },
+  "lasgun_p3_m2_stability_stat": { "display_name": "Stability" },
+  "shotgun_p1_m1_control_stat": { "display_name": "Collateral" },
+  "powermaul_dps_stat": { "display_name": "Damage" },
+  "lasgun_p1_m2_power_stat": { "display_name": "Stopping Power" },
   "content/items/perks/ranged_common/wield_increase_monster_enemy_damage": {
     "description": "+{damage:%s} Ranged Damage (Monstrosities)"
   },
-  "bolter_p1_m1_stability_stat": "Stability",
-  "combataxe_p1_m1_first_target_stat": "First Target",
-  "lasgun_p1_m3_dps_stat": "Damage",
+  "bolter_p1_m1_stability_stat": { "display_name": "Stability" },
+  "combataxe_p1_m1_first_target_stat": { "display_name": "First Target" },
+  "lasgun_p1_m3_dps_stat": { "display_name": "Damage" },
   "content/items/curios/curio_c_h02": {
     "display_name": "Laurel of the Just (Casket)",
     "description": "On each world redeemed arise statues in my image. I must holdeth true to humility.\n\nAttributed to Saint Messelina \n>>timestamp -13.8.11.KE.M39<<"
@@ -2503,8 +2517,8 @@
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
   },
-  "forcestaff_p3_m1_dps_stat": "Damage",
-  "forcestaff_p4_m1_vent_speed_stat": "Quell Speed",
+  "forcestaff_p3_m1_dps_stat": { "display_name": "Damage" },
+  "forcestaff_p4_m1_vent_speed_stat": { "display_name": "Quell Speed" },
   "content/items/traits/bespoke_stubrevolver_p1/crit_chance_bonus_on_melee_kills": {
     "display_name": "Point Blank",
     "description": "+{crit_chance:%s} Ranged Critical Chance on Kill for {time:%s} seconds."
@@ -2513,9 +2527,9 @@
     "display_name": "Weapon Trinket",
     "description": "++REDACTED++"
   },
-  "powermaul_finesse_stat": "Finesse",
-  "chainsword_p1_m1_finesse_stat": "Finesse",
-  "combatsword_p2_m3_cleave_targets_stat": "Cleave Targets",
+  "powermaul_finesse_stat": { "display_name": "Finesse" },
+  "chainsword_p1_m1_finesse_stat": { "display_name": "Finesse" },
+  "combatsword_p2_m3_cleave_targets_stat": { "display_name": "Cleave Targets" },
   "content/items/traits/bespoke_ogryn_club_p2/increased_crit_chance_on_staggered_weapon_special_hit": {
     "display_name": "Smackdown",
     "description": "+{crit_chance:%s} Critical Chance for {time:%s}s on Special Action Hit (Staggered Enemy)."
@@ -2530,7 +2544,7 @@
   "content/items/perks/gadget_common/trait_gadget_revive_speed": {
     "description": "+{revive_speed_modifier:%s} Revive Speed (Ally)"
   },
-  "thunderhammer_p1_m1_control_stat": "Crowd Control",
+  "thunderhammer_p1_m1_control_stat": { "display_name": "Crowd Control" },
   "content/items/traits/bespoke_combataxe_p2/power_bonus_on_first_attack": {
     "display_name": "Limbsplitter",
     "description": "+{power_level:%s} Power on First Attack in a Chain. Subsequent Attacks have -{power_level:%s} Power."
@@ -2547,7 +2561,7 @@
     "display_name": "Rev it Up",
     "description": "+{movement_speed:%s} Movement Speed for {time:%s}s on Weapon Special Activation."
   },
-  "combataxe_p3_m2_armor_pierce_stat": "Penetration",
+  "combataxe_p3_m2_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_ogryn_club_p1/staggered_targets_receive_increased_damage_debuff": {
     "display_name": "Skullcrusher",
     "description": "Target receives {stacks:%s} Stack(s) of +{damage:%s} Damage if already Staggered. Lasts {time:%s}s."
@@ -2556,47 +2570,49 @@
     "display_name": "Guardian of the Hateful (Caged)",
     "description": "No mercy for the heretic! Not one drop of remorse. Not one tear shed. \n\nAttributed to Saint Messelina \n>>timestamp -5.3.39.KE.M39<<"
   },
-  "laspistol_power_stat": "Stopping Power",
-  "ogryn_combatblade_p1_m1_dps_stat": "Damage",
-  "ogryn_club_p2_m2_defence_stat": "Defences",
+  "laspistol_power_stat": { "display_name": "Stopping Power" },
+  "ogryn_combatblade_p1_m1_dps_stat": { "display_name": "Damage" },
+  "ogryn_club_p2_m2_defence_stat": { "display_name": "Defences" },
   "content/items/traits/bespoke_forcestaff_p4/suppression_on_close_kill": {
     "display_name": "Terrifying Barrage",
     "description": "Suppress Enemies within {range:%s} Radius on Close Range Kill."
   },
-  "autopistol_p1_m1_power_stat": "Stopping Power",
-  "forcestaff_p1_m1_explosion_size_stat": "Blast Radius",
-  "forcestaff_p3_m1_vent_speed_stat": "Quell Speed",
-  "combatsword_p1_m1_dps_stat": "Damage",
-  "rippergun_p1_m1_dps_stat": "Damage",
-  "combataxe_p3_m1_first_target_stat": "First Target",
-  "lasgun_p1_m3_stability_stat": "Stability",
-  "combataxe_p3_m2_mobility_stat": "Mobility",
-  "combataxe_p2_m1_armor_pierce_stat": "Penetration",
-  "lasgun_p1_m2_dps_stat": "Damage",
+  "autopistol_p1_m1_power_stat": { "display_name": "Stopping Power" },
+  "forcestaff_p1_m1_explosion_size_stat": { "display_name": "Blast Radius" },
+  "forcestaff_p3_m1_vent_speed_stat": {
+    "display_name": { "display_name": "Quell Speed" }
+  },
+  "combatsword_p1_m1_dps_stat": { "display_name": "Damage" },
+  "rippergun_p1_m1_dps_stat": { "display_name": "Damage" },
+  "combataxe_p3_m1_first_target_stat": { "display_name": "First Target" },
+  "lasgun_p1_m3_stability_stat": { "display_name": "Stability" },
+  "combataxe_p3_m2_mobility_stat": { "display_name": "Mobility" },
+  "combataxe_p2_m1_armor_pierce_stat": { "display_name": "Penetration" },
+  "lasgun_p1_m2_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_thunderhammer_2h_p1/taunt_target_on_hit": {
     "display_name": "Taunting Blow",
     "description": "Hit Enemies prioritise you as a Target."
   },
-  "lasgun_p1_m2_ammo_stat": "Ammo",
-  "lasgun_p3_m3_dps_stat": "Damage",
-  "bolter_p1_m1_mobility_stat": "Mobility",
+  "lasgun_p1_m2_ammo_stat": { "display_name": "Ammo" },
+  "lasgun_p3_m3_dps_stat": { "display_name": "Damage" },
+  "bolter_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/perks/gadget_common/trait_gadget_mission_reward_gear_instead_of_weapon_increase": {
     "display_name": "++REDACTED++",
     "description": "+{mission_reward_gear_instead_of_weapon_modifier:%s} chance of Curio as Mission Reward (instead of Weapon)"
   },
-  "flamer_p1_m1_damage_stat": "Damage",
+  "flamer_p1_m1_damage_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_ogryn_gauntlet_p1/power_bonus_on_continuous_fire": {
     "display_name": "Blaze Away",
     "description": "Up to +{power_level:%s} Power based on how long you keep shooting. Stacks {stacks:%s} times."
   },
-  "combatsword_p2_m1_first_target_stat": "First Target",
+  "combatsword_p2_m1_first_target_stat": { "display_name": "First Target" },
   "content/items/traits/bespoke_combatknife_p1/rending_on_backstabs": {
     "display_name": "Ruthless Backstab",
     "description": "+{rending:%s} Rending on Backstab Hit."
   },
-  "powersword_p1_m3_cleave_targets_stat": "Cleave Targets",
-  "lasgun_p2_m3_ammo_stat": "Ammo",
-  "lasgun_p2_m3_charge_speed_stat": "Charge Rate",
+  "powersword_p1_m3_cleave_targets_stat": { "display_name": "Cleave Targets" },
+  "lasgun_p2_m3_ammo_stat": { "display_name": "Ammo" },
+  "lasgun_p2_m3_charge_speed_stat": { "display_name": "Charge Rate" },
   "content/items/traits/bespoke_autogun_p1/suppression_on_close_kill": {
     "display_name": "Terrifying Barrage",
     "description": "Suppress Enemies within {range:%s} Radius on Close Range Kill."
@@ -2606,33 +2622,37 @@
     "display_name": "Crucian Roulette",
     "description": "+{crit_chance:%s} Critical Chance for each empty chamber in your weapon."
   },
-  "forcestaff_p1_m1_warp_charge_cost_stat": "Warp Resistance",
-  "lasgun_p1_m1_mobility_stat": "Mobility",
-  "powermaul_2h_defence_stat": "Defences",
-  "powersword_p1_m2_dps_stat": "Damage",
-  "ogryn_powermaul_slabshield_armor_pierce_stat": "Penetration",
-  "thunderhammer_p1_m2_defence_stat": "Defences",
-  "thunderhammer_p1_m2_control_stat": "Crowd Control",
+  "forcestaff_p1_m1_warp_charge_cost_stat": {
+    "display_name": "Warp Resistance"
+  },
+  "lasgun_p1_m1_mobility_stat": { "display_name": "Mobility" },
+  "powermaul_2h_defence_stat": { "display_name": "Defences" },
+  "powersword_p1_m2_dps_stat": { "display_name": "Damage" },
+  "ogryn_powermaul_slabshield_armor_pierce_stat": {
+    "display_name": "Penetration"
+  },
+  "thunderhammer_p1_m2_defence_stat": { "display_name": "Defences" },
+  "thunderhammer_p1_m2_control_stat": { "display_name": "Crowd Control" },
   "content/items/traits/bespoke_ogryn_slabshield_p1/taunt_target_on_hit": {
     "display_name": "Taunting Blow",
     "description": "Hit Enemies prioritise you as a Target."
   },
-  "ogryn_club_p2_m3_armor_pierce_stat": "Penetration",
+  "ogryn_club_p2_m3_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_combataxe_p3/stacking_increase_impact_on_hit": {
     "display_name": "Hammerblow",
     "description": "+{impact:%s} Impact for {time:%s}s on Hit. Stacks {stacks:%s} times."
   },
-  "forcestaff_p1_m1_vent_speed_stat": "Quell Speed",
+  "forcestaff_p1_m1_vent_speed_stat": { "display_name": "Quell Speed" },
   "content/items/traits/bespoke_thumper_p1/toughness_on_continuous_fire": {
     "display_name": "Inspiring Barrage",
     "description": " Replenish {toughness:%s} Toughness over time during Continuous Fire. Stacks up to {stacks:%s} times."
   },
-  "autopistol_p1_m1_ammo_stat": "Ammo",
-  "chainaxe_sawing_stat": "Shredder",
-  "combatsword_p3_m2_cleave_damage_stat": "Cleave Damage",
-  "forcestaff_p2_m1_burninating_stat": "Burn",
-  "combatsword_p2_m3_first_target_stat": "First Target",
-  "combatsword_p2_m1_cleave_targets_stat": "Cleave Targets",
+  "autopistol_p1_m1_ammo_stat": { "display_name": "Ammo" },
+  "chainaxe_sawing_stat": { "display_name": "Shredder" },
+  "combatsword_p3_m2_cleave_damage_stat": { "display_name": "Cleave Damage" },
+  "forcestaff_p2_m1_burninating_stat": { "display_name": "Burn" },
+  "combatsword_p2_m3_first_target_stat": { "display_name": "First Target" },
+  "combatsword_p2_m1_cleave_targets_stat": { "display_name": "Cleave Targets" },
   "content/items/weapons/npc/laspistol_npc_01": {
     "display_name": "++ PERDITUM SANCTUS ++",
     "description": "++ PERDITUM SANCTUS ++"
@@ -2652,24 +2672,24 @@
   "content/items/gadgets/defensive_gadget_11": {
     "display_name": "Blessed Bullet (Reliquary)"
   },
-  "powersword_p1_m3_finesse_stat": "Finesse",
-  "ogryn_club_p2_m2_dps_stat": "Damage",
+  "powersword_p1_m3_finesse_stat": { "display_name": "Finesse" },
+  "ogryn_club_p2_m2_dps_stat": { "display_name": "Damage" },
   "content/items/perks/gadget_common/trait_gadget_grim_corruption_resistance": {
     "description": "+{permanent_damage_converter_resistance:%s} Corruption Resistance (Grimoires)"
   },
-  "chainsword_2h_armor_pierce_stat": "Penetration",
-  "forcestaff_p4_m1_explosion_size_stat": "Blast Radius",
+  "chainsword_2h_armor_pierce_stat": { "display_name": "Penetration" },
+  "forcestaff_p4_m1_explosion_size_stat": { "display_name": "Blast Radius" },
   "content/items/gadgets/defensive_gadget_8": {
     "display_name": "Scrap of Scripture (Reliquary)"
   },
-  "powersword_p1_m1_cleave_damage_stat": "Cleave Damage",
-  "powermaul_armor_pierce_stat": "Penetration",
-  "autopistol_p1_m1_control_stat": "Collateral",
+  "powersword_p1_m1_cleave_damage_stat": { "display_name": "Cleave Damage" },
+  "powermaul_armor_pierce_stat": { "display_name": "Penetration" },
+  "autopistol_p1_m1_control_stat": { "display_name": "Collateral" },
   "content/items/perks/ranged_common/wield_increase_armored_damage": {
     "description": "+{damage:%s} Damage (Flak Armoured Enemies)"
   },
-  "ogryn_club_p2_m3_defence_stat": "Defences",
-  "combatsword_p3_m3_mobility_stat": "Mobility",
+  "ogryn_club_p2_m3_defence_stat": { "display_name": "Defences" },
+  "combatsword_p3_m3_mobility_stat": { "display_name": "Mobility" },
   "content/items/weapons/player/melee/chainsword_2h_p1_m1": {
     "display_name": "Tigrus Mk II Heavy Eviscerator",
     "description": "An obscenely oversized chainsword, the Eviscerator utilizes a low-power disruption field  to enhance its incredibly messy, destructive capabilities."
@@ -2682,12 +2702,14 @@
     "display_name": "Fire Frenzy",
     "description": "Gain a {power_level:%s} Power increase against nearby enemies for {time:%s} seconds after killing an enemy at close range."
   },
-  "autopistol_p1_m1_mobility_stat": "Mobility",
+  "autopistol_p1_m1_mobility_stat": { "display_name": "Mobility" },
   "content/items/perks/melee_common/wield_increase_damage": {
     "description": "+{damage:%s} Melee Damage"
   },
-  "ogryn_powermaul_slabshield_control_stat": "Crowd Control",
-  "ogryn_heavystubber_control_stat": "Collateral",
+  "ogryn_powermaul_slabshield_control_stat": {
+    "display_name": "Crowd Control"
+  },
+  "ogryn_heavystubber_control_stat": { "display_name": "Collateral" },
   "content/items/traits/bespoke_autogun_p1/count_as_dodge_vs_ranged_on_close_kill": {
     "display_name": "Hit & Run",
     "description": "Immune to Ranged Attacks for {time:%s}s seconds on Close Range Kill."
@@ -2703,25 +2725,25 @@
   "content/items/perks/melee_common/wield_increase_stamina": {
     "description": "+{stamina:%s} Stamina"
   },
-  "autogun_p2_m2_ammo_stat": "Ammo",
+  "autogun_p2_m2_ammo_stat": { "display_name": "Ammo" },
   "content/items/traits/bespoke_flamer_p1/power_scales_with_clip_percentage": {
     "display_name": "Overpressure",
     "description": "Up to +{power_level:%s} Power, scaling with remaining Ammunition. Stacks {stacks:%s} times. "
   },
   "content/items/weapons/player/melee/ogryn_powermaul_p1_empty_base": {},
-  "ogryn_powermaul_defence_stat": "Defences",
+  "ogryn_powermaul_defence_stat": { "display_name": "Defences" },
   "content/items/gadgets/defensive_gadget_3": {
     "display_name": "Stalwart's Mandible (Caged)"
   },
-  "combatsword_p3_m3_dps_stat": "Damage",
+  "combatsword_p3_m3_dps_stat": { "display_name": "Damage" },
   "content/items/traits/bespoke_ogryn_slabshield_p1/toughness_recovery_on_chained_attacks": {
     "display_name": "Confident Strike",
     "description": "+{toughness:%s} replenish toughness on Chained Hit."
   },
-  "thunderhammer_p1_m1_armor_pierce_stat": "Penetration",
-  "autogun_p2_m1_ammo_stat": "Ammo",
-  "combataxe_p1_m1_mobility_stat": "Mobility",
-  "combataxe_p2_m1_finesse_stat": "Finesse",
+  "thunderhammer_p1_m1_armor_pierce_stat": { "display_name": "Penetration" },
+  "autogun_p2_m1_ammo_stat": { "display_name": "Ammo" },
+  "combataxe_p1_m1_mobility_stat": { "display_name": "Mobility" },
+  "combataxe_p2_m1_finesse_stat": { "display_name": "Finesse" },
   "content/items/traits/bespoke_combatsword_p3/power_bonus_on_same_enemy_attacks": {
     "display_name": "Relentless Strikes",
     "description": "+{power_level:%s} Power for {time:%s}s on Hit (Same Enemy). Stacks {stacks:%s} times."
@@ -2741,7 +2763,7 @@
     "display_name": "Volatile",
     "description": "+{charge_speed:%s}Charge Speed on low Overheat. Stacks up to {stacks:%s} times. "
   },
-  "lasgun_p3_m1_stability_stat": "Stability",
+  "lasgun_p3_m1_stability_stat": { "display_name": "Stability" },
   "content/items/traits/bespoke_lasgun_p2/stagger_count_bonus_damage": {
     "display_name": "No Respite",
     "description": "Up to +{damage:%s} Damage on Hit (Staggered Enemy), scaling with Stagger."
@@ -2749,8 +2771,10 @@
   "content/items/perks/ranged_common/wield_increase_power_modifier": {
     "description": "+{power_mod:%s} Power"
   },
-  "forcestaff_p2_m1_warp_charge_cost_stat": "Warp Resistance",
-  "ogryn_thumper_p1_m2_mobility_stat": "Mobility",
+  "forcestaff_p2_m1_warp_charge_cost_stat": {
+    "display_name": "Warp Resistance"
+  },
+  "ogryn_thumper_p1_m2_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_powermaul_2h_p1/staggered_targets_receive_increased_stagger_debuff": {
     "display_name": "Thunderstrike",
     "description": "Target receives {stacks:%s} Stack(s) of +{impact:%s} Impact if already Staggered. Lasts {time:%s}s."
@@ -2762,12 +2786,12 @@
   "content/items/perks/gadget_common/trait_gadget_dr_vs_flamer": {
     "description": "+{damage_reduction:%s} Damage Resistance (Tox Flamers)"
   },
-  "ogryn_powermaul_armor_pierce_stat": "Penetration",
+  "ogryn_powermaul_armor_pierce_stat": { "display_name": "Penetration" },
   "content/items/traits/bespoke_combataxe_p3/increased_weakspot_damage_on_push": {
     "display_name": "Take a Swing",
     "description": "+{damage:%s} Weak Spot Damage for {time:%s} seconds on Pushing Enemies."
   },
-  "chainaxe_finesse_stat": "Finesse",
+  "chainaxe_finesse_stat": { "display_name": "Finesse" },
   "content/items/weapons/player/ranged/ogryn_thumper_p1_m1": {
     "display_name": "Lorenz Mk V Kickback",
     "description": "The orbital manufactorum Lorenz is most well-known for forging heavy ordnance for the Imperial Navy. As a sideline, however, its Tech-Adepts create Ogryn-proof field weapons based on primitive designs."
@@ -2776,8 +2800,10 @@
     "display_name": "Perfect Strike",
     "description": "Critical Hits ignore Hit Mass Bonus from Armour."
   },
-  "forcestaff_p4_m1_warp_charge_cost_stat": "Warp Resistance",
-  "ogryn_club_p2_m3_mobility_stat": "Mobility",
+  "forcestaff_p4_m1_warp_charge_cost_stat": {
+    "display_name": "Warp Resistance"
+  },
+  "ogryn_club_p2_m3_mobility_stat": { "display_name": "Mobility" },
   "content/items/traits/bespoke_laspistol_p1/reload_speed_on_slide": {
     "display_name": "Speedload",
     "description": "+{reload_speed:%s} Reload Speed for {time:%s} seconds after Sliding."

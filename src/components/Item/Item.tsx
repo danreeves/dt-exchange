@@ -1,7 +1,7 @@
 import type { Character, FilterRule, Items, Personal } from "../../types"
 import { credits, rating } from "../../icons"
 import { ItemState } from "../ItemState"
-import localisation from "../../localisation.json"
+import localisation from "../../localisation"
 import { Text } from "../Text"
 import "./Item.css"
 import { Title } from "./components/Title"
@@ -56,8 +56,8 @@ export function Item({
   let filterMatchStyle =
     rbfEnabled && offer.description.overrides.filter_match >= 0
       ? {
-          color: targets[offer.description.overrides.filter_match].color,
-        }
+        color: targets[offer.description.overrides.filter_match].color,
+      }
       : undefined
 
   return (
