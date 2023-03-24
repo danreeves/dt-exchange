@@ -41,7 +41,7 @@ export function Perks({ offer, items }: Props) {
       </div>
       <div>
         {offer.description.overrides.perks.map((perk) => {
-          let desc = localisation[perk.id]?.description || perk.id
+          let desc = localisation[perk.id].description
           let descVal = items![perk.id]?.description_values.find(
             (v) => v.rarity === perk.rarity.toString()
           )

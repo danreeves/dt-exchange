@@ -78,10 +78,10 @@ export function RuleInput(props: RuleInputProps) {
             />
             {props.dataValues?.length ? (
               <datalist id={`${props.name}_${index}_options`}>
-                {props.dataValues.map(function(value: string, i: number) {
+                {props.dataValues.map(function(value: string, index: number) {
                   return (
                     <option
-                      key={`${props.name}_${index}_option${i}`}
+                      key={`${props.name}_${index}_option${index}`}
                       value={value}
                     />
                   )

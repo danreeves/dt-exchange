@@ -42,8 +42,8 @@ const sortOptions = {
   },
 
   alphabetical: (a: Personal, b: Personal) => {
-    let aName = localisation[a.description.id]?.display_name || a.description.id
-    let bName = localisation[b.description.id]?.display_name || b.description.id
+    let aName = localisation[a.description.id].display_name
+    let bName = localisation[b.description.id].display_name
     return aName > bName ? 1 : -1
   },
 
@@ -103,10 +103,11 @@ function filterFunc(
     if (target.item) {
       arr = typeof target.item === "string" ? [target.item] : target.item
       if (
-        !arr.find((element) => {
-          const localOfferDesc = localisation[offer.description.id]?.display_name || offer.description.id
-          return localOfferDesc.match(new RegExp(element, "i"))
-        })
+        !arr.find((element) =>
+          localisation[offer.description.id].display_name.match(
+            new RegExp(element, "i")
+          )
+        )
       ) {
         return false
       }
@@ -154,10 +155,11 @@ function filterFunc(
       if (
         !offer.description.overrides.traits.find(function (blessing) {
           if (
-            !arr.find((element) => {
-              const localBlessingName = localisation[blessing.id]?.display_name || blessing.id
-              return localBlessingName.match(new RegExp(element, "i"))
-            })
+            !arr.find((element) =>
+              localisation[blessing.id].display_name.match(
+                new RegExp(element, "i")
+              )
+            )
           ) {
             return false
           }
@@ -186,10 +188,9 @@ function filterFunc(
       if (
         !offer.description.overrides.perks.find(function (perk) {
           if (
-            !arr.find((element) => {
-              const localPerkDescription = localisation[perk.id]?.description || perk.id
-              localPerkDescription.match(new RegExp(element, "i"))
-            })
+            !arr.find((element) =>
+              localisation[perk.id].description.match(new RegExp(element, "i"))
+            )
           ) {
             return false
           }

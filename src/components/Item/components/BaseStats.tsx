@@ -37,7 +37,7 @@ export function BaseStats({ offer }: Props) {
         {offer.description.overrides.base_stats?.map((stat) => {
           return (
             <div className="stat" key={stat.name}>
-              <Text>{localisation[stat.name] || stat.name}</Text>
+              <Text>{localisation[stat.name]}</Text>
               <div className="stat-bar-row">
                 <span className="stat-p">{`${Math.round(
                   stat.value * 100
