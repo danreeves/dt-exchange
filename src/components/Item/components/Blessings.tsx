@@ -3,7 +3,7 @@ import localisation from "../../../localisation"
 import type { Items, Personal } from "../../../types"
 import { Text } from "../../Text"
 import { raritySymbol, traitRarityToRating } from "../consts"
-import { calculateGadgetTraitStrength } from "../utils"
+import { getBlessingDescription } from "../utils"
 import "./Blessings.css"
 
 type Props = {
@@ -47,37 +47,14 @@ export function Blessings({ offer, items }: Props) {
 
       <div>
         {offer.description.overrides.traits.map((trait) => {
-          let { description: desc, display_name } = localisation[trait.id]
-
-          let descVals = items![trait.id]?.description_values.filter(
-            (v) => v.rarity === trait.rarity.toString()
-          )
-          let description = desc
-          if (descVals?.length) {
-            description = descVals.reduce((str, descVal) => {
-              let replace = `{${descVal?.string_key}:%s}`
-              // Use replaceAll not replace for things like Limbsplitter
-              str = str.replaceAll(replace, descVal?.string_value ?? "")
-              return str
-            }, desc)
-          } else if (
-            offer.description.type === "gadget" &&
-            trait.value !== undefined
-          ) {
-            // Gadgets (so far!) only ever have one trait, so we don't need to map/reduce anything here
-            let replace = /{\w+:%s}/g
-            description = description.replaceAll(
-              replace,
-              calculateGadgetTraitStrength(trait.id, trait.value) ?? ""
-            )
-          }
-
+          const displayName: string = localisation[trait.id].display_name
+          const description: string = getBlessingDescription(trait, offer, items)
           return (
             <div className="blessing" key={trait.id + trait.rarity}>
               <div className="blessing-rarity">
                 {raritySymbol[trait.rarity]}
               </div>
-              <Text>{`${display_name}: ${description}`}</Text>
+              <Text>{`${displayName}: ${description}`}</Text>
             </div>
           )
         })}
