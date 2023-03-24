@@ -47,7 +47,7 @@ export function Blessings({ offer, items }: Props) {
 
       <div>
         {offer.description.overrides.traits.map((trait) => {
-          let { description: desc, display_name } = localisation[trait.id]
+          let { description: desc, display_name } = localisation[trait.id] || trait.id
 
           let descVals = items![trait.id]?.description_values.filter(
             (v) => v.rarity === trait.rarity.toString()

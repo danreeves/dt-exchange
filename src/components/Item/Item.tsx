@@ -66,7 +66,7 @@ export function Item({
       key={offer.offerId}
     >
       <Title style={filterMatchStyle}>
-        {localisation[offer.description.id].display_name}
+        {localisation[offer.description.id]?.display_name || offer.description.id}
       </Title>
 
       {offer.state === "completed" ? (

@@ -7,7 +7,8 @@ import "./Rules.css"
 import {
   defaultEmphasisColor,
   ITEM_OPTIONS,
-  STORE_OPTIONS,
+  STORE_LABELS,
+  STORE_OPTIONS
 } from "../../../types"
 import { RuleText } from "./RuleText"
 
@@ -54,6 +55,7 @@ export function Rules(props: RulesProps) {
             value={props.input.store}
             focus={focusedRule}
             dataValues={STORE_OPTIONS}
+            labels={STORE_LABELS}
             addAnyValue
             onChange={(event) => props.onChange(props.index, event)}
             onFocus={(event) => handleFormFocus(event)}
