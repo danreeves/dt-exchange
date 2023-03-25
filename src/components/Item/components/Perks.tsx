@@ -4,6 +4,7 @@ import { Text } from "../../Text"
 import { rating } from "../../../icons"
 import type { Items, Personal } from "../../../types"
 import "./Perks.css"
+import { getPerkDescription } from "../utils"
 
 type Props = {
   offer: Personal
@@ -41,12 +42,7 @@ export function Perks({ offer, items }: Props) {
       </div>
       <div>
         {offer.description.overrides.perks.map((perk) => {
-          let desc = localisation[perk.id].description
-          let descVal = items![perk.id]?.description_values.find(
-            (v) => v.rarity === perk.rarity.toString()
-          )
-          let replace = `{${descVal?.string_key}:%s}`
-          let description = desc?.replace(replace, descVal?.string_value ?? "")
+          const description = getPerkDescription(perk, items)
           return (
             <div className="perk" key={perk.id + perk.rarity}>
               <div className="perk-rarity">{raritySymbol[perk.rarity]}</div>

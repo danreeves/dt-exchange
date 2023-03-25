@@ -1,3 +1,6 @@
+import type { Items, Perk, Personal, Trait } from "../../types"
+import localisation from "../../localisation"
+
 // Linearly interpolate input between min and max. E.g. lerp(1, 2, 0.5) returns 1.5
 function lerp(min: number, max: number, input: number): number {
   // Make sure input is a unit interval (0 <= n <= 1)
@@ -46,4 +49,40 @@ export function calculateGadgetTraitStrength(
       break
   }
   return traitStrength
+}
+
+export function getBlessingDescription(trait: Trait, offer: Personal, items: Items): string {
+  let descVals = items![trait.id]?.description_values.filter(
+    (v) => v.rarity === trait.rarity.toString()
+  )
+  let description = localisation[trait.id].description
+  const desc = description
+  if (descVals?.length) {
+    description = descVals.reduce((str, descVal) => {
+      let replace = `{${descVal?.string_key}:%s}`
+      // Use replaceAll not replace for things like Limbsplitter
+      str = str.replaceAll(replace, descVal?.string_value ?? "")
+      return str
+    }, desc)
+  } else if (
+    offer.description.type === "gadget" &&
+    trait.value !== undefined
+  ) {
+    // Gadgets (so far!) only ever have one trait, so we don't need to map/reduce anything here
+    let replace = /{\w+:%s}/g
+    description = description.replaceAll(
+      replace,
+      calculateGadgetTraitStrength(trait.id, trait.value) ?? ""
+    )
+  }
+  return description
+}
+
+export function getPerkDescription(perk: Perk, items: Items): string {
+  let desc = localisation[perk.id].description
+  let descVal = items![perk.id]?.description_values.find(
+    (v) => v.rarity === perk.rarity.toString()
+  )
+  let replace = `{${descVal?.string_key}:%s}`
+  return desc?.replace(replace, descVal?.string_value ?? "")
 }
