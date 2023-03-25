@@ -1,7 +1,8 @@
 import type { FormFilterRule } from "../../../types"
 import { RuleText } from "./RuleText"
 import "./ToolbarHeader.css"
-import { defaultEmphasisColor } from "../../../types"
+import { defaultEmphasisColor, STORE_LABELS } from "../../../types"
+import { camelToSentence } from "../../../utils"
 
 type ToolbarHeaderProps = {
   input: FormFilterRule
@@ -9,9 +10,9 @@ type ToolbarHeaderProps = {
 export function ToolbarHeader(props: ToolbarHeaderProps) {
   function buildHeader(input: FormFilterRule): string {
     let newHeaderAr: string[] = []
-    if (input.store) newHeaderAr.push(input.store)
+    if (input.store) newHeaderAr.push(STORE_LABELS[input.store] || input.store)
     if (input.character) newHeaderAr.push(input.character)
-    if (input.type) newHeaderAr.push(input.type)
+    if (input.type) newHeaderAr.push(camelToSentence(input.type))
     if (input.item) newHeaderAr.push(input.item)
     // Blessings
     if (input.blessing) {
