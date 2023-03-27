@@ -2,7 +2,7 @@ import type { FormFilterRule } from "../../../types"
 import { RuleText } from "./RuleText"
 import "./ToolbarHeader.css"
 import { defaultEmphasisColor, STORE_LABELS } from "../../../types"
-import { camelToSentence, capitalize } from "../../../utils"
+import { capitalize } from "../../../utils"
 
 type ToolbarHeaderProps = {
   input: FormFilterRule
