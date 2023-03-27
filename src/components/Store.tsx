@@ -193,11 +193,10 @@ function filterFunc(
       if (
         !offer.description.overrides.perks.find(function (perk) {
           if (
-            !arr.find(
-              (element) =>
-                getPerkDescription(perk, items)
-                  .toLowerCase()
-                  .includes(element.toLowerCase())
+            !arr.find((element) =>
+              getPerkDescription(perk, items)
+                .toLowerCase()
+                .includes(element.toLowerCase())
             )
           ) {
             return false
@@ -220,6 +219,18 @@ function filterFunc(
       ) {
         return false
       }
+    }
+
+    if (target.stats) {
+      const statsPass: boolean = target.stats.every((statRule) => {
+        const offerStatFound = offer.description.overrides.base_stats?.find(
+          (baseStat) =>
+            localisation[baseStat.name].display_name.toLowerCase() ===
+              statRule.name.toLowerCase() && baseStat.value * 100 >= statRule.min
+        )
+        return !!offerStatFound
+      })
+      if (!statsPass) return false
     }
 
     return true

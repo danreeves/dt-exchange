@@ -1,11 +1,18 @@
 import { CloseIcon } from "../Icons/CloseIcon"
-import { SharedToolbarBtnProps, ToolbarButton } from "./ToolbarButton"
+import { ToolbarButton } from "./ToolbarButton"
+import type { Size } from "../../../../types"
 
-export function CloseButton(props: SharedToolbarBtnProps) {
+type CloseBtnProps = {
+  onClick: () => void
+  size?: Size
+  children?: any
+}
+
+export function CloseButton(props: CloseBtnProps) {
   return (
     <>
       <ToolbarButton onClick={props.onClick}>
-        <CloseIcon size={"large"} />
+        <CloseIcon size={props.size || "large"} />
       </ToolbarButton>
     </>
   )

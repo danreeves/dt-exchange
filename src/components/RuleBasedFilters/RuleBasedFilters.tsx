@@ -39,6 +39,7 @@ export function RuleBasedFilters(props: Props) {
       minRating: "0",
       store: "",
       color: "",
+      stats: [],
       isOpen: true,
     }
   }
@@ -97,6 +98,38 @@ export function RuleBasedFilters(props: Props) {
     if (!ruleFormDirty) setRuleFormDirty(true)
   }
 
+  function handleChangeStatistic(
+    index: number,
+    statIndex: number,
+    event: FormEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
+    let data: FormFilterRule[] = [...ruleFields]
+    const eventTarget: HTMLInputElement = event.target as HTMLInputElement
+    const eventNameDir: string = eventTarget.name.split('-').pop()!
+    // @ts-ignore
+    data[index].stats[statIndex][eventNameDir] = eventTarget.value
+    setRuleFields(data)
+    if (!ruleFormDirty) setRuleFormDirty(true)
+  }
+
+  function handleAddStatistic(index: number) {
+    let data: FormFilterRule[] = [...ruleFields]
+    !!data[index]?.stats
+      ? data[index]!.stats!.push({ name: "", min: 0 })
+      : (data[index]!.stats = [{ name: "", min: 0 }])
+    setRuleFields(data)
+    if (!ruleFormDirty) setRuleFormDirty(true)
+  }
+
+  function handleRemoveStatistic(index: number, statIndex: number) {
+    let data: FormFilterRule[] = [...ruleFields]
+    if (!!data[index]?.stats) {
+      data[index]!.stats!.splice(statIndex, 1)
+    }
+    setRuleFields(data)
+    if (!ruleFormDirty) setRuleFormDirty(true)
+  }
+
   function handleAddFormRule() {
     let newFormRule: FormFilterRule = newRule()
     setRuleFields([...ruleFields, newFormRule])
@@ -150,10 +183,10 @@ export function RuleBasedFilters(props: Props) {
           <form
             className={"filter-rules-form"}
             onSubmit={handleRuleFormSubmit}
-            onDragEnter={function(e) {
+            onDragEnter={function (e) {
               e.preventDefault()
             }}
-            onDragOver={function(e) {
+            onDragOver={function (e) {
               e.preventDefault()
             }}
           >
@@ -165,7 +198,7 @@ export function RuleBasedFilters(props: Props) {
                 value={deemphasisStyle}
                 focus={focusedInput}
                 dataValues={DEEMPHASIZE_OPTIONS}
-                onChange={function(event) {
+                onChange={function (event) {
                   props.setDE(event.target.value as DeemphasizeOption)
                   setDeemphasisStyle(event.target.value as DeemphasizeOption)
                 }}
@@ -173,19 +206,19 @@ export function RuleBasedFilters(props: Props) {
                 onBlur={() => setFocusedInput("")}
               />
             </SplitRuleWrapper>
-            {ruleFields.map(function(input, index) {
+            {ruleFields.map(function (input, index) {
               return (
                 <div key={index}>
                   <div
                     draggable
-                    onDragStart={function() {
+                    onDragStart={function () {
                       dragStart(index)
                     }}
-                    onDragEnter={function(e) {
+                    onDragEnter={function (e) {
                       e.preventDefault()
                       dragEnter(index)
                     }}
-                    onDragOver={function(e) {
+                    onDragOver={function (e) {
                       e.preventDefault()
                     }}
                     onDragEnd={drop}
@@ -205,6 +238,9 @@ export function RuleBasedFilters(props: Props) {
                       index={index}
                       input={input}
                       onChange={handleFormChange}
+                      onStatisticChange={handleChangeStatistic}
+                      onStatisticAdd={handleAddStatistic}
+                      onStatisticRemove={handleRemoveStatistic}
                     />
                   ) : undefined}
                 </div>
