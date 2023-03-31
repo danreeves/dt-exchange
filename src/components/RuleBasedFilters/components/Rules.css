@@ -13,3 +13,19 @@
   width: 100%;
   color: #bdbdbd;
 }
+
+.statistics-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.statistics-wrapper > *:not(:last-child) {
+  flex: 50%;
+  padding-right: 16px;
+}
+
+.statistics-wrapper > *:last-child {
+  flex: 0 0 38px;
+  align-self: center;
+}

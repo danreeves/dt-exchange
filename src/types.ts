@@ -234,6 +234,12 @@ export interface FilterRule {
   minStats?: number
   minRating?: number
   color?: string
+  stats?: StatRule[]
+}
+
+export interface StatRule {
+  name: string
+  min: number
 }
 
 export interface FormFilterRule {
@@ -248,6 +254,7 @@ export interface FormFilterRule {
   minStats: string
   minRating: string
   color: string
+  stats?: StatRule[]
   isOpen: boolean
 }
 

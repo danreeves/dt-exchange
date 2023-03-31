@@ -14,6 +14,9 @@ import {
 
 export function formDataToRules(rulesFormData: FormFilterRule[]): FilterRule[] {
   return rulesFormData.map(function (formRule: FormFilterRule): FilterRule {
+    const statRules = formRule.stats?.filter(
+      (statRule) => !!statRule.name && statRule.min > 0
+    )
     return {
       minStats: parseFloat(formRule.minStats) || undefined,
       minRating: parseFloat(formRule.minRating) || undefined,
@@ -35,6 +38,7 @@ export function formDataToRules(rulesFormData: FormFilterRule[]): FilterRule[] {
         formRule.color && formRule.color !== defaultEmphasisColor.toLowerCase()
           ? formRule.color
           : undefined,
+      stats: statRules?.length ? statRules : undefined,
     }
   })
 }
@@ -54,6 +58,7 @@ export function rulesToFormData(rulesData: FilterRule[]): FormFilterRule[] {
       perk: ruleValueToString(rule.perk),
       store: ruleValueToString(rule.store, STORE_TYPES, true),
       color: rule.color || "",
+      stats: rule.stats ? [...rule.stats] : [],
     }
   })
 }

@@ -3,6 +3,7 @@ import "./RuleText.css"
 
 export type TextProps = {
   size: Size
+  padding?: string
   children?: any
 }
 export function RuleText(props: TextProps) {
@@ -17,7 +18,7 @@ export function RuleText(props: TextProps) {
 
   return (
     <>
-      <span className={`filter-rules-text ${fontSize}`}>{props.children}</span>
+      <span className={`filter-rules-text ${fontSize}`} style={{padding: props.padding || "0"}}>{props.children}</span>
     </>
   )
 }
