@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Armoury Exchange",
   "description": "Visit the Armoury Exchange online",
   "version": "1.5.0",
@@ -11,6 +11,12 @@
     "https://accounts.atoma.cloud/*",
     "https://bsp-td-prod.atoma.cloud/*",
     "https://bsp-cdn-prod.atoma.cloud/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["/item_images/*"],
+      "matches": ["<all_urls>"]
+    }
   ],
   "content_scripts": [
     {
@@ -25,6 +31,6 @@
     "default_title": "Armoury Exchange"
   },
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   }
 }

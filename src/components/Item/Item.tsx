@@ -65,6 +65,7 @@ export function Item({
       className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
       key={offer.offerId}
     >
+      <img src={chrome.runtime.getURL('item_images/' + (localisation[offer.description.id].display_name).trim().replace(/[^a-zA-Z0-9]/g,'_') + ".png")}/>
       <Title style={filterMatchStyle}>
         {localisation[offer.description.id].display_name}
       </Title>
