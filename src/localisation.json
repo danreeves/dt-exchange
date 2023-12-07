@@ -425,7 +425,7 @@
 	},
 	"content/items/traits/bespoke_autogun_p1/increased_sprint_speed": {
 		"display_name": "Stripped Down",
-		"description": "+{sprint_speed:%s} Sprint Speed (Weapon is Active)."
+		"description": "Gain Ranged Attack Immunity while sprinting with over {stamina:%s} Stamina."
 	},
 	"autogun_p2_m3_power_stat": {
 		"display_name": "Stopping Power"
@@ -515,7 +515,7 @@
 	},
 	"content/items/traits/bespoke_combatsword_p2/infinite_melee_cleave_on_weakspot_kill": {
 		"display_name": "Deathblow",
-		"description": "Ignore Enemy Hit Mass for {time:%s}s on Weak Spot Kill."
+		"description": "+{weakspot_damage:%s} Weak Spot Damage. Weakspot Kills also ignore Enemy Hit Mass."
 	},
 	"content/items/traits/bespoke_combatsword_p2/increase_power_on_hit": {
 		"display_name": "Headtaker",
@@ -721,7 +721,7 @@
 	},
 	"content/items/traits/bespoke_lasgun_p3/increased_sprint_speed": {
 		"display_name": "Stripped Down",
-		"description": "+{sprint_speed:%s} Sprint Speed (Weapon is Active)."
+		"description": "Gain Ranged Attack Immunity while sprinting with over {stamina:%s} Stamina."
 	},
 	"content/items/traits/bespoke_chainsword_p1/guaranteed_melee_crit_on_activated_kill": {
 		"display_name": "Bloodthirsty",
@@ -729,7 +729,7 @@
 	},
 	"content/items/traits/bespoke_autogun_p2/increased_sprint_speed": {
 		"display_name": "Stripped Down",
-		"description": "+{sprint_speed:%s} Sprint Speed (Weapon is Active)."
+		"description": "Gain Ranged Attack Immunity while sprinting with over {stamina:%s} Stamina."
 	},
 	"content/items/traits/bespoke_ogryn_combatblade_p1/toughness_recovery_on_chained_attacks": {
 		"display_name": "Confident Strike",
@@ -768,7 +768,7 @@
 	},
 	"content/items/traits/bespoke_ogryn_gauntlet_p1/armor_rend_on_projectile_hit": {
 		"display_name": "Shattering Impact",
-		"description": "+{rend:%s} Brittleness (Armoured Enemies) on direct projectile hit."
+		"description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on direct projectile hit. Lasts {time:%s}s."
 	},
 	"content/items/perks/gadget_common/trait_gadget_reduced_block_cost": {
 		"description": "+{block_cost_multiplier:%s}  Block Efficiency"
@@ -900,7 +900,7 @@
 	},
 	"content/items/traits/bespoke_plasmagun_p1/armor_rend_on_projectile_hit": {
 		"display_name": "Shattering Impact",
-		"description": "+{rend:%s} Brittleness (Armoured Enemies) on direct projectile hit."
+		"description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on direct projectile hit. Lasts {time:%s}s."
 	},
 	"content/items/curios/curio_b_k02": {
 		"display_name": "Guardian Gloriana (Reliquary)",
@@ -967,7 +967,7 @@
 	},
 	"content/items/traits/bespoke_bolter_p1/armor_rend_on_projectile_hit": {
 		"display_name": "Shattering Impact",
-		"description": "+{rend:%s} Brittleness (Armoured Enemies) on direct projectile hit."
+		"description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on direct projectile hit. Lasts {time:%s}s."
 	},
 	"content/items/traits/bespoke_plasmagun_p1/power_bonus_scaled_on_heat": {
 		"display_name": "Rising Heat",
@@ -1106,7 +1106,7 @@
 	},
 	"content/items/traits/bespoke_thumper_p2/armor_rend_on_projectile_hit": {
 		"display_name": "Shattering Impact",
-		"description": "+{rend:%s} Brittleness (Armoured Enemies) on direct projectile hit."
+		"description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on direct projectile hit. Lasts {time:%s}s."
 	},
 	"content/items/traits/bespoke_bolter_p1/toughness_on_elite_kills": {
 		"display_name": "Gloryhunter",
@@ -3582,5 +3582,20 @@
 	"content/items/weapons/player/melee/combataxe_p3_m3": {
 		"display_name": "Munitorum Mk VII Sapper Shovel",
 		"description": "Yeah, the tank crews get all the glory. But it's the poor saps in the infantry platoons who have to dig 'em out every time they get mired. - Captain Jerzy Modamus"
-	}
+	},
+	"combataxe_p3_m3_dps_stat": {
+		"display_name": "Damage"
+	},
+	"combataxe_p3_m3_mobility_stat": {
+		"display_name": "Mobility"
+	},
+	"combataxe_p3_m3_armor_pierce_stat": {
+		"display_name": "Penetration"
+	},
+	"combataxe_p3_m3_defence_stat": {
+		"display_name": "Defences"
+	},
+	"combataxe_p3_m3_first_target_stat": {
+		"display_name": "First Target"
+	},
 }
