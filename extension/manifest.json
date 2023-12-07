@@ -12,7 +12,7 @@
     "https://bsp-td-prod.atoma.cloud/*",
     "https://bsp-cdn-prod.atoma.cloud/*"
   ],
-  "web_accessible_resources": [ 
+  "web_accessible_resources": [
     {
       "resources": ["/item_images/*"],
       "matches": ["<all_urls>"]
