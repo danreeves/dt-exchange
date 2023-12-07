@@ -1260,7 +1260,7 @@
 	},
 	"content/items/traits/bespoke_combataxe_p1/stacking_rending_on_one_hit_kills": {
 		"display_name": "Decapitator",
-		"description": "+{rending:%s} Rending for {time:%s}s on Enemy One-Shot. Stacks {stacks:%s} times."
+		"description": "+{finesse:%s} Finesse for {time:%s}s on Enemy One-Shot. Stacks {stacks:%s} times."
 	},
 	"content/items/perks/melee_common/wield_increase_special_enemy_damage": {
 		"description": "+{damage:%s} Increased Melee Damage (Specialists)"
