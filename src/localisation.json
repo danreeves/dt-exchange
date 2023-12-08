@@ -26,6 +26,9 @@
     "combataxe_p3_m1_defence_stat": {
         "display_name": "Defences"
     },
+    "combataxe_p3_m3_defence_stat": {
+        "display_name": "Defences"
+    },
     "powersword_p1_m1_finesse_stat": {
         "display_name": "Finesse"
     },
@@ -77,6 +80,9 @@
         "description": "Enemy gains +{stacks:%s} Stack(s) of Soulblaze on Critical Hit to a maximum of {max_stacks:%s} Stack(s). "
     },
     "combataxe_p3_m1_first_target_stat": {
+        "display_name": "First Target"
+    },
+    "combataxe_p3_m3_first_target_stat": {
         "display_name": "First Target"
     },
     "ogryn_club_p2_m1_defence_stat": {
@@ -2613,6 +2619,9 @@
     "combataxe_p3_m1_armor_pierce_stat": {
         "display_name": "Penetration"
     },
+    "combataxe_p3_m3_armor_pierce_stat": {
+        "display_name": "Penetration"
+    },
     "content\/items\/weapons\/player\/melee\/ogryn_combatblade_p1_m1": {
         "display_name": "Krourk Mk VI Cleaver",
         "description": "Rather than waste precious forge world resources on the manufacture of Ogryn blades, a variety of crude tribal knives and cleavers are forged by half-competent Bone 'Ead smiths for their compatriots."
@@ -3260,6 +3269,9 @@
     "combataxe_p3_m1_dps_stat": {
         "display_name": "Damage"
     },
+    "combataxe_p3_m3_dps_stat": {
+        "display_name": "Damage"
+    },
     "content\/items\/traits\/bespoke_thunderhammer_2h_p1\/taunt_target_on_hit": {
         "display_name": "Taunting Blow",
         "description": "Hit Enemies prioritise you as a Target."
@@ -3292,6 +3304,9 @@
         "description": "+{rending:%s} Rending on Backstab Hit."
     },
     "combataxe_p3_m1_mobility_stat": {
+        "display_name": "Mobility"
+    },
+    "combataxe_p3_m3_mobility_stat": {
         "display_name": "Mobility"
     },
     "ogryn_powermaul_dps_stat": {
