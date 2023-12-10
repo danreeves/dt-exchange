@@ -27,5 +27,5 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: extension
-          path: extension/
+          name: builds
+          path: builds/

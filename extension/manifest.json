@@ -7,11 +7,6 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "permissions": [
-    "https://accounts.atoma.cloud/*",
-    "https://bsp-td-prod.atoma.cloud/*",
-    "https://bsp-cdn-prod.atoma.cloud/*"
-  ],
   "content_scripts": [
     {
       "js": ["bundle.js"],
@@ -23,9 +18,5 @@
   ],
   "action": {
     "default_title": "Armoury Exchange"
-  },
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
   }
 }

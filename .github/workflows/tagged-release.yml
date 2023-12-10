@@ -23,16 +23,9 @@ jobs:
       - run: npm run build
       - run: npm test
 
-      - name: "Create zip"
-        uses: thedoctor0/zip-release@0.6.2
-        with:
-          type: "zip"
-          filename: "extension.zip"
-          directory: extension
-
       - name: "Create new release"
         uses: marvinpinto/action-automatic-releases@v1.2.1
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: "extension/extension.zip"
+          files: "extension/*.zip"

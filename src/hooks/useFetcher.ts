@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react"
-import { isEqual } from "lodash"
+import isEqual from "fast-deep-equal"
 import { createFetcher, getFatSharkUser } from "../utils"
 import type { User } from "../types"
 
