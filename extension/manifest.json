@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Armoury Exchange",
   "description": "Visit the Armoury Exchange online",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "icons": {
     "48": "icon48.png",
     "128": "icon128.png"
@@ -21,10 +21,13 @@
       "all_frames": true
     }
   ],
-  "browser_action": {
+  "action": {
     "default_title": "Armoury Exchange"
   },
   "background": {
-    "scripts": ["background.js"]
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    }
   }
 }
