@@ -3436,5 +3436,156 @@
     "content\/items\/traits\/bespoke_powersword_p1\/infinite_armor_cleave_on_activated_attacks": {
         "display_name": "Sunder",
         "description": "Your Energised Attacks have increased Cleave"
-    }
+    },
+	"content\/items\/weapons\/player\/ranged\/shotgun_p2_m1.display_name": {
+		"display_name": "Ironhelm \"Hacker\" Mk IV Assault Shotgun",
+		"description": "My trusty old shotgun. Primitive in some people's eyes but reliable. - Colonel 'Iron Hand' Straken"
+	},
+	"shotgun_p2_m1_dps_stat": {
+		"display_name": "TODO"
+	},
+	"shotgun_p2_m1_mobility_stat": {
+		"display_name": "TODO"
+	},
+	"shotgun_p2_m1_range_stat": {
+		"display_name": "TODO"
+	},
+	"shotgun_p2_m1_reload_speed_stat": {
+		"display_name": "TODO"
+	},
+	"shotgun_p2_m1_power_stat": {
+		"display_name": "TODO"
+	},
+	
+	"content\/items\/weapons\/player\/melee\/powermaul_p1_m1": {
+		"display_name": "Agni Mk Ia Shock Maul",
+		"description": "A shock maul's cracking power field delivers a painful incapacitating jolt to the enemy, rendering them harmless for a time."
+	},
+	"powermaul_dps_stat": {
+		"display_name": "Damage"
+	},
+	"powermaul_control_stat":{
+		"display_name": "Control"
+	},
+	"powermaul_armor_pierce_stat":{
+		"display_name": "TODO"
+	},
+	"powermaul_finesse_stat":{
+		"display_name": "Finesse"
+	},
+	"powermaul_mobility_stat":{
+		"display_name": "Mobility"
+	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/negate_stagger_reduction_on_weakspot": {
+		"display_name": "Falter",
+		"description": "Ignore {:%s} Stagger Resistance on Weak Spot Hit."
+	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/staggering_hits_has_chance_to_stun": {
+		"display_name": "Overwhelming Force",
+		"description": "Staggering an Enemy has a {:%s} Change to Stun the enemy. Cooldown {time:%s}. FIXME"
+	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/power_bonus_based_on_charge_time": {
+		"display_name": "Thrust",
+		"description": "Up to {power_level:%s} Power based on the charge time of your heavy attacks. Stacks 3 times."
+	},
+	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m1" : {
+		"display_name": "TODO",
+		"description": "TODO"
+	},
+	"ogryn_pickaxe_p1_m1_dps_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m1_cleave_damage_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m1_armor_pierce_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m1_first_target_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m1_defense_stat": {
+		"display_name": "TODO"
+	},
+	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m2" : {
+		"display_name": "TODO",
+		"description": "TODO"
+	},
+	"ogryn_pickaxe_p1_m2_dps_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m2_cleave_targets_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m2_armor_pierce_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m2_first_target_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m2_defense_stat": {
+		"display_name": "TODO"
+	},
+	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m3" : {
+		"display_name": "TODO",
+		"description": "TODO"
+	},
+	"ogryn_pickaxe_p1_m3_dps_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m3_control_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m3_armor_pierce_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m3_cleave_damage_stat": {
+		"display_name": "TODO"
+	},
+	"ogryn_pickaxe_p1_m3_defense_stat": {
+		"display_name": "TODO"
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/toughness_recovery_on_chained_attacks" : {
+		"display_name": "Confident Strike",
+		"description": "+ {toughness:%s} on Chained Hit."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/toughness_on_hit_based_on_charge_time" : {
+		"display_name": "Slow and Steady",
+		"description": "Recover up to {toughness:%s} Max Toughness based on the charge time of your heavy attacks."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/increase_power_on_weapon_special_hit" : {
+		"display_name": "Torment",
+		"description": "+{power_level:%s} Power for 3.5s on Weapon Special Hit."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/increase_power_on_kill" : {
+		"display_name": "Slaughterer",
+		"description": "+{power_level:%s} Power for 4.5s on Kill. Stacks 5 times."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/power_bonus_on_first_attack": {
+		"display_name": "Limbsplitter",
+		"description": "+60% Power on your First Attack every {time:%s} seconds."
+	},
+	"content\/items\/weapons\/player\/ranged\/boltpistol_p1_m1" : {
+		"display_name": "Godwyn-Branx Pattern Bolt Pistol",
+		"description": "A subtle variation on the more well-known Godwyn-Ultima pattern bolt pistol. This human-portable weapon still carries a terrifying punch, provided by the high-calibre mass reactive shells loaded into its clip."
+	},
+	"boltpistol_p1_m1_dps_stat": {
+		"display_name": "TODO"
+	},
+	"boltpistol_p1_m1_control_stat": {
+		"display_name": "TODO"
+	},
+	"boltpistol_p1_m1_stability_stat": {
+		"display_name": "TODO"
+	},
+	"boltpistol_p1_m1_reload_speed_stat": {
+		"display_name": "TODO"
+	},
+	"boltpistol_p1_m1_mobility_stat": {
+		"display_name": "TODO"
+	},
+	"content\/items\/traits\/bespoke_boltpistol_p1\/bleed_on_ranged_hit": {
+		"display_name": "Puncture",
+		"description": "Ranged hits add {stacks:%s} stacks of bleed to enemies."
+	}
 }
