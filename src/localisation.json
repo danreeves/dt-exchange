@@ -3437,28 +3437,28 @@
         "display_name": "Sunder",
         "description": "Your Energised Attacks have increased Cleave"
     },
-	"content\/items\/weapons\/player\/ranged\/shotgun_p2_m1.display_name": {
+	"content\/items\/weapons\/player\/ranged\/shotgun_p2_m1": {
 		"display_name": "Ironhelm \"Hacker\" Mk IV Assault Shotgun",
 		"description": "My trusty old shotgun. Primitive in some people's eyes but reliable. - Colonel 'Iron Hand' Straken"
 	},
 	"shotgun_p2_m1_dps_stat": {
-		"display_name": "TODO"
+		"display_name": "Damage"
 	},
 	"shotgun_p2_m1_mobility_stat": {
-		"display_name": "TODO"
+		"display_name": "Mobility"
 	},
 	"shotgun_p2_m1_range_stat": {
-		"display_name": "TODO"
+		"display_name": "Range"
 	},
 	"shotgun_p2_m1_reload_speed_stat": {
-		"display_name": "TODO"
+		"display_name": "Reload Speed"
 	},
 	"shotgun_p2_m1_power_stat": {
-		"display_name": "TODO"
+		"display_name": "Stopping Power"
 	},
 	"content\/items\/traits\/bespoke_shotgun_p2\/reload_speed_on_ranged_weapon_special_kill": {
 		"display_name": "Both Barrels",
-		"description": ""
+		"description": "Killing an enemy by firing both barrels makes your next Reload {reload:%s} faster."
 	},
 	"content\/items\/weapons\/player\/melee\/powermaul_p1_m1": {
 		"display_name": "Agni Mk Ia Shock Maul",
@@ -3475,7 +3475,7 @@
 		"display_name": "Control"
 	},
 	"powermaul_armor_pierce_stat":{
-		"display_name": "TODO"
+		"display_name": "Penetration"
 	},
 	"powermaul_finesse_stat":{
 		"display_name": "Finesse"
@@ -3496,61 +3496,61 @@
 		"description": "Up to {power_level:%s} Power based on the charge time of your heavy attacks. Stacks 3 times."
 	},
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m1" : {
-		"display_name": "TODO",
-		"description": "TODO"
+		"display_name": "Branx Pickaxe",
+		"description": "Favored by the ore miners delving the moons orbiting Branx Minor, this pick axe uses the best materials for reduced impact vibrations and maximum power."
 	},
 	"ogryn_pickaxe_p1_m1_dps_stat": {
-		"display_name": "TODO"
+		"display_name": "Damage"
 	},
 	"ogryn_pickaxe_p1_m1_cleave_damage_stat": {
-		"display_name": "TODO"
+		"display_name": "Cleave Damage"
 	},
 	"ogryn_pickaxe_p1_m1_armor_pierce_stat": {
-		"display_name": "TODO"
+		"display_name": "Penetration"
 	},
 	"ogryn_pickaxe_p1_m1_first_target_stat": {
-		"display_name": "TODO"
+		"display_name": "First Target"
 	},
-	"ogryn_pickaxe_p1_m1_defense_stat": {
-		"display_name": "TODO"
+	"ogryn_pickaxe_p1_m1_defence_stat": {
+		"display_name": "Defences"
 	},
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m2" : {
-		"display_name": "TODO",
-		"description": "TODO"
+		"display_name": "Borovian Pickaxe",
+		"description": "With a metal haft and sturdy, rivetted joints, this pickaxe is a clear upgrade from the more common Karsolas Pickaxe."
 	},
 	"ogryn_pickaxe_p1_m2_dps_stat": {
-		"display_name": "TODO"
+		"display_name": "Damage"
 	},
 	"ogryn_pickaxe_p1_m2_cleave_targets_stat": {
-		"display_name": "TODO"
+		"display_name": "Cleave Targets"
 	},
 	"ogryn_pickaxe_p1_m2_armor_pierce_stat": {
-		"display_name": "TODO"
+		"display_name": "Penetration"
 	},
 	"ogryn_pickaxe_p1_m2_first_target_stat": {
-		"display_name": "TODO"
+		"display_name": "First Target"
 	},
-	"ogryn_pickaxe_p1_m2_defense_stat": {
-		"display_name": "TODO"
+	"ogryn_pickaxe_p1_m2_defence_stat": {
+		"display_name": "Defences"
 	},
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m3" : {
-		"display_name": "TODO",
-		"description": "TODO"
+		"display_name": "Karsolas Pickaxe",
+		"description": "Developed on a relatively primitive world, this basic pick axe is functional. At least, it works pretty well for cracking open heretic skulls."
 	},
 	"ogryn_pickaxe_p1_m3_dps_stat": {
-		"display_name": "TODO"
+		"display_name": "Damage"
 	},
 	"ogryn_pickaxe_p1_m3_control_stat": {
-		"display_name": "TODO"
+		"display_name": "Crowd Control"
 	},
 	"ogryn_pickaxe_p1_m3_armor_pierce_stat": {
-		"display_name": "TODO"
+		"display_name": "Penetration"
 	},
 	"ogryn_pickaxe_p1_m3_cleave_damage_stat": {
-		"display_name": "TODO"
+		"display_name": "Cleave Damage"
 	},
-	"ogryn_pickaxe_p1_m3_defense_stat": {
-		"display_name": "TODO"
+	"ogryn_pickaxe_p1_m3_defence_stat": {
+		"display_name": "Defences"
 	},
 	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/toughness_recovery_on_chained_attacks" : {
 		"display_name": "Confident Strike",
@@ -3577,19 +3577,19 @@
 		"description": "A subtle variation on the more well-known Godwyn-Ultima pattern bolt pistol. This human-portable weapon still carries a terrifying punch, provided by the high-calibre mass reactive shells loaded into its clip."
 	},
 	"boltpistol_p1_m1_dps_stat": {
-		"display_name": "TODO"
+		"display_name": "Damage"
 	},
 	"boltpistol_p1_m1_control_stat": {
-		"display_name": "TODO"
+		"display_name": "Collateral"
 	},
 	"boltpistol_p1_m1_stability_stat": {
-		"display_name": "TODO"
+		"display_name": "Stability"
 	},
 	"boltpistol_p1_m1_reload_speed_stat": {
-		"display_name": "TODO"
+		"display_name": "Reload Speed"
 	},
 	"boltpistol_p1_m1_mobility_stat": {
-		"display_name": "TODO"
+		"display_name": "Mobility"
 	},
 	"content\/items\/traits\/bespoke_boltpistol_p1\/bleed_on_ranged_hit": {
 		"display_name": "Puncture",
