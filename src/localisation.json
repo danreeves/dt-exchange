@@ -3456,10 +3456,17 @@
 	"shotgun_p2_m1_power_stat": {
 		"display_name": "TODO"
 	},
-	
+	"content\/items\/traits\/bespoke_shotgun_p2\/reload_speed_on_ranged_weapon_special_kill": {
+		"display_name": "Both Barrels",
+		"description": ""
+	},
 	"content\/items\/weapons\/player\/melee\/powermaul_p1_m1": {
 		"display_name": "Agni Mk Ia Shock Maul",
 		"description": "A shock maul's cracking power field delivers a painful incapacitating jolt to the enemy, rendering them harmless for a time."
+	},
+	"content\/items\/weapons\/player\/melee\/powermaul_p1_m2": {
+		"display_name": "Indignatus Mk III Shock Maul",
+		"description": "A favored import for Enforcer squads across the Moebian Domain, the Indignatus-patters flamed head and noisy power field make for a brutal deterrent."
 	},
 	"powermaul_dps_stat": {
 		"display_name": "Damage"
@@ -3478,11 +3485,11 @@
 	},
 	"content\/items\/traits\/bespoke_powermaul_p1\/negate_stagger_reduction_on_weakspot": {
 		"display_name": "Falter",
-		"description": "Ignore {:%s} Stagger Resistance on Weak Spot Hit."
+		"description": "Ignore {stagger_reduction:%s} Stagger Resistance on Weak Spot Hit."
 	},
 	"content\/items\/traits\/bespoke_powermaul_p1\/staggering_hits_has_chance_to_stun": {
 		"display_name": "Overwhelming Force",
-		"description": "Staggering an Enemy has a {:%s} Change to Stun the enemy. Cooldown {time:%s}. FIXME"
+		"description": "Staggering an Enemy has a {proc_chance:%s} Chance to Stun the enemy. Cooldown {time:%s}."
 	},
 	"content\/items\/traits\/bespoke_powermaul_p1\/power_bonus_based_on_charge_time": {
 		"display_name": "Thrust",
