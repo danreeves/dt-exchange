@@ -3458,7 +3458,7 @@
 	},
 	"content\/items\/traits\/bespoke_shotgun_p2\/reload_speed_on_ranged_weapon_special_kill": {
 		"display_name": "Both Barrels",
-		"description": "Killing an enemy by firing both barrels makes your next Reload {reload:%s} faster."
+		"description": "Killing an enemy by firing both barrels makes your next Reload {reload_speed:%s} faster."
 	},
 	"content\/items\/weapons\/player\/melee\/powermaul_p1_m1": {
 		"display_name": "Agni Mk Ia Shock Maul",
@@ -3485,7 +3485,7 @@
 	},
 	"content\/items\/traits\/bespoke_powermaul_p1\/negate_stagger_reduction_on_weakspot": {
 		"display_name": "Falter",
-		"description": "Ignore {stagger_reduction:%s} Stagger Resistance on Weak Spot Hit."
+		"description": "Ignore {stagger:%s} Stagger Resistance on Weak Spot Hit."
 	},
 	"content\/items\/traits\/bespoke_powermaul_p1\/staggering_hits_has_chance_to_stun": {
 		"display_name": "Overwhelming Force",
@@ -3568,9 +3568,25 @@
 		"display_name": "Slaughterer",
 		"description": "+{power_level:%s} Power for 4.5s on Kill. Stacks 5 times."
 	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/chained_hits_increases_cleave" : {
+		"display_name": "Wrath",
+        "description": "+{cleave:%s} Cleave on Hit. Stacks {stacks:%s} times."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/power_bonus_scaled_on_stamina" : {
+		"display_name": "All or Nothing",
+        "description": "Up to +{power_level:%s} Power, as Stamina depletes."
+	},
 	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/power_bonus_on_first_attack": {
 		"display_name": "Limbsplitter",
-		"description": "+60% Power on your First Attack every {time:%s} seconds."
+		"description": "+{power_level:%s} Power on your First Attack every {cooldown:%s} seconds."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/targets_receive_rending_debuff": {
+		"display_name": "Thunderous",
+		"description": "Target receives {stacks:%s} Stacks of {rending:%s} Brittleness on Hit. Lasts {time:%s}s."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/increase_power_on_hit": {
+		"display_name": "Headtaker",
+		"description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
 	},
 	"content\/items\/weapons\/player\/ranged\/boltpistol_p1_m1" : {
 		"display_name": "Godwyn-Branx Pattern Bolt Pistol",
@@ -3594,5 +3610,9 @@
 	"content\/items\/traits\/bespoke_boltpistol_p1\/bleed_on_ranged_hit": {
 		"display_name": "Puncture",
 		"description": "Ranged hits add {stacks:%s} stacks of bleed to enemies."
+	},
+	"content\/items\/traits\/bespoke_boltpistol_p1\/close_explosion": {
+		"display_name": "Lethal Proximity",
+		"description": "Point blank shots cause an explosion. Explosion Radius increases by {radius:%s}."
 	}
 }
