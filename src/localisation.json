@@ -372,7 +372,7 @@
         "description": "+{crit_chance:%s} Critical Chance for {time:%s}s on successful Dodge."
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p1_m2": {
-        "display_name": "Kantrael MG IV Infantry Lasgun",
+        "display_name": "Kantrael Mk IIb Infantry Lasgun",
         "description": "The MG Mk IV was something of a short-lived experiment, sacrificing stopping power in favour of improved rate of fire."
     },
     "content\/items\/traits\/bespoke_forcesword_p1\/dodge_grants_finesse_damage": {
@@ -534,7 +534,7 @@
         "description": "+{damage:%s} Damage for {time:%s} seconds on Kill."
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p3_m2": {
-        "display_name": "Accatran Mk VId Recon Lasgun",
+        "display_name": "Accatran Mk XII Recon Lasgun",
         "description": "The Mk VI series is an evolutionary offshoot of the Mk IV, so beloved of the Elysian Drop Troops. The improved rate of fire from its more efficient charge pack comes at the expense of stopping power."
     },
     "combatknife_p1_m1_mobility_stat": {
@@ -1001,7 +1001,7 @@
         "description": "Preacher Caladoc now speaks openly of the paucity of our defences. Like many on Gloriana they are ill-maintained, and their watch slothful.\n\nFrom the Record of Novitiate Messelina "
     },
     "content\/items\/weapons\/player\/ranged\/shotgun_p1_m1": {
-        "display_name": "Lawbringer Mk VI Combat Shotgun",
+        "display_name": "Zarona Mk VI Combat Shotgun",
         "description": "Based on the ubiquitous weapon long carried by the Adeptus Arbites, this semi-automatic shotgun is deadly at short range."
     },
     "content\/items\/gadgets\/defensive_gadget_12": {
@@ -1092,7 +1092,7 @@
         "description": "Suppress Enemies within {range:%s} Radius on Close Range Kill."
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p3_m1": {
-        "display_name": "Vraks Mk III Headhunter Autogun",
+        "display_name": "Columnus Mk III Vigilant Autogun",
         "description": "A prized autogun pattern from the vaunted manufactorums of Vraks, the Mk III sacrifices rate of fire in favour of increased range."
     },
     "content\/items\/perks\/ranged_common\/wield_increase_reload_speed": {
@@ -1307,7 +1307,7 @@
         "description": "The laspistol supplies the same punch as the lasgun albeit at a reduced range. "
     },
     "content\/items\/weapons\/player\/ranged\/forcestaff_p3_m1": {
-        "display_name": "Nomanus Mk VI Surge Force Staff",
+        "display_name": "Nomanus Mk VI Electrokinetic Force Staff",
         "description": "A Force Staff grounds a Psyker, helping them resist daemonic possession."
     },
     "content\/items\/traits\/bespoke_rippergun_p1\/stacking_crit_bonus_on_continuous_fire": {
@@ -1792,7 +1792,7 @@
         "description": "+{crit_weakspot_damage:%s} Critical Weak Spot Damage."
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p3_m3": {
-        "display_name": "Agripinaa Mk IX Headhunter Autogun",
+        "display_name": "Agripinaa Mk IX Vigilant Autogun",
         "description": "One of the newest autogun STCs to be uncovered by the Tech-Priests of Agripinaa, the Mk VIII couples excellent range with a devastating burst firing mode."
     },
     "content\/items\/traits\/bespoke_powermaul_p1\/consecutive_hits_increases_stagger": {
@@ -1965,11 +1965,11 @@
         "display_name": "WIP Lasgun stability stat"
     },
     "content\/items\/weapons\/player\/melee\/powersword_p1_m1": {
-        "display_name": "Munitorum Mk III Power Sword",
+        "display_name": "Scandar Mk III Power Sword",
         "description": "When activated, a power sword is wreathed in a hazy energy field, allowing the blade to slice through armour and flesh alike."
     },
     "content\/items\/weapons\/player\/melee\/powersword_p1_m2": {
-        "display_name": "Munitorum Mk VI Power Sword",
+        "display_name": "Achlys Mk VI Power Sword",
         "description": "Munitorum power swords are issued to senior officers of the Astra Militarum, as both badge of office and powerful melee weapon."
     },
     "combatsword_p3_m2_armor_pierce_stat": {
@@ -2006,14 +2006,14 @@
         "description": "Unsubtle weapons, known for their excessive kick and bright muzzle flash, Agripinaa autoguns are still popular due to their stopping power and reliability."
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p1_m2": {
-        "display_name": "Columnus Mk V Infantry Autogun",
+        "display_name": "Vraks Mk V Infantry Autogun",
         "description": "A rarity in the Moebian Domain, Columnus autoguns are prized for their high rate of fire, if somewhat deafening report."
     },
     "autogun_p3_m1_ammo_stat": {
         "display_name": "Ammo"
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p1_m3": {
-        "display_name": "Graia Mk VIII Infantry Autogun",
+        "display_name": "Columnus Mk VIII Infantry Autogun",
         "description": "Well-regarded for their high rate of fire and sturdy construction, these autoguns are in short supply after a series of calamities befell the forge world of Graia."
     },
     "forcesword_p1_m1_weapon_special_warp_charge_cost": {
@@ -2047,7 +2047,7 @@
         "description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
     },
     "content\/items\/weapons\/player\/ranged\/autopistol_p1_m1": {
-        "display_name": "Ius Mk III Shredder Autopistol",
+        "display_name": "Ius Mk IV Shredder Autopistol",
         "description": "More popular with hive gangers than Moebian military forces, this autopistol's devastating rate of fire is near-legendary."
     },
     "combatknife_p1_m2_first_target_stat": {
@@ -2096,11 +2096,11 @@
         "description": "Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire."
     },
     "content\/items\/weapons\/player\/ranged\/forcestaff_p1_m1": {
-        "display_name": "Equinox Mk III Trauma Force Staff",
+        "display_name": "Equinox Mk III Voidblast Force Staff",
         "description": "Through the intricate psi-convectors of a force staff, a psyker harnesses the pure energy of the Warp, unleashing it upon their enemies in ferocious psychic cavalcades. "
     },
     "content\/items\/weapons\/player\/ranged\/forcestaff_p2_m1": {
-        "display_name": "Rifthaven Mk II Purgatus Force Staff",
+        "display_name": "Rifthaven Mk II Inferno Force Staff",
         "description": "The Inquisitor leads the way with words of benevolence, his force staff held like a symbol of faith. But make no mistake: they are no shepherds of the meek. They are destroyers of worlds.\n- High Ecclesiarch Renald Kothar"
     },
     "content\/items\/traits\/bespoke_thumper_p1\/crit_chance_based_on_aim_time": {
@@ -2139,18 +2139,18 @@
         "display_name": "Mobility"
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p1_m3": {
-        "display_name": "Kantrael MG XII Infantry Lasgun",
+        "display_name": "Kantrael Mk IX Infantry Lasgun",
         "description": "With its improved charge pack and focussing array, the MG XII is amongst the most powerful lasguns to come out of the manufactorums of Kantrael, albeit somewhat slower to fire than its cousins."
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p2_m1": {
-        "display_name": "Lucius Mk I Helbore Lasgun",
+        "display_name": "Lucius Mk IIIa Helbore Lasgun",
         "description": "Most Lucius-pattern lasguns operate in the 21 megathoule range, discharging a more powerful shot, but draining their power packs more rapidly."
     },
     "shotgun_default_range_stat": {
         "display_name": "Range"
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p3_m1": {
-        "display_name": "Accatran Mk II Recon Lasgun",
+        "display_name": "Accatran Mk VIc Recon Lasgun",
         "description": "Accatran lasguns are typified by their short, almost carbine-like profile, and high rate of fire, which make them ideal for use in the confines of boarding actions, cityfights, or trench warfare."
     },
     "content\/items\/traits\/bespoke_autogun_p3\/crit_chance_based_on_ammo_left": {
@@ -2158,7 +2158,7 @@
         "description": "+{crit_chance:%s} Critical Chance for each expended round in your weapon (resets on reload)."
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p3_m3": {
-        "display_name": "Accatran Mk VIIa Recon Lasgun",
+        "display_name": "Accatran Mk XIV Recon Lasgun",
         "description": "They say the lasgun is a \"humble\" weapon. I say it's the most efficient tool in the galaxy. Billions of liberated souls can't be wrong.\n- Lord Militant Ennic Baross"
     },
     "content\/items\/perks\/melee_common\/wield_increase_disgustingly_resilient_damage": {
@@ -2475,7 +2475,7 @@
         "display_name": "Charge Rate"
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p2_m2": {
-        "display_name": "Lucius Mk II Helbore Lasgun",
+        "display_name": "Lucius Mk V Helbore Lasgun",
         "description": "A more elegant design of the Lucius Mk I. Once the preserve of officers in the Death Korps of Krieg, this aging but reliable model has found its way into the hands of soldiers across the galaxy."
     },
     "content\/items\/gadgets\/defensive_gadget_6": {
@@ -2504,7 +2504,7 @@
         "description": "+{damage:%s} Damage on Third and Fourth shots in a Salvo."
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p3_m2": {
-        "display_name": "Vraks Mk VII Headhunter Autogun",
+        "display_name": "Graia Mk VII Vigilant Autogun",
         "description": "Heavily modified to combat snipers during siege actions, the Vraks Headhunter is an unusual single-shot autogun designed for high-accuracy takedowns."
     },
     "content\/items\/traits\/bespoke_shotgun_p1\/increase_power_on_close_kill": {
@@ -2737,7 +2737,7 @@
         "display_name": "Mobility"
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p1_m1": {
-        "display_name": "Kantrael MG Ia Infantry Lasgun ",
+        "display_name": "Kantrael Mk VII Infantry Lasgun ",
         "description": "The lasgun is cheap to manufacture and its rugged frame stands up well to the abuses of a long military campaign. "
     },
     "ogryn_powermaul_control_stat": {
@@ -2784,7 +2784,7 @@
         "display_name": "Damage"
     },
     "content\/items\/weapons\/player\/ranged\/shotgun_p1_m3": {
-        "display_name": "Kantrael Mk IX Combat Shotgun",
+        "display_name": "Accatran Mk IX Combat Shotgun",
         "description": "In a packed hive tunnel this weapon can unleash some serious damage."
     },
     "content\/items\/gadgets\/defensive_gadget_10": {
@@ -2849,7 +2849,7 @@
         "display_name": "Gilded Fragment (Caged)"
     },
     "content\/items\/weapons\/player\/melee\/combataxe_p1_m1": {
-        "display_name": "Rashad Mk II Combat Axe",
+        "display_name": "Rashad Mk III Combat Axe",
         "description": "The humble combat axe is an unfashionable but effective weapon, its weighted head often doing far more damage on the swing that the blade itself."
     },
     "combatsword_p3_m3_defence_stat": {
@@ -2866,7 +2866,7 @@
         "description": "+{power_level:%s} Power for {time:%s}s on Kill. Stacks {stacks:%s} times."
     },
     "content\/items\/weapons\/player\/ranged\/lasgun_p2_m3": {
-        "display_name": "Lucius Mk III Helbore Lasgun",
+        "display_name": "Lucius Mk IV Helbore Lasgun",
         "description": "With their extended barrels and bayonet loops, Lucius-pattern lasguns are well-regarded by assault troops who seek out melee after discharging a few volleys."
     },
     "ogryn_club_p2_m1_dps_stat": {
@@ -2880,14 +2880,14 @@
         "description": "+{stacks:%s} Bleed Stacks on Critical Hit."
     },
     "content\/items\/weapons\/player\/melee\/combataxe_p3_m1": {
-        "display_name": "Standard-issue Munitorum Sapper Shovel",
+        "display_name": "Munitorum Mk I Sapper Shovel",
         "description": "A sturdy shovel, typically with one sharp edge for cutting, is a standard piece of kit in an infantry platoon's support gear."
     },
     "thunderhammer_p1_m2_control_stat": {
         "display_name": "Crowd Control"
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p2_m1": {
-        "display_name": "Columnus Mk II Braced Autogun",
+        "display_name": "Vraks Mk II Braced Autogun",
         "description": "A commander's prime concern is strategy. A soldier's duty is to plant their feet and blaze away.\n- Lord Militant Ennic Baross"
     },
     "lasgun_p1_m3_power_stat": {
@@ -3271,7 +3271,7 @@
         "display_name": "Cleave Damage"
     },
     "content\/items\/weapons\/player\/melee\/chainsword_2h_p1_m1": {
-        "display_name": "Tigrus Mk II Heavy Eviscerator",
+        "display_name": "Tigrus Mk III Heavy Eviscerator",
         "description": "An obscenely oversized chainsword, the Eviscerator utilizes a low-power disruption field  to enhance its incredibly messy, destructive capabilities."
     },
     "autopistol_p1_m1_control_stat": {
@@ -3438,7 +3438,7 @@
         "description": "Your Energised Attacks have increased Cleave"
     },
 	"content\/items\/weapons\/player\/ranged\/shotgun_p2_m1": {
-		"display_name": "Ironhelm \"Hacker\" Mk IV Assault Shotgun",
+		"display_name": "Crucis Mk XI Double-Barrelled Shotgun",
 		"description": "My trusty old shotgun. Primitive in some people's eyes but reliable. - Colonel 'Iron Hand' Straken"
 	},
 	"shotgun_p2_m1_dps_stat": {
@@ -3459,6 +3459,10 @@
 	"content\/items\/traits\/bespoke_shotgun_p2\/reload_speed_on_ranged_weapon_special_kill": {
 		"display_name": "Both Barrels",
 		"description": "Killing an enemy by firing both barrels makes your next Reload {reload_speed:%s} faster."
+	},
+	"content\/items\/traits\/bespoke_shotgun_p2\/crit_chance_on_hitting_multiple_with_one_shot": {
+		"display_name": "Scattershot",
+		"description": "+{crit_chance:%s} Critical Chance for each Enemy Hit by your previous attack. Stacks {stacks:%s} times."
 	},
 	"content\/items\/weapons\/player\/melee\/powermaul_p1_m1": {
 		"display_name": "Agni Mk Ia Shock Maul",
@@ -3495,8 +3499,20 @@
 		"display_name": "Thrust",
 		"description": "Up to {power_level:%s} Power based on the charge time of your heavy attacks. Stacks 3 times."
 	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/armor_penetration_against_staggered": {
+		"display_name": "Opportunist",
+		"description": "+{rending:%s} Rending vs Staggered Enemies."
+	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/TODO_High_Voltage": {
+		"display_name": "High Voltage",
+		"description": "+{damage:%s} Damage vs Electrocuted."
+	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/TODO_Lighting_Reflexes": {
+		"display_name": "Lighting Reflexes",
+		"description": "Timed Blocking Stuns the attacker, and grants you {power_level:s%} Melee Power for {time:%s}."
+	},
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m1" : {
-		"display_name": "Branx Pickaxe",
+		"display_name": "Branx Mk Ia Delver's Pickaxe",
 		"description": "Favored by the ore miners delving the moons orbiting Branx Minor, this pick axe uses the best materials for reduced impact vibrations and maximum power."
 	},
 	"ogryn_pickaxe_p1_m1_dps_stat": {
@@ -3515,7 +3531,7 @@
 		"display_name": "Defences"
 	},
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m2" : {
-		"display_name": "Borovian Pickaxe",
+		"display_name": "Borovian Mk III Delver's Pickaxe",
 		"description": "With a metal haft and sturdy, rivetted joints, this pickaxe is a clear upgrade from the more common Karsolas Pickaxe."
 	},
 	"ogryn_pickaxe_p1_m2_dps_stat": {
@@ -3534,7 +3550,7 @@
 		"display_name": "Defences"
 	},
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m3" : {
-		"display_name": "Karsolas Pickaxe",
+		"display_name": "Karsolas MkII Delver's  Pickaxe",
 		"description": "Developed on a relatively primitive world, this basic pick axe is functional. At least, it works pretty well for cracking open heretic skulls."
 	},
 	"ogryn_pickaxe_p1_m3_dps_stat": {
@@ -3589,7 +3605,7 @@
 		"description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
 	},
 	"content\/items\/weapons\/player\/ranged\/boltpistol_p1_m1" : {
-		"display_name": "Godwyn-Branx Pattern Bolt Pistol",
+		"display_name": "Godwyn-Branx Mk IV Bolt Pistol",
 		"description": "A subtle variation on the more well-known Godwyn-Ultima pattern bolt pistol. This human-portable weapon still carries a terrifying punch, provided by the high-calibre mass reactive shells loaded into its clip."
 	},
 	"boltpistol_p1_m1_dps_stat": {
