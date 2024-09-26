@@ -16,6 +16,10 @@
         "display_name": "Precognition",
         "description": "+{damage:%s} Finesse Damage for {time:%s}s on successful Dodge."
     },
+	"content\/items\/traits\/bespoke_combatsword_p3\/power_bonus_based_on_charge_time": {
+        "display_name": "Thrust",
+        "description": "Up to +{power_level:%s} Power based on the charge time of your heavy attacks. Stacks {stacks:%s} times."
+    },
     "content\/items\/traits\/bespoke_bolter_p1\/stacking_power_bonus_on_staggering_enemies": {
         "display_name": "Pinning Fire",
         "description": "+{power_level:%s} Power for every Enemy you Stagger. Stacks {stacks:%s} times. "
@@ -923,6 +927,10 @@
         "display_name": "Lorenz Mk VI Rumbler",
         "description": "One of the simplest grenade launchers constructed in the Imperium, \"rumblers\" have more in common with primitive mortars than the usual weaponry made on the Lorenz forge world."
     },
+	"content\/items\/traits\/bespoke_thumper_p2\/close_explosion_applies_bleed": {
+        "display_name": "Shrapnel",
+        "description": "+{stacks:%s} Bleed Stacks from close range explosions."
+    },
     "combataxe_p2_m2_dps_stat": {
         "display_name": "Damage"
     },
@@ -963,6 +971,10 @@
     "content\/items\/traits\/bespoke_powermaul_2h_p1\/chance_to_explode_enemy_on_activated_kill": {
         "display_name": "Rupture",
         "description": "+{proc_chance:%s}% chance enemy Explodes if killed by Special Attack."
+    },
+	"content\/items\/traits\/bespoke_powermaul_2h_p1\/targets_receive_rending_debuff": {
+        "display_name": "Thunderous",
+        "description": "Hitting an enemy gives them {stacks:%s} stacks of 2.5% Brittleness. Debuff lasts for 5 seconds and can have a maximum of 16 stacks"
     },
     "content\/items\/traits\/bespoke_ogryn_combatblade_p1\/increased_power_on_weapon_special_follow_up_hits": {
         "display_name": "Tenderiser",
@@ -1258,6 +1270,10 @@
     "content\/items\/traits\/bespoke_autogun_p2\/suppression_on_close_kill": {
         "display_name": "Terrifying Barrage",
         "description": "Suppress Enemies within {range:%s} Radius on Close Range Kill."
+    },
+	"content\/items\/traits\/bespoke_autogun_p2\/toughness_on_continuous_fire": {
+        "display_name": "Inspiring Barrage",
+        "description": "+{toughness:%s} Toughness for every {ammo:%s} of magazine spent during continuous fire. Stacks {stacks:%s} times."
     },
     "content\/items\/weapons\/player\/ranged\/autogun_p2_m3": {
         "display_name": "Agripinaa Mk VIII Braced Autogun",
@@ -1814,6 +1830,14 @@
         "display_name": "Limbsplitter",
         "description": "+{power_level:%s} Power on your First Attack every {cooldown:%s} seconds."
     },
+	"content\/items\/traits\/bespoke_combataxe_p2\/dodge_count_reset_on_weakspot_hit": {
+        "display_name": "Agile",
+        "description": "Refreshed Dodge Efficiency on Weak Spot Hit. +{melee_weakspot_damage:%s} Melee Weakspot Damage."
+    },
+	"content\/items\/traits\/bespoke_combataxe_p2\/critical_on_weakspot_critical_kill": {
+        "display_name": "Slaughter Spree",
+        "description": "+{critical_chance:%s} (Next Melee Attack) on Weap spot Critical Hit Kill."
+    },
     "content\/items\/perks\/ranged_common\/wield_increase_monster_enemy_damage": {
         "description": "+{damage:%s} Ranged Damage (Monstrosities)"
     },
@@ -1890,6 +1914,10 @@
     "content\/items\/weapons\/player\/melee\/ogryn_club_p1_m2": {
         "display_name": "Brute-Brainer Mk XIX Latrine Shovel",
         "description": "Supplying oversized shovels to front-line forces is a logistical nightmare, but, in the hands of Ogryn regiments, entire trench networks can be dug in a fraction of the usual time."
+    },
+	"content\/items\/traits\/bespoke_ogryn_club_p1\/armor_penetration_against_staggered": {
+        "display_name": "Opportunist",
+        "description": "+{rending:%s} Rending vs Staggered Enemies."
     },
     "autogun_p2_m1_stability_stat": {
         "display_name": "Stability"
@@ -3487,6 +3515,10 @@
 	"powermaul_mobility_stat":{
 		"display_name": "Mobility"
 	},
+	"content\/items\/traits\/bespoke_powermaul_p1\/block_has_chance_to_stun": {
+		"display_name": "Lighting Reflexes",
+		"description": "Timed Blocks Stun the attacker, and grant you {power_level:%s} Melee Strength for 3s. Cooldown 3s."
+	},
 	"content\/items\/traits\/bespoke_powermaul_p1\/negate_stagger_reduction_on_weakspot": {
 		"display_name": "Falter",
 		"description": "Ignore {stagger:%s} Stagger Resistance on Weak Spot Hit."
@@ -3503,14 +3535,11 @@
 		"display_name": "Opportunist",
 		"description": "+{rending:%s} Rending vs Staggered Enemies."
 	},
-	"content\/items\/traits\/bespoke_powermaul_p1\/TODO_High_Voltage": {
+	"content\/items\/traits\/bespoke_powermaul_p1\/damage_bonus_vs_electrocuded": {
 		"display_name": "High Voltage",
 		"description": "+{damage:%s} Damage vs Electrocuted."
 	},
-	"content\/items\/traits\/bespoke_powermaul_p1\/TODO_Lighting_Reflexes": {
-		"display_name": "Lighting Reflexes",
-		"description": "Timed Blocking Stuns the attacker, and grants you {power_level:s%} Melee Power for {time:%s}."
-	},
+
 	"content\/items\/weapons\/player\/melee\/ogryn_pickaxe_2h_p1_m1" : {
 		"display_name": "Branx Mk Ia Delver's Pickaxe",
 		"description": "Favored by the ore miners delving the moons orbiting Branx Minor, this pick axe uses the best materials for reduced impact vibrations and maximum power."
@@ -3603,6 +3632,10 @@
 	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/increase_power_on_hit": {
 		"display_name": "Headtaker",
 		"description": "+{power_level:%s} Power for {time:%s}s on Hit. Stacks {stacks:%s} times."
+	},
+	"content\/items\/traits\/bespoke_ogryn_pickaxe_p1\/power_bonus_based_on_charge_time" : {
+		"display_name": "Thrust",
+        "description": "Up to +{power_level:%s} Power based on the charge time of your heavy attacks. Stacks {stacks:%s} times."
 	},
 	"content\/items\/weapons\/player\/ranged\/boltpistol_p1_m1" : {
 		"display_name": "Godwyn-Branx Mk IV Bolt Pistol",
