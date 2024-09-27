@@ -24,6 +24,10 @@
         "display_name": "Pinning Fire",
         "description": "+{power_level:%s} Power for every Enemy you Stagger. Stacks {stacks:%s} times. "
     },
+	"content\/items\/traits\/bespoke_bolter_p1\/increase_close_damage_on_close_kill": {
+        "display_name": "Fire Frenzy",
+        "description": "Gain +{close_damage:%s} Close Damage for {time:%s} seconds after killing an enemy at close range, stacking {stacks:%s} times."
+    },
     "content\/items\/traits\/bespoke_ogryn_club_p2\/toughness_recovery_on_multiple_hits": {
         "display_name": "Momentum",
         "description": "Hitting at least {multiple_hit:%s} enemies with an attack, restores {toughness:%s} toughness."
@@ -171,6 +175,10 @@
         "display_name": "Krourk Mk V Twin-Linked Heavy Stubber",
         "description": "Nothing gets an Ogryn's blood up quite like the deafening noise and high-power recoil of a full-auto heavy weapon, and they don't come much louder or more powerful than a twin-linked heavy stubber."
     },
+	"content\/items\/traits\/bespoke_ogryn_heavystubber_p1\/increase_close_damage_on_close_kill": {
+        "display_name": "Fire Frenzy",
+        "description": "Gain +{close_damage:%s} Close Damage for {time:%s} seconds after killing an enemy at close range, stacking {stacks:%s} times."
+    },
     "autogun_p2_m3_mobility_stat": {
         "display_name": "Mobility"
     },
@@ -238,7 +246,7 @@
     },
     "content\/items\/traits\/bespoke_chainsword_2h_p1\/pass_past_armor_on_crit": {
         "display_name": "Perfect Strike",
-        "description": "Critical Hits ignore Hit Mass Bonus from Armour."
+        "description": "Critical Hits ignore Hit Mass Bonus from Armour. +{crit_damage:%s} Melee Critical Hit Damage."
     },
     "content\/items\/traits\/bespoke_ogryn_heavystubber_p1\/suppression_on_continuous_fire": {
         "display_name": "Ceaseless Barrage",
@@ -592,7 +600,7 @@
         "description": "+{damage:%s} Weakspot Damage on Third and Fourth shots in a Salvo."
     },
     "lasgun_p1_m1_mobility_stat": {
-        "display_name": "WIP Lasgun mobility stat"
+        "display_name": "Mobility"
     },
     "content\/items\/traits\/bespoke_combatsword_p1\/staggered_targets_receive_increased_stagger_debuff": {
         "display_name": "Thunderstrike",
@@ -1029,7 +1037,7 @@
     },
     "content\/items\/traits\/bespoke_ogryn_club_p1\/pass_past_armor_on_crit": {
         "display_name": "Perfect Strike",
-        "description": "Critical Hits ignore Hit Mass Bonus from Armour."
+        "description": "Critical Hits ignore Hit Mass Bonus from Armour. +{crit_damage:%s} Melee Critical Hit Damage."
     },
     "content\/items\/traits\/bespoke_lasgun_p2\/negate_stagger_reduction_on_weakspot": {
         "display_name": "Falter",
@@ -1120,6 +1128,10 @@
     "content\/items\/traits\/bespoke_combatsword_p2\/increased_attack_cleave_on_multiple_hits": {
         "display_name": "Savage Sweep",
         "description": "Hitting at least {multiple_hit:%s} enemies with an attack, increases your cleave by {cleave:%s} for {time:%s} seconds."
+    },
+	"content\/items\/traits\/bespoke_combatsword_p2\/stacking_rending_on_cleave": {
+        "display_name": "Bladed Momentum",
+        "description": "Hitting multiple enemies in one sweep gives {rending:%s} Rending for {time:%s} seconds. Stacks {stacks:%s} times."
     },
     "content\/items\/traits\/bespoke_combatsword_p3\/increased_melee_damage_on_multiple_hits": {
         "display_name": "Rampage",
@@ -1326,6 +1338,10 @@
         "display_name": "Nomanus Mk VI Electrokinetic Force Staff",
         "description": "A Force Staff grounds a Psyker, helping them resist daemonic possession."
     },
+	"content\/items\/traits\/bespoke_forcestaff_p3\/double_shot_on_crit": {
+        "display_name": "Surge",
+        "description": "2 Shots on Critical Hit. +{crit_chance:%s} Ranged Crit Chance."
+    },
     "content\/items\/traits\/bespoke_rippergun_p1\/stacking_crit_bonus_on_continuous_fire": {
         "display_name": "Cavalcade",
         "description": "+{crit_chance:%s} Critical Chance for every {ammo:%s} of magazine spent during continuous fire. Stacks {stacks:%s} times."
@@ -1364,6 +1380,10 @@
         "display_name": "Turtolsky Mk IX Heavy Sword",
         "description": "Taking their design from the traditional shashka swords of the Vostroyan Astra Militarum regiments, these popular weapons are effective at both slashing and thrusting."
     },
+	"content\/items\/traits\/bespoke_combatsword_p2\/power_bonus_based_on_charge_time": {
+        "display_name": "Thrust",
+        "description": "Up to +{power_level:%s} Power based on the charge time of your heavy attacks. Stacks {stacks:%s} times."
+    },
     "ogryn_powermaul_slabshield_cleave_damage_stat": {
         "display_name": "Cleave Damage"
     },
@@ -1385,7 +1405,7 @@
         "display_name": "Mechanicus Icon Illustrious (Casket)"
     },
     "lasgun_p1_m1_dps_stat": {
-        "display_name": "WIP Lasgun dps stat"
+        "display_name": "Damage"
     },
     "content\/items\/traits\/bespoke_autopistol_p1\/toughness_on_continuous_fire": {
         "display_name": "Inspiring Barrage",
@@ -1404,7 +1424,7 @@
     },
     "content\/items\/traits\/bespoke_combatsword_p2\/pass_past_armor_on_crit": {
         "display_name": "Perfect Strike",
-        "description": "Critical Hits ignore Hit Mass Bonus from Armour."
+        "description": "Critical Hits ignore Hit Mass Bonus from Armour. +{crit_damage:%s} Melee Critical Hit Damage."
     },
     "ogryn_gauntlet_p1_m1_explosion_damage": {
         "display_name": "Blast Damage"
@@ -1611,7 +1631,7 @@
     },
     "content\/items\/traits\/bespoke_ogryn_powermaul_p1\/pass_past_armor_on_crit": {
         "display_name": "Perfect Strike",
-        "description": "Critical Hits ignore Hit Mass Bonus from Armour."
+        "description": "Critical Hits ignore Hit Mass Bonus from Armour. +{crit_damage:%s} Melee Critical Hit Damage."
     },
     "content\/items\/perks\/melee_common\/wield_increase_stamina": {
         "description": "+{stamina:%s} Stamina"
@@ -1904,6 +1924,10 @@
         "display_name": "All or Nothing",
         "description": "Up to +{power_level:%s} Power, as Stamina depletes."
     },
+	"content\/items\/traits\/bespoke_combataxe_p2\/power_bonus_on_same_enemy_attacks": {
+        "display_name": "Relentless",
+        "description": "+{power_level:%s} Strength for {time:%s} on Hit (Same Enemy). Stacks {stacks:%s} times."
+    },
     "combataxe_p1_m1_dps_stat": {
         "display_name": "Damage"
     },
@@ -1990,7 +2014,7 @@
         "display_name": "Damage"
     },
     "lasgun_p1_m1_stability_stat": {
-        "display_name": "WIP Lasgun stability stat"
+        "display_name": "Stability"
     },
     "content\/items\/weapons\/player\/melee\/powersword_p1_m1": {
         "display_name": "Scandar Mk III Power Sword",
@@ -2131,6 +2155,10 @@
         "display_name": "Rifthaven Mk II Inferno Force Staff",
         "description": "The Inquisitor leads the way with words of benevolence, his force staff held like a symbol of faith. But make no mistake: they are no shepherds of the meek. They are destroyers of worlds.\n- High Ecclesiarch Renald Kothar"
     },
+	"content\/items\/traits\/bespoke_forcestaff_p2\/chance_to_explode_elites_on_kill": {
+        "display_name": "Showstopper",
+        "description": "{proc_chance:%s}% chance Elite and Special enemies Explode on kill."
+    },
     "content\/items\/traits\/bespoke_thumper_p1\/crit_chance_based_on_aim_time": {
         "display_name": "Surgical",
         "description": "+{crit_chance:%s} Critical Chance for every {time:%s} second while aiming. Stacks {stacks:%s} times. Discharges all stacks upon firing."
@@ -2204,6 +2232,10 @@
         "display_name": "Kantrael Mk X Heavy Laspistol",
         "description": "Dubbed the 'defender', the Kantrael MG is the sidearm of choice for Cadian regiments, and has likewise found favour amongst the Moebian Steepleguard."
     },
+	"content\/items\/traits\/bespoke_laspistol_p1\/crit_chance_on_successful_dodge": {
+        "display_name": "Desperado",
+        "description": "+{crit_chance:%s} Critical Chance for {time:%s} on successful Dodge."
+    },
     "content\/items\/traits\/bespoke_thunderhammer_2h_p1\/consecutive_hits_increases_stagger": {
         "display_name": "Trauma",
         "description": "+{impact:%s} Impact for {time:%s} seconds on Repeated Hit. Stacks {stacks:%s} times."
@@ -2231,6 +2263,10 @@
         "display_name": "\"Brunt's Pride\" Mk II Bully Club",
         "description": "Best club I ever made, dis. Modelled after me favourite club dat I lost on Fortanis. Eaten by a bleedin' Tyranid. Nearly brought me to tears, I tell ya.\n- Gurry “Brunt” Cernik"
     },
+	"content\/items\/traits\/bespoke_ogryn_club_p2\/toughness_regen_on_weapon_special_elites": {
+        "display_name": "No Guts, No Glory",
+        "description": "+{toughness:%s} Toughness Regeneration per second for {time:%s} on Elite Special Action Hit."
+    },
     "ogryn_club_p2_m1_armor_pierce_stat": {
         "display_name": "Penetration"
     },
@@ -2252,8 +2288,12 @@
         "display_name": "Skullcrusher",
         "description": "Target receives {stacks:%s} Stack(s) of +{damage:%s} Damage if already Staggered. Lasts {time:%s}s."
     },
+	"content\/items\/traits\/bespoke_ogryn_slabshield_p1\/pass_past_armor_on_crit": {
+        "display_name": "Perfect Strike",
+        "description": "Critical Hits ignore Hit Mass Bonus from Armour. +{crit_damage:%s} Melee Critical Hit Damage."
+    },
     "lasgun_p1_m1_power_stat": {
-        "display_name": "WIP Lasgun power stat"
+        "display_name": "Stopping Power"
     },
     "content\/items\/weapons\/player\/ranged\/plasmagun_p1_m1": {
         "display_name": "M35 Magnacore Mk II Plasma Gun",
@@ -2641,6 +2681,10 @@
         "display_name": "Tigrus Mk XV Heavy Eviscerator",
         "description": "Strength alone is not enough to effectively wield an Eviscerator, but zeal and rage can compensate. As such, it has become associated with righteous fury, and is a favoured weapon of firebrand preachers."
     },
+	"content\/items\/traits\/bespoke_chainsword_2h_p1\/armor_penetration_against_staggered": {
+        "display_name": "Opportunist",
+        "description": "+{rending:%s} Rending vs Staggered Enemies."
+    },
     "content\/items\/gadgets\/defensive_gadget_11": {
         "display_name": "Blessed Bullet (Reliquary)"
     },
@@ -2918,6 +2962,10 @@
         "display_name": "Vraks Mk II Braced Autogun",
         "description": "A commander's prime concern is strategy. A soldier's duty is to plant their feet and blaze away.\n- Lord Militant Ennic Baross"
     },
+	"content\/items\/traits\/bespoke_autogun_p2\/suppression_on_continuous_fire": {
+        "display_name": "Ceaseless Barrage",
+        "description": "+{suppression:%s} Suppression for every {ammo:%s} of magazine spent during continuous fire. Stacks {stacks:%s} times."
+    },
     "lasgun_p1_m3_power_stat": {
         "display_name": "Stopping Power"
     },
@@ -3009,7 +3057,7 @@
         "display_name": "Defences"
     },
     "lasgun_p1_m1_ammo_stat": {
-        "display_name": "WIP Lasgun ammo stat"
+        "display_name": "Ammo"
     },
     "combatsword_p2_m3_cleave_targets_stat": {
         "display_name": "Cleave Targets"
@@ -3404,7 +3452,7 @@
     },
     "content\/items\/traits\/bespoke_ogryn_club_p2\/pass_past_armor_on_crit": {
         "display_name": "Perfect Strike",
-        "description": "Critical Hits ignore Hit Mass Bonus from Armour."
+        "description": "Critical Hits ignore Hit Mass Bonus from Armour. +{crit_damage:%s} Melee Critical Hit Damage."
     },
     "content\/items\/traits\/bespoke_lasgun_p2\/stagger_count_bonus_damage": {
         "display_name": "No Respite",
@@ -3484,6 +3532,22 @@
 	"shotgun_p2_m1_power_stat": {
 		"display_name": "Stopping Power"
 	},
+	"content\/items\/traits\/bespoke_shotgun_p2\/power_bonus_on_hitting_single_enemy_with_all": {
+        "display_name": "Full Bore",
+        "description": "+{power_level:%s} Power for {time:%s}s when every bullet in a shot hits the same enemy."
+    },
+	"content\/items\/traits\/bespoke_shotgun_p2\/reload_speed_on_slide": {
+        "display_name": "Speedload",
+        "description": "+{reload_speed:%s} Reload Speed for {time:%s} seconds after Close Kill. Stacks {stacks:%s} times."
+    },
+	"content\/items\/traits\/bespoke_shotgun_p2\/allow_hipfire_while_sprinting": {
+        "display_name": "Run 'n' Gun",
+        "description": "You can Hipfire with this weapon while Sprinting. +{close_damage:%s} Close Damage while Sprinting. Also reduces weapon spread at all times by {spread:%s}."
+    },
+	"content\/items\/traits\/bespoke_shotgun_p2\/count_as_dodge_vs_ranged_on_close_kill": {
+        "display_name": "Hit & Run",
+        "description": "Immune to Ranged Attacks for {time:%s}s on Close Range Kill.."
+    },
 	"content\/items\/traits\/bespoke_shotgun_p2\/reload_speed_on_ranged_weapon_special_kill": {
 		"display_name": "Both Barrels",
 		"description": "Killing an enemy by firing both barrels makes your next Reload {reload_speed:%s} faster."
@@ -3492,6 +3556,10 @@
 		"display_name": "Scattershot",
 		"description": "+{crit_chance:%s} Critical Chance for each Enemy Hit by your previous attack. Stacks {stacks:%s} times."
 	},
+	"content\/items\/traits\/bespoke_shotgun_p2\/cleave_on_crit": {
+        "display_name": "Man-Stopper",
+        "description": "Increased Cleave on Critical Hit and gain +{stagger:%s} Ranged Attack Stagger."
+    },
 	"content\/items\/weapons\/player\/melee\/powermaul_p1_m1": {
 		"display_name": "Agni Mk Ia Shock Maul",
 		"description": "A shock maul's cracking power field delivers a painful incapacitating jolt to the enemy, rendering them harmless for a time."
@@ -3660,6 +3728,10 @@
 		"display_name": "Puncture",
 		"description": "Ranged hits add {stacks:%s} stacks of bleed to enemies."
 	},
+	"content\/items\/traits\/bespoke_boltpistol_p1\/toughness_on_elite_kills": {
+        "display_name": "Gloryhunter",
+        "description": "+{toughness:%s} Toughness on Elite Kill."
+    },
 	"content\/items\/traits\/bespoke_boltpistol_p1\/close_explosion": {
 		"display_name": "Lethal Proximity",
 		"description": "Point blank shots cause an explosion. Explosion Radius increases by {radius:%s}."
