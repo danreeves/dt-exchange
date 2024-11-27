@@ -1,24 +1,24 @@
 .filter-rules-btn.filter-rules-show-rules-btn {
-  padding: 4px 0;
-  margin: 0;
-  height: auto;
-  color: #bdbdbdff;
+	padding: 4px 0;
+	margin: 0;
+	height: auto;
+	color: #bdbdbdff;
 }
 
 .filter-rules-btn.filter-rules-show-rules-btn:hover {
-  color: #358b93ff;
+	color: #358b93ff;
 }
 
 .filter-rules-btn .filter-rules-show-rules-inner-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .filter-rules-btn .filter-rules-show-rules-inner-wrapper > i {
-  width: 24px;
+	width: 24px;
 }
 
 .filter-rules-btn .filter-rules-show-rules-inner-wrapper > span {
-  flex: 1 1 100%;
+	flex: 1 1 100%;
 }

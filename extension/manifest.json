@@ -1,22 +1,22 @@
 {
-  "manifest_version": 3,
-  "name": "Armoury Exchange",
-  "description": "Visit the Armoury Exchange online",
-  "version": "1.6.8",
-  "icons": {
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-  "content_scripts": [
-    {
-      "js": ["bundle.js"],
-      "css": ["bundle.css"],
-      "matches": ["https://accounts.atoma.cloud/*"],
-      "run_at": "document_start",
-      "all_frames": true
-    }
-  ],
-  "action": {
-    "default_title": "Armoury Exchange"
-  }
+	"manifest_version": 3,
+	"name": "Armoury Exchange",
+	"description": "Visit the Armoury Exchange online",
+	"version": "1.6.8",
+	"icons": {
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+	"content_scripts": [
+		{
+			"js": ["bundle.js"],
+			"css": ["bundle.css"],
+			"matches": ["https://accounts.atoma.cloud/*"],
+			"run_at": "document_start",
+			"all_frames": true
+		}
+	],
+	"action": {
+		"default_title": "Armoury Exchange"
+	}
 }

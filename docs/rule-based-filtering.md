@@ -93,9 +93,9 @@ By default the configuration looks like this:
 
 ```json
 [
-  {
-    "minStats": 360
-  }
+	{
+		"minStats": 360
+	}
 ]
 ```
 
@@ -107,28 +107,28 @@ Lets consider the following example:
 
 ```json
 [
-  {
-    "item": "Power Sword",
-    "blessing": "Power Cycler"
-  },
-  {
-    "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
-    "blessing": ["Infernus", "Ghost"]
-  },
-  {
-    "minStats": 360
-  },
-  {
-    "minBlessingRarity": 3,
-    "store": "credits"
-  },
-  {
-    "character": "veteran",
-    "type": "curio",
-    "blessing": "Endurance",
-    "perk": "Block Efficiency",
-    "minRating": 80
-  }
+	{
+		"item": "Power Sword",
+		"blessing": "Power Cycler"
+	},
+	{
+		"item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
+		"blessing": ["Infernus", "Ghost"]
+	},
+	{
+		"minStats": 360
+	},
+	{
+		"minBlessingRarity": 3,
+		"store": "credits"
+	},
+	{
+		"character": "veteran",
+		"type": "curio",
+		"blessing": "Endurance",
+		"perk": "Block Efficiency",
+		"minRating": 80
+	}
 ]
 ```
 
@@ -140,8 +140,8 @@ The five rules in this configurations are the following:
 
 ```json
 {
-  "item": "Power Sword",
-  "blessing": "Power Cycler"
+	"item": "Power Sword",
+	"blessing": "Power Cycler"
 }
 ```
 
@@ -149,8 +149,8 @@ This would match any Power Sword with the blessing `Power Cycler`. Since there i
 
 ```json
 {
-  "item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
-  "blessing": ["Infernus", "Ghost"]
+	"item": ["Kantrael MG XII Infantry Lasgun", "Recon Lasgun"],
+	"blessing": ["Infernus", "Ghost"]
 }
 ```
 
@@ -162,7 +162,7 @@ In addition we're looking for more than one possible blessing, so they're inside
 
 ```json
 {
-  "minStats": 360
+	"minStats": 360
 }
 ```
 
@@ -172,8 +172,8 @@ This rule will match any shop item that has sum of all stat modifiers combined 3
 
 ```json
 {
-  "minBlessingRarity": 3,
-  "store": "credits"
+	"minBlessingRarity": 3,
+	"store": "credits"
 }
 ```
 
@@ -183,11 +183,11 @@ This rule will match any item in the hourly shop that has blessing of rarity 3 o
 
 ```json
 {
-  "character": "veteran",
-  "type": "curio",
-  "blessing": "Endurance",
-  "perk": "Block Efficiency",
-  "minRating": 80
+	"character": "veteran",
+	"type": "curio",
+	"blessing": "Endurance",
+	"perk": "Block Efficiency",
+	"minRating": 80
 }
 ```
 

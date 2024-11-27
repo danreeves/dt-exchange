@@ -1,15 +1,15 @@
 .filter-rules-text {
-  font-family: "Roboto Mono", monospace;
-  font-weight: 400;
-  font-size: 0.9rem;
-  line-height: 1.4em;
+	font-family: "Roboto Mono", monospace;
+	font-weight: 400;
+	font-size: 0.9rem;
+	line-height: 1.4em;
 }
 .filter-rules-text.small-text {
-  font-size: 0.75rem;
+	font-size: 0.75rem;
 }
 .filter-rules-text.medium-text {
-  font-size: 0.9rem;
+	font-size: 0.9rem;
 }
 .filter-rules-text.large-text {
-  font-size: 1rem;
+	font-size: 1rem;
 }

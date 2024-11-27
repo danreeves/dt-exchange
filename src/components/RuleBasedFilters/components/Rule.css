@@ -1,11 +1,11 @@
 .filter-rule-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-  min-width: 0;
-  padding: 0;
-  margin: 5px 0 10px 0;
-  border: 0;
-  vertical-align: top;
-  width: 100%;
+	display: inline-flex;
+	flex-direction: column;
+	position: relative;
+	min-width: 0;
+	padding: 0;
+	margin: 5px 0 10px 0;
+	border: 0;
+	vertical-align: top;
+	width: 100%;
 }

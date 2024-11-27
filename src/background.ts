@@ -1,6 +1,6 @@
-let ext = chrome || browser
+import browser from "webextension-polyfill"
 let dashboardUrl = "https://accounts.atoma.cloud/dashboard"
 
-ext.action.onClicked.addListener(() => {
-  ext.tabs.create({ url: dashboardUrl })
+browser.action.onClicked.addListener(() => {
+	browser.tabs.create({ url: dashboardUrl })
 })

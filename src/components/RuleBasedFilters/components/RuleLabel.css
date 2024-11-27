@@ -1,17 +1,17 @@
 .filter-rules-label {
-  color: #bdbdbd;
-  padding: 0;
-  display: flex;
-  width: 100%;
-  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	color: #bdbdbd;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
 
 .filter-rules-label > span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .filter-rules-label.filter-rules-label-focused {
-  color: #358b93;
+	color: #358b93;
 }

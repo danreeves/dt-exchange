@@ -1,18 +1,18 @@
 .item-state {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 1px;
-  opacity: 0.8;
-  font-size: 0.75em;
-  clip-path: polygon(100% 0, 100% 100%, 10px 100%, 0% calc(100% - 10px), 0 0);
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.7);
+	padding: 1px;
+	opacity: 0.8;
+	font-size: 0.75em;
+	clip-path: polygon(100% 0, 100% 100%, 10px 100%, 0% calc(100% - 10px), 0 0);
 }
 
 .item-state-inner {
-  background: #333;
-  padding: 0.5em;
-  padding-left: 1em;
-  font-size: 0.75em;
-  clip-path: polygon(100% 0, 100% 100%, 10px 100%, 0% calc(100% - 10px), 0 0);
+	background: #333;
+	padding: 0.5em;
+	padding-left: 1em;
+	font-size: 0.75em;
+	clip-path: polygon(100% 0, 100% 100%, 10px 100%, 0% calc(100% - 10px), 0 0);
 }
