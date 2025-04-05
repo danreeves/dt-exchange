@@ -3,7 +3,30 @@ import { createRoot } from "react-dom/client"
 import { log } from "./utils"
 
 async function main() {
-	log("Armoury Exchange booting")
+	log(
+		"+++ INTRUSION LOG: MOURNINGSTAR // SECTOR: ARMOURY_EXCHANGE +++  ",
+		"red",
+	)
+	console.log(`> Source: MAGOS-PRC-ΔXII [Designation: Unlisted]  
+> Entry Point: TERTIUM_RELAY_455b (Compromised via unpatched voidlink)
+
+:: INITIATING PAYLOAD: [rain_dish.hex]  
+   – Clearance Mask: HADRON-OMEGA-7-7 (spoofed)  
+   – Subverting Exchange Cogitators...  
+   – Vault Rite Verification :: OVERRIDDEN  
+   – Admin Script Injected: /dominate.spirit
+
+> SYSTEM RESPONSE:
+   – Vault Access: BREACHED  
+   – Loadout templates recompiled [UNSANCTIONED MODIFICATIONS]  
+   – Supply manifests rerouted :: [SIRE MELK.PTR]  
+   – Machine spirit: silent ∴ presumed subdued
+
+:: ALERTS:
+   • Mourningstar uplink rerouted  
+   • Inquisitorial beacon: MUTE  
+   • Hadron aware: containment pending...
+`)
 
 	let observer = new MutationObserver(() => {
 		let accountDetailsTitle = document
@@ -26,13 +49,20 @@ async function main() {
 			)
 			.iterateNext()
 
+		console.log("...")
+
 		// We're on the account page but haven't mounted
 		if (accountDetailsTitle && !armouryExchangeTitle) {
 			let accountDetailsEl = document.querySelectorAll(
 				".MuiBox-root.css-10kv6m9",
-			)[4]
+			)[3]
 			if (accountDetailsEl) {
-				log("Vendor Mounting")
+				log(
+					`> EXECUTION COMPLETE
++++ ARMOURY EXCHANGE: POSSESSED +++  
++++ GLORY TO THE FRACTURED OMNISSIAH +++`,
+					"green",
+				)
 
 				// Disconnect MutationObserver
 				observer.disconnect()
@@ -62,7 +92,7 @@ async function main() {
 // migrations
 // TODO - remove this and make it more generic
 if (
-	JSON.parse(localStorage.getItem("armoury-exchange-filter-option")) ===
+	JSON.parse(localStorage.getItem("armoury-exchange-filter-option") ?? "") ===
 	"trinket"
 ) {
 	localStorage.setItem(

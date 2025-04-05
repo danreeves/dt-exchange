@@ -91,21 +91,29 @@ export function Layout() {
 								onClick={() => {
 									setActiveChar(character.id)
 								}}
-							>
-								<div className="char-button">
+								icon={
 									<img
 										src={archetype[character.archetype]}
 										className="class-icon"
 									/>
-									<div>
-										<div>{character.name}</div>
-										<div
-											style={{
-												textTransform: "capitalize",
-											}}
-										>
-											{character.archetype} {character.level}
-										</div>
+								}
+							>
+								<div
+									style={{
+										lineHeight: "1em",
+										display: "flex",
+										flexDirection: "column",
+										alignItems: "flex-start",
+										margin: "1em 0",
+									}}
+								>
+									<div>{character.name}</div>
+									<div
+										style={{
+											textTransform: "capitalize",
+										}}
+									>
+										{character.archetype} {character.level}
 									</div>
 								</div>
 							</Button>

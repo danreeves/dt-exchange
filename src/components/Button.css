@@ -1,14 +1,9 @@
 .my-button {
 	--webkit-appearance: none;
+	border: none;
 	height: auto;
 	width: auto;
-	padding: 1em;
-	position: relative;
-	color: white;
-	cursor: pointer;
-	background: rgb(11, 11, 11);
-}
-
-.my-button:hover {
-	background: rgb(33, 33, 33);
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
 }

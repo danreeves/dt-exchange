@@ -47,8 +47,9 @@ export function getFatSharkUser(): User | undefined {
 	return safeJsonParse<User>(user)
 }
 
-export function log(msg: string) {
-	console.log("++", msg, "++")
+export function log(text: string, color = "black") {
+	const style = `color: ${color}; font-weight: bold;`
+	console.info("%c" + text, style)
 }
 
 export function warn(msg: string) {

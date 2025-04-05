@@ -8,13 +8,16 @@
 	margin: 1em 0 0 0;
 	padding: 0;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-	grid-gap: 8px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-columns: 100px;
+	grid-template-rows: auto;
+	row-gap: 1em;
+	column-gap: 1em;
 }
 
 .char-list li {
-	min-width: 160px;
-	max-width: 200px;
+	/* min-width: 160px;
+	max-width: 200px; */
 }
 
 .char-list li .my-button {
@@ -25,7 +28,8 @@
 }
 
 .class-icon {
-	height: 3em;
+	height: 1.5em;
+	width: 1.5em;
 	width: auto;
 	vertical-align: middle;
 	margin-right: 1em;

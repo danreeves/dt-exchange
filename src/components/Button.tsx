@@ -5,11 +5,45 @@ export function Button({
 	children,
 	active,
 	onClick,
+	icon,
 }: {
 	children: ReactNode
 	active?: boolean
+	icon?: ReactNode
 	onClick: () => void
 }) {
+	return (
+		<button className="MuiBox-root css-zv7ju9 my-button" onClick={onClick}>
+			<div className="MuiBox-root css-79elbk">
+				<div className="MuiBox-root css-10krx7t">
+					<div className="MuiBox-root css-13sbp68"></div>
+					<div className="MuiBox-root css-17xx4p"></div>
+				</div>
+				<div className="MuiBox-root css-10kv6m9">
+					<div className="MuiBox-root css-i7xczt">
+						<div className="MuiBox-root css-cqlfri">
+							<div className="MuiBox-root css-10xpame"></div>
+							<div className="MuiBox-root css-79elbk">
+								<div
+									className={
+										"MuiButtonBase-root " +
+										(active ? "css-1mp75t1" : "css-1uukg39")
+									}
+								>
+									{icon}
+									<span className="MuiBox-root css-u96qnb">{children}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="MuiBox-root css-ihhcsm"></div>
+					<div className="MuiBox-root css-1umimx5"></div>
+					<div className="MuiBox-root css-hm90zw"></div>
+					<div className="MuiBox-root css-1uhfc3u"></div>
+				</div>
+			</div>
+		</button>
+	)
 	return (
 		<button
 			className="my-button"
