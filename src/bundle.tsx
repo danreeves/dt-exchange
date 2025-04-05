@@ -92,7 +92,8 @@ async function main() {
 // migrations
 // TODO - remove this and make it more generic
 if (
-	JSON.parse(localStorage.getItem("armoury-exchange-filter-option") ?? "") ===
+	// @ts-expect-error: JSON.parse can accept null but types don't think it can
+	JSON.parse(localStorage.getItem("armoury-exchange-filter-option")) ===
 	"trinket"
 ) {
 	localStorage.setItem(
