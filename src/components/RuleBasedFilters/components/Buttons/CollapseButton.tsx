@@ -9,11 +9,7 @@ export function CollapseButton(props: CollapseBtnProps) {
 	return (
 		<>
 			<ToolbarButton onClick={props.onClick}>
-				{props.isOpen ? (
-					<ChevronDownIcon size={"large"} />
-				) : (
-					<ChevronRightIcon size={"large"} />
-				)}
+				{props.isOpen ? <ChevronDownIcon size={"large"} /> : <ChevronRightIcon size={"large"} />}
 			</ToolbarButton>
 		</>
 	)

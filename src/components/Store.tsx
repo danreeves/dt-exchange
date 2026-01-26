@@ -1,12 +1,6 @@
 import { Loading } from "./Loading"
 import { Text } from "./Text"
-import type {
-	Items,
-	Personal,
-	StoreType,
-	FilterRule,
-	Character,
-} from "../types"
+import type { Items, Personal, StoreType, FilterRule, Character } from "../types"
 import { useMasterList } from "../hooks/useMasterList"
 import { useStore } from "../hooks/useStore"
 import localisation from "../localisation"
@@ -35,9 +29,7 @@ const sortOptions = {
 
 	rarity: (a: Personal, b: Personal) => {
 		if (b.description.overrides.rarity === a.description.overrides.rarity) {
-			return (
-				b.description.overrides.itemLevel - a.description.overrides.itemLevel
-			)
+			return b.description.overrides.itemLevel - a.description.overrides.itemLevel
 		}
 		return b.description.overrides.rarity - a.description.overrides.rarity
 	},
@@ -89,10 +81,7 @@ function filterFunc(
 	let arr: string[]
 
 	var found = targets.findIndex(function (target) {
-		arr =
-			typeof target.character === "string"
-				? [target.character]
-				: target.character
+		arr = typeof target.character === "string" ? [target.character] : target.character
 		if (target.character && !arr.includes(char.archetype)) {
 			return false
 		}
@@ -105,9 +94,7 @@ function filterFunc(
 			arr = typeof target.item === "string" ? [target.item] : target.item
 			if (
 				!arr.find((element) =>
-					localisation[offer.description.id].display_name.match(
-						new RegExp(element, "i"),
-					),
+					localisation[offer.description.id].display_name.match(new RegExp(element, "i")),
 				)
 			) {
 				return false
@@ -134,25 +121,16 @@ function filterFunc(
 			}
 		}
 
-		if (
-			target.minStats &&
-			target.minStats > offer.description.overrides.baseItemLevel
-		) {
+		if (target.minStats && target.minStats > offer.description.overrides.baseItemLevel) {
 			return false
 		}
 
-		if (
-			target.minRating &&
-			target.minRating > offer.description.overrides.itemLevel
-		) {
+		if (target.minRating && target.minRating > offer.description.overrides.itemLevel) {
 			return false
 		}
 
 		if (target.blessing) {
-			arr =
-				typeof target.blessing === "string"
-					? [target.blessing]
-					: target.blessing
+			arr = typeof target.blessing === "string" ? [target.blessing] : target.blessing
 			if (
 				!offer.description.overrides.traits.find(function (blessing) {
 					if (
@@ -194,9 +172,7 @@ function filterFunc(
 				!offer.description.overrides.perks.find(function (perk) {
 					if (
 						!arr.find((element) =>
-							getPerkDescription(perk, items)
-								.toLowerCase()
-								.includes(element.toLowerCase()),
+							getPerkDescription(perk, items).toLowerCase().includes(element.toLowerCase()),
 						)
 					) {
 						return false
@@ -226,8 +202,7 @@ function filterFunc(
 				const offerStatFound = offer.description.overrides.base_stats?.find(
 					(baseStat) =>
 						localisation[baseStat.name].display_name.toLowerCase() ===
-							statRule.name.toLowerCase() &&
-						baseStat.value * 100 >= statRule.min,
+							statRule.name.toLowerCase() && baseStat.value * 100 >= statRule.min,
 				)
 				return !!offerStatFound
 			})
@@ -288,10 +263,7 @@ export function Store({
 		<>
 			<Text>
 				Refresh in{" "}
-				<Countdown
-					key={store.currentRotationEnd}
-					until={parseInt(store.currentRotationEnd, 10)}
-				/>
+				<Countdown key={store.currentRotationEnd} until={parseInt(store.currentRotationEnd, 10)} />
 			</Text>
 			{store.personal
 				.filter(filterOptions[filterOption](items))

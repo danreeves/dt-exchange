@@ -4,12 +4,7 @@ import { Rule } from "./Rule"
 import { SplitRuleWrapper } from "./SplitRuleWrapper"
 import type { FormFilterRule } from "../../../types"
 import "./Rules.css"
-import {
-	defaultEmphasisColor,
-	ITEM_OPTIONS,
-	STORE_LABELS,
-	STORE_OPTIONS,
-} from "../../../types"
+import { defaultEmphasisColor, ITEM_OPTIONS, STORE_LABELS, STORE_OPTIONS } from "../../../types"
 import { RuleText } from "./RuleText"
 import { AddRuleButton } from "./Buttons/AddRuleButton"
 import { CloseButton } from "./Buttons/CloseButton"
@@ -18,10 +13,7 @@ import { AddStatisticButton } from "./Buttons/AddStatisticButton"
 type RulesProps = {
 	input: FormFilterRule
 	index: number
-	onChange: (
-		index: number,
-		event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => void
+	onChange: (index: number, event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	onStatisticChange: (
 		index: number,
 		statIndex: number,
@@ -33,9 +25,7 @@ type RulesProps = {
 export function Rules(props: RulesProps) {
 	let [focusedRule, setFocusedRule] = useState<string>("")
 
-	function handleFormFocus(
-		event: FormEvent<HTMLInputElement | HTMLSelectElement>,
-	) {
+	function handleFormFocus(event: FormEvent<HTMLInputElement | HTMLSelectElement>) {
 		const eventTarget: HTMLInputElement = event.target as HTMLInputElement
 		setFocusedRule(eventTarget.id)
 	}
@@ -145,9 +135,7 @@ export function Rules(props: RulesProps) {
 									index={props.index}
 									value={statRule.name}
 									focus={focusedRule}
-									onChange={(event) =>
-										props.onStatisticChange(props.index, index, event)
-									}
+									onChange={(event) => props.onStatisticChange(props.index, index, event)}
 									onFocus={(event) => handleFormFocus(event)}
 									onBlur={() => setFocusedRule("")}
 								/>
@@ -160,9 +148,7 @@ export function Rules(props: RulesProps) {
 									index={props.index}
 									value={statRule.min}
 									focus={focusedRule}
-									onChange={(event) =>
-										props.onStatisticChange(props.index, index, event)
-									}
+									onChange={(event) => props.onStatisticChange(props.index, index, event)}
 									onFocus={(event) => handleFormFocus(event)}
 									onBlur={() => setFocusedRule("")}
 								/>
@@ -172,9 +158,7 @@ export function Rules(props: RulesProps) {
 								/>
 							</div>
 						))}
-						<AddStatisticButton
-							onClick={() => props.onStatisticAdd(props.index)}
-						/>
+						<AddStatisticButton onClick={() => props.onStatisticAdd(props.index)} />
 						<div className={"filter-rules-group-header"}>
 							<RuleText size={"medium"} padding={"10px 0 0 0"}>
 								Minimums

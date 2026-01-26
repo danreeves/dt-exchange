@@ -18,10 +18,7 @@ export function RuleText(props: TextProps) {
 
 	return (
 		<>
-			<span
-				className={`filter-rules-text ${fontSize}`}
-				style={{ padding: props.padding || "0" }}
-			>
+			<span className={`filter-rules-text ${fontSize}`} style={{ padding: props.padding || "0" }}>
 				{props.children}
 			</span>
 		</>

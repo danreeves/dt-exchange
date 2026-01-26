@@ -3,10 +3,7 @@ import { createRoot } from "react-dom/client"
 import { log } from "./utils"
 
 async function main() {
-	log(
-		"+++ INTRUSION LOG: MOURNINGSTAR // SECTOR: ARMOURY_EXCHANGE +++  ",
-		"red",
-	)
+	log("+++ INTRUSION LOG: MOURNINGSTAR // SECTOR: ARMOURY_EXCHANGE +++  ", "red")
 	console.log(`> Source: MAGOS-PRC-ΔXII [Designation: Unlisted]  
 > Entry Point: TERTIUM_RELAY_455b (Compromised via unpatched voidlink)
 
@@ -30,13 +27,7 @@ async function main() {
 
 	let observer = new MutationObserver(() => {
 		let accountDetailsTitle = document
-			.evaluate(
-				'//div[contains(., "Account Details")]',
-				document,
-				null,
-				XPathResult.ANY_TYPE,
-				null,
-			)
+			.evaluate('//div[contains(., "Account Details")]', document, null, XPathResult.ANY_TYPE, null)
 			.iterateNext()
 
 		let armouryExchangeTitle = document
@@ -53,9 +44,7 @@ async function main() {
 
 		// We're on the account page but haven't mounted
 		if (accountDetailsTitle && !armouryExchangeTitle) {
-			let accountDetailsEl = document.querySelectorAll(
-				".MuiBox-root.css-10kv6m9",
-			)[3]
+			let accountDetailsEl = document.querySelectorAll(".MuiBox-root.css-10kv6m9")[3]
 			if (accountDetailsEl) {
 				log(
 					`> EXECUTION COMPLETE
@@ -72,15 +61,10 @@ async function main() {
 				// Empty it
 				;(myContainer.firstChild!.firstChild as HTMLElement).innerHTML = ""
 				// Insert the clone before the details panel
-				accountDetailsEl.parentElement?.insertBefore(
-					myContainer,
-					accountDetailsEl,
-				)
+				accountDetailsEl.parentElement?.insertBefore(myContainer, accountDetailsEl)
 				// Mount react app there
 				requestIdleCallback(() => {
-					createRoot(myContainer.firstChild!.firstChild! as HTMLElement).render(
-						<App />,
-					)
+					createRoot(myContainer.firstChild!.firstChild! as HTMLElement).render(<App />)
 				})
 			}
 		}
@@ -93,13 +77,9 @@ async function main() {
 // TODO - remove this and make it more generic
 if (
 	// @ts-expect-error: JSON.parse can accept null but types don't think it can
-	JSON.parse(localStorage.getItem("armoury-exchange-filter-option")) ===
-	"trinket"
+	JSON.parse(localStorage.getItem("armoury-exchange-filter-option")) === "trinket"
 ) {
-	localStorage.setItem(
-		"armoury-exchange-filter-option",
-		JSON.stringify("curio"),
-	)
+	localStorage.setItem("armoury-exchange-filter-option", JSON.stringify("curio"))
 }
 
 main()

@@ -18,9 +18,7 @@ export const deemphasizeClass = {
 
 export type DeemphasizeOption = keyof typeof deemphasizeClass
 
-export const DEEMPHASIZE_OPTIONS = Object.keys(
-	deemphasizeClass,
-) as DeemphasizeOption[]
+export const DEEMPHASIZE_OPTIONS = Object.keys(deemphasizeClass) as DeemphasizeOption[]
 
 const ratingColor = {
 	1: "rgb(152, 152, 152)", // grey
@@ -46,8 +44,7 @@ export function Item({
 	items: Items
 	targets: FilterRule[]
 }) {
-	let alreadyOwnedClass =
-		offer.state === "completed" ? "item-already-owned" : ""
+	let alreadyOwnedClass = offer.state === "completed" ? "item-already-owned" : ""
 	let filterMatchClass = rbfEnabled
 		? offer.description.overrides.filter_match >= 0
 			? `offer-match match-rule-${offer.description.overrides.filter_match}`
@@ -65,17 +62,12 @@ export function Item({
 			className={`MuiBox-root css-178yklu item-container ${filterMatchClass} ${alreadyOwnedClass}`}
 			key={offer.offerId}
 		>
-			<Title style={filterMatchStyle}>
-				{localisation[offer.description.id].display_name}
-			</Title>
+			<Title style={filterMatchStyle}>{localisation[offer.description.id].display_name}</Title>
 
 			{offer.state === "completed" ? (
 				<ItemState>You already own this</ItemState>
-			) : offer.description.overrides.characterLevel >
-			  (character?.level ?? 0) ? (
-				<ItemState>
-					Equippable at Level {offer.description.overrides.characterLevel}
-				</ItemState>
+			) : offer.description.overrides.characterLevel > (character?.level ?? 0) ? (
+				<ItemState>Equippable at Level {offer.description.overrides.characterLevel}</ItemState>
 			) : null}
 
 			<div style={{ display: "flex" }}>
@@ -122,9 +114,7 @@ function CurioLayout({ offer, items }: { offer: Personal; items: Items }) {
 				<Blessings offer={offer} items={items} />
 			) : null}
 
-			{offer.description.overrides.perks.length > 0 ? (
-				<Perks offer={offer} items={items} />
-			) : null}
+			{offer.description.overrides.perks.length > 0 ? <Perks offer={offer} items={items} /> : null}
 		</>
 	)
 }
@@ -132,13 +122,9 @@ function CurioLayout({ offer, items }: { offer: Personal; items: Items }) {
 function WeaponLayout({ offer, items }: { offer: Personal; items: Items }) {
 	return (
 		<>
-			{offer.description.overrides.base_stats ? (
-				<BaseStats offer={offer} />
-			) : null}
+			{offer.description.overrides.base_stats ? <BaseStats offer={offer} /> : null}
 
-			{offer.description.overrides.perks.length > 0 ? (
-				<Perks offer={offer} items={items} />
-			) : null}
+			{offer.description.overrides.perks.length > 0 ? <Perks offer={offer} items={items} /> : null}
 
 			{offer.description.overrides.traits.length > 0 ? (
 				<Blessings offer={offer} items={items} />

@@ -17,11 +17,7 @@ export function ShowRulesButton(props: ShowRulesBtnProps) {
 				onClick={props.onClick}
 			>
 				<div className={"filter-rules-show-rules-inner-wrapper"}>
-					{props.isOpen ? (
-						<ChevronDownIcon size={"small"} />
-					) : (
-						<ChevronRightIcon size={"small"} />
-					)}
+					{props.isOpen ? <ChevronDownIcon size={"small"} /> : <ChevronRightIcon size={"small"} />}
 					<RuleText size={"small"}>{props.children}</RuleText>
 				</div>
 			</button>

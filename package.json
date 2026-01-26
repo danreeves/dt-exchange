@@ -5,15 +5,11 @@
 		"start": "npm run build -- --watch",
 		"build": "node ./bin/build.mjs",
 		"test": "vitest run",
-		"typecheck": "tsc"
-	},
-	"engines": {
-		"npm": ">=10",
-		"node": ">=21"
+		"typecheck": "tsc",
+		"fmt": "oxfmt ."
 	},
 	"dependencies": {
 		"fast-deep-equal": "^3.1.3",
-		"micro-down": "^1.6.2",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"swr": "^2.3.3",
@@ -27,21 +23,21 @@
 		"@types/react-dom": "^19.1.1",
 		"@types/webextension-polyfill": "^0.12.3",
 		"esbuild": "^0.25.2",
-		"prettier": "^3.5.3",
+		"oxfmt": "^0.26.0",
 		"typescript": "^5.8.3",
 		"vitest": "^3.1.1",
 		"zip-a-folder": "^3.1.9"
 	},
-	"prettier": {
-		"semi": false,
-		"useTabs": true
-	},
 	"jest": {
-		"transform": {
-			"^.+\\.tsx?$": "esbuild-jest"
-		},
 		"setupFilesAfterEnv": [
 			"jest-extended/all"
-		]
+		],
+		"transform": {
+			"^.+\\.tsx?$": "esbuild-jest"
+		}
+	},
+	"engines": {
+		"node": ">=21",
+		"npm": ">=10"
 	}
 }

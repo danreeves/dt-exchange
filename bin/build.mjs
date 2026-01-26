@@ -20,17 +20,12 @@ function createBuilds() {
 
 		// copy all files from extension/ to builds/name/
 		for (const file of fs.readdirSync("extension")) {
-			fs.copyFileSync(
-				path.join("extension", file),
-				path.join("builds", name, file),
-			)
+			fs.copyFileSync(path.join("extension", file), path.join("builds", name, file))
 		}
 
 		// merge manifest file into builds/name/manifest.json
 		const baseManifest = JSON.parse(fs.readFileSync("extension/manifest.json"))
-		const manifestOverrides = JSON.parse(
-			fs.readFileSync(path.join("manifests", manifest)),
-		)
+		const manifestOverrides = JSON.parse(fs.readFileSync(path.join("manifests", manifest)))
 
 		// merge definitions and overwrite the manifest file in the build
 		fs.writeFileSync(

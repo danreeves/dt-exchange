@@ -43,8 +43,7 @@ export function RulesJsonEditor(props: JsonEditorProps) {
 					onKeyDown={function (event: any) {
 						// Workaround for Chrome specific bug: https://github.com/danreeves/dt-exchange/issues/41
 						if (event.key === "PageUp" || event.key === "PageDown") {
-							const cursorPosition =
-								event.key === "PageUp" ? 0 : event.target.textLength
+							const cursorPosition = event.key === "PageUp" ? 0 : event.target.textLength
 
 							event.preventDefault()
 							event.target.setSelectionRange(cursorPosition, cursorPosition)
@@ -70,9 +69,7 @@ export function RulesJsonEditor(props: JsonEditorProps) {
 				/>
 				<div className={"filter-rules-section-footer"}>
 					<CancelButton disabled={!ruleFormDirty} onClick={setRulesToState} />
-					<SaveButton disabled={!ruleFormDirty || jsonError}>
-						Save JSON
-					</SaveButton>
+					<SaveButton disabled={!ruleFormDirty || jsonError}>Save JSON</SaveButton>
 				</div>
 			</form>
 		</>

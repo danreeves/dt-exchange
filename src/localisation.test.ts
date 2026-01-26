@@ -6,12 +6,10 @@ Object.entries(strings).forEach(
 		test(`strings json format: ${name}`, () => {
 			expect(typeof strs === "object").toBeTruthy()
 			expect(
-				typeof strs.display_name === "string" ||
-					typeof strs.display_name === "undefined",
+				typeof strs.display_name === "string" || typeof strs.display_name === "undefined",
 			).toBeTruthy()
 			expect(
-				typeof strs.description === "string" ||
-					typeof strs.description === "undefined",
+				typeof strs.description === "string" || typeof strs.description === "undefined",
 			).toBeTruthy()
 		})
 	},

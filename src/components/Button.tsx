@@ -24,12 +24,7 @@ export function Button({
 						<div className="MuiBox-root css-cqlfri">
 							<div className="MuiBox-root css-10xpame"></div>
 							<div className="MuiBox-root css-79elbk">
-								<div
-									className={
-										"MuiButtonBase-root " +
-										(active ? "css-1mp75t1" : "css-1uukg39")
-									}
-								>
+								<div className={"MuiButtonBase-root " + (active ? "css-1mp75t1" : "css-1uukg39")}>
 									{icon}
 									<span className="MuiBox-root css-u96qnb">{children}</span>
 								</div>
@@ -48,9 +43,7 @@ export function Button({
 		<button
 			className="my-button"
 			style={{
-				border: active
-					? "1px solid rgb(93, 248, 255)"
-					: "1px solid transparent",
+				border: active ? "1px solid rgb(93, 248, 255)" : "1px solid transparent",
 			}}
 			onClick={onClick}
 		>

@@ -13,9 +13,7 @@ export function ChevronRightIcon(props: { size: Size }) {
 
 	return (
 		<>
-			<i
-				className={`filter-rules-icon filter-rules-chevron-right-icon ${iconSize}`}
-			/>
+			<i className={`filter-rules-icon filter-rules-chevron-right-icon ${iconSize}`} />
 		</>
 	)
 }

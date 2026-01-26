@@ -1,36 +1,17 @@
-import type {
-	ClassType,
-	FilterRule,
-	FormFilterRule,
-	ItemCategory,
-	StoreType,
-} from "../../types"
-import {
-	CLASS_TYPES,
-	defaultEmphasisColor,
-	ITEM_CATEGORIES,
-	STORE_TYPES,
-} from "../../types"
+import type { ClassType, FilterRule, FormFilterRule, ItemCategory, StoreType } from "../../types"
+import { CLASS_TYPES, defaultEmphasisColor, ITEM_CATEGORIES, STORE_TYPES } from "../../types"
 
 export function formDataToRules(rulesFormData: FormFilterRule[]): FilterRule[] {
 	return rulesFormData.map(function (formRule: FormFilterRule): FilterRule {
-		const statRules = formRule.stats?.filter(
-			(statRule) => !!statRule.name && statRule.min > 0,
-		)
+		const statRules = formRule.stats?.filter((statRule) => !!statRule.name && statRule.min > 0)
 		return {
 			minStats: parseFloat(formRule.minStats) || undefined,
 			minRating: parseFloat(formRule.minRating) || undefined,
 			minBlessingRarity: parseFloat(formRule.minBlessingRarity) || undefined,
 			minPerkRarity: parseFloat(formRule.minPerkRarity) || undefined,
-			character: ruleStringToArrayValue(
-				formRule.character,
-				CLASS_TYPES,
-			) as ClassType[],
+			character: ruleStringToArrayValue(formRule.character, CLASS_TYPES) as ClassType[],
 			item: ruleStringToArrayValue(formRule.item),
-			type: ruleStringToStringValue(
-				formRule.type,
-				ITEM_CATEGORIES,
-			) as ItemCategory,
+			type: ruleStringToStringValue(formRule.type, ITEM_CATEGORIES) as ItemCategory,
 			blessing: ruleStringToArrayValue(formRule.blessing),
 			perk: ruleStringToArrayValue(formRule.perk),
 			store: ruleStringToArrayValue(formRule.store, STORE_TYPES) as StoreType[],
@@ -67,24 +48,15 @@ export function rulesToJson(rulesData: FilterRule[]): string {
 	return JSON.stringify(rulesData, null, 4)
 }
 
-function ruleStringToStringValue(
-	ruleString: string,
-	options?: any,
-): string | undefined {
+function ruleStringToStringValue(ruleString: string, options?: any): string | undefined {
 	const trimmedRule = ruleString.trim()
-	if (
-		!trimmedRule.length ||
-		(options?.length && options.indexOf(trimmedRule) === -1)
-	) {
+	if (!trimmedRule.length || (options?.length && options.indexOf(trimmedRule) === -1)) {
 		return
 	}
 	return trimmedRule
 }
 
-function ruleStringToArrayValue(
-	ruleString: string,
-	options?: any,
-): string[] | undefined {
+function ruleStringToArrayValue(ruleString: string, options?: any): string[] | undefined {
 	if (!ruleString.length) return
 	const splitAtCommas: string[] = ruleString.split(",")
 	return splitAtCommas.flatMap(function (item: string) {
@@ -96,11 +68,7 @@ function ruleStringToArrayValue(
 	})
 }
 
-function ruleValueToString(
-	value: any,
-	options?: any,
-	mapAllToEmpty?: boolean,
-): string {
+function ruleValueToString(value: any, options?: any, mapAllToEmpty?: boolean): string {
 	if (typeof value === "string") {
 		if (options?.length && options.indexOf(value) === -1) return ""
 		return value

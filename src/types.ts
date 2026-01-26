@@ -186,11 +186,6 @@ export interface Items {
 		display_name: string
 		dev_name: string
 		dev_description: string
-		description_values: {
-			rarity: string
-			string_key: string
-			string_value: string
-		}[]
 		icon: string
 		item_type: ItemType
 		slots: string[]

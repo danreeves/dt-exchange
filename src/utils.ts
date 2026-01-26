@@ -2,9 +2,7 @@ import type { User } from "./types"
 
 export function createFetcher(user: User) {
 	return async function fetchApi(path: string) {
-		let url = path.startsWith("https")
-			? path
-			: `https://bsp-td-prod.atoma.cloud${path}`
+		let url = path.startsWith("https") ? path : `https://bsp-td-prod.atoma.cloud${path}`
 
 		if (url.includes(":sub")) {
 			url = url.replace(":sub", user.Sub)
@@ -58,9 +56,7 @@ export function warn(msg: string) {
 
 export function camelToSentence(str: string): string {
 	let parts = str.split(/(?=[A-Z])/)
-	return parts
-		.map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase())
-		.join(" ")
+	return parts.map((s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()).join(" ")
 }
 
 export function capitalize(str: string): string {

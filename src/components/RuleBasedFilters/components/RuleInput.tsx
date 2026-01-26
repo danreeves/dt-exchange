@@ -13,12 +13,8 @@ type RuleInputProps = {
 	placeholder?: string
 	dataValues?: string[]
 	addAnyValue?: boolean
-	onChange: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => void
-	onFocus: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => void
+	onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+	onFocus: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	onBlur: () => void
 	labels?: Record<string, string>
 }
@@ -47,9 +43,7 @@ export function RuleInput(props: RuleInputProps) {
 							</option>
 						) : undefined}
 						{props.dataValues?.map((option: string) => {
-							const label = props.labels
-								? props.labels[option]
-								: camelToSentence(option)
+							const label = props.labels ? props.labels[option] : camelToSentence(option)
 							return (
 								<option key={`${props.name}_${index}_${option}`} value={option}>
 									{label}
@@ -70,11 +64,7 @@ export function RuleInput(props: RuleInputProps) {
 							name={props.name}
 							value={props.value}
 							placeholder={props.placeholder}
-							list={
-								props.dataValues?.length
-									? `${props.name}_${index}_options`
-									: undefined
-							}
+							list={props.dataValues?.length ? `${props.name}_${index}_options` : undefined}
 							onChange={(event) => props.onChange(event)}
 							onFocus={(event) => props.onFocus(event)}
 							onBlur={() => props.onBlur()}
@@ -82,12 +72,7 @@ export function RuleInput(props: RuleInputProps) {
 						{props.dataValues?.length ? (
 							<datalist id={`${props.name}_${index}_options`}>
 								{props.dataValues.map(function (value: string, index: number) {
-									return (
-										<option
-											key={`${props.name}_${index}_option${index}`}
-											value={value}
-										/>
-									)
+									return <option key={`${props.name}_${index}_option${index}`} value={value} />
 								})}
 							</datalist>
 						) : undefined}

@@ -12,10 +12,7 @@ function getLocalStorage<T>(key: string): T | undefined {
 	return JSON.parse(localStorage.getItem(makeKey(key)) ?? "null")
 }
 
-export function useLocalStorage<T>(
-	key: string,
-	defaultValue: T,
-): [T, (newValue: T) => void] {
+export function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => void] {
 	let [state, _setState] = useState<T | undefined>(getLocalStorage<T>(key))
 
 	let setState = useCallback(

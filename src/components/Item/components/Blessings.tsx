@@ -48,16 +48,10 @@ export function Blessings({ offer, items }: Props) {
 			<div>
 				{offer.description.overrides.traits.map((trait) => {
 					const displayName: string = localisation[trait.id].display_name
-					const description: string = getBlessingDescription(
-						trait,
-						offer,
-						items,
-					)
+					const description: string = getBlessingDescription(trait, offer, items)
 					return (
 						<div className="blessing" key={trait.id + trait.rarity}>
-							<div className="blessing-rarity">
-								{raritySymbol[trait.rarity]}
-							</div>
+							<div className="blessing-rarity">{raritySymbol[trait.rarity]}</div>
 							<Text>{`${displayName}: ${description}`}</Text>
 						</div>
 					)

@@ -19,10 +19,7 @@ export function useStore(
 	useEffect(() => {
 		if (poll) {
 			let intervalId = setInterval(() => {
-				if (
-					data?.currentRotationEnd &&
-					parseInt(data.currentRotationEnd, 10) <= Date.now()
-				) {
+				if (data?.currentRotationEnd && parseInt(data.currentRotationEnd, 10) <= Date.now()) {
 					mutate()
 				}
 			}, 1000)

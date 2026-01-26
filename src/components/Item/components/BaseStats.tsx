@@ -39,9 +39,7 @@ export function BaseStats({ offer }: Props) {
 						<div className="stat" key={stat.name}>
 							<Text>{localisation[stat.name].display_name}</Text>
 							<div className="stat-bar-row">
-								<span className="stat-p">{`${Math.round(
-									stat.value * 100,
-								)}%`}</span>
+								<span className="stat-p">{`${Math.round(stat.value * 100)}%`}</span>
 								<div className="stat-bar-outer">
 									<div
 										className="stat-bar-inner"

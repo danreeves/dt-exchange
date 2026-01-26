@@ -19,28 +19,21 @@ import { DeemphasizeOption } from "./Item/Item"
 export function Layout() {
 	let account = useAccount()
 	let [activeChar, setActiveChar] = useLocalStorage<string>("active-char", "")
-	let [sortOption, setSortOption] = useLocalStorage<SortOption>(
-		"sort-option",
-		SORT_OPTIONS[0]!,
-	)
-	let [rbfOption, setRBFOption] = useLocalStorage<FilterRule[]>(
-		"filter-rules",
-		[{ minStats: 360 }],
-	)
+	let [sortOption, setSortOption] = useLocalStorage<SortOption>("sort-option", SORT_OPTIONS[0]!)
+	let [rbfOption, setRBFOption] = useLocalStorage<FilterRule[]>("filter-rules", [{ minStats: 360 }])
 	let [filterOption, setFilterOption] = useLocalStorage<FilterOption>(
 		"filter-option",
 		FILTER_OPTIONS[0]!,
 	)
-	let [storeType, setStoreType] = useLocalStorage<StoreType>(
-		"store-type",
-		"credits",
-	)
+	let [storeType, setStoreType] = useLocalStorage<StoreType>("store-type", "credits")
 	let [enableRuleBasedFiltering, setEnableRuleBasedFiltering] = useLocalStorage(
 		"enable-rule-based-filter",
 		false,
 	)
-	let [deemphasizeOption, setDeemphasizeOption] =
-		useLocalStorage<DeemphasizeOption>("deemphasize-selection", "none")
+	let [deemphasizeOption, setDeemphasizeOption] = useLocalStorage<DeemphasizeOption>(
+		"deemphasize-selection",
+		"none",
+	)
 
 	let [focusedInput, setFocusedInput] = useState<string>("")
 
@@ -91,12 +84,7 @@ export function Layout() {
 								onClick={() => {
 									setActiveChar(character.id)
 								}}
-								icon={
-									<img
-										src={archetype[character.archetype]}
-										className="class-icon"
-									/>
-								}
+								icon={<img src={archetype[character.archetype]} className="class-icon" />}
 							>
 								<div
 									style={{

@@ -16,12 +16,8 @@ type RuleProps = {
 	dataValues?: string[]
 	labels?: Record<string, string>
 	addAnyValue?: boolean
-	onChange: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => void
-	onFocus: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => void
+	onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+	onFocus: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	onBlur: () => void
 }
 export function Rule(props: RuleProps) {

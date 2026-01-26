@@ -52,11 +52,10 @@ export function RuleBasedFilters(props: Props) {
 	let [ruleFormDirty, setRuleFormDirty] = useState(false)
 	let [ruleFormOpen, setRuleFormOpen] = useState(false)
 	let [ruleJsonFormOpen, setRuleJsonFormOpen] = useState(false)
-	let [deemphasisStyle, setDeemphasisStyle] =
-		useLocalStorage<DeemphasizeOption>(
-			"deemphasize-selection",
-			DEEMPHASIZE_OPTIONS[0]!,
-		)
+	let [deemphasisStyle, setDeemphasisStyle] = useLocalStorage<DeemphasizeOption>(
+		"deemphasize-selection",
+		DEEMPHASIZE_OPTIONS[0]!,
+	)
 	let [focusedInput, setFocusedInput] = useState<string>("")
 
 	function dragStart(position: number) {
@@ -68,11 +67,7 @@ export function RuleBasedFilters(props: Props) {
 	}
 
 	function drop() {
-		if (
-			dragItem !== undefined &&
-			dragOverItem !== undefined &&
-			dragItem !== dragOverItem
-		) {
+		if (dragItem !== undefined && dragOverItem !== undefined && dragItem !== dragOverItem) {
 			let data: FormFilterRule[] = [...ruleFields]
 			const dragItemContent: FormFilterRule = data[dragItem]!
 			data.splice(dragItem, 1)
@@ -95,11 +90,7 @@ export function RuleBasedFilters(props: Props) {
 		if (!ruleFormDirty) setRuleFormDirty(true)
 	}
 
-	function handleChangeStatistic(
-		index: number,
-		statIndex: number,
-		event: FormEvent,
-	) {
+	function handleChangeStatistic(index: number, statIndex: number, event: FormEvent) {
 		let data: FormFilterRule[] = [...ruleFields]
 		const eventTarget: HTMLInputElement = event.target as HTMLInputElement
 		const eventNameDir: string = eventTarget.name.split("-").pop()!
@@ -168,10 +159,7 @@ export function RuleBasedFilters(props: Props) {
 	return (
 		<div className={"filter-rules-section"}>
 			<div className={"filter-rules-show-btn-wrapper"}>
-				<ShowRulesButton
-					onClick={() => setRuleFormOpen(!ruleFormOpen)}
-					isOpen={ruleFormOpen}
-				>
+				<ShowRulesButton onClick={() => setRuleFormOpen(!ruleFormOpen)} isOpen={ruleFormOpen}>
 					Show rules
 				</ShowRulesButton>
 			</div>
@@ -253,19 +241,13 @@ export function RuleBasedFilters(props: Props) {
 									Show JSON
 								</ShowRulesButton>
 							</div>
-							<CancelButton
-								disabled={!ruleFormDirty}
-								onClick={handleResetRules}
-							/>
+							<CancelButton disabled={!ruleFormDirty} onClick={handleResetRules} />
 							<SaveButton disabled={!ruleFormDirty} />
 						</div>
 					</form>
 					{ruleJsonFormOpen ? (
 						<div>
-							<RulesJsonEditor
-								state={props.state}
-								onSubmit={handleSubmitJson}
-							/>
+							<RulesJsonEditor state={props.state} onSubmit={handleSubmitJson} />
 						</div>
 					) : undefined}
 				</div>
