@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Armoury Exchange",
 	"description": "Visit the Armoury Exchange online",
-	"version": "1.6.10",
+	"version": "1.7.0",
 	"icons": {
 		"48": "icon48.png",
 		"128": "icon128.png"
