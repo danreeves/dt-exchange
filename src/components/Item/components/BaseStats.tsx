@@ -3,11 +3,17 @@ import { rating } from "../../../icons"
 import "./BaseStats.css"
 import { Text } from "../../Text"
 import type { Personal } from "../../../types"
+import type { CSSProperties } from "react"
+import { useMemo } from "react"
+import { getProjectedBaseStats } from "../utils"
 
 type Props = {
 	offer: Personal
 }
 export function BaseStats({ offer }: Props) {
+	let baseStats = offer.description.overrides.base_stats ?? []
+	let projectedBaseStats = useMemo(() => getProjectedBaseStats(baseStats), [baseStats])
+
 	return (
 		<div className="row">
 			<div
@@ -34,17 +40,27 @@ export function BaseStats({ offer }: Props) {
 				</div>
 			</div>
 			<div className="stats">
-				{offer.description.overrides.base_stats?.map((stat) => {
+				{baseStats.map((stat, index) => {
+					let value = Math.round(stat.value * 100)
+					let projectedValue = Math.max(projectedBaseStats[index] ?? value, value)
+
 					return (
 						<div className="stat" key={stat.name}>
 							<Text>{localisation[stat.name].display_name}</Text>
 							<div className="stat-bar-row">
-								<span className="stat-p">{`${Math.round(stat.value * 100)}%`}</span>
-								<div className="stat-bar-outer">
+								<span className="stat-p">{`${value}/${projectedValue}%`}</span>
+								<div
+									className="stat-bar-outer"
+									style={
+										{
+											"--stat-projected-width": `${projectedValue}%`,
+										} as CSSProperties
+									}
+								>
 									<div
 										className="stat-bar-inner"
 										style={{
-											width: `${stat.value * 100}%`,
+											width: `${value}%`,
 										}}
 									/>
 								</div>

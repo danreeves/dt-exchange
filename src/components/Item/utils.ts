@@ -1,7 +1,10 @@
-import type { Items, Perk, Personal, Trait } from "../../types"
+import type { BaseStat, Items, Perk, Personal, Trait } from "../../types"
 import localisation from "../../localisation"
 import traitTemplates from "../../trait_templates.json"
 import buffTemplates from "../../buff_templates.json"
+
+const BASE_STAT_TARGET_TOTAL = 380
+const BASE_STAT_CAP = 80
 
 // Linearly interpolate input between min and max. E.g. lerp(1, 2, 0.5) returns 1.5
 function lerp(min: number, max: number, input: number): number {
@@ -22,6 +25,53 @@ function lerpSteppedValue(range: number[], lerpValue: number): number {
 	const index = Math.round(lerpedValue)
 	// Adjust for 0-based indexing in JS/TS
 	return range[index - 1] ?? 0
+}
+
+export function getProjectedBaseStats(baseStats: BaseStat[]): number[] {
+	let projected = baseStats.map((stat) => Math.round(stat.value * 100))
+	let budget =
+		BASE_STAT_TARGET_TOTAL -
+		projected.reduce((sum, value) => {
+			return sum + value
+		}, 0)
+
+	while (budget > 0) {
+		let activeIndexes = projected
+			.map((value, index) => (value < BASE_STAT_CAP ? index : undefined))
+			.filter((index): index is number => index !== undefined)
+
+		if (activeIndexes.length === 0) {
+			break
+		}
+
+		let highestActive = Math.max(...activeIndexes.map((index) => projected[index]!))
+		let gapToCap = BASE_STAT_CAP - highestActive
+		let costToNextCap = gapToCap * activeIndexes.length
+
+		if (costToNextCap <= budget) {
+			for (let index of activeIndexes) {
+				projected[index] = projected[index]! + gapToCap
+			}
+			budget -= costToNextCap
+			continue
+		}
+
+		let flatAdd = Math.floor(budget / activeIndexes.length)
+		let remainder = budget % activeIndexes.length
+
+		for (let index of activeIndexes) {
+			projected[index] = projected[index]! + flatAdd
+		}
+
+		for (let index = 0; index < remainder; index++) {
+			let statIndex = activeIndexes[index]!
+			projected[statIndex] = projected[statIndex]! + 1
+		}
+
+		break
+	}
+
+	return projected
 }
 
 export function getBlessingDescription(trait: Trait, _offer: Personal, items: Items): string {
