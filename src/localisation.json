@@ -1553,15 +1553,15 @@
 	},
 	"content\/items\/weapons\/player\/ranged\/autogun_p3_m3": {
 		"description": "One of the newest autogun STCs to be uncovered by the Tech-Priests of Agripinaa, the Mk IX couples excellent range with a devastating burst firing mode.",
-		"display_name": "Agripinaa Mk IX Headhunter Autogun"
+		"display_name": "Agripinaa Mk IX Vigilant Autogun"
 	},
 	"content\/items\/weapons\/player\/ranged\/autogun_p3_m2": {
 		"description": "Heavily modified to combat snipers during siege actions, the Vraks Headhunter is an unusual single-shot autogun designed for high-accuracy takedowns.",
-		"display_name": "Vraks Mk VII Headhunter Autogun"
+		"display_name": "Graia Mk VII Vigilant Autogun"
 	},
 	"content\/items\/weapons\/player\/ranged\/autogun_p3_m1": {
 		"description": "A prized autogun pattern from the vaunted manufactorums of Vraks, the Mk III sacrifices rate of fire in favour of increased range.",
-		"display_name": "Vraks Mk III Headhunter Autogun"
+		"display_name": "Columnus Mk III Vigilant Autogun"
 	},
 	"autogun_p1_m1_dps_stat": { "display_name": "Damage" },
 	"autogun_p1_m1_ammo_stat": { "display_name": "Ammo" },
